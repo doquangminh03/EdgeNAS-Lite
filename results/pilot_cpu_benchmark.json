@@ -1,0 +1,18 @@
+{
+  "candidate_id": "yolo26n_kitti_pilot",
+  "model": "best.pt",
+  "device": "cpu",
+  "system": "macOS-26.3.1-arm64-arm-64bit",
+  "architecture": "arm64",
+  "image_size": 640,
+  "warmup_runs": 5,
+  "benchmark_runs": 30,
+  "parameters": 2376396,
+  "parameters_m": 2.376,
+  "model_size_mb": 5.102,
+  "average_latency_ms": 30.866,
+  "median_latency_ms": 30.615,
+  "min_latency_ms": 30.14,
+  "max_latency_ms": 34.84,
+  "fps": 32.663
+}

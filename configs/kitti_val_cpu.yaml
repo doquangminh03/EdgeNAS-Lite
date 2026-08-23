@@ -1,0 +1,20 @@
+task: detect
+mode: val
+
+model: runs/detect/kitti_yolo26n_pilot/weights/best.pt
+data: kitti.yaml
+
+imgsz: 640
+batch: 1
+device: cpu
+split: val
+
+classes:
+  - 0
+  - 3
+  - 5
+
+plots: true
+verbose: true
+
+save_dir: runs/val/kitti_yolo26n_pilot

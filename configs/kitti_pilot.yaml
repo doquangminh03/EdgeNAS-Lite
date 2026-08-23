@@ -1,0 +1,24 @@
+task: detect
+mode: train
+
+model: yolo26n.pt
+data: kitti.yaml
+
+epochs: 10
+imgsz: 640
+batch: 4
+device: null
+
+pretrained: true
+fraction: 0.25
+
+classes:
+  - 0
+  - 3
+  - 5
+
+seed: 42
+deterministic: true
+plots: true
+
+save_dir: runs/detect/kitti_yolo26n_pilot

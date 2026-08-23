@@ -1,0 +1,33 @@
+project:
+  name: EdgeNAS-Lite
+  task: object_detection
+  description: LLM-guided hardware-aware YOLO configuration search
+
+model:
+  family: YOLO
+  baseline: yolo26n.pt
+
+dataset:
+  name: KITTI
+  classes:
+    - name: car
+      kitti_id: 0
+    - name: pedestrian
+      kitti_id: 3
+    - name: cyclist
+      kitti_id: 5
+
+deployment:
+  target_device: cpu
+  image_size: 640
+  batch_size: 1
+
+objectives:
+  accuracy_metric: map50_95
+  minimize_latency: true
+  minimize_model_size: true
+
+constraints:
+  minimum_map50_95: null
+  maximum_latency_ms: null
+  maximum_model_size_mb: null

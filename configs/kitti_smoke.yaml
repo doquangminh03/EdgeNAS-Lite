@@ -1,0 +1,24 @@
+task: detect
+mode: train
+
+model: yolo26n.pt
+data: kitti.yaml
+
+epochs: 1
+imgsz: 640
+batch: 4
+device: null
+
+pretrained: true
+fraction: 0.1
+
+classes:
+  - 0  # car
+  - 3  # pedestrian
+  - 5  # cyclist
+
+seed: 42
+deterministic: true
+plots: true
+
+save_dir: runs/detect/kitti_smoke
