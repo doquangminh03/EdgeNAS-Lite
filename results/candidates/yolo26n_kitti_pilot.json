@@ -1,0 +1,74 @@
+{
+  "schema_version": "1.0",
+  "candidate_id": "yolo26n_kitti_pilot",
+  "model": {
+    "family": "YOLO26",
+    "scale": "n",
+    "checkpoint": "runs/detect/kitti_yolo26n_pilot/weights/best.pt",
+    "parameters": 2376396,
+    "parameters_m": 2.376,
+    "model_size_mb": 5.102
+  },
+  "training": {
+    "dataset": "KITTI",
+    "epochs": 10,
+    "training_fraction": 0.25,
+    "image_size": 640,
+    "batch_size": 4,
+    "device": "mps",
+    "seed": 42,
+    "classes": [
+      "car",
+      "pedestrian",
+      "cyclist"
+    ]
+  },
+  "accuracy": {
+    "dataset": "KITTI",
+    "split": "val",
+    "validation_images": 1496,
+    "validation_instances": 6989,
+    "precision": 0.527,
+    "recall": 0.488,
+    "map50": 0.485,
+    "map50_95": 0.273,
+    "per_class": {
+      "car": {
+        "precision": 0.67,
+        "recall": 0.756,
+        "map50": 0.779,
+        "map50_95": 0.516
+      },
+      "pedestrian": {
+        "precision": 0.468,
+        "recall": 0.475,
+        "map50": 0.432,
+        "map50_95": 0.198
+      },
+      "cyclist": {
+        "precision": 0.443,
+        "recall": 0.233,
+        "map50": 0.244,
+        "map50_95": 0.106
+      }
+    }
+  },
+  "benchmark": {
+    "device": "cpu",
+    "system": "macOS-26.3.1-arm64-arm-64bit",
+    "architecture": "arm64",
+    "image_size": 640,
+    "batch_size": 1,
+    "warmup_runs": 5,
+    "benchmark_runs": 30,
+    "average_latency_ms": 30.866,
+    "median_latency_ms": 30.615,
+    "min_latency_ms": 30.14,
+    "max_latency_ms": 34.84,
+    "fps_from_median": 32.663,
+    "protocol_status": "preliminary",
+    "input_source": "bus.jpg",
+    "raw_samples_saved": false,
+    "p95_latency_ms": null
+  }
+}
