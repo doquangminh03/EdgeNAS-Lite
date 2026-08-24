@@ -1,10 +1,12 @@
+schema_version: "1.0"
+
 project:
   name: EdgeNAS-Lite
   task: object_detection
   description: LLM-guided hardware-aware YOLO configuration search
 
 model:
-  family: YOLO
+  family: YOLO26
   baseline: yolo26n.pt
 
 dataset:
@@ -27,7 +29,22 @@ objectives:
   minimize_latency: true
   minimize_model_size: true
 
-constraints:
-  minimum_map50_95: null
-  maximum_latency_ms: null
-  maximum_model_size_mb: null
+supported_constraints:
+  minimum_map50_95:
+    metric_path: accuracy.map50_95
+    unit: ratio
+    valid_range:
+      minimum: 0.0
+      maximum: 1.0
+
+  maximum_median_latency_ms:
+    metric_path: benchmark.median_latency_ms
+    unit: milliseconds
+    valid_range:
+      minimum_exclusive: 0.0
+
+  maximum_model_size_mb:
+    metric_path: model.model_size_mb
+    unit: megabytes
+    valid_range:
+      minimum_exclusive: 0.0
