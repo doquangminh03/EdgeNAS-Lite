@@ -1,0 +1,15 @@
+schema_version: "1.0"
+request_id: edge_cpu_demo
+
+target:
+  task: object_detection
+  device: cpu
+  dataset: KITTI
+
+constraints:
+  minimum_map50_95: 0.25
+  maximum_median_latency_ms: 35.0
+  maximum_model_size_mb: 6.0
+
+preferences:
+  optimization_goal: balanced
