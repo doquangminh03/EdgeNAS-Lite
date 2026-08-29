@@ -1,0 +1,30 @@
+schema_version: "1.0"
+benchmark_id: yolo26n_kitti_pilot_cpu_v1
+candidate_id: yolo26n_kitti_pilot
+
+model:
+  checkpoint: runs/detect/kitti_yolo26n_pilot/weights/best.pt
+
+dataset:
+  name: KITTI
+  split: val
+  images_dir: datasets/kitti/images/val
+
+selection:
+  sample_size: 100
+  seed: 42
+
+protocol:
+  device: cpu
+  image_size: 640
+  batch_size: 1
+  warmup_runs: 10
+  repetitions_per_image: 3
+  confidence_threshold: 0.25
+  iou_threshold: 0.7
+  max_detections: 300
+  timing_scope: preprocess_inference_postprocess
+  disk_io_included: false
+
+output:
+  result_file: results/benchmarks/yolo26n_kitti_pilot_cpu.json

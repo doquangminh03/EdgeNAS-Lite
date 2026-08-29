@@ -20,7 +20,7 @@
       "metric_path": "benchmark.median_latency_ms",
       "operator": "<=",
       "required": 35.0,
-      "actual": 30.615,
+      "actual": 16.429,
       "passed": true
     },
     "maximum_model_size_mb": {

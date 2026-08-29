@@ -59,16 +59,34 @@
     "architecture": "arm64",
     "image_size": 640,
     "batch_size": 1,
-    "warmup_runs": 5,
-    "benchmark_runs": 30,
-    "average_latency_ms": 30.866,
-    "median_latency_ms": 30.615,
-    "min_latency_ms": 30.14,
-    "max_latency_ms": 34.84,
-    "fps_from_median": 32.663,
-    "protocol_status": "preliminary",
-    "input_source": "bus.jpg",
-    "raw_samples_saved": false,
-    "p95_latency_ms": null
+    "dataset": "KITTI",
+    "split": "val",
+    "selected_images": 100,
+    "selection_seed": 42,
+    "session_count": 3,
+    "warmup_runs_per_session": 10,
+    "repetitions_per_image": 3,
+    "total_latency_samples": 900,
+    "average_latency_ms": 16.412,
+    "median_latency_ms": 16.429,
+    "p95_latency_ms": 16.848,
+    "standard_deviation_ms": 0.397,
+    "min_latency_ms": null,
+    "max_latency_ms": null,
+    "fps_from_median": 60.868,
+    "timing_scope": "preprocess_inference_postprocess",
+    "disk_io_included": false,
+    "protocol_status": "standardized",
+    "protocol_version": "cpu_v1",
+    "raw_samples_saved": true,
+    "source_results": [
+      "results/benchmarks/yolo26n_kitti_pilot_cpu_run3.json",
+      "results/benchmarks/yolo26n_kitti_pilot_cpu_run4.json",
+      "results/benchmarks/yolo26n_kitti_pilot_cpu_run5.json"
+    ],
+    "excluded_stabilization_runs": [
+      "results/benchmarks/yolo26n_kitti_pilot_cpu_run1.json",
+      "results/benchmarks/yolo26n_kitti_pilot_cpu_run2.json"
+    ]
   }
 }
