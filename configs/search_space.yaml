@@ -1,0 +1,67 @@
+schema_version: "1.0"
+search_space_id: yolo26n_kitti_resolution_search_v1
+
+search:
+  type: deployment_configuration
+  strategy: grid
+  experiment_budget: 3
+
+fixed_configuration:
+  task: object_detection
+
+  model:
+    family: YOLO26
+    scale: n
+    checkpoint: runs/detect/kitti_yolo26n_pilot/weights/best.pt
+    retrain: false
+
+  dataset:
+    name: KITTI
+    data_config: kitti.yaml
+    validation_split: val
+    validation_images: 1496
+    classes:
+      - car
+      - pedestrian
+      - cyclist
+    class_ids:
+      - 0
+      - 3
+      - 5
+
+  deployment:
+    device: cpu
+    batch_size: 1
+
+  prediction:
+    confidence_threshold: 0.25
+    iou_threshold: 0.7
+    max_detections: 300
+
+variable_dimensions:
+  image_size:
+    values:
+      - 416
+      - 512
+      - 640
+
+evaluation:
+  accuracy_metric: map50_95
+  accuracy_source: full_validation
+  validation_output_dir: runs/val/search_candidates
+  benchmark_config: configs/benchmark_cpu.yaml
+  required_metrics:
+    - accuracy.map50_95
+    - benchmark.median_latency_ms
+    - benchmark.p95_latency_ms
+    - model.model_size_mb
+
+candidate_naming:
+  template: yolo26n_kitti_pilot_imgsz{image_size}_cpu
+
+existing_candidates:
+  - candidate_id: yolo26n_kitti_pilot
+    matches:
+      image_size: 640
+    reuse_accuracy: true
+    reuse_benchmark: true
