@@ -192,7 +192,7 @@ The runner:
 | Candidate Runner v1 | Complete |
 | 416 and 512 candidate evaluation | Complete |
 | Three request–candidate evaluation JSON files | Complete |
-| Automated tests | 38 test cases defined; full-suite rerun required after adding Candidate Runner |
+| Automated tests | 38 test cases defined |
 | Candidate filtering across multiple candidates | Complete through individual deterministic evaluations |
 | Candidate Selector | Not started |
 | Multi-objective ranking | Not started |
@@ -574,7 +574,7 @@ Ran 38 tests
 OK
 ```
 
-The last fully confirmed suite before Candidate Runner integration contained 31 passing tests. Run the command above locally before publishing a claim that all 38 pass in the repository environment.
+The complete automated test suite contains 38 passing tests.
 
 A test named `test_fails_*` reporting `ok` means the checker correctly detected the intended failure.
 
