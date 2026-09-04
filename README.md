@@ -4,7 +4,7 @@ EdgeNAS-Lite is a lightweight, LLM-guided prototype for selecting and evaluating
 
 The system accepts structured requirements such as minimum accuracy, maximum median latency, maximum model size, target device, and optimization priority. It validates those requirements, compares them with measured candidate results, rejects infeasible candidates, and will later rank the feasible options.
 
-> **Current scope — updated 29 August 2026:** the repository now contains a reproducible YOLO26/KITTI smoke and pilot pipeline, a standardized multi-image CPU benchmark, a machine-readable candidate record, a deterministic Requirement Parser, a Constraint Checker, request–candidate evaluation output, and 22 passing automated tests. Additional candidates, the Knowledge Database, multi-objective ranking, the NAS/Search Controller, the LLM Agent, and the dashboard remain under development.
+> **Current scope — updated 4 September 2026:** the repository now contains a reproducible YOLO26/KITTI smoke and pilot pipeline, a standardized multi-image CPU benchmark, a deterministic Requirement Parser and Constraint Checker, a validated resolution search space, a Candidate Runner, and measured candidate records for 416, 512, and 640 input sizes. All three candidates have request-specific evaluation files. Under the current demo requirement, 416 and 512 fail only the minimum-accuracy constraint, while 640 satisfies every hard constraint. Candidate Selector/ranking, the Knowledge Database, the higher-level Search Controller, the LLM Agent, and the dashboard remain under development.
 
 ## Why this project?
 
@@ -42,13 +42,14 @@ Direct mutation of the backbone, network graph, or arbitrary layer topology is o
 flowchart TD
     A["User requirement"] --> B["Requirement Parser"]
     B --> C["Validated requirement"]
-    C --> D["Candidate Controller"]
-    D --> E["Train / Validate / Benchmark"]
-    E --> F["Candidate record"]
-    C --> G["Constraint Checker"]
-    F --> G
-    G --> H["PASS / FAIL evaluation"]
-    H --> I["Ranking and recommendation (planned)"]
+    D["Search-space YAML"] --> E["Search Space Parser"]
+    E --> F["Candidate Runner"]
+    F --> G["Validate and benchmark"]
+    G --> H["Candidate records"]
+    C --> I["Constraint Checker"]
+    H --> I
+    I --> J["PASS / FAIL evaluations"]
+    J --> K["Candidate Selector (planned)"]
 ```
 
 The future LLM Agent may propose and explain candidates, but it will not generate evaluation metrics. Accuracy, latency, model size, constraint satisfaction, and ranking must be determined by deterministic code using measured data.
@@ -121,6 +122,54 @@ The benchmark:
 - reports mean, median, p95, standard deviation, min, max, and FPS;
 - records the software and hardware environment.
 
+### Search Space Parser v1
+
+Located in:
+
+```text
+configs/search_space.yaml
+
+src/search_space/
+├── __init__.py
+└── parser.py
+```
+
+The parser:
+
+- validates the search-space schema and supported search strategy;
+- separates fixed configuration from variable dimensions;
+- checks the checkpoint, benchmark configuration, and reusable candidate paths;
+- validates KITTI dataset metadata, class names, and class IDs;
+- requires positive, unique image sizes divisible by 32;
+- enforces the experiment budget and required metric contract;
+- expands the grid into deterministic candidate IDs;
+- marks the existing 640 candidate for reuse instead of reevaluation.
+
+The current search varies only deployment input resolution. It does not retrain the checkpoint or mutate the YOLO architecture.
+
+### Candidate Runner v1
+
+Located in:
+
+```text
+src/candidate_runner/
+├── __init__.py
+└── runner.py
+```
+
+The runner:
+
+- consumes the validated search space;
+- supports a non-mutating `--dry-run` execution plan;
+- runs full KITTI validation for pending candidates;
+- preserves the validation confidence behavior used for AP calculation;
+- executes five isolated CPU benchmark sessions per new candidate;
+- excludes the first two stabilization sessions;
+- pools raw latency samples from sessions three through five;
+- writes reusable candidate JSON records without embedding request constraints;
+- reuses the existing 640 record;
+- refuses to overwrite generated records unless `--overwrite` is explicitly supplied.
+
 ## Current progress
 
 | Component | Status |
@@ -138,9 +187,14 @@ The benchmark:
 | Constraint Checker v1 | Complete |
 | Request–candidate evaluation JSON | Complete |
 | Standardized CPU Benchmark v1 | Complete |
-| Automated tests | 22/22 passing |
-| Additional candidates | Not started |
-| Candidate filtering across multiple candidates | Not started |
+| Resolution search-space definition | Complete |
+| Search Space Parser v1 | Complete |
+| Candidate Runner v1 | Complete |
+| 416 and 512 candidate evaluation | Complete |
+| Three request–candidate evaluation JSON files | Complete |
+| Automated tests | 38 test cases defined; full-suite rerun required after adding Candidate Runner |
+| Candidate filtering across multiple candidates | Complete through individual deterministic evaluations |
+| Candidate Selector | Not started |
 | Multi-objective ranking | Not started |
 | Knowledge Database | Not started |
 | NAS/Search Controller | Not started |
@@ -159,7 +213,7 @@ The benchmark:
 | KITTI class IDs | `0`, `3`, `5` |
 | Training device | Apple M2 using MPS |
 | Deployment target | Local CPU |
-| Input size | 640 × 640 |
+| Search input sizes | 416 × 416, 512 × 512, 640 × 640 |
 | Training batch size | 4 |
 | Benchmark batch size | 1 |
 | Python | 3.9.6 |
@@ -353,6 +407,85 @@ results/evaluations/edge_cpu_demo__yolo26n_kitti_pilot.json
 
 The candidate remains reusable because its metrics are stored separately from request-specific pass/fail results.
 
+### 7. First resolution search
+
+The first controlled search keeps the trained checkpoint, dataset, selected classes, CPU target, batch size, and prediction settings fixed. It varies only the deployment input resolution:
+
+```yaml
+variable_dimensions:
+  image_size:
+    values:
+      - 416
+      - 512
+      - 640
+```
+
+The 416 and 512 candidates were evaluated by the Candidate Runner. The existing standardized 640 candidate was reused.
+
+#### Overall validation accuracy
+
+| Input size | Precision | Recall | mAP@0.5 | mAP@0.5:0.95 |
+|---:|---:|---:|---:|---:|
+| 416 | 0.458 | 0.401 | 0.396 | 0.207384 |
+| 512 | 0.484 | 0.454 | 0.444 | 0.242931 |
+| 640 | 0.527 | 0.488 | 0.485 | 0.273000 |
+
+All accuracy results use the same checkpoint, full 1,496-image KITTI validation split, 6,989 selected-class instances, and class filter `[0, 3, 5]`.
+
+#### Per-class mAP@0.5:0.95
+
+| Input size | Car | Pedestrian | Cyclist |
+|---:|---:|---:|---:|
+| 416 | 0.418 | 0.144 | 0.0608 |
+| 512 | 0.474 | 0.171 | 0.0839 |
+| 640 | 0.516 | 0.198 | 0.1060 |
+
+Accuracy improved monotonically as resolution increased. `Cyclist` remained the weakest class at every tested input size.
+
+#### Standardized CPU latency comparison
+
+| Input size | Pooled median latency | FPS from median | Median latency reduction vs. 640 |
+|---:|---:|---:|---:|
+| 416 | 8.754 ms | 114.233 | 46.72% |
+| 512 | 11.279 ms | 88.660 | 31.35% |
+| 640 | 16.429 ms | 60.868 | Reference |
+
+Each new candidate used five benchmark sessions. Sessions one and two were retained as stabilization evidence but excluded; sessions three through five supplied 900 pooled samples.
+
+The stable-session medians were:
+
+| Input size | Session 3 | Session 4 | Session 5 |
+|---:|---:|---:|---:|
+| 416 | 8.736 ms | 8.758 ms | 8.777 ms |
+| 512 | 11.148 ms | 11.332 ms | 11.302 ms |
+| 640 | 16.052 ms | 16.545 ms | 16.485 ms |
+
+#### Constraint evaluation across the search space
+
+| Input size | mAP ≥ 0.25 | Median latency ≤ 35 ms | Size ≤ 6 MB | Overall |
+|---:|---:|---:|---:|---:|
+| 416 | FAIL (`0.207384`) | PASS (`8.754 ms`) | PASS (`5.102 MB`) | FAIL |
+| 512 | FAIL (`0.242931`) | PASS (`11.279 ms`) | PASS (`5.102 MB`) | FAIL |
+| 640 | PASS (`0.273000`) | PASS (`16.429 ms`) | PASS (`5.102 MB`) | PASS |
+
+Under `edge_cpu_demo`, 640 is the only feasible candidate. This conclusion follows directly from the deterministic evaluation records. It is not yet a Candidate Selector output because automated selection and ranking remain planned work.
+
+Generated candidate records:
+
+```text
+results/candidates/yolo26n_kitti_pilot_imgsz416_cpu.json
+results/candidates/yolo26n_kitti_pilot_imgsz512_cpu.json
+results/candidates/yolo26n_kitti_pilot.json
+```
+
+Generated evaluation records:
+
+```text
+results/evaluations/edge_cpu_demo__yolo26n_kitti_pilot_imgsz416_cpu.json
+results/evaluations/edge_cpu_demo__yolo26n_kitti_pilot_imgsz512_cpu.json
+results/evaluations/edge_cpu_demo__yolo26n_kitti_pilot.json
+```
+
 ## Data contracts
 
 ### Candidate record
@@ -377,6 +510,22 @@ configs/project_spec.yaml
 
 This is the canonical definition of the current task, target device, objectives, supported constraints, metric paths, units, and valid ranges. The obsolete duplicate specification at the repository root was removed.
 
+### Search-space specification
+
+```text
+configs/search_space.yaml
+```
+
+The first search space declares:
+
+- `deployment_configuration` search type;
+- deterministic grid strategy;
+- experiment budget of three candidates;
+- fixed checkpoint, KITTI split, class IDs, CPU device, and batch size;
+- image sizes 416, 512, and 640 as the only variable dimension;
+- reuse of the measured 640 candidate;
+- required accuracy, latency, p95, and model-size metric paths.
+
 ## Automated tests
 
 The current suite contains:
@@ -386,7 +535,9 @@ The current suite contains:
 | Requirement Parser | 8 |
 | Constraint Checker | 8 |
 | CPU Benchmark | 6 |
-| Total | 22 |
+| Search Space Parser | 9 |
+| Candidate Runner | 7 |
+| Total test cases | 38 |
 
 Covered cases include:
 
@@ -402,6 +553,13 @@ Covered cases include:
 - supported image filtering;
 - latency-summary calculations;
 - CPU-only and batch-size-one benchmark enforcement.
+- valid search-space expansion and deterministic candidate naming;
+- search-budget mismatch, duplicate resolutions, and invalid image sizes;
+- mismatched KITTI class names and class-ID counts;
+- Candidate Runner validation arguments;
+- candidate-specific benchmark configuration;
+- three-session raw-sample pooling and protocol mismatch rejection;
+- candidate-record generation without modifying training metadata.
 
 Run:
 
@@ -409,12 +567,14 @@ Run:
 python -m unittest discover -s tests -v
 ```
 
-Expected result:
+After adding the Candidate Runner tests, the expected result is:
 
 ```text
-Ran 22 tests
+Ran 38 tests
 OK
 ```
+
+The last fully confirmed suite before Candidate Runner integration contained 31 passing tests. Run the command above locally before publishing a claim that all 38 pass in the repository environment.
 
 A test named `test_fails_*` reporting `ok` means the checker correctly detected the intended failure.
 
@@ -433,6 +593,7 @@ EdgeNAS-Lite/
 │   ├── requests/
 │   │   └── edge_cpu_demo.yaml
 │   ├── benchmark_cpu.yaml
+│   ├── search_space.yaml
 │   ├── project_spec.yaml
 │   ├── kitti_smoke.yaml
 │   ├── kitti_pilot.yaml
@@ -442,9 +603,13 @@ EdgeNAS-Lite/
 │   │   ├── yolo26n_kitti_pilot_cpu.json
 │   │   └── yolo26n_kitti_pilot_cpu_run*.json
 │   ├── candidates/
-│   │   └── yolo26n_kitti_pilot.json
+│   │   ├── yolo26n_kitti_pilot.json
+│   │   ├── yolo26n_kitti_pilot_imgsz416_cpu.json
+│   │   └── yolo26n_kitti_pilot_imgsz512_cpu.json
 │   ├── evaluations/
-│   │   └── edge_cpu_demo__yolo26n_kitti_pilot.json
+│   │   ├── edge_cpu_demo__yolo26n_kitti_pilot.json
+│   │   ├── edge_cpu_demo__yolo26n_kitti_pilot_imgsz416_cpu.json
+│   │   └── edge_cpu_demo__yolo26n_kitti_pilot_imgsz512_cpu.json
 │   ├── baseline_benchmark.json
 │   └── pilot_cpu_benchmark.json
 ├── src/
@@ -454,6 +619,12 @@ EdgeNAS-Lite/
 │   ├── constraint_checker/
 │   │   ├── __init__.py
 │   │   └── checker.py
+│   ├── search_space/
+│   │   ├── __init__.py
+│   │   └── parser.py
+│   ├── candidate_runner/
+│   │   ├── __init__.py
+│   │   └── runner.py
 │   ├── requirement_parser/
 │   │   ├── __init__.py
 │   │   ├── schema.py
@@ -464,7 +635,9 @@ EdgeNAS-Lite/
 ├── tests/
 │   ├── test_cpu_benchmark.py
 │   ├── test_constraint_checker.py
-│   └── test_requirement_parser.py
+│   ├── test_requirement_parser.py
+│   ├── test_search_space_parser.py
+│   └── test_candidate_runner.py
 ├── .gitignore
 ├── README.md
 ├── requirements.txt
@@ -554,6 +727,44 @@ python -m src.benchmarking.cpu_benchmark \
 
 The benchmark config currently selects 100 KITTI validation images, performs 10 warm-ups, and records 300 samples per session.
 
+### Validate and expand the search space
+
+```bash
+python -m src.search_space.parser \
+  configs/search_space.yaml \
+  --check-paths
+```
+
+The expected expansion contains two pending candidates at 416 and 512, plus the reusable 640 candidate.
+
+### Preview Candidate Runner actions
+
+```bash
+python -m src.candidate_runner.runner \
+  configs/search_space.yaml \
+  --dry-run
+```
+
+Dry-run validates the configuration and prints the execution plan without running validation, benchmarking, or writing candidate results.
+
+### Evaluate resolution candidates
+
+Run candidates separately so each expensive experiment is explicit and recoverable:
+
+```bash
+python -m src.candidate_runner.runner \
+  configs/search_space.yaml \
+  --candidate-id yolo26n_kitti_pilot_imgsz416_cpu
+```
+
+```bash
+python -m src.candidate_runner.runner \
+  configs/search_space.yaml \
+  --candidate-id yolo26n_kitti_pilot_imgsz512_cpu
+```
+
+Do not add `--overwrite` on the first run. The 640 candidate is intentionally reused and does not need to be rerun.
+
 ### Parse the demo requirement
 
 ```bash
@@ -570,6 +781,22 @@ python -m src.constraint_checker.checker \
   --output results/evaluations/edge_cpu_demo__yolo26n_kitti_pilot.json
 ```
 
+Evaluate the new candidates with the same requirement:
+
+```bash
+python -m src.constraint_checker.checker \
+  configs/requests/edge_cpu_demo.yaml \
+  results/candidates/yolo26n_kitti_pilot_imgsz416_cpu.json \
+  --output results/evaluations/edge_cpu_demo__yolo26n_kitti_pilot_imgsz416_cpu.json
+```
+
+```bash
+python -m src.constraint_checker.checker \
+  configs/requests/edge_cpu_demo.yaml \
+  results/candidates/yolo26n_kitti_pilot_imgsz512_cpu.json \
+  --output results/evaluations/edge_cpu_demo__yolo26n_kitti_pilot_imgsz512_cpu.json
+```
+
 ### Run all tests
 
 ```bash
@@ -583,6 +810,7 @@ python -m unittest discover -s tests -v
 | `configs/project_spec.yaml` | Canonical scope, target, objectives, constraints, and metric paths |
 | `configs/requests/edge_cpu_demo.yaml` | Structured deployment requirement |
 | `configs/benchmark_cpu.yaml` | Standard CPU benchmark protocol |
+| `configs/search_space.yaml` | First deterministic resolution search space |
 | `configs/kitti_smoke.yaml` | One-epoch, 10% pipeline test |
 | `configs/kitti_pilot.yaml` | Ten-epoch, 25% pilot experiment |
 | `configs/kitti_val_cpu.yaml` | Full CPU validation of the pilot checkpoint |
@@ -606,29 +834,34 @@ Every latency result must state the device, image size, batch size, warm-up coun
 
 ## Candidate search space
 
-The first automated version will use a small, controlled space:
+The first implemented search space is intentionally small and controlled:
 
-- YOLO model scale;
-- input resolution;
-- controlled training budget;
-- confidence and IoU thresholds;
-- export format;
-- quantization mode.
+- fixed YOLO26n pilot checkpoint;
+- fixed KITTI validation split and selected classes;
+- fixed local CPU target and batch size 1;
+- fixed prediction confidence, IoU, and maximum detections;
+- variable input resolution: 416, 512, and 640;
+- experiment budget: three candidate configurations;
+- grid-search expansion with deterministic candidate IDs.
 
-All candidates must use the same validation split and standardized benchmark protocol. Changing only input size or inference thresholds is configuration search, not architecture mutation.
+Potential later dimensions include model scale, controlled training budget, export format, and quantization mode. Those dimensions are not part of the completed first search.
+
+All current candidates use the same validation split and standardized benchmark protocol. Changing only input size is deployment-configuration search, not architecture mutation.
 
 ## Limitations
 
 - The pilot uses 25% of the KITTI training split and ten epochs.
-- Only one measured candidate currently exists; ranking one candidate is meaningless.
+- The current search contains three measured configurations but only one trained checkpoint; these are not three independently trained models.
+- The first search varies only input resolution, so it does not explore model scale, training budget, export format, quantization, or architecture topology.
 - `Cyclist` performance remains substantially lower than `Car` performance.
 - The standardized latency result applies to one local macOS ARM64 CPU environment.
 - Latency can still vary with background load, power state, thermal state, and software versions.
 - The first two benchmark sessions were retained as stabilization evidence but excluded from the pooled result.
 - Ultralytics validation speed, preliminary microbenchmarks, and the standardized benchmark use different timing scopes.
 - The standardized benchmark does not measure camera capture, disk I/O, display, or a complete application pipeline.
-- The demo request is intentionally configured to pass and is not evidence of global optimality.
-- Natural-language parsing, the Knowledge Database, additional candidate generation, ranking, the automated controller, and the dashboard are not implemented.
+- The demo request admits only the 640 candidate. That makes the feasibility result clear but does not validate ranking behavior when multiple candidates pass.
+- Candidate Selector and multi-objective ranking are not implemented, so no selection JSON has been generated yet.
+- Natural-language parsing, the Knowledge Database, the higher-level automated controller, and the dashboard are not implemented.
 - The current project performs configuration search, not full neural architecture mutation.
 
 ## Portfolio evidence
@@ -648,15 +881,16 @@ The repository should not include `.venv/`, downloaded datasets, API keys, compl
 
 ## Roadmap
 
-1. Commit and publish the standardized benchmark milestone.
-2. Define a small, controlled candidate search space.
-3. Evaluate additional resolution or model-scale candidates using the same KITTI split and CPU benchmark.
-4. Add deterministic filtering across multiple candidate records.
-5. Implement multi-objective scoring or Pareto ranking.
-6. Build the verified experiment and hardware Knowledge Database.
-7. Implement the NAS/Search Controller with caching, budget limits, and stopping rules.
-8. Add bounded LLM requirement translation and candidate explanation.
-9. Build a compact evaluation dashboard.
+1. Confirm the complete 38-test suite in the repository environment and commit the resolution-search milestone.
+2. Implement Candidate Selector v1 with feasibility-first selection.
+3. Add deterministic behavior for zero, one, or multiple feasible candidates.
+4. Implement multi-objective scoring or Pareto ranking for multiple passing candidates.
+5. Add a machine-readable selection result under `results/selections/`.
+6. Expand the controlled search to another justified dimension such as model scale or export format.
+7. Build the verified experiment and hardware Knowledge Database.
+8. Implement the higher-level Search Controller with caching, budget limits, and stopping rules.
+9. Add bounded LLM requirement translation and candidate explanation.
+10. Build a compact evaluation dashboard.
 
 ## Reproducibility notes
 
