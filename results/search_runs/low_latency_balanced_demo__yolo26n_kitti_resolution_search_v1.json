@@ -1,0 +1,35 @@
+{
+  "schema_version": "1.0",
+  "run_id": "low_latency_balanced_demo__yolo26n_kitti_resolution_search_v1",
+  "request_id": "low_latency_balanced_demo",
+  "search_space_id": "yolo26n_kitti_resolution_search_v1",
+  "dry_run": false,
+  "candidate_plan": [
+    {
+      "candidate_id": "yolo26n_kitti_pilot_imgsz416_cpu",
+      "image_size": 416,
+      "action": "reuse_record",
+      "candidate_record": "results/candidates/yolo26n_kitti_pilot_imgsz416_cpu.json"
+    },
+    {
+      "candidate_id": "yolo26n_kitti_pilot_imgsz512_cpu",
+      "image_size": 512,
+      "action": "reuse_record",
+      "candidate_record": "results/candidates/yolo26n_kitti_pilot_imgsz512_cpu.json"
+    },
+    {
+      "candidate_id": "yolo26n_kitti_pilot",
+      "image_size": 640,
+      "action": "reuse_record",
+      "candidate_record": "results/candidates/yolo26n_kitti_pilot.json"
+    }
+  ],
+  "evaluation_files": [
+    "results/evaluations/low_latency_balanced_demo__yolo26n_kitti_pilot_imgsz416_cpu.json",
+    "results/evaluations/low_latency_balanced_demo__yolo26n_kitti_pilot_imgsz512_cpu.json",
+    "results/evaluations/low_latency_balanced_demo__yolo26n_kitti_pilot.json"
+  ],
+  "selection_file": "results/selections/low_latency_balanced_demo.json",
+  "selection_status": "selected",
+  "selected_candidate_id": "yolo26n_kitti_pilot_imgsz416_cpu"
+}
