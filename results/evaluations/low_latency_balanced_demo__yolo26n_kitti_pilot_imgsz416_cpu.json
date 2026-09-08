@@ -1,0 +1,35 @@
+{
+  "schema_version": "1.0",
+  "evaluation_id": "low_latency_balanced_demo__yolo26n_kitti_pilot_imgsz416_cpu",
+  "request_id": "low_latency_balanced_demo",
+  "candidate_id": "yolo26n_kitti_pilot_imgsz416_cpu",
+  "target": {
+    "task": "object_detection",
+    "device": "cpu",
+    "dataset": "KITTI"
+  },
+  "checks": {
+    "minimum_map50_95": {
+      "metric_path": "accuracy.map50_95",
+      "operator": ">=",
+      "required": 0.2,
+      "actual": 0.207384,
+      "passed": true
+    },
+    "maximum_median_latency_ms": {
+      "metric_path": "benchmark.median_latency_ms",
+      "operator": "<=",
+      "required": 12.0,
+      "actual": 8.754,
+      "passed": true
+    },
+    "maximum_model_size_mb": {
+      "metric_path": "model.model_size_mb",
+      "operator": "<=",
+      "required": 6.0,
+      "actual": 5.102,
+      "passed": true
+    }
+  },
+  "constraints_satisfied": true
+}

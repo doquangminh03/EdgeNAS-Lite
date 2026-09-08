@@ -1,0 +1,67 @@
+{
+  "schema_version": "1.0",
+  "selection_id": "low_latency_balanced_demo__selection",
+  "request_id": "low_latency_balanced_demo",
+  "target": {
+    "task": "object_detection",
+    "device": "cpu",
+    "dataset": "KITTI"
+  },
+  "optimization_goal": "balanced",
+  "evaluated_candidate_count": 3,
+  "feasible_candidate_count": 2,
+  "rejected_candidates": [
+    {
+      "candidate_id": "yolo26n_kitti_pilot",
+      "failed_constraints": [
+        "maximum_median_latency_ms"
+      ],
+      "metrics": {
+        "map50_95": 0.273,
+        "median_latency_ms": 16.429,
+        "model_size_mb": 5.102
+      }
+    }
+  ],
+  "selection_status": "selected",
+  "selection_method": "optimization_goal_balanced",
+  "selected_candidate_id": "yolo26n_kitti_pilot_imgsz416_cpu",
+  "selected_metrics": {
+    "map50_95": 0.207384,
+    "median_latency_ms": 8.754,
+    "model_size_mb": 5.102
+  },
+  "reason": "Selected the highest-ranked feasible candidate for optimization goal 'balanced'.",
+  "ranking": [
+    {
+      "rank": 1,
+      "candidate_id": "yolo26n_kitti_pilot_imgsz416_cpu",
+      "score": 0.143132,
+      "score_components": {
+        "accuracy_headroom": 0.00923,
+        "latency_headroom": 0.2705,
+        "model_size_headroom": 0.149667
+      },
+      "metrics": {
+        "map50_95": 0.207384,
+        "median_latency_ms": 8.754,
+        "model_size_mb": 5.102
+      }
+    },
+    {
+      "rank": 2,
+      "candidate_id": "yolo26n_kitti_pilot_imgsz512_cpu",
+      "score": 0.087805,
+      "score_components": {
+        "accuracy_headroom": 0.053664,
+        "latency_headroom": 0.060083,
+        "model_size_headroom": 0.149667
+      },
+      "metrics": {
+        "map50_95": 0.242931,
+        "median_latency_ms": 11.279,
+        "model_size_mb": 5.102
+      }
+    }
+  ]
+}
