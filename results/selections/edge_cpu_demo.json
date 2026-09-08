@@ -1,0 +1,63 @@
+{
+  "schema_version": "1.0",
+  "selection_id": "edge_cpu_demo__selection",
+  "request_id": "edge_cpu_demo",
+  "target": {
+    "task": "object_detection",
+    "device": "cpu",
+    "dataset": "KITTI"
+  },
+  "optimization_goal": "balanced",
+  "evaluated_candidate_count": 3,
+  "feasible_candidate_count": 1,
+  "rejected_candidates": [
+    {
+      "candidate_id": "yolo26n_kitti_pilot_imgsz416_cpu",
+      "failed_constraints": [
+        "minimum_map50_95"
+      ],
+      "metrics": {
+        "map50_95": 0.207384,
+        "median_latency_ms": 8.754,
+        "model_size_mb": 5.102
+      }
+    },
+    {
+      "candidate_id": "yolo26n_kitti_pilot_imgsz512_cpu",
+      "failed_constraints": [
+        "minimum_map50_95"
+      ],
+      "metrics": {
+        "map50_95": 0.242931,
+        "median_latency_ms": 11.279,
+        "model_size_mb": 5.102
+      }
+    }
+  ],
+  "selection_status": "selected",
+  "selection_method": "only_feasible_candidate",
+  "selected_candidate_id": "yolo26n_kitti_pilot",
+  "selected_metrics": {
+    "map50_95": 0.273,
+    "median_latency_ms": 16.429,
+    "model_size_mb": 5.102
+  },
+  "reason": "Only one candidate satisfies all hard constraints.",
+  "ranking": [
+    {
+      "rank": 1,
+      "candidate_id": "yolo26n_kitti_pilot",
+      "score": 0.236978,
+      "score_components": {
+        "accuracy_headroom": 0.030667,
+        "latency_headroom": 0.5306,
+        "model_size_headroom": 0.149667
+      },
+      "metrics": {
+        "map50_95": 0.273,
+        "median_latency_ms": 16.429,
+        "model_size_mb": 5.102
+      }
+    }
+  ]
+}
