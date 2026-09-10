@@ -225,6 +225,88 @@ class TestCandidateSelector(unittest.TestCase):
         ):
             select_candidate(make_requirement(), [evaluation])
 
+    def test_balanced_tie_prefers_accuracy_regardless_of_input_order(self):
+        requirement = make_requirement("balanced")
+
+        candidate_a = make_evaluation(
+            candidate_id="candidate_a",
+            map50_95=0.625,
+            latency_ms=26.25,
+            model_size_mb=3.0,
+        )
+
+        candidate_b = make_evaluation(
+            candidate_id="candidate_b",
+            map50_95=0.4375,
+            latency_ms=17.5,
+            model_size_mb=3.0,
+        )
+
+        for evaluations in [
+            [candidate_a, candidate_b],
+            [candidate_b, candidate_a],
+        ]:
+            with self.subTest(
+                order=[item["candidate_id"] for item in evaluations]
+            ):
+                result = select_candidate(requirement, evaluations)
+                ranking = result["ranking"]
+
+                self.assertEqual(result["feasible_candidate_count"], 2)
+
+                self.assertAlmostEqual(
+                    ranking[0]["score"],
+                    0.416667,
+                    places=6,
+                )
+                self.assertEqual(
+                    ranking[0]["score"],
+                    ranking[1]["score"],
+                )
+
+                self.assertEqual(
+                    result["selected_candidate_id"],
+                    "candidate_a",
+                )
+                self.assertEqual(
+                    [item["candidate_id"] for item in ranking],
+                    ["candidate_a", "candidate_b"],
+                )
+    def test_identical_metrics_use_candidate_id_as_final_tiebreaker(self):
+        requirement = make_requirement("balanced")
+
+        candidate_a = make_evaluation(
+            candidate_id="candidate_a",
+            map50_95=0.50,
+            latency_ms=10.0,
+            model_size_mb=3.0,
+        )
+
+        candidate_b = make_evaluation(
+            candidate_id="candidate_b",
+            map50_95=0.50,
+            latency_ms=10.0,
+            model_size_mb=3.0,
+        )
+
+        for evaluations in [
+            [candidate_a, candidate_b],
+            [candidate_b, candidate_a],
+        ]:
+            with self.subTest(
+                order=[item["candidate_id"] for item in evaluations]
+            ):
+                result = select_candidate(requirement, evaluations)
+
+                self.assertEqual(
+                    result["selected_candidate_id"],
+                    "candidate_a",
+                )
+                self.assertEqual(
+                    [item["candidate_id"] for item in result["ranking"]],
+                    ["candidate_a", "candidate_b"],
+                )
+
 
 if __name__ == "__main__":
     unittest.main()

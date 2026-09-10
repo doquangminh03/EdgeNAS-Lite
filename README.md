@@ -189,6 +189,36 @@ The selector:
 
 The current balanced strategy uses equal-weight headroom across accuracy, latency, and model size. This scoring rule is an explicit prototype policy rather than a claim of universal optimality.
 
+#### Balanced scoring policy
+
+Only candidates satisfying every hard constraint are ranked.
+
+The current policy measures normalized headroom relative to the
+deployment requirements:
+
+- Accuracy: `(map50_95 - minimum_map50_95) / (1 - minimum_map50_95)`
+- Latency: `(maximum_median_latency_ms - median_latency_ms) / maximum_median_latency_ms`
+- Model size: `(maximum_model_size_mb - model_size_mb) / maximum_model_size_mb`
+
+Each component is clamped to [0, 1] and rounded to six decimal places.
+The balanced score is the arithmetic mean of the three components,
+then rounded to six decimal places. Higher scores rank first.
+
+When minimum accuracy equals 1.0, the implementation assigns accuracy
+headroom 1.0 to avoid division by zero. Only candidates with accuracy
+1.0 can be feasible in that case.
+
+For equal balanced scores, ties are resolved in this order:
+
+1. Higher mAP50–95.
+2. Lower median latency.
+3. Smaller model size.
+4. Candidate ID in ascending lexicographic order.
+
+This is a fixed equal-weight policy. Its normalization and requirement
+thresholds influence the ranking; the score is not an accuracy metric
+or a guarantee of globally optimal deployment performance.
+
 ### Search Controller v1
 
 Located in:
@@ -237,7 +267,7 @@ The controller:
 | Search Controller v1 | Complete |
 | End-to-end pipeline execution | Complete for two demo requirements |
 | Selection and search-run JSON records | Complete |
-| Automated tests | 56 defined; 56 passed reported on 8 September; 26 rerun successfully on 10 September |
+| Automated tests | 61 tests passed |
 | Candidate filtering across multiple candidates | Complete |
 | Knowledge Database | Not started |
 | LLM Agent | Not started |
@@ -677,10 +707,22 @@ The current suite contains:
 | CPU Benchmark | 6 |
 | Search Space Parser | 9 |
 | Candidate Runner | 7 |
-| Candidate Selector | 10 |
+| Candidate Selector | 12 |
 | Search Controller | 8 |
-| Total test cases | 56 |
+| Search Integration | 3 |
+| Total test cases | 61 |
 
+The full 61-test suite passed in the local macOS project environment.
+
+Three integration tests exercise real requirement and search-space
+parsing, candidate-record reuse, constraint checking, selection, and
+persisted outputs. They cover zero, one, and multiple feasible candidates.
+Model execution is blocked during these tests.
+
+Two additional selector tests verify balanced-score tie-breaking:
+higher accuracy wins when scores are equal, and candidate ID determines
+the order when all metrics are identical. Both tests reverse the input
+order to check deterministic results.
 Covered cases include:
 
 - valid structured requirements;
