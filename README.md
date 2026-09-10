@@ -1,10 +1,10 @@
 # EdgeNAS-Lite
 
-EdgeNAS-Lite is a lightweight, LLM-guided prototype for selecting and evaluating hardware-aware YOLO configurations under deployment constraints.
+EdgeNAS-Lite is a lightweight, deterministic prototype for selecting and evaluating hardware-aware YOLO configurations under deployment constraints, with an LLM-guided proposal layer planned.
 
-The system accepts structured requirements such as minimum accuracy, maximum median latency, maximum model size, target device, and optimization priority. It validates those requirements, compares them with measured candidate results, rejects infeasible candidates, and will later rank the feasible options.
+The system accepts structured requirements such as minimum accuracy, maximum median latency, maximum model size, target device, and optimization priority. It validates those requirements, compares them with measured candidate results, rejects infeasible candidates, ranks feasible options, and produces a deterministic final selection.
 
-> **Current scope — updated 4 September 2026:** the repository now contains a reproducible YOLO26/KITTI smoke and pilot pipeline, a standardized multi-image CPU benchmark, a deterministic Requirement Parser and Constraint Checker, a validated resolution search space, a Candidate Runner, and measured candidate records for 416, 512, and 640 input sizes. All three candidates have request-specific evaluation files. Under the current demo requirement, 416 and 512 fail only the minimum-accuracy constraint, while 640 satisfies every hard constraint. Candidate Selector/ranking, the Knowledge Database, the higher-level Search Controller, the LLM Agent, and the dashboard remain under development.
+> **Current scope — updated 8 September 2026:** the repository contains a reproducible YOLO26/KITTI smoke and pilot pipeline, a standardized multi-image CPU benchmark, deterministic requirement and search-space parsing, a Candidate Runner, a Constraint Checker, a Candidate Selector, and a Search Controller. The end-to-end pipeline has been executed successfully for two deployment requirements using measured candidate records at 416, 512, and 640 input sizes. The Knowledge Database, LLM Agent, broader search dimensions, and dashboard remain under development.
 
 ## Why this project?
 
@@ -40,19 +40,16 @@ Direct mutation of the backbone, network graph, or arbitrary layer topology is o
 
 ```mermaid
 flowchart TD
-    A["User requirement"] --> B["Requirement Parser"]
-    B --> C["Validated requirement"]
-    D["Search-space YAML"] --> E["Search Space Parser"]
-    E --> F["Candidate Runner"]
-    F --> G["Validate and benchmark"]
-    G --> H["Candidate records"]
-    C --> I["Constraint Checker"]
-    H --> I
-    I --> J["PASS / FAIL evaluations"]
-    J --> K["Candidate Selector (planned)"]
+    A["Requirement YAML/JSON"] --> B["Search Controller"]
+    C["Search-space YAML"] --> B
+    B --> D["Parse and validate"]
+    D --> E["Run or reuse candidates"]
+    E --> F["Constraint evaluation"]
+    F --> G["Candidate selection"]
+    G --> H["Selection and search-run records"]
 ```
 
-The future LLM Agent may propose and explain candidates, but it will not generate evaluation metrics. Accuracy, latency, model size, constraint satisfaction, and ranking must be determined by deterministic code using measured data.
+The Search Controller orchestrates the deterministic modules and reuses compatible candidate records when available. The future LLM Agent may translate requirements, propose search spaces, and explain results, but it will not generate measured metrics. Accuracy, latency, model size, constraint satisfaction, and ranking remain the responsibility of deterministic code.
 
 ## Implemented modules
 
@@ -170,6 +167,49 @@ The runner:
 - reuses the existing 640 record;
 - refuses to overwrite generated records unless `--overwrite` is explicitly supplied.
 
+### Candidate Selector v1
+
+Located in:
+
+```text
+src/candidate_selector/
+├── __init__.py
+└── selector.py
+```
+
+The selector:
+
+- loads evaluation JSON records belonging to the same `request_id`;
+- checks evaluation thresholds and pass/fail consistency against the current requirement; it does not independently remeasure metrics or detect every possible alteration;
+- separates candidates into feasible and rejected groups;
+- handles zero, one, or multiple feasible candidates deterministically;
+- supports `accuracy`, `latency`, `model_size`, and `balanced` optimization goals;
+- ranks multiple feasible candidates using request-specific metrics;
+- writes a machine-readable selection record with the ranking and final choice.
+
+The current balanced strategy uses equal-weight headroom across accuracy, latency, and model size. This scoring rule is an explicit prototype policy rather than a claim of universal optimality.
+
+### Search Controller v1
+
+Located in:
+
+```text
+src/search_controller/
+├── __init__.py
+└── controller.py
+```
+
+The controller:
+
+- connects the Requirement Parser, Search Space Parser, Candidate Runner, Constraint Checker, and Candidate Selector;
+- verifies that task, device, and dataset targets match across the requirement and search space;
+- checks candidate identity, checkpoint, image size, and standardized benchmark status before reuse;
+- reuses compatible candidate records by default;
+- calls the Candidate Runner only when a required candidate record is missing;
+- supports a non-mutating `--dry-run` plan;
+- supports explicit candidate remeasurement through `--overwrite-candidates`;
+- writes evaluation files, a final selection record, and a search-run manifest.
+
 ## Current progress
 
 | Component | Status |
@@ -191,13 +231,15 @@ The runner:
 | Search Space Parser v1 | Complete |
 | Candidate Runner v1 | Complete |
 | 416 and 512 candidate evaluation | Complete |
-| Three request–candidate evaluation JSON files | Complete |
-| Automated tests | 38 test cases defined |
-| Candidate filtering across multiple candidates | Complete through individual deterministic evaluations |
-| Candidate Selector | Not started |
-| Multi-objective ranking | Not started |
+| Evaluation JSON files for two demo requirements | Complete |
+| Candidate Selector v1 | Complete |
+| Multi-objective ranking v1 | Complete |
+| Search Controller v1 | Complete |
+| End-to-end pipeline execution | Complete for two demo requirements |
+| Selection and search-run JSON records | Complete |
+| Automated tests | 56 defined; 56 passed reported on 8 September; 26 rerun successfully on 10 September |
+| Candidate filtering across multiple candidates | Complete |
 | Knowledge Database | Not started |
-| NAS/Search Controller | Not started |
 | LLM Agent | Not started |
 | Dashboard | Not started |
 
@@ -468,7 +510,11 @@ The stable-session medians were:
 | 512 | FAIL (`0.242931`) | PASS (`11.279 ms`) | PASS (`5.102 MB`) | FAIL |
 | 640 | PASS (`0.273000`) | PASS (`16.429 ms`) | PASS (`5.102 MB`) | PASS |
 
-Under `edge_cpu_demo`, 640 is the only feasible candidate. This conclusion follows directly from the deterministic evaluation records. It is not yet a Candidate Selector output because automated selection and ranking remain planned work.
+Under `edge_cpu_demo`, 640 is the only feasible candidate. The Candidate Selector confirms this result and writes the final selection to:
+
+```text
+results/selections/edge_cpu_demo.json
+```
 
 Generated candidate records:
 
@@ -485,6 +531,100 @@ results/evaluations/edge_cpu_demo__yolo26n_kitti_pilot_imgsz416_cpu.json
 results/evaluations/edge_cpu_demo__yolo26n_kitti_pilot_imgsz512_cpu.json
 results/evaluations/edge_cpu_demo__yolo26n_kitti_pilot.json
 ```
+
+### 8. Candidate selection under two requirements
+
+The selector was exercised with two requirements to verify both single-feasible-candidate selection and ranking among multiple feasible candidates.
+
+#### Accuracy-constrained deployment: `edge_cpu_demo`
+
+```text
+mAP@0.5:0.95 >= 0.25
+Median latency <= 35 ms
+Model size <= 6 MB
+Optimization goal = balanced
+```
+
+| Input size | mAP@0.5:0.95 | Median latency | Feasibility |
+|---:|---:|---:|---|
+| 416 | 0.207384 | 8.754 ms | Rejected: accuracy |
+| 512 | 0.242931 | 11.279 ms | Rejected: accuracy |
+| 640 | 0.273000 | 16.429 ms | Feasible |
+
+Selected candidate:
+
+```text
+yolo26n_kitti_pilot
+```
+
+The 640 configuration is the only candidate that satisfies every hard constraint.
+
+#### Latency-constrained deployment: `low_latency_balanced_demo`
+
+```text
+mAP@0.5:0.95 >= 0.20
+Median latency <= 12 ms
+Model size <= 6 MB
+Optimization goal = balanced
+```
+
+| Input size | mAP@0.5:0.95 | Median latency | Feasibility |
+|---:|---:|---:|---|
+| 416 | 0.207384 | 8.754 ms | Feasible |
+| 512 | 0.242931 | 11.279 ms | Feasible |
+| 640 | 0.273000 | 16.429 ms | Rejected: latency |
+
+| Rank | Input size | Balanced score |
+|---:|---:|---:|
+| 1 | 416 | 0.143132 |
+| 2 | 512 | 0.087805 |
+
+Selected candidate:
+
+```text
+yolo26n_kitti_pilot_imgsz416_cpu
+```
+
+Under the current equal-headroom formula, the latency advantage of 416 outweighs the accuracy advantage of 512. Because all three candidates use the same checkpoint, model size does not distinguish them in this experiment.
+
+Outputs:
+
+```text
+configs/requests/low_latency_balanced_demo.yaml
+results/evaluations/low_latency_balanced_demo__*.json
+results/selections/low_latency_balanced_demo.json
+```
+
+These two cases demonstrate that the selected configuration depends on the deployment requirement rather than on accuracy alone.
+
+### 9. End-to-end Search Controller runs
+
+The complete pipeline ran successfully for both demo requirements:
+
+| Request | Selected candidate |
+|---|---|
+| `edge_cpu_demo` | `yolo26n_kitti_pilot` |
+| `low_latency_balanced_demo` | `yolo26n_kitti_pilot_imgsz416_cpu` |
+
+Search-run manifests:
+
+```text
+results/search_runs/edge_cpu_demo__yolo26n_kitti_resolution_search_v1.json
+results/search_runs/low_latency_balanced_demo__yolo26n_kitti_resolution_search_v1.json
+```
+
+All three candidates used `"action": "reuse_record"` in both recorded runs. The controller therefore reused compatible validation and standardized CPU benchmark evidence instead of executing the model again. The missing-record execution path is covered by automated tests.
+
+## Result artifact layers
+
+| Directory | Purpose |
+|---|---|
+| `results/candidates/` | Reusable measured metrics for each candidate |
+| `results/evaluations/` | Requirement-specific constraint results |
+| `results/selections/` | Rankings and final selected candidates |
+| `results/search_runs/` | End-to-end pipeline manifests |
+
+Candidate measurements remain separate from request-specific evaluations so that one measured candidate can be reused across multiple deployment requirements.
 
 ## Data contracts
 
@@ -537,7 +677,9 @@ The current suite contains:
 | CPU Benchmark | 6 |
 | Search Space Parser | 9 |
 | Candidate Runner | 7 |
-| Total test cases | 38 |
+| Candidate Selector | 10 |
+| Search Controller | 8 |
+| Total test cases | 56 |
 
 Covered cases include:
 
@@ -559,7 +701,15 @@ Covered cases include:
 - Candidate Runner validation arguments;
 - candidate-specific benchmark configuration;
 - three-session raw-sample pooling and protocol mismatch rejection;
-- candidate-record generation without modifying training metadata.
+- candidate-record generation without modifying training metadata;
+- zero, one, and multiple feasible-candidate selection;
+- supported optimization goals and deterministic ranking;
+- stale requirement-threshold and inconsistent pass/fail detection;
+- requirement and search-space target compatibility;
+- reusable-candidate identity and benchmark-protocol validation;
+- non-mutating Search Controller dry runs;
+- complete orchestration with existing candidates;
+- Candidate Runner invocation when a candidate record is missing.
 
 Run:
 
@@ -567,14 +717,16 @@ Run:
 python -m unittest discover -s tests -v
 ```
 
-After adding the Candidate Runner tests, the expected result is:
+The current expected result is:
 
 ```text
-Ran 38 tests
+Ran 56 tests
 OK
 ```
 
-The complete automated test suite contains 38 passing tests.
+The 8 September progress report records 56 passing tests. During the 10 September repository review, 26 tests for the Requirement Parser, Constraint Checker, and Candidate Selector were rerun successfully on Linux with Python 3.12. The other four test modules could not load because PyTorch and Ultralytics were unavailable in that review environment; this was not a fresh verification of all 56 tests.
+
+Both demo evaluations and selections were also recomputed from the committed candidate JSON records and matched the saved JSON outputs exactly. No model inference or CPU rebenchmarking was performed during that review.
 
 A test named `test_fails_*` reporting `ok` means the checker correctly detected the intended failure.
 
@@ -591,7 +743,8 @@ EdgeNAS-Lite/
 │       └── val_batch0_pred.jpg
 ├── configs/
 │   ├── requests/
-│   │   └── edge_cpu_demo.yaml
+│   │   ├── edge_cpu_demo.yaml
+│   │   └── low_latency_balanced_demo.yaml
 │   ├── benchmark_cpu.yaml
 │   ├── search_space.yaml
 │   ├── project_spec.yaml
@@ -609,7 +762,14 @@ EdgeNAS-Lite/
 │   ├── evaluations/
 │   │   ├── edge_cpu_demo__yolo26n_kitti_pilot.json
 │   │   ├── edge_cpu_demo__yolo26n_kitti_pilot_imgsz416_cpu.json
-│   │   └── edge_cpu_demo__yolo26n_kitti_pilot_imgsz512_cpu.json
+│   │   ├── edge_cpu_demo__yolo26n_kitti_pilot_imgsz512_cpu.json
+│   │   └── low_latency_balanced_demo__*.json
+│   ├── selections/
+│   │   ├── edge_cpu_demo.json
+│   │   └── low_latency_balanced_demo.json
+│   ├── search_runs/
+│   │   ├── edge_cpu_demo__yolo26n_kitti_resolution_search_v1.json
+│   │   └── low_latency_balanced_demo__yolo26n_kitti_resolution_search_v1.json
 │   ├── baseline_benchmark.json
 │   └── pilot_cpu_benchmark.json
 ├── src/
@@ -625,19 +785,26 @@ EdgeNAS-Lite/
 │   ├── candidate_runner/
 │   │   ├── __init__.py
 │   │   └── runner.py
+│   ├── candidate_selector/
+│   │   ├── __init__.py
+│   │   └── selector.py
+│   ├── search_controller/
+│   │   ├── __init__.py
+│   │   └── controller.py
 │   ├── requirement_parser/
 │   │   ├── __init__.py
 │   │   ├── schema.py
 │   │   └── parser.py
-│   ├── knowledge_database/
-│   ├── llm_agent/
-│   └── nas_controller/
+│   └── evaluation/
+│       └── benchmark.py
 ├── tests/
 │   ├── test_cpu_benchmark.py
 │   ├── test_constraint_checker.py
 │   ├── test_requirement_parser.py
 │   ├── test_search_space_parser.py
-│   └── test_candidate_runner.py
+│   ├── test_candidate_runner.py
+│   ├── test_candidate_selector.py
+│   └── test_search_controller.py
 ├── .gitignore
 ├── README.md
 ├── requirements.txt
@@ -797,6 +964,49 @@ python -m src.constraint_checker.checker \
   --output results/evaluations/edge_cpu_demo__yolo26n_kitti_pilot_imgsz512_cpu.json
 ```
 
+### Run the end-to-end search pipeline
+
+Run the accuracy-constrained demo:
+
+```bash
+python -m src.search_controller.controller \
+  configs/requests/edge_cpu_demo.yaml \
+  configs/search_space.yaml
+```
+
+Run the low-latency balanced demo:
+
+```bash
+python -m src.search_controller.controller \
+  configs/requests/low_latency_balanced_demo.yaml \
+  configs/search_space.yaml
+```
+
+Preview the orchestration plan without running candidates or writing evaluation, selection, or search-run files:
+
+```bash
+python -m src.search_controller.controller \
+  configs/requests/edge_cpu_demo.yaml \
+  configs/search_space.yaml \
+  --dry-run
+```
+
+Existing compatible candidate records are reused by default. The current controller still calls the search-space parser with `check_paths=True`, so the configured checkpoint must exist locally even for reuse-only runs and `--dry-run`. A fresh clone does not include that checkpoint. Full execution also requires the installed model dependencies; generating new candidates additionally requires the KITTI data.
+
+Use `--overwrite-candidates` only to regenerate candidates not marked `reuse_existing`; the explicitly reusable 640 candidate remains reused.
+
+To inspect the two selections from committed evaluation records without running the model or requiring the checkpoint, use:
+
+```bash
+python -m src.candidate_selector.selector \
+  configs/requests/edge_cpu_demo.yaml \
+  results/evaluations
+
+python -m src.candidate_selector.selector \
+  configs/requests/low_latency_balanced_demo.yaml \
+  results/evaluations
+```
+
 ### Run all tests
 
 ```bash
@@ -809,6 +1019,7 @@ python -m unittest discover -s tests -v
 |---|---|
 | `configs/project_spec.yaml` | Canonical scope, target, objectives, constraints, and metric paths |
 | `configs/requests/edge_cpu_demo.yaml` | Structured deployment requirement |
+| `configs/requests/low_latency_balanced_demo.yaml` | Multi-feasible-candidate ranking requirement |
 | `configs/benchmark_cpu.yaml` | Standard CPU benchmark protocol |
 | `configs/search_space.yaml` | First deterministic resolution search space |
 | `configs/kitti_smoke.yaml` | One-epoch, 10% pipeline test |
@@ -859,9 +1070,11 @@ All current candidates use the same validation split and standardized benchmark 
 - The first two benchmark sessions were retained as stabilization evidence but excluded from the pooled result.
 - Ultralytics validation speed, preliminary microbenchmarks, and the standardized benchmark use different timing scopes.
 - The standardized benchmark does not measure camera capture, disk I/O, display, or a complete application pipeline.
-- The demo request admits only the 640 candidate. That makes the feasibility result clear but does not validate ranking behavior when multiple candidates pass.
-- Candidate Selector and multi-objective ranking are not implemented, so no selection JSON has been generated yet.
-- Natural-language parsing, the Knowledge Database, the higher-level automated controller, and the dashboard are not implemented.
+- `edge_cpu_demo` admits only the 640 candidate, while `low_latency_balanced_demo` provides the current multiple-feasible-candidate ranking case.
+- Balanced scoring currently uses equal weights for accuracy, latency, and model-size headroom. Alternative weighting policies and Pareto-based selection have not yet been evaluated.
+- Because all current candidates use the same checkpoint, model size is constant and does not influence their relative ranking.
+- The two recorded Search Controller runs reused existing candidate records. The missing-candidate branch is tested with a mocked runner; a real model execution through that branch is not yet documented as a separate experimental run.
+- Natural-language parsing, the Knowledge Database, the LLM Agent, and the dashboard are not implemented.
 - The current project performs configuration search, not full neural architecture mutation.
 
 ## Portfolio evidence
@@ -881,16 +1094,15 @@ The repository should not include `.venv/`, downloaded datasets, API keys, compl
 
 ## Roadmap
 
-1. Confirm the complete 38-test suite in the repository environment and commit the resolution-search milestone.
-2. Implement Candidate Selector v1 with feasibility-first selection.
-3. Add deterministic behavior for zero, one, or multiple feasible candidates.
-4. Implement multi-objective scoring or Pareto ranking for multiple passing candidates.
-5. Add a machine-readable selection result under `results/selections/`.
-6. Expand the controlled search to another justified dimension such as model scale or export format.
-7. Build the verified experiment and hardware Knowledge Database.
-8. Implement the higher-level Search Controller with caching, budget limits, and stopping rules.
-9. Add bounded LLM requirement translation and candidate explanation.
-10. Build a compact evaluation dashboard.
+1. Rerun the full 56-test suite in the configured model environment. Selector, Controller, and their artifacts are already committed in `333a0dd76ab2ccbb2e7532806ed23fe5e079bf68` and its history.
+2. Add a lightweight integration test for the complete pipeline using candidate fixtures without invoking Ultralytics.
+3. Document the balanced score formula, normalization behavior, configurable weights, and tie-breaking policy.
+4. Build the verified experiment, hardware, and deployment Knowledge Database.
+5. Implement bounded candidate proposal and natural-language requirement translation through the LLM Agent.
+6. Expand the controlled search to justified dimensions such as model scale, quantization, or deployment format.
+7. Compare weighted scoring with Pareto-based selection as the number and diversity of feasible candidates grow.
+8. Add budget limits, stopping rules, and broader cache invalidation policies to the Search Controller.
+9. Build a compact evaluation dashboard.
 
 ## Reproducibility notes
 
