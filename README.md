@@ -4,7 +4,7 @@ EdgeNAS-Lite is a lightweight, deterministic prototype for selecting and evaluat
 
 The system accepts structured requirements such as minimum accuracy, maximum median latency, maximum model size, target device, and optimization priority. It validates those requirements, compares them with measured candidate results, rejects infeasible candidates, ranks feasible options, and produces a deterministic final selection.
 
-> **Current scope — updated 8 September 2026:** the repository contains a reproducible YOLO26/KITTI smoke and pilot pipeline, a standardized multi-image CPU benchmark, deterministic requirement and search-space parsing, a Candidate Runner, a Constraint Checker, a Candidate Selector, and a Search Controller. The end-to-end pipeline has been executed successfully for two deployment requirements using measured candidate records at 416, 512, and 640 input sizes. The Knowledge Database, LLM Agent, broader search dimensions, and dashboard remain under development.
+> **Current scope — updated 13 September 2026:** the repository contains a reproducible YOLO26/KITTI smoke and pilot pipeline, a standardized multi-image CPU benchmark, deterministic requirement and search-space parsing, a Candidate Runner, a Constraint Checker, a Candidate Selector, and a Search Controller. The end-to-end pipeline has been executed successfully for two deployment requirements using measured candidate records at 416, 512, and 640 input sizes. A file-based Knowledge Database v1 now loads, validates, and queries these records, and the full local test suite passes 80 tests. Knowledge DB integration with the proposal workflow, the LLM Agent, broader search dimensions, and the dashboard remain planned.
 
 ## Why this project?
 
@@ -240,6 +240,43 @@ The controller:
 - supports explicit candidate remeasurement through `--overwrite-candidates`;
 - writes evaluation files, a final selection record, and a search-run manifest.
 
+### Knowledge Database v1
+
+The Knowledge DB is a searchable experiment record collection. It references existing measured candidate JSON files rather than maintaining duplicate metric values or running new experiments.
+
+Files:
+
+- `knowledge/index.yaml`: schema version, knowledge-base ID, and candidate references.
+- `src/knowledge_database/loader.py`: `load_knowledge_base`, `validate_candidate_metrics`, and `KnowledgeValidationError`.
+- `src/knowledge_database/query.py`: `query_candidates`.
+- `src/knowledge_database/__init__.py`: package marker.
+
+The loader validates the index fields and version, non-empty identifiers, duplicate candidate IDs, relative record paths, and agreement between index and JSON candidate IDs. Resolved record paths must remain inside the project root. Missing files raise `FileNotFoundError`; malformed JSON raises a JSON parsing error.
+
+Metric validation currently covers:
+
+| Candidate field | Valid values |
+|---|---|
+| `accuracy.map50_95` | Numeric, finite, between 0 and 1 inclusive |
+| `benchmark.median_latency_ms` | Numeric, finite, greater than 0 |
+| `model.model_size_mb` | Numeric, finite, greater than 0 |
+
+Booleans, numeric strings, missing values, NaN, and infinity are rejected for these metrics. This checks data validity; deployment feasibility is still evaluated by the Constraint Checker.
+
+The loader returns `schema_version`, `knowledge_base_id`, and a `candidates` list. Each entry preserves both `record_path` and the loaded `record` for provenance.
+
+Query filters map to the following fields:
+
+| Argument | Record field | Meaning |
+|---|---|---|
+| `dataset` | `accuracy.dataset` | Dataset used for accuracy evaluation |
+| `model_family` | `model.family` | Model family, such as YOLO26 |
+| `device` | `benchmark.device` | Device used for latency measurement |
+
+Supplied filters use AND logic, ignore letter case and surrounding whitespace, and reject empty or non-string filter values. Omitted filters impose no restriction. Results are sorted by candidate ID and deep-copied so changes to query results do not mutate the loaded knowledge base. No matches return an empty list.
+
+The current index references the measured 416, 512, and 640 configurations. The Knowledge DB is available as a standalone Python API; the Search Controller and a proposal agent do not yet consume it. It does not rank candidates, generate metrics, or establish that measurements from different hardware or protocols are comparable.
+
 ## Current progress
 
 | Component | Status |
@@ -267,11 +304,15 @@ The controller:
 | Search Controller v1 | Complete |
 | End-to-end pipeline execution | Complete for two demo requirements |
 | Selection and search-run JSON records | Complete |
-| Automated tests | 61 tests passed |
+| Automated tests | 80 tests passed in the local macOS environment |
 | Candidate filtering across multiple candidates | Complete |
-| Knowledge Database | Not started |
+| Knowledge Database v1: index, loader, metric validation, queries | Complete; 19 tests passed |
+| Knowledge DB integration with proposal workflow | Planned |
+| Rule-based proposal baseline | Planned |
 | LLM Agent | Not started |
 | Dashboard | Not started |
+
+The latest test result was confirmed from the local terminal output shared on 13 September 2026. The Knowledge DB commit/push has not yet been confirmed; these updates describe completed local work.
 
 ## Experimental setup
 
@@ -649,6 +690,7 @@ All three candidates used `"action": "reuse_record"` in both recorded runs. The 
 
 | Directory | Purpose |
 |---|---|
+| `knowledge/index.yaml` | References to reusable candidate JSON records; no duplicated metrics |
 | `results/candidates/` | Reusable measured metrics for each candidate |
 | `results/evaluations/` | Requirement-specific constraint results |
 | `results/selections/` | Rankings and final selected candidates |
@@ -671,6 +713,24 @@ The three supported constraints map to measured candidate paths:
 | `minimum_map50_95` | `accuracy.map50_95` |
 | `maximum_median_latency_ms` | `benchmark.median_latency_ms` |
 | `maximum_model_size_mb` | `model.model_size_mb` |
+
+### Knowledge index
+
+`knowledge/index.yaml` contains references relative to the project root:
+
+```yaml
+schema_version: "1.0"
+knowledge_base_id: edgenas_lite_kb_v1
+candidate_records:
+  - candidate_id: yolo26n_kitti_pilot_imgsz416_cpu
+    record_path: results/candidates/yolo26n_kitti_pilot_imgsz416_cpu.json
+  - candidate_id: yolo26n_kitti_pilot_imgsz512_cpu
+    record_path: results/candidates/yolo26n_kitti_pilot_imgsz512_cpu.json
+  - candidate_id: yolo26n_kitti_pilot
+    record_path: results/candidates/yolo26n_kitti_pilot.json
+```
+
+The index lists available evidence. Requirement thresholds, feasibility decisions, and rankings remain in their existing configuration and result layers.
 
 ### Project specification
 
@@ -710,9 +770,12 @@ The current suite contains:
 | Candidate Selector | 12 |
 | Search Controller | 8 |
 | Search Integration | 3 |
-| Total test cases | 61 |
+| Knowledge metric validation | 6 |
+| Knowledge loader | 6 |
+| Knowledge query | 7 |
+| Total test cases | 80 |
 
-The full 61-test suite passed in the local macOS project environment.
+The full 80-test suite passed in the local macOS project environment, as confirmed by terminal output shared on 13 September 2026. This README update does not represent a new test run or model benchmark.
 
 Three integration tests exercise real requirement and search-space
 parsing, candidate-record reuse, constraint checking, selection, and
@@ -723,7 +786,9 @@ Two additional selector tests verify balanced-score tie-breaking:
 higher accuracy wins when scores are equal, and candidate ID determines
 the order when all metrics are identical. Both tests reverse the input
 order to check deterministic results.
-Covered cases include:
+The 19 Knowledge DB tests cover metric validity and boundaries, missing fields, loading temporary YAML/JSON records, source-path preservation, duplicate and mismatched IDs, missing files, paths outside the project, loader-to-metric validation, AND filtering, case/whitespace handling, empty results, stable ordering, copy isolation, and invalid filter arguments.
+
+Covered cases also include:
 
 - valid structured requirements;
 - missing and unknown fields;
@@ -762,13 +827,19 @@ python -m unittest discover -s tests -v
 The current expected result is:
 
 ```text
-Ran 56 tests
+Ran 80 tests
 OK
 ```
 
-The 8 September progress report records 56 passing tests. During the 10 September repository review, 26 tests for the Requirement Parser, Constraint Checker, and Candidate Selector were rerun successfully on Linux with Python 3.12. The other four test modules could not load because PyTorch and Ultralytics were unavailable in that review environment; this was not a fresh verification of all 56 tests.
+Historical milestones: 56 tests passed at the earlier controller milestone; 61 passed after integration and deterministic tie-breaking coverage; 80 now pass after adding 19 Knowledge DB tests. These are software checks, not new accuracy or latency experiments.
 
-Both demo evaluations and selections were also recomputed from the committed candidate JSON records and matched the saved JSON outputs exactly. No model inference or CPU rebenchmarking was performed during that review.
+Run only the Knowledge DB tests:
+
+```bash
+python -m unittest discover -s tests -p "test_knowledge*.py" -v
+```
+
+Expected: 19 tests, `OK`.
 
 A test named `test_fails_*` reporting `ok` means the checker correctly detected the intended failure.
 
@@ -793,6 +864,8 @@ EdgeNAS-Lite/
 │   ├── kitti_smoke.yaml
 │   ├── kitti_pilot.yaml
 │   └── kitti_val_cpu.yaml
+├── knowledge/
+│   └── index.yaml
 ├── results/
 │   ├── benchmarks/
 │   │   ├── yolo26n_kitti_pilot_cpu.json
@@ -815,6 +888,10 @@ EdgeNAS-Lite/
 │   ├── baseline_benchmark.json
 │   └── pilot_cpu_benchmark.json
 ├── src/
+│   ├── knowledge_database/
+│   │   ├── __init__.py
+│   │   ├── loader.py
+│   │   └── query.py
 │   ├── benchmarking/
 │   │   ├── __init__.py
 │   │   └── cpu_benchmark.py
@@ -846,7 +923,10 @@ EdgeNAS-Lite/
 │   ├── test_search_space_parser.py
 │   ├── test_candidate_runner.py
 │   ├── test_candidate_selector.py
-│   └── test_search_controller.py
+│   ├── test_search_controller.py
+│   ├── test_search_integration.py
+│   ├── test_knowledge_database.py
+│   └── test_knowledge_query.py
 ├── .gitignore
 ├── README.md
 ├── requirements.txt
@@ -1049,6 +1129,38 @@ python -m src.candidate_selector.selector \
   results/evaluations
 ```
 
+### Load and query the Knowledge DB
+
+Run from the project root after installing dependencies. This example reads the index and candidate JSON files; it does not require KITTI images, checkpoint weights, or model execution. PyYAML is required by the loader.
+
+```bash
+python - <<'PYCODE'
+from src.knowledge_database.loader import load_knowledge_base
+from src.knowledge_database.query import query_candidates
+
+knowledge = load_knowledge_base("knowledge/index.yaml", ".")
+matches = query_candidates(
+    knowledge,
+    dataset="kitti",
+    model_family="YOLO26",
+    device="cpu",
+)
+
+print("Knowledge base:", knowledge["knowledge_base_id"])
+for item in matches:
+    record = item["record"]
+    print(
+        record["candidate_id"],
+        "| mAP:", record["accuracy"]["map50_95"],
+        "| latency:", record["benchmark"]["median_latency_ms"],
+        "| model size:", record["model"]["model_size_mb"],
+    )
+print("Matched candidates:", len(matches))
+PYCODE
+```
+
+Expected for the current index: `Matched candidates: 3`. IDs are ordered as `yolo26n_kitti_pilot`, `yolo26n_kitti_pilot_imgsz416_cpu`, and `yolo26n_kitti_pilot_imgsz512_cpu`. Querying an unknown dataset returns `[]`; calling `query_candidates(knowledge)` returns all indexed candidates.
+
 ### Run all tests
 
 ```bash
@@ -1116,7 +1228,10 @@ All current candidates use the same validation split and standardized benchmark 
 - Balanced scoring currently uses equal weights for accuracy, latency, and model-size headroom. Alternative weighting policies and Pareto-based selection have not yet been evaluated.
 - Because all current candidates use the same checkpoint, model size is constant and does not influence their relative ranking.
 - The two recorded Search Controller runs reused existing candidate records. The missing-candidate branch is tested with a mocked runner; a real model execution through that branch is not yet documented as a separate experimental run.
-- Natural-language parsing, the Knowledge Database, the LLM Agent, and the dashboard are not implemented.
+- Knowledge DB v1 validates index references and three numerical metrics, but does not yet validate the entire candidate schema, hardware identity, or all benchmark protocol metadata.
+- Knowledge DB queries filter by accuracy dataset, model family, and benchmark device; matching these fields alone does not establish measurement comparability.
+- The Knowledge DB currently references three records from one checkpoint and local CPU environment; it is not yet a general hardware or deployment knowledge collection.
+- Knowledge DB integration with the proposal workflow is not implemented. Natural-language parsing, the LLM Agent, and the dashboard remain planned.
 - The current project performs configuration search, not full neural architecture mutation.
 
 ## Portfolio evidence
@@ -1136,15 +1251,16 @@ The repository should not include `.venv/`, downloaded datasets, API keys, compl
 
 ## Roadmap
 
-1. Rerun the full 56-test suite in the configured model environment. Selector, Controller, and their artifacts are already committed in `333a0dd76ab2ccbb2e7532806ed23fe5e079bf68` and its history.
-2. Add a lightweight integration test for the complete pipeline using candidate fixtures without invoking Ultralytics.
-3. Document the balanced score formula, normalization behavior, configurable weights, and tie-breaking policy.
-4. Build the verified experiment, hardware, and deployment Knowledge Database.
-5. Implement bounded candidate proposal and natural-language requirement translation through the LLM Agent.
-6. Expand the controlled search to justified dimensions such as model scale, quantization, or deployment format.
-7. Compare weighted scoring with Pareto-based selection as the number and diversity of feasible candidates grow.
-8. Add budget limits, stopping rules, and broader cache invalidation policies to the Search Controller.
-9. Build a compact evaluation dashboard.
+Completed foundations: deterministic search orchestration, integration coverage for zero/one/multiple feasible candidates, documented balanced scoring and tie-breaking, and standalone Knowledge DB v1 with 80 total passing tests.
+
+1. Commit the completed Knowledge DB implementation, tests, and updated documentation after reviewing the local changes.
+2. Connect Knowledge DB retrieval to a deterministic, rule-based proposal baseline. Reuse the existing Constraint Checker and Candidate Selector, preserve source references, and handle empty or infeasible results explicitly.
+3. Define compatibility checks for proposal evidence, including dataset split/classes, hardware context, and benchmark protocol, before broadening the knowledge collection.
+4. Add a bounded LLM proposal layer and natural-language-to-schema translation. Validate its output deterministically and prohibit generated or overwritten measurement values.
+5. Expand controlled search to justified dimensions such as model scale, quantization, or deployment format, measuring each new configuration under a comparable protocol.
+6. Compare the fixed equal-weight score with alternative weights and Pareto-based selection as feasible candidates become more diverse. Weights are not currently configurable.
+7. Extend experiment-budget enforcement, stopping rules, and cache invalidation in the Search Controller.
+8. Build a compact evaluation dashboard displaying requirements, evidence, rejected candidates, and the selected configuration.
 
 ## Reproducibility notes
 
@@ -1156,6 +1272,7 @@ The repository should not include `.venv/`, downloaded datasets, API keys, compl
 - Do not compare latency values produced by different devices or protocols as if they were equivalent.
 - Preserve human-authored configs, selected artifacts, and machine-readable result files.
 - Keep reusable candidate measurements separate from request-specific evaluations.
+- Keep Knowledge DB references aligned with candidate IDs and preserve their source paths.
 - Do not let the LLM create or overwrite measured metrics.
 
 ## References

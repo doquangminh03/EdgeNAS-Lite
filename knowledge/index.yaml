@@ -1,0 +1,13 @@
+schema_version: "1.0"
+
+knowledge_base_id: edgenas_lite_kb_v1
+
+candidate_records:
+  - candidate_id: yolo26n_kitti_pilot_imgsz416_cpu
+    record_path: results/candidates/yolo26n_kitti_pilot_imgsz416_cpu.json
+
+  - candidate_id: yolo26n_kitti_pilot_imgsz512_cpu
+    record_path: results/candidates/yolo26n_kitti_pilot_imgsz512_cpu.json
+
+  - candidate_id: yolo26n_kitti_pilot
+    record_path: results/candidates/yolo26n_kitti_pilot.json
