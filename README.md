@@ -277,6 +277,46 @@ Supplied filters use AND logic, ignore letter case and surrounding whitespace, a
 
 The current index references the measured 416, 512, and 640 configurations. The Knowledge DB is available as a standalone Python API; the Search Controller and a proposal agent do not yet consume it. It does not rank candidates, generate metrics, or establish that measurements from different hardware or protocols are comparable.
 
+### Rule-based Proposal v1
+
+The proposal workflow connects the Requirement Parser, Knowledge Database,
+Constraint Checker, and Candidate Selector.
+
+Implemented files:
+- `src/proposal/rule_based.py`: retrieve, evaluate, and select candidates.
+- `src/proposal/output.py`: save proposal results as JSON.
+
+The workflow:
+1. Loads and validates a structured requirement.
+2. Retrieves candidate records by dataset, benchmark device, and optional
+   model family.
+3. Evaluates candidates against accuracy, latency, and model-size constraints.
+4. Ranks feasible candidates using the existing Candidate Selector.
+5. Returns the selection together with its source record path.
+
+Supported outcomes:
+- `selected`: a feasible candidate was selected.
+- `no_matching_candidates`: no candidate matched the retrieval filters.
+- `no_feasible_candidate`: candidates were retrieved, but all failed constraints.
+
+The low-latency balanced demo selects the 416 configuration:
+- 416: balanced score 0.143132.
+- 512: balanced score 0.087805.
+- 640: rejected because median latency exceeds 12 ms.
+
+Saved example:
+`results/proposals/low_latency_balanced_demo.json`
+
+The JSON includes the requirement, candidate snapshots, constraint evaluations,
+ranking, and selected source. Saving to an existing output path replaces it.
+
+Four automated tests cover multiple feasible candidates, one feasible candidate,
+no feasible candidate, and no matching candidates.
+
+This workflow selects from existing measured configurations. It does not
+generate new configurations, run model experiments, or use an LLM.
+Broader hardware and benchmark-protocol compatibility checks remain planned.
+
 ## Current progress
 
 | Component | Status |
@@ -773,7 +813,8 @@ The current suite contains:
 | Knowledge metric validation | 6 |
 | Knowledge loader | 6 |
 | Knowledge query | 7 |
-| Total test cases | 80 |
+| Rule-based Proposal | 4 |
+| Total test cases | 84 |
 
 The full 80-test suite passed in the local macOS project environment, as confirmed by terminal output shared on 13 September 2026. This README update does not represent a new test run or model benchmark.
 
