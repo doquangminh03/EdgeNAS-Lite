@@ -4,7 +4,7 @@ EdgeNAS-Lite is a lightweight, deterministic prototype for selecting and evaluat
 
 The system accepts structured requirements such as minimum accuracy, maximum median latency, maximum model size, target device, and optimization priority. It validates those requirements, compares them with measured candidate results, rejects infeasible candidates, ranks feasible options, and produces a deterministic final selection.
 
-> **Current scope — updated 13 September 2026:** the repository contains a reproducible YOLO26/KITTI smoke and pilot pipeline, a standardized multi-image CPU benchmark, deterministic requirement and search-space parsing, a Candidate Runner, a Constraint Checker, a Candidate Selector, and a Search Controller. The end-to-end pipeline has been executed successfully for two deployment requirements using measured candidate records at 416, 512, and 640 input sizes. A file-based Knowledge Database v1 now loads, validates, and queries these records, and the full local test suite passes 80 tests. Knowledge DB integration with the proposal workflow, the LLM Agent, broader search dimensions, and the dashboard remain planned.
+> **Current scope — updated 15 September 2026:** the repository contains a reproducible YOLO26/KITTI smoke and pilot pipeline, a standardized multi-image CPU benchmark, deterministic requirement and search-space parsing, a Candidate Runner, a Constraint Checker, a Candidate Selector, and a Search Controller. The end-to-end pipeline has been executed successfully for two deployment requirements using measured candidate records at 416, 512, and 640 input sizes. A file-based Knowledge Database v1 now loads, validates, and queries these records, and the full local test suite contains 84 tests, reported passing in the local project environment. Rule-based Proposal v1 now retrieves, evaluates, and ranks measured candidates and saves the result with source references. Broader evidence-compatibility checks, the LLM Agent, expanded search dimensions, and the dashboard remain planned.
 
 ## Why this project?
 
@@ -50,6 +50,19 @@ flowchart TD
 ```
 
 The Search Controller orchestrates the deterministic modules and reuses compatible candidate records when available. The future LLM Agent may translate requirements, propose search spaces, and explain results, but it will not generate measured metrics. Accuracy, latency, model size, constraint satisfaction, and ranking remain the responsibility of deterministic code.
+
+### Rule-based proposal workflow
+
+```mermaid
+flowchart TD
+    A["Validated requirement"] --> C["Rule-based proposal"]
+    B["Knowledge DB and candidate records"] --> C
+    C --> D["Constraint Checker"]
+    D --> E["Candidate Selector"]
+    E --> F["Proposal JSON and source references"]
+```
+
+This additional workflow selects from existing measured records. It reuses the deterministic modules but does not invoke the Search Controller to run new experiments. The Knowledge DB index contains references only; the proposal JSON includes snapshots of the retrieved records so the decision can be inspected later.
 
 ## Implemented modules
 
@@ -275,7 +288,7 @@ Query filters map to the following fields:
 
 Supplied filters use AND logic, ignore letter case and surrounding whitespace, and reject empty or non-string filter values. Omitted filters impose no restriction. Results are sorted by candidate ID and deep-copied so changes to query results do not mutate the loaded knowledge base. No matches return an empty list.
 
-The current index references the measured 416, 512, and 640 configurations. The Knowledge DB is available as a standalone Python API; the Search Controller and a proposal agent do not yet consume it. It does not rank candidates, generate metrics, or establish that measurements from different hardware or protocols are comparable.
+The current index references the measured 416, 512, and 640 configurations. The Knowledge DB is available as a Python API and is consumed by Rule-based Proposal v1. The Search Controller does not yet consume the Knowledge DB directly. It does not rank candidates, generate metrics, or establish that measurements from different hardware or protocols are comparable.
 
 ### Rule-based Proposal v1
 
@@ -283,10 +296,12 @@ The proposal workflow connects the Requirement Parser, Knowledge Database,
 Constraint Checker, and Candidate Selector.
 
 Implemented files:
+
 - `src/proposal/rule_based.py`: retrieve, evaluate, and select candidates.
 - `src/proposal/output.py`: save proposal results as JSON.
 
 The workflow:
+
 1. Loads and validates a structured requirement.
 2. Retrieves candidate records by dataset, benchmark device, and optional
    model family.
@@ -295,11 +310,13 @@ The workflow:
 5. Returns the selection together with its source record path.
 
 Supported outcomes:
+
 - `selected`: a feasible candidate was selected.
 - `no_matching_candidates`: no candidate matched the retrieval filters.
 - `no_feasible_candidate`: candidates were retrieved, but all failed constraints.
 
 The low-latency balanced demo selects the 416 configuration:
+
 - 416: balanced score 0.143132.
 - 512: balanced score 0.087805.
 - 640: rejected because median latency exceeds 12 ms.
@@ -344,15 +361,17 @@ Broader hardware and benchmark-protocol compatibility checks remain planned.
 | Search Controller v1 | Complete |
 | End-to-end pipeline execution | Complete for two demo requirements |
 | Selection and search-run JSON records | Complete |
-| Automated tests | 80 tests passed in the local macOS environment |
+| Automated tests | 84 tests passed in the local macOS environment (user-reported full-suite result) |
 | Candidate filtering across multiple candidates | Complete |
 | Knowledge Database v1: index, loader, metric validation, queries | Complete; 19 tests passed |
-| Knowledge DB integration with proposal workflow | Planned |
-| Rule-based proposal baseline | Planned |
+| Knowledge DB integration with proposal workflow | Complete for retrieval, evaluation, and selection |
+| Rule-based proposal baseline | Complete; 4 automated tests |
+| Proposal JSON output | Complete; saved demo verified by reading the JSON back |
+| Broader proposal evidence-compatibility checks | Planned |
 | LLM Agent | Not started |
 | Dashboard | Not started |
 
-The latest test result was confirmed from the local terminal output shared on 13 September 2026. The Knowledge DB commit/push has not yet been confirmed; these updates describe completed local work.
+Knowledge DB v1 was committed and pushed in `e733835`; Rule-based Proposal v1, its tests, and the saved demo were committed and pushed in `d5010b5`. The four proposal tests passed in the shared terminal output, and the full 84-test run was subsequently reported by the developer. Documentation status: 15 September 2026.
 
 ## Experimental setup
 
@@ -735,6 +754,7 @@ All three candidates used `"action": "reuse_record"` in both recorded runs. The 
 | `results/evaluations/` | Requirement-specific constraint results |
 | `results/selections/` | Rankings and final selected candidates |
 | `results/search_runs/` | End-to-end pipeline manifests |
+| `results/proposals/` | Requirement, retrieved candidate snapshots, evaluations, ranking, and selected source for rule-based proposals |
 
 Candidate measurements remain separate from request-specific evaluations so that one measured candidate can be reused across multiple deployment requirements.
 
@@ -816,7 +836,7 @@ The current suite contains:
 | Rule-based Proposal | 4 |
 | Total test cases | 84 |
 
-The full 80-test suite passed in the local macOS project environment, as confirmed by terminal output shared on 13 September 2026. This README update does not represent a new test run or model benchmark.
+The developer reported a successful full 84-test run in the local macOS project environment after adding the proposal workflow. Shared terminal output separately confirms all four proposal tests passed. This documentation update does not represent a fresh test run or model benchmark.
 
 Three integration tests exercise real requirement and search-space
 parsing, candidate-record reuse, constraint checking, selection, and
@@ -868,11 +888,11 @@ python -m unittest discover -s tests -v
 The current expected result is:
 
 ```text
-Ran 80 tests
+Ran 84 tests
 OK
 ```
 
-Historical milestones: 56 tests passed at the earlier controller milestone; 61 passed after integration and deterministic tie-breaking coverage; 80 now pass after adding 19 Knowledge DB tests. These are software checks, not new accuracy or latency experiments.
+Historical milestones: 56 tests passed at the earlier controller milestone; 61 passed after integration and deterministic tie-breaking coverage; 80 passed after adding 19 Knowledge DB tests; the suite now totals 84 after adding four Rule-based Proposal tests. These are software checks, not new accuracy or latency experiments.
 
 Run only the Knowledge DB tests:
 
@@ -881,6 +901,14 @@ python -m unittest discover -s tests -p "test_knowledge*.py" -v
 ```
 
 Expected: 19 tests, `OK`.
+
+Run only the proposal tests:
+
+```bash
+python -m unittest discover -s tests -p "test_rule_based_proposal.py" -v
+```
+
+Expected: four tests, `OK`. They use temporary YAML/JSON fixtures and real parser, retrieval, checker, and selector functions to cover multiple feasible candidates, one feasible candidate, no feasible candidate, and no matching candidates. JSON persistence was additionally checked by saving the real demo, reading it back, and comparing it with the in-memory result; that manual check is not counted as an additional unit test.
 
 A test named `test_fails_*` reporting `ok` means the checker correctly detected the intended failure.
 
@@ -920,6 +948,8 @@ EdgeNAS-Lite/
 │   │   ├── edge_cpu_demo__yolo26n_kitti_pilot_imgsz416_cpu.json
 │   │   ├── edge_cpu_demo__yolo26n_kitti_pilot_imgsz512_cpu.json
 │   │   └── low_latency_balanced_demo__*.json
+│   ├── proposals/
+│   │   └── low_latency_balanced_demo.json
 │   ├── selections/
 │   │   ├── edge_cpu_demo.json
 │   │   └── low_latency_balanced_demo.json
@@ -929,6 +959,10 @@ EdgeNAS-Lite/
 │   ├── baseline_benchmark.json
 │   └── pilot_cpu_benchmark.json
 ├── src/
+│   ├── proposal/
+│   │   ├── __init__.py
+│   │   ├── rule_based.py
+│   │   └── output.py
 │   ├── knowledge_database/
 │   │   ├── __init__.py
 │   │   ├── loader.py
@@ -967,7 +1001,8 @@ EdgeNAS-Lite/
 │   ├── test_search_controller.py
 │   ├── test_search_integration.py
 │   ├── test_knowledge_database.py
-│   └── test_knowledge_query.py
+│   ├── test_knowledge_query.py
+│   └── test_rule_based_proposal.py
 ├── .gitignore
 ├── README.md
 ├── requirements.txt
@@ -1202,6 +1237,45 @@ PYCODE
 
 Expected for the current index: `Matched candidates: 3`. IDs are ordered as `yolo26n_kitti_pilot`, `yolo26n_kitti_pilot_imgsz416_cpu`, and `yolo26n_kitti_pilot_imgsz512_cpu`. Querying an unknown dataset returns `[]`; calling `query_candidates(knowledge)` returns all indexed candidates.
 
+### Generate and save a rule-based proposal
+
+Run the following complete block in a macOS/Linux terminal from the project root. The workflow reads existing measured candidate records without model execution, checkpoint loading, or KITTI image access. It uses the existing fixed equal-weight scoring policy.
+
+```bash
+python - <<'PYCODE'
+import json
+
+from src.proposal.rule_based import propose_from_knowledge
+from src.proposal.output import save_proposal
+
+proposal = propose_from_knowledge(
+    "configs/requests/low_latency_balanced_demo.yaml",
+    model_family="YOLO26",
+)
+output_path = save_proposal(
+    proposal,
+    "results/proposals/low_latency_balanced_demo.json",
+)
+saved = json.loads(output_path.read_text(encoding="utf-8"))
+assert saved == proposal
+
+print("Status:", saved["proposal_status"])
+if saved["selection"] is not None:
+    print("Selected:", saved["selection"]["selected_candidate_id"])
+print("Saved:", output_path)
+PYCODE
+```
+
+Expected for the current demo:
+
+```text
+Status: selected
+Selected: yolo26n_kitti_pilot_imgsz416_cpu
+Saved: results/proposals/low_latency_balanced_demo.json
+```
+
+`save_proposal()` creates parent directories and overwrites an existing destination file. The proposal API handles no matching records separately from records that fail constraints. This is a Python API example; a dedicated proposal command-line interface is not implemented.
+
 ### Run all tests
 
 ```bash
@@ -1272,7 +1346,8 @@ All current candidates use the same validation split and standardized benchmark 
 - Knowledge DB v1 validates index references and three numerical metrics, but does not yet validate the entire candidate schema, hardware identity, or all benchmark protocol metadata.
 - Knowledge DB queries filter by accuracy dataset, model family, and benchmark device; matching these fields alone does not establish measurement comparability.
 - The Knowledge DB currently references three records from one checkpoint and local CPU environment; it is not yet a general hardware or deployment knowledge collection.
-- Knowledge DB integration with the proposal workflow is not implemented. Natural-language parsing, the LLM Agent, and the dashboard remain planned.
+- Rule-based Proposal v1 consumes the Knowledge DB and selects from existing evidence; it does not generate new configurations or invoke the Search Controller for new experiments.
+- Broader evidence-compatibility checks are not yet enforced by the proposal workflow. Natural-language parsing, the LLM Agent, and the dashboard remain planned.
 - The current project performs configuration search, not full neural architecture mutation.
 
 ## Portfolio evidence
@@ -1282,7 +1357,7 @@ The public repository emphasizes reproducible evidence rather than terminal scre
 - human-authored YAML configurations;
 - deterministic parser and checker source code;
 - benchmark protocol and raw samples;
-- candidate and evaluation JSON files;
+- candidate, evaluation, selection, and proposal JSON files;
 - automated tests;
 - learning curves and validation metrics;
 - confusion matrix and selected predictions;
@@ -1292,22 +1367,21 @@ The repository should not include `.venv/`, downloaded datasets, API keys, compl
 
 ## Roadmap
 
-Completed foundations: deterministic search orchestration, integration coverage for zero/one/multiple feasible candidates, documented balanced scoring and tie-breaking, and standalone Knowledge DB v1 with 80 total passing tests.
+Completed foundations: deterministic search orchestration, integration coverage for zero/one/multiple feasible candidates, documented balanced scoring and tie-breaking, Knowledge DB v1, and Rule-based Proposal v1 with JSON output and source references. The suite now totals 84 tests.
 
-1. Commit the completed Knowledge DB implementation, tests, and updated documentation after reviewing the local changes.
-2. Connect Knowledge DB retrieval to a deterministic, rule-based proposal baseline. Reuse the existing Constraint Checker and Candidate Selector, preserve source references, and handle empty or infeasible results explicitly.
-3. Define compatibility checks for proposal evidence, including dataset split/classes, hardware context, and benchmark protocol, before broadening the knowledge collection.
-4. Add a bounded LLM proposal layer and natural-language-to-schema translation. Validate its output deterministically and prohibit generated or overwritten measurement values.
+1. Define an evidence-compatibility policy before proposal ranking. Specify dataset split/classes, benchmark batch size, timing scope, disk-I/O policy, protocol version/status, and hardware context. Define explicit handling of missing or conflicting metadata. Input resolution remains a permitted search dimension rather than a required equality across candidates.
+2. Implement the compatibility checks, connect them to the proposal workflow before ranking, preserve exclusion reasons, and test compatible, incompatible, missing-metadata, and all-excluded cases. CPU device and ARM64 architecture labels alone do not establish hardware identity; do not invent missing metadata.
+3. Add bounded natural-language-to-schema translation through an LLM and validate its output with the existing Requirement Parser. Compare behavior with the rule-based baseline.
+4. Add bounded LLM candidate proposals within an approved search space, then connect new experiments to the Search Controller with explicit budgets. Never generate or overwrite measured metrics through the LLM.
 5. Expand controlled search to justified dimensions such as model scale, quantization, or deployment format, measuring each new configuration under a comparable protocol.
-6. Compare the fixed equal-weight score with alternative weights and Pareto-based selection as feasible candidates become more diverse. Weights are not currently configurable.
-7. Extend experiment-budget enforcement, stopping rules, and cache invalidation in the Search Controller.
-8. Build a compact evaluation dashboard displaying requirements, evidence, rejected candidates, and the selected configuration.
+6. Compare fixed equal-weight scoring with alternative weights and Pareto-based selection as feasible candidates become more diverse. Weights are not currently configurable.
+7. Extend stopping rules and cache invalidation in the Search Controller, and build a compact dashboard displaying requirements, evidence, exclusions, and selections.
 
 ## Reproducibility notes
 
 - Run commands from the repository root.
 - Keep the random seed and selected validation images fixed when comparing candidates.
-- Use the same dataset split, class filter, image size, and benchmark timing scope.
+- Use the same dataset split, class filter, and benchmark timing scope. Keep non-search variables fixed; record input resolution explicitly when it is the variable being compared.
 - Benchmark candidates under comparable power, thermal, and background-load conditions.
 - Record model path, device, batch size, software versions, warm-up count, session count, and raw samples.
 - Do not compare latency values produced by different devices or protocols as if they were equivalent.
