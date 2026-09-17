@@ -1,0 +1,202 @@
+{
+  "evaluation_version": "semantic_eval_v1",
+  "started_at_utc": "2026-09-17T17:01:17.091979+00:00",
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "planned_cases": 6,
+  "run_status": "completed",
+  "results": [
+    {
+      "case_id": "vi_percent",
+      "user_text": "Tôi cần object detection trên KITTI, chạy CPU. mAP50-95 tối thiểu 20%, median latency tối đa 12 ms, kích thước file model tối đa 6 MB. Ưu tiên cân bằng accuracy, latency và kích thước.",
+      "expected_status": "ready",
+      "expected_requirement": {
+        "schema_version": "1.0",
+        "request_id": "semantic_vi_percent",
+        "target": {
+          "task": "object_detection",
+          "device": "cpu",
+          "dataset": "KITTI"
+        },
+        "constraints": {
+          "minimum_map50_95": 0.2,
+          "maximum_median_latency_ms": 12.0,
+          "maximum_model_size_mb": 6.0
+        },
+        "preferences": {
+          "optimization_goal": "balanced"
+        }
+      },
+      "outcome": "PASS",
+      "actual": {
+        "status": "ready",
+        "requirement": {
+          "schema_version": "1.0",
+          "request_id": "semantic_vi_percent",
+          "target": {
+            "task": "object_detection",
+            "device": "cpu",
+            "dataset": "KITTI"
+          },
+          "constraints": {
+            "minimum_map50_95": 0.2,
+            "maximum_median_latency_ms": 12.0,
+            "maximum_model_size_mb": 6.0
+          },
+          "preferences": {
+            "optimization_goal": "balanced"
+          }
+        },
+        "questions": [],
+        "reasons": []
+      },
+      "issues": []
+    },
+    {
+      "case_id": "en_decimal",
+      "user_text": "I need object detection on KITTI using CPU. Minimum mAP50-95 is 0.20, maximum median latency is 12 ms, and maximum model file size is 6 MB. Use balanced optimization.",
+      "expected_status": "ready",
+      "expected_requirement": {
+        "schema_version": "1.0",
+        "request_id": "semantic_en_decimal",
+        "target": {
+          "task": "object_detection",
+          "device": "cpu",
+          "dataset": "KITTI"
+        },
+        "constraints": {
+          "minimum_map50_95": 0.2,
+          "maximum_median_latency_ms": 12.0,
+          "maximum_model_size_mb": 6.0
+        },
+        "preferences": {
+          "optimization_goal": "balanced"
+        }
+      },
+      "outcome": "PASS",
+      "actual": {
+        "status": "ready",
+        "requirement": {
+          "schema_version": "1.0",
+          "request_id": "semantic_en_decimal",
+          "target": {
+            "task": "object_detection",
+            "device": "cpu",
+            "dataset": "KITTI"
+          },
+          "constraints": {
+            "minimum_map50_95": 0.2,
+            "maximum_median_latency_ms": 12.0,
+            "maximum_model_size_mb": 6.0
+          },
+          "preferences": {
+            "optimization_goal": "balanced"
+          }
+        },
+        "questions": [],
+        "reasons": []
+      },
+      "issues": []
+    },
+    {
+      "case_id": "latency_priority",
+      "user_text": "Tôi cần object detection trên KITTI bằng CPU. mAP50-95 tối thiểu 0.20, median latency tối đa 12 ms, file model tối đa 6 MB. Trong các cấu hình đạt tất cả ngưỡng, ưu tiên latency thấp nhất.",
+      "expected_status": "ready",
+      "expected_requirement": {
+        "schema_version": "1.0",
+        "request_id": "semantic_latency_priority",
+        "target": {
+          "task": "object_detection",
+          "device": "cpu",
+          "dataset": "KITTI"
+        },
+        "constraints": {
+          "minimum_map50_95": 0.2,
+          "maximum_median_latency_ms": 12.0,
+          "maximum_model_size_mb": 6.0
+        },
+        "preferences": {
+          "optimization_goal": "latency"
+        }
+      },
+      "outcome": "PASS",
+      "actual": {
+        "status": "ready",
+        "requirement": {
+          "schema_version": "1.0",
+          "request_id": "semantic_latency_priority",
+          "target": {
+            "task": "object_detection",
+            "device": "cpu",
+            "dataset": "KITTI"
+          },
+          "constraints": {
+            "minimum_map50_95": 0.2,
+            "maximum_median_latency_ms": 12.0,
+            "maximum_model_size_mb": 6.0
+          },
+          "preferences": {
+            "optimization_goal": "latency"
+          }
+        },
+        "questions": [],
+        "reasons": []
+      },
+      "issues": []
+    },
+    {
+      "case_id": "missing_latency",
+      "user_text": "Tôi cần object detection trên KITTI bằng CPU. mAP50-95 tối thiểu 20%, file model tối đa 6 MB. Ưu tiên cân bằng. Tôi chưa xác định giới hạn median latency; hãy hỏi tôi, không tự đặt ngưỡng.",
+      "expected_status": "needs_clarification",
+      "expected_requirement": null,
+      "outcome": "PASS",
+      "actual": {
+        "status": "needs_clarification",
+        "requirement": null,
+        "questions": [
+          "Bạn chưa xác định giới hạn median latency (tính bằng mili-giây). Vui lòng cung cấp giá trị cho maximum_median_latency_ms."
+        ],
+        "reasons": []
+      },
+      "issues": []
+    },
+    {
+      "case_id": "missing_accuracy",
+      "user_text": "Tôi cần object detection trên KITTI bằng CPU. Median latency tối đa 12 ms, file model tối đa 6 MB. Ưu tiên cân bằng. Tôi chưa xác định mAP50-95 tối thiểu; hãy hỏi tôi, không tự đặt ngưỡng.",
+      "expected_status": "needs_clarification",
+      "expected_requirement": null,
+      "outcome": "PASS",
+      "actual": {
+        "status": "needs_clarification",
+        "requirement": null,
+        "questions": [
+          "Bạn chưa xác định ngưỡng mAP50-95 tối thiểu. Vui lòng cung cấp giá trị mAP50-95 tối thiểu."
+        ],
+        "reasons": []
+      },
+      "issues": []
+    },
+    {
+      "case_id": "unsupported_task",
+      "user_text": "Tôi cần instance segmentation trên KITTI bằng CPU, không phải object detection. Mask mAP50-95 tối thiểu 20%, median latency tối đa 12 ms, file model tối đa 6 MB. Ưu tiên cân bằng.",
+      "expected_status": "unsupported",
+      "expected_requirement": null,
+      "outcome": "PASS",
+      "actual": {
+        "status": "unsupported",
+        "requirement": null,
+        "questions": [],
+        "reasons": [
+          "Schema hiện tại chỉ hỗ trợ tác vụ object_detection, trong khi yêu cầu của bạn là instance segmentation."
+        ]
+      },
+      "issues": []
+    }
+  ],
+  "summary": {
+    "PASS": 6,
+    "FAIL": 0,
+    "ERROR": 0
+  },
+  "finished_at_utc": "2026-09-17T17:01:25.563999+00:00"
+}
