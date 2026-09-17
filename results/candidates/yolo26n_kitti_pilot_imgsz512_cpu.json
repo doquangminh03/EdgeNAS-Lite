@@ -91,6 +91,18 @@
     "excluded_stabilization_runs": [
       "results/benchmarks/yolo26n_kitti_pilot_imgsz512_cpu_cpu_run1.json",
       "results/benchmarks/yolo26n_kitti_pilot_imgsz512_cpu_cpu_run2.json"
-    ]
+    ],
+    "hardware_id": "local_mac_cpu_01"
+  },
+  "metadata_provenance": {
+    "benchmark.hardware_id": {
+      "source_type": "operator_confirmation",
+      "note": "The operator confirmed that all three candidates were benchmarked on the same physical Mac. local_mac_cpu_01 is a project-local identifier.",
+      "supporting_records": [
+        "results/benchmarks/yolo26n_kitti_pilot_imgsz512_cpu_cpu_run3.json",
+        "results/benchmarks/yolo26n_kitti_pilot_imgsz512_cpu_cpu_run4.json",
+        "results/benchmarks/yolo26n_kitti_pilot_imgsz512_cpu_cpu_run5.json"
+      ]
+    }
   }
 }

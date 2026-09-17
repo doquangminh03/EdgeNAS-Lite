@@ -5,6 +5,7 @@ from src.candidate_selector.selector import select_candidate
 from src.constraint_checker.checker import evaluate_candidate
 from src.knowledge_database.loader import load_knowledge_base
 from src.knowledge_database.query import query_candidates
+from src.proposal.compatibility import check_candidate_compatibility
 from src.requirement_parser.parser import (
     load_requirement,
     parse_requirement_data,
@@ -18,8 +19,6 @@ def retrieve_candidates_for_requirement(
     project_root: Union[str, Path] = ".",
     model_family: Optional[str] = None,
 ) -> Dict[str, Any]:
-    """Load a requirement and retrieve relevant measured candidates."""
-
     root = Path(project_root).resolve()
 
     requirement_path = Path(requirement_file)
@@ -56,23 +55,46 @@ def retrieve_candidates_for_requirement(
 
 def evaluate_retrieved_candidates(
     retrieval: Dict[str, Any],
+    *,
+    expected_hardware_id: Optional[str] = None,
 ) -> Dict[str, Any]:
-    """Evaluate retrieved candidates against the original requirement."""
-
     requirement = parse_requirement_data(retrieval["requirement"])
+
+    compatibility_reports = []
+    compatible_ids = []
+    excluded_ids = []
 
     evaluations = []
     feasible_ids = []
     rejected_ids = []
 
     for item in retrieval["candidates"]:
-        evaluation = evaluate_candidate(
-            requirement=requirement,
-            candidate=item["record"],
+        record = item["record"]
+
+        report = check_candidate_compatibility(
+            record,
+            expected_hardware_id=expected_hardware_id,
         )
 
+        compatibility_reports.append({
+            **report,
+            "record_path": item["record_path"],
+        })
+
+        candidate_id = record["candidate_id"]
+
+        # Only compatible records may enter constraint evaluation.
+        if report["status"] != "compatible":
+            excluded_ids.append(candidate_id)
+            continue
+
+        compatible_ids.append(candidate_id)
+
+        evaluation = evaluate_candidate(
+            requirement=requirement,
+            candidate=record,
+        )
         evaluations.append(evaluation)
-        candidate_id = evaluation["candidate_id"]
 
         if evaluation["constraints_satisfied"]:
             feasible_ids.append(candidate_id)
@@ -81,6 +103,10 @@ def evaluate_retrieved_candidates(
 
     return {
         **retrieval,
+        "expected_hardware_id": expected_hardware_id,
+        "compatibility_reports": compatibility_reports,
+        "compatible_candidate_ids": compatible_ids,
+        "excluded_candidate_ids": excluded_ids,
         "evaluations": evaluations,
         "feasible_candidate_ids": feasible_ids,
         "rejected_candidate_ids": rejected_ids,
@@ -93,9 +119,8 @@ def propose_from_knowledge(
     index_file: Union[str, Path] = "knowledge/index.yaml",
     project_root: Union[str, Path] = ".",
     model_family: Optional[str] = None,
+    expected_hardware_id: Optional[str] = None,
 ) -> Dict[str, Any]:
-    """Retrieve, evaluate, and select an existing measured candidate."""
-
     retrieval = retrieve_candidates_for_requirement(
         requirement_file,
         index_file=index_file,
@@ -103,13 +128,23 @@ def propose_from_knowledge(
         model_family=model_family,
     )
 
-    evaluated = evaluate_retrieved_candidates(retrieval)
+    evaluated = evaluate_retrieved_candidates(
+        retrieval,
+        expected_hardware_id=expected_hardware_id,
+    )
 
-    # The existing selector requires at least one evaluation.
-    if not evaluated["evaluations"]:
+    if not evaluated["candidates"]:
         return {
             **evaluated,
             "proposal_status": "no_matching_candidates",
+            "selection": None,
+            "selected_source": None,
+        }
+
+    if not evaluated["compatible_candidate_ids"]:
+        return {
+            **evaluated,
+            "proposal_status": "no_compatible_candidates",
             "selection": None,
             "selected_source": None,
         }
