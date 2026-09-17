@@ -1,10 +1,10 @@
 # EdgeNAS-Lite
 
-EdgeNAS-Lite is a lightweight, deterministic prototype for selecting and evaluating hardware-aware YOLO configurations under deployment constraints, with an LLM-guided proposal layer planned.
+EdgeNAS-Lite is a lightweight, deterministic prototype for selecting and evaluating hardware-aware YOLO configurations under deployment constraints, with a working Gemini natural-language requirement interface and a deterministic proposal pipeline.
 
-The system accepts structured requirements such as minimum accuracy, maximum median latency, maximum model size, target device, and optimization priority. It validates those requirements, compares them with measured candidate results, rejects infeasible candidates, ranks feasible options, and produces a deterministic final selection.
+The system accepts natural-language requests through Gemini or structured requirements specifying minimum accuracy, maximum median latency, maximum model size, target device, and optimization priority. It validates those requirements, compares them with measured candidate results, rejects infeasible candidates, ranks feasible options, and produces a deterministic final selection.
 
-> **Current scope — updated 17 September 2026:** the repository contains a YOLO26/KITTI smoke and pilot pipeline, a standardized multi-image CPU benchmark, deterministic requirement and search-space parsing, a Candidate Runner, Constraint Checker, Candidate Selector, and Search Controller. Two recorded search runs reuse measurements at input sizes 416, 512, and 640. Knowledge Database v1 loads, validates, and queries these records. Rule-based Proposal v1 now checks evidence compatibility under `kitti_cpu_pilot_v1` before constraint evaluation and ranking, and saves compatibility reports and source references in JSON. Proposal CLI v1 exposes this workflow through `python -m src.proposal.cli`, with explicit hardware identity, JSON output, and exit codes. The full local suite passed **105 tests**, as shown in the shared macOS terminal output. The LLM Agent, broader search dimensions, and dashboard remain planned.
+> **Current scope — updated 17 September 2026:** the repository contains the YOLO26/KITTI pilot, standardized CPU benchmarking, deterministic requirement/search-space parsing, Candidate Runner, Constraint Checker, Candidate Selector, Search Controller, Knowledge DB, and compatibility-gated Rule-based Proposal with its CLI. The latest milestone adds a bounded LLM requirement interpreter, a real Gemini provider, and `python -m src.llm_agent.cli`. A Vietnamese request was interpreted, validated, and used to select the measured 416 configuration; the saved CLI requirement was checked against the original request. The user confirmed **158 full-suite tests passed**, then **8 new LLM CLI tests passed separately**. The expected combined count is **166**, pending a full-suite rerun. LLM-generated new configurations, budgeted LLM experiment orchestration, broader search dimensions, and a dashboard remain future work.
 
 ## Why this project?
 
@@ -26,7 +26,7 @@ Direct mutation of the backbone, network graph, or arbitrary layer topology is o
 ## Project objectives
 
 - Parse structured YAML or JSON deployment requirements into validated objects.
-- Later convert natural-language requirements into the same schema through a bounded LLM interface.
+- Convert natural-language requirements into the same schema through a bounded LLM interface and deterministic validation.
 - Train and validate YOLO candidates reproducibly.
 - Benchmark candidates on the target device using one documented protocol.
 - Store accuracy, latency, parameter count, model size, and benchmark context in machine-readable candidate records.
@@ -49,7 +49,7 @@ flowchart TD
     G --> H["Selection and search-run records"]
 ```
 
-The Search Controller orchestrates the deterministic modules and reuses compatible candidate records when available. The future LLM Agent may translate requirements, propose search spaces, and explain results, but it will not generate measured metrics. Accuracy, latency, model size, constraint satisfaction, and ranking remain the responsibility of deterministic code.
+The Search Controller orchestrates the deterministic modules and reuses compatible candidate records when available. The implemented LLM interface translates natural-language requirements for the separate knowledge-proposal workflow. LLM-generated search spaces and experiment orchestration remain future work. The LLM does not generate measured metrics. Accuracy, latency, model size, constraint satisfaction, and ranking remain the responsibility of deterministic code.
 
 ### Rule-based proposal workflow
 
@@ -90,7 +90,7 @@ The parser:
 - validates supported optimization goals;
 - returns typed Python dataclasses.
 
-Natural-language parsing is not implemented. A future LLM layer may translate natural language into the same structured schema, while the deterministic parser remains responsible for validation.
+Natural-language interpretation is implemented in `src/llm_agent/interpreter.py`. Gemini translates the request into the supported schema; deterministic validation remains responsible for accepting or rejecting the structured result. Schema validity alone does not prove that the interpretation matches the user’s intent.
 
 ### Constraint Checker v1
 
@@ -405,6 +405,54 @@ codes distinguish selected (`0`), evaluated without selection (`1`), and handled
 input/file errors (`2`). Eight subprocess tests exercise the command-line entry
 point. See the CLI usage section for commands and path semantics.
 
+### LLM requirement interface v1 and Gemini provider
+
+The implemented LLM layer interprets requirements; candidate retrieval, compatibility, constraint checking, and ranking remain deterministic.
+
+Known entry points:
+
+- `src/llm_agent/interpreter.py`: `interpret_requirement`.
+- `src/llm_agent/gemini_provider.py`: `GeminiProvider` and `GeminiProviderError`.
+- `src/llm_agent/cli.py`: natural-language-to-proposal CLI.
+
+The interpreter returns one of three statuses:
+
+| Status | Downstream behavior |
+|---|---|
+| `ready` | Validate the structured requirement and pass it to the proposal workflow |
+| `needs_clarification` | Return questions; do not select a candidate |
+| `unsupported` | Return reasons; do not select a candidate |
+
+The Gemini provider reads `GEMINI_API_KEY`, sends the request through HTTP, requests JSON output, and extracts response text while ignoring thought parts. Twelve offline tests cover request construction, input validation, API-key redaction in HTTP errors, network/time-out failures, malformed responses, abnormal finish reasons, and missing text. Mocked HTTP tests verify the adapter contract, not live model quality.
+
+### LLM CLI v1
+
+```mermaid
+flowchart TD
+    A["Natural-language request"] --> B["Gemini interpreter"]
+    B --> C["Validated interpretation"]
+    C -->|ready| D["Knowledge proposal"]
+    C -->|clarification or unsupported| E["Questions or reasons"]
+    F["Measured records and hardware identity"] --> D
+    D --> G["Compatibility, constraints, ranking"]
+    G --> H["CLI JSON report"]
+    E --> H
+```
+
+The CLI calls Gemini once, then invokes `propose_from_knowledge` only for a `ready` interpretation. It passes the requirement through a temporary file that is removed after use. It does not invoke the Search Controller or run new training, validation, or benchmarks.
+
+Its report preserves `schema_version`, `request_id`, `user_text`, provider name/model, `expected_hardware_id`, `model_family`, `interpretation`, and `proposal`. For clarification or unsupported requests, `proposal` is JSON `null`.
+
+| Exit code | Meaning |
+|---|---|
+| `0` | A candidate was selected and the report was saved |
+| `1` | Report saved, but clarification, unsupported scope, or no selection |
+| `2` | Argument error or handled provider, validation, or file error |
+
+The LLM CLI requires a new `.json` output path and uses exclusive file creation: existing files are not overwritten. This differs from the existing structured Proposal CLI and `save_proposal()`, which may replace a proposal output.
+
+Eight offline CLI tests cover successful handoff and persistence, clarification, unsupported requests, no feasible candidate, provider errors, invalid JSON, existing-output protection, and missing hardware arguments. They retain the real interpreter/validation, replace the provider and proposal call, and block real HTTP.
+
 ## Current progress
 
 | Component | Status |
@@ -432,7 +480,7 @@ point. See the CLI usage section for commands and path semantics.
 | Search Controller v1 | Complete |
 | End-to-end pipeline execution | Complete for two demo requirements |
 | Selection and search-run JSON records | Complete |
-| Automated tests | 105 tests passed in the local macOS environment (user-reported full-suite result) |
+| Automated tests | 158 full-suite tests passed; 8 new LLM CLI tests passed separately; expected combined count 166, rerun pending |
 | Candidate filtering across multiple candidates | Complete |
 | Knowledge Database v1: index, loader, metric validation, queries | Complete; 19 tests passed |
 | Knowledge DB integration with proposal workflow | Complete for retrieval, evaluation, and selection |
@@ -441,10 +489,13 @@ point. See the CLI usage section for commands and path semantics.
 | Proposal JSON output | Complete; saved demo verified by reading the JSON back |
 | Pilot proposal compatibility policy and gate | Complete; 9 compatibility tests |
 | Generalized compatibility across datasets and hardware | Planned |
-| LLM Agent | Not started |
+| LLM requirement interpreter | Implemented; structured validation and three interpretation statuses |
+| Gemini provider | Implemented; live demo succeeded and 12 offline provider tests passed |
+| Natural-language proposal CLI | Implemented; saved demo checked and 8 offline CLI tests passed |
+| LLM-generated new configurations and experiment loop | Planned |
 | Dashboard | Not started |
 
-Knowledge DB v1 was committed and pushed in `e733835`; the original Rule-based Proposal v1 in `d5010b5`; and the pilot compatibility gate, enriched metadata, updated proposal JSON, and documentation in `9d75c54`. The latest local milestone adds Proposal CLI v1 and eight subprocess tests. Shared terminal output confirms all 105 tests passed. CLI commit and push have not yet been confirmed. Documentation status: 17 September 2026.
+Earlier documented commits: Knowledge DB v1 (`e733835`), original Rule-based Proposal (`d5010b5`), and pilot compatibility/metadata (`9d75c54`). The latest local milestone is the Gemini interpreter/provider and natural-language CLI. Commit and push of this latest milestone have not been confirmed. Test and live-demo statuses above are based on the user's reported local results; this documentation edit did not execute the repository tests.
 
 ## Experimental setup
 
@@ -891,27 +942,18 @@ The first search space declares:
 
 ## Automated tests
 
-The current suite contains:
+Verification status at this documentation update:
 
-| Module | Tests |
-|---|---:|
-| Requirement Parser | 8 |
-| Constraint Checker | 8 |
-| CPU Benchmark | 6 |
-| Search Space Parser | 9 |
-| Candidate Runner | 7 |
-| Candidate Selector | 12 |
-| Search Controller | 8 |
-| Search Integration | 3 |
-| Knowledge metric validation | 6 |
-| Knowledge loader | 6 |
-| Knowledge query | 7 |
-| Candidate Compatibility | 9 |
-| Rule-based Proposal | 8 |
-| Proposal CLI | 8 |
-| Total test cases | 105 |
+| Check | Confirmed result |
+|---|---|
+| Earlier deterministic pipeline, Knowledge DB, compatibility, and Proposal CLI milestone | 105 tests passed (historical) |
+| Full suite after LLM interpreter and Gemini provider work | 158 tests passed, user-reported |
+| Gemini provider tests | 12 passed; included in the 158-test milestone |
+| Newly added LLM CLI tests | 8 passed separately |
+| Combined suite after adding LLM CLI tests | Expected 166; full rerun not yet confirmed |
+| Live Gemini end-to-end and CLI demos | Successful selection of the 416 candidate; saved requirement checked |
 
-Shared terminal output confirms a successful full **105-test** run in the local macOS project environment after adding CLI coverage. This README update does not represent a fresh test execution or model benchmark.
+Do not add the 12 provider tests again to the 158 total. The expected combined count is `158 + 8 = 166`. The available evidence does not establish a complete per-file breakdown of all LLM interpreter tests, so no inferred breakdown is listed. This README edit did not rerun tests or benchmarks.
 
 Three integration tests exercise real requirement and search-space
 parsing, candidate-record reuse, constraint checking, selection, and
@@ -960,10 +1002,10 @@ Run:
 python -m unittest discover -s tests -v
 ```
 
-The current expected result is:
+The expected result after adding the eight LLM CLI tests is (not yet confirmed as a combined run):
 
 ```text
-Ran 105 tests
+Ran 166 tests
 OK
 ```
 
@@ -1003,7 +1045,7 @@ missing hardware identity, and unspecified target hardware.
 The real demo was also regenerated, saved, read back, and compared with its
 in-memory result. This manual persistence check is not counted as another test.
 
-Run only the CLI tests:
+Run only the structured Proposal CLI tests:
 
 ```bash
 python -m unittest discover -s tests -p "test_proposal_cli.py" -v
@@ -1016,6 +1058,15 @@ invalid hardware arguments, missing requirement files, and rejection of output
 paths that would replace the requirement, index, or a retrieved candidate record.
 Checks inspect process exit codes, output JSON, error messages, and unchanged
 input bytes. They do not run YOLO or alter measured project records.
+
+Run the new Gemini provider and LLM CLI tests separately (offline):
+
+```bash
+python -m unittest discover -s tests -p "test_gemini_provider.py" -v
+python -m unittest discover -s tests -p "test_llm_cli.py" -v
+```
+
+Expected: 12 and 8 tests respectively. A passing mock-based suite does not guarantee semantic correctness for arbitrary live requests. Inspect the saved `interpretation.requirement` against the requested values.
 
 A test named `test_fails_*` reporting `ok` means the checker correctly detected the intended failure.
 
@@ -1056,7 +1107,9 @@ EdgeNAS-Lite/
 │   │   ├── edge_cpu_demo__yolo26n_kitti_pilot_imgsz512_cpu.json
 │   │   └── low_latency_balanced_demo__*.json
 │   ├── proposals/
-│   │   └── low_latency_balanced_demo.json
+│   │   ├── low_latency_balanced_demo.json
+│   │   ├── gemini_end_to_end_demo.json
+│   │   └── gemini_cli_demo.json
 │   ├── selections/
 │   │   ├── edge_cpu_demo.json
 │   │   └── low_latency_balanced_demo.json
@@ -1066,6 +1119,10 @@ EdgeNAS-Lite/
 │   ├── baseline_benchmark.json
 │   └── pilot_cpu_benchmark.json
 ├── src/
+│   ├── llm_agent/
+│   │   ├── interpreter.py
+│   │   ├── gemini_provider.py
+│   │   └── cli.py
 │   ├── proposal/
 │   │   ├── __init__.py
 │   │   ├── rule_based.py
@@ -1101,6 +1158,8 @@ EdgeNAS-Lite/
 │   └── evaluation/
 │       └── benchmark.py
 ├── tests/
+│   ├── test_gemini_provider.py
+│   ├── test_llm_cli.py
 │   ├── test_cpu_benchmark.py
 │   ├── test_constraint_checker.py
 │   ├── test_requirement_parser.py
@@ -1120,7 +1179,7 @@ EdgeNAS-Lite/
 └── smoke_test.py
 ```
 
-Generated datasets, virtual environments, large model weights, complete run directories, and local ZIP archives must remain outside version control.
+The tree highlights documented entry points and artifacts; additional LLM support and test files may exist locally. Generated datasets, virtual environments, large model weights, complete run directories, local ZIP archives, and API keys must remain outside version control.
 
 ## Installation
 
@@ -1453,6 +1512,45 @@ retrieved candidate record. This is limited input-path protection, not a general
 restriction on all project files or all indexed records. Choose a dedicated
 proposal output path under `results/proposals/`.
 
+### Generate a proposal from natural language with Gemini
+
+Run in the activated project environment with `GEMINI_API_KEY` already set. The provider reads the environment; automatic `.env` loading is not established by this milestone. Keep the key outside source code and committed files.
+
+```bash
+python -m src.llm_agent.cli \
+  --text "Tôi cần object detection trên KITTI, chạy bằng CPU. mAP50-95 tối thiểu 20%, median latency tối đa 12 ms, kích thước file model tối đa 6 MB. Ưu tiên cân bằng độ chính xác, latency và kích thước." \
+  --request-id gemini_cli_demo_v2 \
+  --hardware-id local_mac_cpu_01 \
+  --output results/proposals/gemini_cli_demo_v2.json
+```
+
+This invokes the live API once and reads existing measurements. It does not require new model execution. The `_v2` filename avoids replacing the already verified demo; choose another unused filename for subsequent runs.
+
+The implemented default model identifier is `gemini-3.5-flash-lite`, configurable through `--model`. This documents the supplied code and successful reported demo; it is not a guarantee of future model availability or access.
+
+| Argument | Behavior |
+|---|---|
+| `--text` | Required natural-language request |
+| `--request-id` | Required request identifier |
+| `--hardware-id` | Required target hardware identity |
+| `--model-family` | Defaults to `YOLO26` |
+| `--model` | Overrides the provider model identifier |
+| `--project-root` | Defaults to `.` |
+| `--index` | Defaults to `knowledge/index.yaml` |
+| `--output` | Required new `.json` report; relative paths resolve under project root |
+
+Expected for the verified request and existing records:
+
+```text
+Interpretation: ready
+Proposal: selected
+Selected: yolo26n_kitti_pilot_imgsz416_cpu
+```
+
+The original reports are `results/proposals/gemini_end_to_end_demo.json` (proposal only) and `results/proposals/gemini_cli_demo.json` (CLI wrapper containing interpretation and proposal). Their schemas differ intentionally.
+
+The saved CLI requirement was checked against `object_detection`, `cpu`, `KITTI`, minimum mAP50–95 `0.20`, maximum median latency `12.0` ms, maximum size `6.0` MB, and `balanced`. All three records passed compatibility; 640 failed latency and 416 was selected over feasible 512. This confirms the specific demo, not semantic accuracy on every natural-language request.
+
 ### Run all tests
 
 ```bash
@@ -1526,7 +1624,8 @@ All current candidates use the same validation split and standardized benchmark 
 - Rule-based Proposal v1 consumes the Knowledge DB and selects from existing evidence; it does not generate new configurations or invoke the Search Controller for new experiments.
 - Proposal compatibility is enforced only by the fixed KITTI CPU pilot policy. Software versions, CPU thread count, dataset image identities, class-ID mappings, and operating conditions are not fully validated. The hardware identifier relies on operator confirmation.
 - Newly generated candidate records must include the required metadata before they can pass proposal compatibility; automatic hardware-ID capture by the Candidate Runner is not part of this milestone.
-- Natural-language parsing, the LLM Agent, and the dashboard remain planned.
+- Natural-language interpretation and the Gemini CLI are implemented, but semantic correctness must still be checked; valid JSON/schema alone cannot detect every misunderstanding.
+- There is no implemented LLM loop for proposing new configurations, scheduling experiments, or learning from their results. The dashboard remains planned.
 - The current project performs configuration search, not full neural architecture mutation.
 
 ## Portfolio evidence
@@ -1546,14 +1645,9 @@ The repository should not include `.venv/`, downloaded datasets, API keys, compl
 
 ## Roadmap
 
-Completed foundations: deterministic search orchestration, zero/one/multiple
-feasible-candidate integration coverage, balanced scoring and tie-breaking,
-Knowledge DB v1, Rule-based Proposal v1, and the KITTI CPU pilot compatibility
-gate, plus Proposal CLI v1 and its eight subprocess tests. The current suite
-totals 105 passing tests; the saved proposal includes
-compatibility reports and metadata provenance.
+Completed foundations: deterministic search orchestration, Knowledge DB, compatibility-gated proposal, structured Proposal CLI, bounded LLM requirement interpretation, real Gemini integration, and natural-language CLI. The live demo reused measured evidence and selected the 416 configuration. Verification: 158 full-suite tests passed, followed by eight separately passing new CLI tests.
 
-1. Add bounded natural-language-to-schema translation through an LLM and validate its output with the existing Requirement Parser. Keep hardware context explicit and compare behavior with the deterministic baseline.
+1. Rerun the combined suite (expected 166 tests), review saved reports and staged changes, then commit/push the LLM milestone. Expand natural-language evaluation with missing, ambiguous, contradictory, and unsupported requests, and compare interpretations against explicit expected requirements.
 2. Add bounded LLM candidate proposals within an approved search space, then connect new experiments to the Search Controller with explicit budgets. Never generate or overwrite measured metrics through the LLM.
 3. Extend evidence collection and compatibility beyond the fixed pilot policy: capture hardware identity at measurement time, retain software/thread configuration and dataset identities, and align checks across proposal and experiment-reuse paths.
 4. Expand controlled search to justified dimensions such as model scale, quantization, or deployment format, measuring each new configuration under a comparable protocol.
