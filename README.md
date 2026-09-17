@@ -4,7 +4,7 @@ EdgeNAS-Lite is a lightweight, deterministic prototype for selecting and evaluat
 
 The system accepts structured requirements such as minimum accuracy, maximum median latency, maximum model size, target device, and optimization priority. It validates those requirements, compares them with measured candidate results, rejects infeasible candidates, ranks feasible options, and produces a deterministic final selection.
 
-> **Current scope — updated 17 September 2026:** the repository contains a YOLO26/KITTI smoke and pilot pipeline, a standardized multi-image CPU benchmark, deterministic requirement and search-space parsing, a Candidate Runner, Constraint Checker, Candidate Selector, and Search Controller. Two recorded search runs reuse measurements at input sizes 416, 512, and 640. Knowledge Database v1 loads, validates, and queries these records. Rule-based Proposal v1 now checks evidence compatibility under `kitti_cpu_pilot_v1` before constraint evaluation and ranking, and saves compatibility reports and source references in JSON. The full local suite passed **97 tests**, as shown in the shared macOS terminal output. The LLM Agent, broader search dimensions, and dashboard remain planned.
+> **Current scope — updated 17 September 2026:** the repository contains a YOLO26/KITTI smoke and pilot pipeline, a standardized multi-image CPU benchmark, deterministic requirement and search-space parsing, a Candidate Runner, Constraint Checker, Candidate Selector, and Search Controller. Two recorded search runs reuse measurements at input sizes 416, 512, and 640. Knowledge Database v1 loads, validates, and queries these records. Rule-based Proposal v1 now checks evidence compatibility under `kitti_cpu_pilot_v1` before constraint evaluation and ranking, and saves compatibility reports and source references in JSON. Proposal CLI v1 exposes this workflow through `python -m src.proposal.cli`, with explicit hardware identity, JSON output, and exit codes. The full local suite passed **105 tests**, as shown in the shared macOS terminal output. The LLM Agent, broader search dimensions, and dashboard remain planned.
 
 ## Why this project?
 
@@ -397,6 +397,14 @@ benchmark timing scope. Nine separate tests cover the compatibility function.
 This workflow selects existing measured configurations; it does not generate
 new configurations, run experiments, or use an LLM.
 
+### Proposal CLI v1
+
+`src/proposal/cli.py` wraps the existing proposal API, requires explicit hardware
+identity, writes a JSON result, and prints a concise selection summary. Exit
+codes distinguish selected (`0`), evaluated without selection (`1`), and handled
+input/file errors (`2`). Eight subprocess tests exercise the command-line entry
+point. See the CLI usage section for commands and path semantics.
+
 ## Current progress
 
 | Component | Status |
@@ -424,18 +432,19 @@ new configurations, run experiments, or use an LLM.
 | Search Controller v1 | Complete |
 | End-to-end pipeline execution | Complete for two demo requirements |
 | Selection and search-run JSON records | Complete |
-| Automated tests | 97 tests passed in the local macOS environment (user-reported full-suite result) |
+| Automated tests | 105 tests passed in the local macOS environment (user-reported full-suite result) |
 | Candidate filtering across multiple candidates | Complete |
 | Knowledge Database v1: index, loader, metric validation, queries | Complete; 19 tests passed |
 | Knowledge DB integration with proposal workflow | Complete for retrieval, evaluation, and selection |
 | Rule-based proposal baseline | Complete with compatibility gate; 8 automated tests |
+| Proposal CLI v1 | Complete; 8 subprocess tests |
 | Proposal JSON output | Complete; saved demo verified by reading the JSON back |
 | Pilot proposal compatibility policy and gate | Complete; 9 compatibility tests |
 | Generalized compatibility across datasets and hardware | Planned |
 | LLM Agent | Not started |
 | Dashboard | Not started |
 
-Knowledge DB v1 was committed and pushed in `e733835`; the original Rule-based Proposal v1 was committed and pushed in `d5010b5`. The latest local milestone adds the pilot compatibility policy, metadata provenance, proposal integration, and an updated demo JSON. Shared terminal output confirms 97 tests passed. The updated proposal JSON was reviewed for consistency; a commit or push of this latest milestone has not yet been confirmed. Documentation status: 17 September 2026.
+Knowledge DB v1 was committed and pushed in `e733835`; the original Rule-based Proposal v1 in `d5010b5`; and the pilot compatibility gate, enriched metadata, updated proposal JSON, and documentation in `9d75c54`. The latest local milestone adds Proposal CLI v1 and eight subprocess tests. Shared terminal output confirms all 105 tests passed. CLI commit and push have not yet been confirmed. Documentation status: 17 September 2026.
 
 ## Experimental setup
 
@@ -899,9 +908,10 @@ The current suite contains:
 | Knowledge query | 7 |
 | Candidate Compatibility | 9 |
 | Rule-based Proposal | 8 |
-| Total test cases | 97 |
+| Proposal CLI | 8 |
+| Total test cases | 105 |
 
-Shared terminal output confirms a successful full **97-test** run in the local macOS project environment after compatibility integration. This README update does not represent a fresh test execution or model benchmark.
+Shared terminal output confirms a successful full **105-test** run in the local macOS project environment after adding CLI coverage. This README update does not represent a fresh test execution or model benchmark.
 
 Three integration tests exercise real requirement and search-space
 parsing, candidate-record reuse, constraint checking, selection, and
@@ -953,11 +963,11 @@ python -m unittest discover -s tests -v
 The current expected result is:
 
 ```text
-Ran 97 tests
+Ran 105 tests
 OK
 ```
 
-Historical milestones: 56 tests at the earlier controller milestone; 61 after integration and deterministic tie-breaking coverage; 80 after Knowledge DB coverage; 84 after the original four proposal tests; and 97 after nine compatibility tests and four additional proposal tests. These are software checks, not new accuracy or latency experiments.
+Historical milestones: 56 tests at the earlier controller milestone; 61 after integration and deterministic tie-breaking coverage; 80 after Knowledge DB coverage; 84 after the original four proposal tests; 97 after nine compatibility tests and four additional proposal tests; and 105 after eight CLI tests. These are software checks, not new accuracy or latency experiments.
 
 Run only the Knowledge DB tests:
 
@@ -992,6 +1002,20 @@ missing hardware identity, and unspecified target hardware.
 
 The real demo was also regenerated, saved, read back, and compared with its
 in-memory result. This manual persistence check is not counted as another test.
+
+Run only the CLI tests:
+
+```bash
+python -m unittest discover -s tests -p "test_proposal_cli.py" -v
+```
+
+Expected: eight tests, `OK`. Each test invokes the actual module in a separate
+Python process using temporary requirement, index, and candidate files. Coverage
+includes successful selection, all three no-selection statuses, missing and
+invalid hardware arguments, missing requirement files, and rejection of output
+paths that would replace the requirement, index, or a retrieved candidate record.
+Checks inspect process exit codes, output JSON, error messages, and unchanged
+input bytes. They do not run YOLO or alter measured project records.
 
 A test named `test_fails_*` reporting `ok` means the checker correctly detected the intended failure.
 
@@ -1046,6 +1070,7 @@ EdgeNAS-Lite/
 │   │   ├── __init__.py
 │   │   ├── rule_based.py
 │   │   ├── compatibility.py
+│   │   ├── cli.py
 │   │   └── output.py
 │   ├── knowledge_database/
 │   │   ├── __init__.py
@@ -1087,6 +1112,7 @@ EdgeNAS-Lite/
 │   ├── test_knowledge_database.py
 │   ├── test_knowledge_query.py
 │   ├── test_candidate_compatibility.py
+│   ├── test_proposal_cli.py
 │   └── test_rule_based_proposal.py
 ├── .gitignore
 ├── README.md
@@ -1360,7 +1386,72 @@ Selected: yolo26n_kitti_pilot_imgsz416_cpu
 Saved: results/proposals/low_latency_balanced_demo.json
 ```
 
-`save_proposal()` creates parent directories and overwrites an existing destination file. The proposal API distinguishes no retrieval matches, no compatible records, and no feasible candidate. Hardware identity is an API argument; it is not an added Requirement Parser schema field. This is a Python API example; a dedicated proposal command-line interface is not implemented.
+`save_proposal()` creates parent directories and overwrites an existing destination file. The proposal API distinguishes no retrieval matches, no compatible records, and no feasible candidate. Hardware identity is an API argument; it is not an added Requirement Parser schema field. This is the Python API example; the equivalent CLI is documented below.
+
+### Generate a proposal through the CLI
+
+Implemented in `src/proposal/cli.py`. Run from the repository root with the
+project environment activated:
+
+```bash
+python -m src.proposal.cli --help
+
+python -m src.proposal.cli \
+  configs/requests/low_latency_balanced_demo.yaml \
+  --hardware-id local_mac_cpu_01 \
+  --model-family YOLO26 \
+  --output results/proposals/low_latency_balanced_demo.json
+```
+
+Expected: `Status: selected`, 3 retrieved, 3 compatible, 0 excluded, 2 feasible,
+and selected candidate `yolo26n_kitti_pilot_imgsz416_cpu`. The output path is
+printed as an absolute path; the JSON retains project-relative source references.
+This command reads saved measurements without loading model weights or images.
+
+| Argument | Behavior |
+|---|---|
+| `requirement` | Required positional YAML or JSON requirement path |
+| `--hardware-id` | Required target identity; whitespace is stripped, empty values and `<MISSING>` are rejected |
+| `--model-family` | Optional filter; omitted means no model-family restriction |
+| `--index` | Defaults to `knowledge/index.yaml` |
+| `--project-root` | Defaults to the current directory; base for relative requirement, index, output, and source paths |
+| `--output` | Required JSON destination; existing proposal output is replaced |
+
+Hardware identity is provided separately from the requirement schema. The CLI
+requires this argument even though the underlying Python API permits omission
+and then reports unverified hardware for retrieved records.
+
+| Exit code | Meaning |
+|---|---|
+| `0` | Candidate selected and JSON saved |
+| `1` | JSON saved with `no_matching_candidates`, `no_compatible_candidates`, or `no_feasible_candidate` |
+| `2` | Invalid arguments or a handled file/validation error; see stderr |
+
+Use `echo $?` immediately after the command to inspect its exit code.
+Code `1` is a completed evaluation with no selection, not a parsing error.
+Code `2` does not guarantee that an older output file has been removed: do not
+interpret an existing JSON as a fresh result after a failed command.
+
+To exercise hardware mismatch while keeping the successful demo separate:
+
+```bash
+python -m src.proposal.cli \
+  configs/requests/low_latency_balanced_demo.yaml \
+  --hardware-id another_machine \
+  --model-family YOLO26 \
+  --output results/proposals/hardware_mismatch_demo.json
+
+echo $?
+```
+
+Expected: `no_compatible_candidates`, 3 exclusions, no selection, and exit code
+`1`. Omitting `--hardware-id` produces an argument error with exit code `2`
+before executing the proposal workflow.
+
+The CLI rejects an output path resolving to the requirement, index, or a
+retrieved candidate record. This is limited input-path protection, not a general
+restriction on all project files or all indexed records. Choose a dedicated
+proposal output path under `results/proposals/`.
 
 ### Run all tests
 
@@ -1458,16 +1549,16 @@ The repository should not include `.venv/`, downloaded datasets, API keys, compl
 Completed foundations: deterministic search orchestration, zero/one/multiple
 feasible-candidate integration coverage, balanced scoring and tie-breaking,
 Knowledge DB v1, Rule-based Proposal v1, and the KITTI CPU pilot compatibility
-gate. The current suite totals 97 passing tests; the saved proposal includes
+gate, plus Proposal CLI v1 and its eight subprocess tests. The current suite
+totals 105 passing tests; the saved proposal includes
 compatibility reports and metadata provenance.
 
-1. Add a reproducible proposal CLI with an explicit target hardware argument, then document exit behavior and JSON output for every proposal status.
-2. Add bounded natural-language-to-schema translation through an LLM and validate its output with the existing Requirement Parser. Keep hardware context explicit and compare behavior with the deterministic baseline.
-3. Add bounded LLM candidate proposals within an approved search space, then connect new experiments to the Search Controller with explicit budgets. Never generate or overwrite measured metrics through the LLM.
-4. Extend evidence collection and compatibility beyond the fixed pilot policy: capture hardware identity at measurement time, retain software/thread configuration and dataset identities, and align checks across proposal and experiment-reuse paths.
-5. Expand controlled search to justified dimensions such as model scale, quantization, or deployment format, measuring each new configuration under a comparable protocol.
-6. Compare equal-weight scoring with alternative weights and Pareto-based selection as feasible candidates become more diverse. Weights are not currently configurable.
-7. Extend stopping rules and cache invalidation in the Search Controller, and build a compact dashboard displaying requirements, evidence, exclusions, and selections.
+1. Add bounded natural-language-to-schema translation through an LLM and validate its output with the existing Requirement Parser. Keep hardware context explicit and compare behavior with the deterministic baseline.
+2. Add bounded LLM candidate proposals within an approved search space, then connect new experiments to the Search Controller with explicit budgets. Never generate or overwrite measured metrics through the LLM.
+3. Extend evidence collection and compatibility beyond the fixed pilot policy: capture hardware identity at measurement time, retain software/thread configuration and dataset identities, and align checks across proposal and experiment-reuse paths.
+4. Expand controlled search to justified dimensions such as model scale, quantization, or deployment format, measuring each new configuration under a comparable protocol.
+5. Compare equal-weight scoring with alternative weights and Pareto-based selection as feasible candidates become more diverse. Weights are not currently configurable.
+6. Extend stopping rules and cache invalidation in the Search Controller, and build a compact dashboard displaying requirements, evidence, exclusions, and selections.
 
 ## Reproducibility notes
 
