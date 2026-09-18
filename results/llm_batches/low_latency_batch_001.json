@@ -1,0 +1,24 @@
+{
+  "schema_version": "1.0",
+  "batch_id": "low_latency_batch_001",
+  "settings": {
+    "budget": 2,
+    "requirement_file": "configs/requests/low_latency_balanced_demo.yaml",
+    "hardware_id": "local_mac_cpu_01",
+    "template_candidate_id": "yolo26n_kitti_pilot",
+    "model": null
+  },
+  "status": "budget_finished",
+  "slots": [
+    {
+      "run_id": "low_latency_batch_001_001",
+      "status": "completed",
+      "candidate_id": "yolo26n_kitti_pilot_imgsz576_cpu"
+    },
+    {
+      "run_id": "low_latency_batch_001_002",
+      "status": "completed",
+      "candidate_id": "yolo26n_kitti_pilot_imgsz608_cpu"
+    }
+  ]
+}
