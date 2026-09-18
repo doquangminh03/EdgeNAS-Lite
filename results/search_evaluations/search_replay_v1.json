@@ -1,0 +1,142 @@
+{
+  "evaluation_version": "search_replay_v1",
+  "evaluation_type": "retrospective_measured_evidence_replay",
+  "source_run_ids": [
+    "low_latency_cycle_001",
+    "low_latency_batch_001_001",
+    "low_latency_batch_001_002"
+  ],
+  "requirement": {
+    "schema_version": "1.0",
+    "request_id": "low_latency_balanced_demo",
+    "target": {
+      "task": "object_detection",
+      "device": "cpu",
+      "dataset": "KITTI"
+    },
+    "constraints": {
+      "minimum_map50_95": 0.2,
+      "maximum_median_latency_ms": 12.0,
+      "maximum_model_size_mb": 6.0
+    },
+    "preferences": {
+      "optimization_goal": "balanced"
+    }
+  },
+  "hardware_id": "local_mac_cpu_01",
+  "initial_image_sizes": [
+    416,
+    448,
+    512,
+    640
+  ],
+  "experiment_budget": 3,
+  "llm_observed_order": [
+    480,
+    576,
+    608
+  ],
+  "ascending_order": [
+    480,
+    576,
+    608
+  ],
+  "llm_trajectory": [
+    {
+      "new_experiments": 0,
+      "selected_candidate_id": "yolo26n_kitti_pilot_imgsz416_cpu",
+      "selected_image_size": 416,
+      "best_score": 0.143132,
+      "gain_over_initial": 0.0
+    },
+    {
+      "new_experiments": 1,
+      "selected_candidate_id": "yolo26n_kitti_pilot_imgsz416_cpu",
+      "selected_image_size": 416,
+      "best_score": 0.143132,
+      "gain_over_initial": 0.0
+    },
+    {
+      "new_experiments": 2,
+      "selected_candidate_id": "yolo26n_kitti_pilot_imgsz416_cpu",
+      "selected_image_size": 416,
+      "best_score": 0.143132,
+      "gain_over_initial": 0.0
+    },
+    {
+      "new_experiments": 3,
+      "selected_candidate_id": "yolo26n_kitti_pilot_imgsz416_cpu",
+      "selected_image_size": 416,
+      "best_score": 0.143132,
+      "gain_over_initial": 0.0
+    }
+  ],
+  "ascending_trajectory": [
+    {
+      "new_experiments": 0,
+      "selected_candidate_id": "yolo26n_kitti_pilot_imgsz416_cpu",
+      "selected_image_size": 416,
+      "best_score": 0.143132,
+      "gain_over_initial": 0.0
+    },
+    {
+      "new_experiments": 1,
+      "selected_candidate_id": "yolo26n_kitti_pilot_imgsz416_cpu",
+      "selected_image_size": 416,
+      "best_score": 0.143132,
+      "gain_over_initial": 0.0
+    },
+    {
+      "new_experiments": 2,
+      "selected_candidate_id": "yolo26n_kitti_pilot_imgsz416_cpu",
+      "selected_image_size": 416,
+      "best_score": 0.143132,
+      "gain_over_initial": 0.0
+    },
+    {
+      "new_experiments": 3,
+      "selected_candidate_id": "yolo26n_kitti_pilot_imgsz416_cpu",
+      "selected_image_size": 416,
+      "best_score": 0.143132,
+      "gain_over_initial": 0.0
+    }
+  ],
+  "random_permutation_count": 6,
+  "random_without_replacement": [
+    {
+      "new_experiments": 0,
+      "mean_best_score": 0.143132,
+      "minimum_best_score": 0.143132,
+      "maximum_best_score": 0.143132
+    },
+    {
+      "new_experiments": 1,
+      "mean_best_score": 0.143132,
+      "minimum_best_score": 0.143132,
+      "maximum_best_score": 0.143132
+    },
+    {
+      "new_experiments": 2,
+      "mean_best_score": 0.143132,
+      "minimum_best_score": 0.143132,
+      "maximum_best_score": 0.143132
+    },
+    {
+      "new_experiments": 3,
+      "mean_best_score": 0.143132,
+      "minimum_best_score": 0.143132,
+      "maximum_best_score": 0.143132
+    }
+  ],
+  "final_selected_candidate_id": "yolo26n_kitti_pilot_imgsz416_cpu",
+  "final_gain_over_initial": 0.0,
+  "limitations": [
+    "Retrospective replay, not fresh randomized experiments.",
+    "Random results enumerate all orders of these remaining candidates.",
+    "Only one observed LLM sequence is available.",
+    "No API cost, token usage or wall-clock comparison is made.",
+    "Historical measurements were not all collected under the same OS.",
+    "Scores and feasibility reuse the saved final selection policy.",
+    "Findings apply only to this requirement and bounded resolution pool."
+  ]
+}
