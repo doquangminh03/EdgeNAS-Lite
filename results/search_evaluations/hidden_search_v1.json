@@ -1,0 +1,3165 @@
+{
+  "evaluation_version": "hidden_search_v1",
+  "status": "completed",
+  "initial_sizes": [
+    640
+  ],
+  "budget": 3,
+  "repeats": 3,
+  "maximum_provider_calls": 9,
+  "requirement": {
+    "schema_version": "1.0",
+    "request_id": "low_latency_balanced_demo",
+    "target": {
+      "task": "object_detection",
+      "device": "cpu",
+      "dataset": "KITTI"
+    },
+    "constraints": {
+      "minimum_map50_95": 0.2,
+      "maximum_median_latency_ms": 12.0,
+      "maximum_model_size_mb": 6.0
+    },
+    "preferences": {
+      "optimization_goal": "balanced"
+    }
+  },
+  "hardware_id": "local_mac_cpu_01",
+  "source_report": "results/llm_experiments/low_latency_batch_001_002.json",
+  "oracle_snapshot": {
+    "416": {
+      "candidate_id": "yolo26n_kitti_pilot_imgsz416_cpu",
+      "image_size": 416,
+      "map50_95": 0.207384,
+      "median_latency_ms": 8.754,
+      "model_size_mb": 5.102
+    },
+    "448": {
+      "candidate_id": "yolo26n_kitti_pilot_imgsz448_cpu",
+      "image_size": 448,
+      "map50_95": 0.221918,
+      "median_latency_ms": 10.628,
+      "model_size_mb": 5.102
+    },
+    "480": {
+      "candidate_id": "yolo26n_kitti_pilot_imgsz480_cpu",
+      "image_size": 480,
+      "map50_95": 0.23628,
+      "median_latency_ms": 10.934,
+      "model_size_mb": 5.102
+    },
+    "512": {
+      "candidate_id": "yolo26n_kitti_pilot_imgsz512_cpu",
+      "image_size": 512,
+      "map50_95": 0.242931,
+      "median_latency_ms": 11.279,
+      "model_size_mb": 5.102
+    },
+    "640": {
+      "candidate_id": "yolo26n_kitti_pilot",
+      "image_size": 640,
+      "map50_95": 0.273,
+      "median_latency_ms": 16.429,
+      "model_size_mb": 5.102
+    },
+    "576": {
+      "candidate_id": "yolo26n_kitti_pilot_imgsz576_cpu",
+      "image_size": 576,
+      "map50_95": 0.261257,
+      "median_latency_ms": 13.082,
+      "model_size_mb": 5.102
+    },
+    "608": {
+      "candidate_id": "yolo26n_kitti_pilot_imgsz608_cpu",
+      "image_size": 608,
+      "map50_95": 0.272838,
+      "median_latency_ms": 13.616,
+      "model_size_mb": 5.102
+    }
+  },
+  "selection_snapshot": {
+    "schema_version": "1.0",
+    "selection_id": "low_latency_balanced_demo__selection",
+    "request_id": "low_latency_balanced_demo",
+    "target": {
+      "task": "object_detection",
+      "device": "cpu",
+      "dataset": "KITTI"
+    },
+    "optimization_goal": "balanced",
+    "evaluated_candidate_count": 7,
+    "feasible_candidate_count": 4,
+    "rejected_candidates": [
+      {
+        "candidate_id": "yolo26n_kitti_pilot",
+        "failed_constraints": [
+          "maximum_median_latency_ms"
+        ],
+        "metrics": {
+          "map50_95": 0.273,
+          "median_latency_ms": 16.429,
+          "model_size_mb": 5.102
+        }
+      },
+      {
+        "candidate_id": "yolo26n_kitti_pilot_imgsz576_cpu",
+        "failed_constraints": [
+          "maximum_median_latency_ms"
+        ],
+        "metrics": {
+          "map50_95": 0.261257,
+          "median_latency_ms": 13.082,
+          "model_size_mb": 5.102
+        }
+      },
+      {
+        "candidate_id": "yolo26n_kitti_pilot_imgsz608_cpu",
+        "failed_constraints": [
+          "maximum_median_latency_ms"
+        ],
+        "metrics": {
+          "map50_95": 0.272838,
+          "median_latency_ms": 13.616,
+          "model_size_mb": 5.102
+        }
+      }
+    ],
+    "selection_status": "selected",
+    "selection_method": "optimization_goal_balanced",
+    "selected_candidate_id": "yolo26n_kitti_pilot_imgsz416_cpu",
+    "selected_metrics": {
+      "map50_95": 0.207384,
+      "median_latency_ms": 8.754,
+      "model_size_mb": 5.102
+    },
+    "reason": "Selected the highest-ranked feasible candidate for optimization goal 'balanced'.",
+    "ranking": [
+      {
+        "rank": 1,
+        "candidate_id": "yolo26n_kitti_pilot_imgsz416_cpu",
+        "score": 0.143132,
+        "score_components": {
+          "accuracy_headroom": 0.00923,
+          "latency_headroom": 0.2705,
+          "model_size_headroom": 0.149667
+        },
+        "metrics": {
+          "map50_95": 0.207384,
+          "median_latency_ms": 8.754,
+          "model_size_mb": 5.102
+        }
+      },
+      {
+        "rank": 2,
+        "candidate_id": "yolo26n_kitti_pilot_imgsz448_cpu",
+        "score": 0.097132,
+        "score_components": {
+          "accuracy_headroom": 0.027397,
+          "latency_headroom": 0.114333,
+          "model_size_headroom": 0.149667
+        },
+        "metrics": {
+          "map50_95": 0.221918,
+          "median_latency_ms": 10.628,
+          "model_size_mb": 5.102
+        }
+      },
+      {
+        "rank": 3,
+        "candidate_id": "yolo26n_kitti_pilot_imgsz480_cpu",
+        "score": 0.094617,
+        "score_components": {
+          "accuracy_headroom": 0.04535,
+          "latency_headroom": 0.088833,
+          "model_size_headroom": 0.149667
+        },
+        "metrics": {
+          "map50_95": 0.23628,
+          "median_latency_ms": 10.934,
+          "model_size_mb": 5.102
+        }
+      },
+      {
+        "rank": 4,
+        "candidate_id": "yolo26n_kitti_pilot_imgsz512_cpu",
+        "score": 0.087805,
+        "score_components": {
+          "accuracy_headroom": 0.053664,
+          "latency_headroom": 0.060083,
+          "model_size_headroom": 0.149667
+        },
+        "metrics": {
+          "map50_95": 0.242931,
+          "median_latency_ms": 11.279,
+          "model_size_mb": 5.102
+        }
+      }
+    ]
+  },
+  "ascending_order": [
+    416,
+    448,
+    480
+  ],
+  "ascending_trajectory": [
+    {
+      "step": 0,
+      "selected_candidate_id": null,
+      "best_score": null
+    },
+    {
+      "step": 1,
+      "selected_candidate_id": "yolo26n_kitti_pilot_imgsz416_cpu",
+      "best_score": 0.143132
+    },
+    {
+      "step": 2,
+      "selected_candidate_id": "yolo26n_kitti_pilot_imgsz416_cpu",
+      "best_score": 0.143132
+    },
+    {
+      "step": 3,
+      "selected_candidate_id": "yolo26n_kitti_pilot_imgsz416_cpu",
+      "best_score": 0.143132
+    }
+  ],
+  "random_order_count": 120,
+  "random_trajectories": [
+    [
+      {
+        "step": 0,
+        "selected_candidate_id": null,
+        "best_score": null
+      },
+      {
+        "step": 1,
+        "selected_candidate_id": "yolo26n_kitti_pilot_imgsz416_cpu",
+        "best_score": 0.143132
+      },
+      {
+        "step": 2,
+        "selected_candidate_id": "yolo26n_kitti_pilot_imgsz416_cpu",
+        "best_score": 0.143132
+      },
+      {
+        "step": 3,
+        "selected_candidate_id": "yolo26n_kitti_pilot_imgsz416_cpu",
+        "best_score": 0.143132
+      }
+    ],
+    [
+      {
+        "step": 0,
+        "selected_candidate_id": null,
+        "best_score": null
+      },
+      {
+        "step": 1,
+        "selected_candidate_id": "yolo26n_kitti_pilot_imgsz416_cpu",
+        "best_score": 0.143132
+      },
+      {
+        "step": 2,
+        "selected_candidate_id": "yolo26n_kitti_pilot_imgsz416_cpu",
+        "best_score": 0.143132
+      },
+      {
+        "step": 3,
+        "selected_candidate_id": "yolo26n_kitti_pilot_imgsz416_cpu",
+        "best_score": 0.143132
+      }
+    ],
+    [
+      {
+        "step": 0,
+        "selected_candidate_id": null,
+        "best_score": null
+      },
+      {
+        "step": 1,
+        "selected_candidate_id": "yolo26n_kitti_pilot_imgsz416_cpu",
+        "best_score": 0.143132
+      },
+      {
+        "step": 2,
+        "selected_candidate_id": "yolo26n_kitti_pilot_imgsz416_cpu",
+        "best_score": 0.143132
+      },
+      {
+        "step": 3,
+        "selected_candidate_id": "yolo26n_kitti_pilot_imgsz416_cpu",
+        "best_score": 0.143132
+      }
+    ],
+    [
+      {
+        "step": 0,
+        "selected_candidate_id": null,
+        "best_score": null
+      },
+      {
+        "step": 1,
+        "selected_candidate_id": "yolo26n_kitti_pilot_imgsz416_cpu",
+        "best_score": 0.143132
+      },
+      {
+        "step": 2,
+        "selected_candidate_id": "yolo26n_kitti_pilot_imgsz416_cpu",
+        "best_score": 0.143132
+      },
+      {
+        "step": 3,
+        "selected_candidate_id": "yolo26n_kitti_pilot_imgsz416_cpu",
+        "best_score": 0.143132
+      }
+    ],
+    [
+      {
+        "step": 0,
+        "selected_candidate_id": null,
+        "best_score": null
+      },
+      {
+        "step": 1,
+        "selected_candidate_id": "yolo26n_kitti_pilot_imgsz416_cpu",
+        "best_score": 0.143132
+      },
+      {
+        "step": 2,
+        "selected_candidate_id": "yolo26n_kitti_pilot_imgsz416_cpu",
+        "best_score": 0.143132
+      },
+      {
+        "step": 3,
+        "selected_candidate_id": "yolo26n_kitti_pilot_imgsz416_cpu",
+        "best_score": 0.143132
+      }
+    ],
+    [
+      {
+        "step": 0,
+        "selected_candidate_id": null,
+        "best_score": null
+      },
+      {
+        "step": 1,
+        "selected_candidate_id": "yolo26n_kitti_pilot_imgsz416_cpu",
+        "best_score": 0.143132
+      },
+      {
+        "step": 2,
+        "selected_candidate_id": "yolo26n_kitti_pilot_imgsz416_cpu",
+        "best_score": 0.143132
+      },
+      {
+        "step": 3,
+        "selected_candidate_id": "yolo26n_kitti_pilot_imgsz416_cpu",
+        "best_score": 0.143132
+      }
+    ],
+    [
+      {
+        "step": 0,
+        "selected_candidate_id": null,
+        "best_score": null
+      },
+      {
+        "step": 1,
+        "selected_candidate_id": "yolo26n_kitti_pilot_imgsz416_cpu",
+        "best_score": 0.143132
+      },
+      {
+        "step": 2,
+        "selected_candidate_id": "yolo26n_kitti_pilot_imgsz416_cpu",
+        "best_score": 0.143132
+      },
+      {
+        "step": 3,
+        "selected_candidate_id": "yolo26n_kitti_pilot_imgsz416_cpu",
+        "best_score": 0.143132
+      }
+    ],
+    [
+      {
+        "step": 0,
+        "selected_candidate_id": null,
+        "best_score": null
+      },
+      {
+        "step": 1,
+        "selected_candidate_id": "yolo26n_kitti_pilot_imgsz416_cpu",
+        "best_score": 0.143132
+      },
+      {
+        "step": 2,
+        "selected_candidate_id": "yolo26n_kitti_pilot_imgsz416_cpu",
+        "best_score": 0.143132
+      },
+      {
+        "step": 3,
+        "selected_candidate_id": "yolo26n_kitti_pilot_imgsz416_cpu",
+        "best_score": 0.143132
+      }
+    ],
+    [
+      {
+        "step": 0,
+        "selected_candidate_id": null,
+        "best_score": null
+      },
+      {
+        "step": 1,
+        "selected_candidate_id": "yolo26n_kitti_pilot_imgsz416_cpu",
+        "best_score": 0.143132
+      },
+      {
+        "step": 2,
+        "selected_candidate_id": "yolo26n_kitti_pilot_imgsz416_cpu",
+        "best_score": 0.143132
+      },
+      {
+        "step": 3,
+        "selected_candidate_id": "yolo26n_kitti_pilot_imgsz416_cpu",
+        "best_score": 0.143132
+      }
+    ],
+    [
+      {
+        "step": 0,
+        "selected_candidate_id": null,
+        "best_score": null
+      },
+      {
+        "step": 1,
+        "selected_candidate_id": "yolo26n_kitti_pilot_imgsz416_cpu",
+        "best_score": 0.143132
+      },
+      {
+        "step": 2,
+        "selected_candidate_id": "yolo26n_kitti_pilot_imgsz416_cpu",
+        "best_score": 0.143132
+      },
+      {
+        "step": 3,
+        "selected_candidate_id": "yolo26n_kitti_pilot_imgsz416_cpu",
+        "best_score": 0.143132
+      }
+    ],
+    [
+      {
+        "step": 0,
+        "selected_candidate_id": null,
+        "best_score": null
+      },
+      {
+        "step": 1,
+        "selected_candidate_id": "yolo26n_kitti_pilot_imgsz416_cpu",
+        "best_score": 0.143132
+      },
+      {
+        "step": 2,
+        "selected_candidate_id": "yolo26n_kitti_pilot_imgsz416_cpu",
+        "best_score": 0.143132
+      },
+      {
+        "step": 3,
+        "selected_candidate_id": "yolo26n_kitti_pilot_imgsz416_cpu",
+        "best_score": 0.143132
+      }
+    ],
+    [
+      {
+        "step": 0,
+        "selected_candidate_id": null,
+        "best_score": null
+      },
+      {
+        "step": 1,
+        "selected_candidate_id": "yolo26n_kitti_pilot_imgsz416_cpu",
+        "best_score": 0.143132
+      },
+      {
+        "step": 2,
+        "selected_candidate_id": "yolo26n_kitti_pilot_imgsz416_cpu",
+        "best_score": 0.143132
+      },
+      {
+        "step": 3,
+        "selected_candidate_id": "yolo26n_kitti_pilot_imgsz416_cpu",
+        "best_score": 0.143132
+      }
+    ],
+    [
+      {
+        "step": 0,
+        "selected_candidate_id": null,
+        "best_score": null
+      },
+      {
+        "step": 1,
+        "selected_candidate_id": "yolo26n_kitti_pilot_imgsz416_cpu",
+        "best_score": 0.143132
+      },
+      {
+        "step": 2,
+        "selected_candidate_id": "yolo26n_kitti_pilot_imgsz416_cpu",
+        "best_score": 0.143132
+      },
+      {
+        "step": 3,
+        "selected_candidate_id": "yolo26n_kitti_pilot_imgsz416_cpu",
+        "best_score": 0.143132
+      }
+    ],
+    [
+      {
+        "step": 0,
+        "selected_candidate_id": null,
+        "best_score": null
+      },
+      {
+        "step": 1,
+        "selected_candidate_id": "yolo26n_kitti_pilot_imgsz416_cpu",
+        "best_score": 0.143132
+      },
+      {
+        "step": 2,
+        "selected_candidate_id": "yolo26n_kitti_pilot_imgsz416_cpu",
+        "best_score": 0.143132
+      },
+      {
+        "step": 3,
+        "selected_candidate_id": "yolo26n_kitti_pilot_imgsz416_cpu",
+        "best_score": 0.143132
+      }
+    ],
+    [
+      {
+        "step": 0,
+        "selected_candidate_id": null,
+        "best_score": null
+      },
+      {
+        "step": 1,
+        "selected_candidate_id": "yolo26n_kitti_pilot_imgsz416_cpu",
+        "best_score": 0.143132
+      },
+      {
+        "step": 2,
+        "selected_candidate_id": "yolo26n_kitti_pilot_imgsz416_cpu",
+        "best_score": 0.143132
+      },
+      {
+        "step": 3,
+        "selected_candidate_id": "yolo26n_kitti_pilot_imgsz416_cpu",
+        "best_score": 0.143132
+      }
+    ],
+    [
+      {
+        "step": 0,
+        "selected_candidate_id": null,
+        "best_score": null
+      },
+      {
+        "step": 1,
+        "selected_candidate_id": "yolo26n_kitti_pilot_imgsz416_cpu",
+        "best_score": 0.143132
+      },
+      {
+        "step": 2,
+        "selected_candidate_id": "yolo26n_kitti_pilot_imgsz416_cpu",
+        "best_score": 0.143132
+      },
+      {
+        "step": 3,
+        "selected_candidate_id": "yolo26n_kitti_pilot_imgsz416_cpu",
+        "best_score": 0.143132
+      }
+    ],
+    [
+      {
+        "step": 0,
+        "selected_candidate_id": null,
+        "best_score": null
+      },
+      {
+        "step": 1,
+        "selected_candidate_id": "yolo26n_kitti_pilot_imgsz416_cpu",
+        "best_score": 0.143132
+      },
+      {
+        "step": 2,
+        "selected_candidate_id": "yolo26n_kitti_pilot_imgsz416_cpu",
+        "best_score": 0.143132
+      },
+      {
+        "step": 3,
+        "selected_candidate_id": "yolo26n_kitti_pilot_imgsz416_cpu",
+        "best_score": 0.143132
+      }
+    ],
+    [
+      {
+        "step": 0,
+        "selected_candidate_id": null,
+        "best_score": null
+      },
+      {
+        "step": 1,
+        "selected_candidate_id": "yolo26n_kitti_pilot_imgsz416_cpu",
+        "best_score": 0.143132
+      },
+      {
+        "step": 2,
+        "selected_candidate_id": "yolo26n_kitti_pilot_imgsz416_cpu",
+        "best_score": 0.143132
+      },
+      {
+        "step": 3,
+        "selected_candidate_id": "yolo26n_kitti_pilot_imgsz416_cpu",
+        "best_score": 0.143132
+      }
+    ],
+    [
+      {
+        "step": 0,
+        "selected_candidate_id": null,
+        "best_score": null
+      },
+      {
+        "step": 1,
+        "selected_candidate_id": "yolo26n_kitti_pilot_imgsz416_cpu",
+        "best_score": 0.143132
+      },
+      {
+        "step": 2,
+        "selected_candidate_id": "yolo26n_kitti_pilot_imgsz416_cpu",
+        "best_score": 0.143132
+      },
+      {
+        "step": 3,
+        "selected_candidate_id": "yolo26n_kitti_pilot_imgsz416_cpu",
+        "best_score": 0.143132
+      }
+    ],
+    [
+      {
+        "step": 0,
+        "selected_candidate_id": null,
+        "best_score": null
+      },
+      {
+        "step": 1,
+        "selected_candidate_id": "yolo26n_kitti_pilot_imgsz416_cpu",
+        "best_score": 0.143132
+      },
+      {
+        "step": 2,
+        "selected_candidate_id": "yolo26n_kitti_pilot_imgsz416_cpu",
+        "best_score": 0.143132
+      },
+      {
+        "step": 3,
+        "selected_candidate_id": "yolo26n_kitti_pilot_imgsz416_cpu",
+        "best_score": 0.143132
+      }
+    ],
+    [
+      {
+        "step": 0,
+        "selected_candidate_id": null,
+        "best_score": null
+      },
+      {
+        "step": 1,
+        "selected_candidate_id": "yolo26n_kitti_pilot_imgsz448_cpu",
+        "best_score": 0.097132
+      },
+      {
+        "step": 2,
+        "selected_candidate_id": "yolo26n_kitti_pilot_imgsz416_cpu",
+        "best_score": 0.143132
+      },
+      {
+        "step": 3,
+        "selected_candidate_id": "yolo26n_kitti_pilot_imgsz416_cpu",
+        "best_score": 0.143132
+      }
+    ],
+    [
+      {
+        "step": 0,
+        "selected_candidate_id": null,
+        "best_score": null
+      },
+      {
+        "step": 1,
+        "selected_candidate_id": "yolo26n_kitti_pilot_imgsz448_cpu",
+        "best_score": 0.097132
+      },
+      {
+        "step": 2,
+        "selected_candidate_id": "yolo26n_kitti_pilot_imgsz416_cpu",
+        "best_score": 0.143132
+      },
+      {
+        "step": 3,
+        "selected_candidate_id": "yolo26n_kitti_pilot_imgsz416_cpu",
+        "best_score": 0.143132
+      }
+    ],
+    [
+      {
+        "step": 0,
+        "selected_candidate_id": null,
+        "best_score": null
+      },
+      {
+        "step": 1,
+        "selected_candidate_id": "yolo26n_kitti_pilot_imgsz448_cpu",
+        "best_score": 0.097132
+      },
+      {
+        "step": 2,
+        "selected_candidate_id": "yolo26n_kitti_pilot_imgsz416_cpu",
+        "best_score": 0.143132
+      },
+      {
+        "step": 3,
+        "selected_candidate_id": "yolo26n_kitti_pilot_imgsz416_cpu",
+        "best_score": 0.143132
+      }
+    ],
+    [
+      {
+        "step": 0,
+        "selected_candidate_id": null,
+        "best_score": null
+      },
+      {
+        "step": 1,
+        "selected_candidate_id": "yolo26n_kitti_pilot_imgsz448_cpu",
+        "best_score": 0.097132
+      },
+      {
+        "step": 2,
+        "selected_candidate_id": "yolo26n_kitti_pilot_imgsz416_cpu",
+        "best_score": 0.143132
+      },
+      {
+        "step": 3,
+        "selected_candidate_id": "yolo26n_kitti_pilot_imgsz416_cpu",
+        "best_score": 0.143132
+      }
+    ],
+    [
+      {
+        "step": 0,
+        "selected_candidate_id": null,
+        "best_score": null
+      },
+      {
+        "step": 1,
+        "selected_candidate_id": "yolo26n_kitti_pilot_imgsz448_cpu",
+        "best_score": 0.097132
+      },
+      {
+        "step": 2,
+        "selected_candidate_id": "yolo26n_kitti_pilot_imgsz448_cpu",
+        "best_score": 0.097132
+      },
+      {
+        "step": 3,
+        "selected_candidate_id": "yolo26n_kitti_pilot_imgsz416_cpu",
+        "best_score": 0.143132
+      }
+    ],
+    [
+      {
+        "step": 0,
+        "selected_candidate_id": null,
+        "best_score": null
+      },
+      {
+        "step": 1,
+        "selected_candidate_id": "yolo26n_kitti_pilot_imgsz448_cpu",
+        "best_score": 0.097132
+      },
+      {
+        "step": 2,
+        "selected_candidate_id": "yolo26n_kitti_pilot_imgsz448_cpu",
+        "best_score": 0.097132
+      },
+      {
+        "step": 3,
+        "selected_candidate_id": "yolo26n_kitti_pilot_imgsz448_cpu",
+        "best_score": 0.097132
+      }
+    ],
+    [
+      {
+        "step": 0,
+        "selected_candidate_id": null,
+        "best_score": null
+      },
+      {
+        "step": 1,
+        "selected_candidate_id": "yolo26n_kitti_pilot_imgsz448_cpu",
+        "best_score": 0.097132
+      },
+      {
+        "step": 2,
+        "selected_candidate_id": "yolo26n_kitti_pilot_imgsz448_cpu",
+        "best_score": 0.097132
+      },
+      {
+        "step": 3,
+        "selected_candidate_id": "yolo26n_kitti_pilot_imgsz448_cpu",
+        "best_score": 0.097132
+      }
+    ],
+    [
+      {
+        "step": 0,
+        "selected_candidate_id": null,
+        "best_score": null
+      },
+      {
+        "step": 1,
+        "selected_candidate_id": "yolo26n_kitti_pilot_imgsz448_cpu",
+        "best_score": 0.097132
+      },
+      {
+        "step": 2,
+        "selected_candidate_id": "yolo26n_kitti_pilot_imgsz448_cpu",
+        "best_score": 0.097132
+      },
+      {
+        "step": 3,
+        "selected_candidate_id": "yolo26n_kitti_pilot_imgsz448_cpu",
+        "best_score": 0.097132
+      }
+    ],
+    [
+      {
+        "step": 0,
+        "selected_candidate_id": null,
+        "best_score": null
+      },
+      {
+        "step": 1,
+        "selected_candidate_id": "yolo26n_kitti_pilot_imgsz448_cpu",
+        "best_score": 0.097132
+      },
+      {
+        "step": 2,
+        "selected_candidate_id": "yolo26n_kitti_pilot_imgsz448_cpu",
+        "best_score": 0.097132
+      },
+      {
+        "step": 3,
+        "selected_candidate_id": "yolo26n_kitti_pilot_imgsz416_cpu",
+        "best_score": 0.143132
+      }
+    ],
+    [
+      {
+        "step": 0,
+        "selected_candidate_id": null,
+        "best_score": null
+      },
+      {
+        "step": 1,
+        "selected_candidate_id": "yolo26n_kitti_pilot_imgsz448_cpu",
+        "best_score": 0.097132
+      },
+      {
+        "step": 2,
+        "selected_candidate_id": "yolo26n_kitti_pilot_imgsz448_cpu",
+        "best_score": 0.097132
+      },
+      {
+        "step": 3,
+        "selected_candidate_id": "yolo26n_kitti_pilot_imgsz448_cpu",
+        "best_score": 0.097132
+      }
+    ],
+    [
+      {
+        "step": 0,
+        "selected_candidate_id": null,
+        "best_score": null
+      },
+      {
+        "step": 1,
+        "selected_candidate_id": "yolo26n_kitti_pilot_imgsz448_cpu",
+        "best_score": 0.097132
+      },
+      {
+        "step": 2,
+        "selected_candidate_id": "yolo26n_kitti_pilot_imgsz448_cpu",
+        "best_score": 0.097132
+      },
+      {
+        "step": 3,
+        "selected_candidate_id": "yolo26n_kitti_pilot_imgsz448_cpu",
+        "best_score": 0.097132
+      }
+    ],
+    [
+      {
+        "step": 0,
+        "selected_candidate_id": null,
+        "best_score": null
+      },
+      {
+        "step": 1,
+        "selected_candidate_id": "yolo26n_kitti_pilot_imgsz448_cpu",
+        "best_score": 0.097132
+      },
+      {
+        "step": 2,
+        "selected_candidate_id": "yolo26n_kitti_pilot_imgsz448_cpu",
+        "best_score": 0.097132
+      },
+      {
+        "step": 3,
+        "selected_candidate_id": "yolo26n_kitti_pilot_imgsz448_cpu",
+        "best_score": 0.097132
+      }
+    ],
+    [
+      {
+        "step": 0,
+        "selected_candidate_id": null,
+        "best_score": null
+      },
+      {
+        "step": 1,
+        "selected_candidate_id": "yolo26n_kitti_pilot_imgsz448_cpu",
+        "best_score": 0.097132
+      },
+      {
+        "step": 2,
+        "selected_candidate_id": "yolo26n_kitti_pilot_imgsz448_cpu",
+        "best_score": 0.097132
+      },
+      {
+        "step": 3,
+        "selected_candidate_id": "yolo26n_kitti_pilot_imgsz416_cpu",
+        "best_score": 0.143132
+      }
+    ],
+    [
+      {
+        "step": 0,
+        "selected_candidate_id": null,
+        "best_score": null
+      },
+      {
+        "step": 1,
+        "selected_candidate_id": "yolo26n_kitti_pilot_imgsz448_cpu",
+        "best_score": 0.097132
+      },
+      {
+        "step": 2,
+        "selected_candidate_id": "yolo26n_kitti_pilot_imgsz448_cpu",
+        "best_score": 0.097132
+      },
+      {
+        "step": 3,
+        "selected_candidate_id": "yolo26n_kitti_pilot_imgsz448_cpu",
+        "best_score": 0.097132
+      }
+    ],
+    [
+      {
+        "step": 0,
+        "selected_candidate_id": null,
+        "best_score": null
+      },
+      {
+        "step": 1,
+        "selected_candidate_id": "yolo26n_kitti_pilot_imgsz448_cpu",
+        "best_score": 0.097132
+      },
+      {
+        "step": 2,
+        "selected_candidate_id": "yolo26n_kitti_pilot_imgsz448_cpu",
+        "best_score": 0.097132
+      },
+      {
+        "step": 3,
+        "selected_candidate_id": "yolo26n_kitti_pilot_imgsz448_cpu",
+        "best_score": 0.097132
+      }
+    ],
+    [
+      {
+        "step": 0,
+        "selected_candidate_id": null,
+        "best_score": null
+      },
+      {
+        "step": 1,
+        "selected_candidate_id": "yolo26n_kitti_pilot_imgsz448_cpu",
+        "best_score": 0.097132
+      },
+      {
+        "step": 2,
+        "selected_candidate_id": "yolo26n_kitti_pilot_imgsz448_cpu",
+        "best_score": 0.097132
+      },
+      {
+        "step": 3,
+        "selected_candidate_id": "yolo26n_kitti_pilot_imgsz448_cpu",
+        "best_score": 0.097132
+      }
+    ],
+    [
+      {
+        "step": 0,
+        "selected_candidate_id": null,
+        "best_score": null
+      },
+      {
+        "step": 1,
+        "selected_candidate_id": "yolo26n_kitti_pilot_imgsz448_cpu",
+        "best_score": 0.097132
+      },
+      {
+        "step": 2,
+        "selected_candidate_id": "yolo26n_kitti_pilot_imgsz448_cpu",
+        "best_score": 0.097132
+      },
+      {
+        "step": 3,
+        "selected_candidate_id": "yolo26n_kitti_pilot_imgsz416_cpu",
+        "best_score": 0.143132
+      }
+    ],
+    [
+      {
+        "step": 0,
+        "selected_candidate_id": null,
+        "best_score": null
+      },
+      {
+        "step": 1,
+        "selected_candidate_id": "yolo26n_kitti_pilot_imgsz448_cpu",
+        "best_score": 0.097132
+      },
+      {
+        "step": 2,
+        "selected_candidate_id": "yolo26n_kitti_pilot_imgsz448_cpu",
+        "best_score": 0.097132
+      },
+      {
+        "step": 3,
+        "selected_candidate_id": "yolo26n_kitti_pilot_imgsz448_cpu",
+        "best_score": 0.097132
+      }
+    ],
+    [
+      {
+        "step": 0,
+        "selected_candidate_id": null,
+        "best_score": null
+      },
+      {
+        "step": 1,
+        "selected_candidate_id": "yolo26n_kitti_pilot_imgsz448_cpu",
+        "best_score": 0.097132
+      },
+      {
+        "step": 2,
+        "selected_candidate_id": "yolo26n_kitti_pilot_imgsz448_cpu",
+        "best_score": 0.097132
+      },
+      {
+        "step": 3,
+        "selected_candidate_id": "yolo26n_kitti_pilot_imgsz448_cpu",
+        "best_score": 0.097132
+      }
+    ],
+    [
+      {
+        "step": 0,
+        "selected_candidate_id": null,
+        "best_score": null
+      },
+      {
+        "step": 1,
+        "selected_candidate_id": "yolo26n_kitti_pilot_imgsz448_cpu",
+        "best_score": 0.097132
+      },
+      {
+        "step": 2,
+        "selected_candidate_id": "yolo26n_kitti_pilot_imgsz448_cpu",
+        "best_score": 0.097132
+      },
+      {
+        "step": 3,
+        "selected_candidate_id": "yolo26n_kitti_pilot_imgsz448_cpu",
+        "best_score": 0.097132
+      }
+    ],
+    [
+      {
+        "step": 0,
+        "selected_candidate_id": null,
+        "best_score": null
+      },
+      {
+        "step": 1,
+        "selected_candidate_id": "yolo26n_kitti_pilot_imgsz480_cpu",
+        "best_score": 0.094617
+      },
+      {
+        "step": 2,
+        "selected_candidate_id": "yolo26n_kitti_pilot_imgsz416_cpu",
+        "best_score": 0.143132
+      },
+      {
+        "step": 3,
+        "selected_candidate_id": "yolo26n_kitti_pilot_imgsz416_cpu",
+        "best_score": 0.143132
+      }
+    ],
+    [
+      {
+        "step": 0,
+        "selected_candidate_id": null,
+        "best_score": null
+      },
+      {
+        "step": 1,
+        "selected_candidate_id": "yolo26n_kitti_pilot_imgsz480_cpu",
+        "best_score": 0.094617
+      },
+      {
+        "step": 2,
+        "selected_candidate_id": "yolo26n_kitti_pilot_imgsz416_cpu",
+        "best_score": 0.143132
+      },
+      {
+        "step": 3,
+        "selected_candidate_id": "yolo26n_kitti_pilot_imgsz416_cpu",
+        "best_score": 0.143132
+      }
+    ],
+    [
+      {
+        "step": 0,
+        "selected_candidate_id": null,
+        "best_score": null
+      },
+      {
+        "step": 1,
+        "selected_candidate_id": "yolo26n_kitti_pilot_imgsz480_cpu",
+        "best_score": 0.094617
+      },
+      {
+        "step": 2,
+        "selected_candidate_id": "yolo26n_kitti_pilot_imgsz416_cpu",
+        "best_score": 0.143132
+      },
+      {
+        "step": 3,
+        "selected_candidate_id": "yolo26n_kitti_pilot_imgsz416_cpu",
+        "best_score": 0.143132
+      }
+    ],
+    [
+      {
+        "step": 0,
+        "selected_candidate_id": null,
+        "best_score": null
+      },
+      {
+        "step": 1,
+        "selected_candidate_id": "yolo26n_kitti_pilot_imgsz480_cpu",
+        "best_score": 0.094617
+      },
+      {
+        "step": 2,
+        "selected_candidate_id": "yolo26n_kitti_pilot_imgsz416_cpu",
+        "best_score": 0.143132
+      },
+      {
+        "step": 3,
+        "selected_candidate_id": "yolo26n_kitti_pilot_imgsz416_cpu",
+        "best_score": 0.143132
+      }
+    ],
+    [
+      {
+        "step": 0,
+        "selected_candidate_id": null,
+        "best_score": null
+      },
+      {
+        "step": 1,
+        "selected_candidate_id": "yolo26n_kitti_pilot_imgsz480_cpu",
+        "best_score": 0.094617
+      },
+      {
+        "step": 2,
+        "selected_candidate_id": "yolo26n_kitti_pilot_imgsz448_cpu",
+        "best_score": 0.097132
+      },
+      {
+        "step": 3,
+        "selected_candidate_id": "yolo26n_kitti_pilot_imgsz416_cpu",
+        "best_score": 0.143132
+      }
+    ],
+    [
+      {
+        "step": 0,
+        "selected_candidate_id": null,
+        "best_score": null
+      },
+      {
+        "step": 1,
+        "selected_candidate_id": "yolo26n_kitti_pilot_imgsz480_cpu",
+        "best_score": 0.094617
+      },
+      {
+        "step": 2,
+        "selected_candidate_id": "yolo26n_kitti_pilot_imgsz448_cpu",
+        "best_score": 0.097132
+      },
+      {
+        "step": 3,
+        "selected_candidate_id": "yolo26n_kitti_pilot_imgsz448_cpu",
+        "best_score": 0.097132
+      }
+    ],
+    [
+      {
+        "step": 0,
+        "selected_candidate_id": null,
+        "best_score": null
+      },
+      {
+        "step": 1,
+        "selected_candidate_id": "yolo26n_kitti_pilot_imgsz480_cpu",
+        "best_score": 0.094617
+      },
+      {
+        "step": 2,
+        "selected_candidate_id": "yolo26n_kitti_pilot_imgsz448_cpu",
+        "best_score": 0.097132
+      },
+      {
+        "step": 3,
+        "selected_candidate_id": "yolo26n_kitti_pilot_imgsz448_cpu",
+        "best_score": 0.097132
+      }
+    ],
+    [
+      {
+        "step": 0,
+        "selected_candidate_id": null,
+        "best_score": null
+      },
+      {
+        "step": 1,
+        "selected_candidate_id": "yolo26n_kitti_pilot_imgsz480_cpu",
+        "best_score": 0.094617
+      },
+      {
+        "step": 2,
+        "selected_candidate_id": "yolo26n_kitti_pilot_imgsz448_cpu",
+        "best_score": 0.097132
+      },
+      {
+        "step": 3,
+        "selected_candidate_id": "yolo26n_kitti_pilot_imgsz448_cpu",
+        "best_score": 0.097132
+      }
+    ],
+    [
+      {
+        "step": 0,
+        "selected_candidate_id": null,
+        "best_score": null
+      },
+      {
+        "step": 1,
+        "selected_candidate_id": "yolo26n_kitti_pilot_imgsz480_cpu",
+        "best_score": 0.094617
+      },
+      {
+        "step": 2,
+        "selected_candidate_id": "yolo26n_kitti_pilot_imgsz480_cpu",
+        "best_score": 0.094617
+      },
+      {
+        "step": 3,
+        "selected_candidate_id": "yolo26n_kitti_pilot_imgsz416_cpu",
+        "best_score": 0.143132
+      }
+    ],
+    [
+      {
+        "step": 0,
+        "selected_candidate_id": null,
+        "best_score": null
+      },
+      {
+        "step": 1,
+        "selected_candidate_id": "yolo26n_kitti_pilot_imgsz480_cpu",
+        "best_score": 0.094617
+      },
+      {
+        "step": 2,
+        "selected_candidate_id": "yolo26n_kitti_pilot_imgsz480_cpu",
+        "best_score": 0.094617
+      },
+      {
+        "step": 3,
+        "selected_candidate_id": "yolo26n_kitti_pilot_imgsz448_cpu",
+        "best_score": 0.097132
+      }
+    ],
+    [
+      {
+        "step": 0,
+        "selected_candidate_id": null,
+        "best_score": null
+      },
+      {
+        "step": 1,
+        "selected_candidate_id": "yolo26n_kitti_pilot_imgsz480_cpu",
+        "best_score": 0.094617
+      },
+      {
+        "step": 2,
+        "selected_candidate_id": "yolo26n_kitti_pilot_imgsz480_cpu",
+        "best_score": 0.094617
+      },
+      {
+        "step": 3,
+        "selected_candidate_id": "yolo26n_kitti_pilot_imgsz480_cpu",
+        "best_score": 0.094617
+      }
+    ],
+    [
+      {
+        "step": 0,
+        "selected_candidate_id": null,
+        "best_score": null
+      },
+      {
+        "step": 1,
+        "selected_candidate_id": "yolo26n_kitti_pilot_imgsz480_cpu",
+        "best_score": 0.094617
+      },
+      {
+        "step": 2,
+        "selected_candidate_id": "yolo26n_kitti_pilot_imgsz480_cpu",
+        "best_score": 0.094617
+      },
+      {
+        "step": 3,
+        "selected_candidate_id": "yolo26n_kitti_pilot_imgsz480_cpu",
+        "best_score": 0.094617
+      }
+    ],
+    [
+      {
+        "step": 0,
+        "selected_candidate_id": null,
+        "best_score": null
+      },
+      {
+        "step": 1,
+        "selected_candidate_id": "yolo26n_kitti_pilot_imgsz480_cpu",
+        "best_score": 0.094617
+      },
+      {
+        "step": 2,
+        "selected_candidate_id": "yolo26n_kitti_pilot_imgsz480_cpu",
+        "best_score": 0.094617
+      },
+      {
+        "step": 3,
+        "selected_candidate_id": "yolo26n_kitti_pilot_imgsz416_cpu",
+        "best_score": 0.143132
+      }
+    ],
+    [
+      {
+        "step": 0,
+        "selected_candidate_id": null,
+        "best_score": null
+      },
+      {
+        "step": 1,
+        "selected_candidate_id": "yolo26n_kitti_pilot_imgsz480_cpu",
+        "best_score": 0.094617
+      },
+      {
+        "step": 2,
+        "selected_candidate_id": "yolo26n_kitti_pilot_imgsz480_cpu",
+        "best_score": 0.094617
+      },
+      {
+        "step": 3,
+        "selected_candidate_id": "yolo26n_kitti_pilot_imgsz448_cpu",
+        "best_score": 0.097132
+      }
+    ],
+    [
+      {
+        "step": 0,
+        "selected_candidate_id": null,
+        "best_score": null
+      },
+      {
+        "step": 1,
+        "selected_candidate_id": "yolo26n_kitti_pilot_imgsz480_cpu",
+        "best_score": 0.094617
+      },
+      {
+        "step": 2,
+        "selected_candidate_id": "yolo26n_kitti_pilot_imgsz480_cpu",
+        "best_score": 0.094617
+      },
+      {
+        "step": 3,
+        "selected_candidate_id": "yolo26n_kitti_pilot_imgsz480_cpu",
+        "best_score": 0.094617
+      }
+    ],
+    [
+      {
+        "step": 0,
+        "selected_candidate_id": null,
+        "best_score": null
+      },
+      {
+        "step": 1,
+        "selected_candidate_id": "yolo26n_kitti_pilot_imgsz480_cpu",
+        "best_score": 0.094617
+      },
+      {
+        "step": 2,
+        "selected_candidate_id": "yolo26n_kitti_pilot_imgsz480_cpu",
+        "best_score": 0.094617
+      },
+      {
+        "step": 3,
+        "selected_candidate_id": "yolo26n_kitti_pilot_imgsz480_cpu",
+        "best_score": 0.094617
+      }
+    ],
+    [
+      {
+        "step": 0,
+        "selected_candidate_id": null,
+        "best_score": null
+      },
+      {
+        "step": 1,
+        "selected_candidate_id": "yolo26n_kitti_pilot_imgsz480_cpu",
+        "best_score": 0.094617
+      },
+      {
+        "step": 2,
+        "selected_candidate_id": "yolo26n_kitti_pilot_imgsz480_cpu",
+        "best_score": 0.094617
+      },
+      {
+        "step": 3,
+        "selected_candidate_id": "yolo26n_kitti_pilot_imgsz416_cpu",
+        "best_score": 0.143132
+      }
+    ],
+    [
+      {
+        "step": 0,
+        "selected_candidate_id": null,
+        "best_score": null
+      },
+      {
+        "step": 1,
+        "selected_candidate_id": "yolo26n_kitti_pilot_imgsz480_cpu",
+        "best_score": 0.094617
+      },
+      {
+        "step": 2,
+        "selected_candidate_id": "yolo26n_kitti_pilot_imgsz480_cpu",
+        "best_score": 0.094617
+      },
+      {
+        "step": 3,
+        "selected_candidate_id": "yolo26n_kitti_pilot_imgsz448_cpu",
+        "best_score": 0.097132
+      }
+    ],
+    [
+      {
+        "step": 0,
+        "selected_candidate_id": null,
+        "best_score": null
+      },
+      {
+        "step": 1,
+        "selected_candidate_id": "yolo26n_kitti_pilot_imgsz480_cpu",
+        "best_score": 0.094617
+      },
+      {
+        "step": 2,
+        "selected_candidate_id": "yolo26n_kitti_pilot_imgsz480_cpu",
+        "best_score": 0.094617
+      },
+      {
+        "step": 3,
+        "selected_candidate_id": "yolo26n_kitti_pilot_imgsz480_cpu",
+        "best_score": 0.094617
+      }
+    ],
+    [
+      {
+        "step": 0,
+        "selected_candidate_id": null,
+        "best_score": null
+      },
+      {
+        "step": 1,
+        "selected_candidate_id": "yolo26n_kitti_pilot_imgsz480_cpu",
+        "best_score": 0.094617
+      },
+      {
+        "step": 2,
+        "selected_candidate_id": "yolo26n_kitti_pilot_imgsz480_cpu",
+        "best_score": 0.094617
+      },
+      {
+        "step": 3,
+        "selected_candidate_id": "yolo26n_kitti_pilot_imgsz480_cpu",
+        "best_score": 0.094617
+      }
+    ],
+    [
+      {
+        "step": 0,
+        "selected_candidate_id": null,
+        "best_score": null
+      },
+      {
+        "step": 1,
+        "selected_candidate_id": "yolo26n_kitti_pilot_imgsz512_cpu",
+        "best_score": 0.087805
+      },
+      {
+        "step": 2,
+        "selected_candidate_id": "yolo26n_kitti_pilot_imgsz416_cpu",
+        "best_score": 0.143132
+      },
+      {
+        "step": 3,
+        "selected_candidate_id": "yolo26n_kitti_pilot_imgsz416_cpu",
+        "best_score": 0.143132
+      }
+    ],
+    [
+      {
+        "step": 0,
+        "selected_candidate_id": null,
+        "best_score": null
+      },
+      {
+        "step": 1,
+        "selected_candidate_id": "yolo26n_kitti_pilot_imgsz512_cpu",
+        "best_score": 0.087805
+      },
+      {
+        "step": 2,
+        "selected_candidate_id": "yolo26n_kitti_pilot_imgsz416_cpu",
+        "best_score": 0.143132
+      },
+      {
+        "step": 3,
+        "selected_candidate_id": "yolo26n_kitti_pilot_imgsz416_cpu",
+        "best_score": 0.143132
+      }
+    ],
+    [
+      {
+        "step": 0,
+        "selected_candidate_id": null,
+        "best_score": null
+      },
+      {
+        "step": 1,
+        "selected_candidate_id": "yolo26n_kitti_pilot_imgsz512_cpu",
+        "best_score": 0.087805
+      },
+      {
+        "step": 2,
+        "selected_candidate_id": "yolo26n_kitti_pilot_imgsz416_cpu",
+        "best_score": 0.143132
+      },
+      {
+        "step": 3,
+        "selected_candidate_id": "yolo26n_kitti_pilot_imgsz416_cpu",
+        "best_score": 0.143132
+      }
+    ],
+    [
+      {
+        "step": 0,
+        "selected_candidate_id": null,
+        "best_score": null
+      },
+      {
+        "step": 1,
+        "selected_candidate_id": "yolo26n_kitti_pilot_imgsz512_cpu",
+        "best_score": 0.087805
+      },
+      {
+        "step": 2,
+        "selected_candidate_id": "yolo26n_kitti_pilot_imgsz416_cpu",
+        "best_score": 0.143132
+      },
+      {
+        "step": 3,
+        "selected_candidate_id": "yolo26n_kitti_pilot_imgsz416_cpu",
+        "best_score": 0.143132
+      }
+    ],
+    [
+      {
+        "step": 0,
+        "selected_candidate_id": null,
+        "best_score": null
+      },
+      {
+        "step": 1,
+        "selected_candidate_id": "yolo26n_kitti_pilot_imgsz512_cpu",
+        "best_score": 0.087805
+      },
+      {
+        "step": 2,
+        "selected_candidate_id": "yolo26n_kitti_pilot_imgsz448_cpu",
+        "best_score": 0.097132
+      },
+      {
+        "step": 3,
+        "selected_candidate_id": "yolo26n_kitti_pilot_imgsz416_cpu",
+        "best_score": 0.143132
+      }
+    ],
+    [
+      {
+        "step": 0,
+        "selected_candidate_id": null,
+        "best_score": null
+      },
+      {
+        "step": 1,
+        "selected_candidate_id": "yolo26n_kitti_pilot_imgsz512_cpu",
+        "best_score": 0.087805
+      },
+      {
+        "step": 2,
+        "selected_candidate_id": "yolo26n_kitti_pilot_imgsz448_cpu",
+        "best_score": 0.097132
+      },
+      {
+        "step": 3,
+        "selected_candidate_id": "yolo26n_kitti_pilot_imgsz448_cpu",
+        "best_score": 0.097132
+      }
+    ],
+    [
+      {
+        "step": 0,
+        "selected_candidate_id": null,
+        "best_score": null
+      },
+      {
+        "step": 1,
+        "selected_candidate_id": "yolo26n_kitti_pilot_imgsz512_cpu",
+        "best_score": 0.087805
+      },
+      {
+        "step": 2,
+        "selected_candidate_id": "yolo26n_kitti_pilot_imgsz448_cpu",
+        "best_score": 0.097132
+      },
+      {
+        "step": 3,
+        "selected_candidate_id": "yolo26n_kitti_pilot_imgsz448_cpu",
+        "best_score": 0.097132
+      }
+    ],
+    [
+      {
+        "step": 0,
+        "selected_candidate_id": null,
+        "best_score": null
+      },
+      {
+        "step": 1,
+        "selected_candidate_id": "yolo26n_kitti_pilot_imgsz512_cpu",
+        "best_score": 0.087805
+      },
+      {
+        "step": 2,
+        "selected_candidate_id": "yolo26n_kitti_pilot_imgsz448_cpu",
+        "best_score": 0.097132
+      },
+      {
+        "step": 3,
+        "selected_candidate_id": "yolo26n_kitti_pilot_imgsz448_cpu",
+        "best_score": 0.097132
+      }
+    ],
+    [
+      {
+        "step": 0,
+        "selected_candidate_id": null,
+        "best_score": null
+      },
+      {
+        "step": 1,
+        "selected_candidate_id": "yolo26n_kitti_pilot_imgsz512_cpu",
+        "best_score": 0.087805
+      },
+      {
+        "step": 2,
+        "selected_candidate_id": "yolo26n_kitti_pilot_imgsz480_cpu",
+        "best_score": 0.094617
+      },
+      {
+        "step": 3,
+        "selected_candidate_id": "yolo26n_kitti_pilot_imgsz416_cpu",
+        "best_score": 0.143132
+      }
+    ],
+    [
+      {
+        "step": 0,
+        "selected_candidate_id": null,
+        "best_score": null
+      },
+      {
+        "step": 1,
+        "selected_candidate_id": "yolo26n_kitti_pilot_imgsz512_cpu",
+        "best_score": 0.087805
+      },
+      {
+        "step": 2,
+        "selected_candidate_id": "yolo26n_kitti_pilot_imgsz480_cpu",
+        "best_score": 0.094617
+      },
+      {
+        "step": 3,
+        "selected_candidate_id": "yolo26n_kitti_pilot_imgsz448_cpu",
+        "best_score": 0.097132
+      }
+    ],
+    [
+      {
+        "step": 0,
+        "selected_candidate_id": null,
+        "best_score": null
+      },
+      {
+        "step": 1,
+        "selected_candidate_id": "yolo26n_kitti_pilot_imgsz512_cpu",
+        "best_score": 0.087805
+      },
+      {
+        "step": 2,
+        "selected_candidate_id": "yolo26n_kitti_pilot_imgsz480_cpu",
+        "best_score": 0.094617
+      },
+      {
+        "step": 3,
+        "selected_candidate_id": "yolo26n_kitti_pilot_imgsz480_cpu",
+        "best_score": 0.094617
+      }
+    ],
+    [
+      {
+        "step": 0,
+        "selected_candidate_id": null,
+        "best_score": null
+      },
+      {
+        "step": 1,
+        "selected_candidate_id": "yolo26n_kitti_pilot_imgsz512_cpu",
+        "best_score": 0.087805
+      },
+      {
+        "step": 2,
+        "selected_candidate_id": "yolo26n_kitti_pilot_imgsz480_cpu",
+        "best_score": 0.094617
+      },
+      {
+        "step": 3,
+        "selected_candidate_id": "yolo26n_kitti_pilot_imgsz480_cpu",
+        "best_score": 0.094617
+      }
+    ],
+    [
+      {
+        "step": 0,
+        "selected_candidate_id": null,
+        "best_score": null
+      },
+      {
+        "step": 1,
+        "selected_candidate_id": "yolo26n_kitti_pilot_imgsz512_cpu",
+        "best_score": 0.087805
+      },
+      {
+        "step": 2,
+        "selected_candidate_id": "yolo26n_kitti_pilot_imgsz512_cpu",
+        "best_score": 0.087805
+      },
+      {
+        "step": 3,
+        "selected_candidate_id": "yolo26n_kitti_pilot_imgsz416_cpu",
+        "best_score": 0.143132
+      }
+    ],
+    [
+      {
+        "step": 0,
+        "selected_candidate_id": null,
+        "best_score": null
+      },
+      {
+        "step": 1,
+        "selected_candidate_id": "yolo26n_kitti_pilot_imgsz512_cpu",
+        "best_score": 0.087805
+      },
+      {
+        "step": 2,
+        "selected_candidate_id": "yolo26n_kitti_pilot_imgsz512_cpu",
+        "best_score": 0.087805
+      },
+      {
+        "step": 3,
+        "selected_candidate_id": "yolo26n_kitti_pilot_imgsz448_cpu",
+        "best_score": 0.097132
+      }
+    ],
+    [
+      {
+        "step": 0,
+        "selected_candidate_id": null,
+        "best_score": null
+      },
+      {
+        "step": 1,
+        "selected_candidate_id": "yolo26n_kitti_pilot_imgsz512_cpu",
+        "best_score": 0.087805
+      },
+      {
+        "step": 2,
+        "selected_candidate_id": "yolo26n_kitti_pilot_imgsz512_cpu",
+        "best_score": 0.087805
+      },
+      {
+        "step": 3,
+        "selected_candidate_id": "yolo26n_kitti_pilot_imgsz480_cpu",
+        "best_score": 0.094617
+      }
+    ],
+    [
+      {
+        "step": 0,
+        "selected_candidate_id": null,
+        "best_score": null
+      },
+      {
+        "step": 1,
+        "selected_candidate_id": "yolo26n_kitti_pilot_imgsz512_cpu",
+        "best_score": 0.087805
+      },
+      {
+        "step": 2,
+        "selected_candidate_id": "yolo26n_kitti_pilot_imgsz512_cpu",
+        "best_score": 0.087805
+      },
+      {
+        "step": 3,
+        "selected_candidate_id": "yolo26n_kitti_pilot_imgsz512_cpu",
+        "best_score": 0.087805
+      }
+    ],
+    [
+      {
+        "step": 0,
+        "selected_candidate_id": null,
+        "best_score": null
+      },
+      {
+        "step": 1,
+        "selected_candidate_id": "yolo26n_kitti_pilot_imgsz512_cpu",
+        "best_score": 0.087805
+      },
+      {
+        "step": 2,
+        "selected_candidate_id": "yolo26n_kitti_pilot_imgsz512_cpu",
+        "best_score": 0.087805
+      },
+      {
+        "step": 3,
+        "selected_candidate_id": "yolo26n_kitti_pilot_imgsz416_cpu",
+        "best_score": 0.143132
+      }
+    ],
+    [
+      {
+        "step": 0,
+        "selected_candidate_id": null,
+        "best_score": null
+      },
+      {
+        "step": 1,
+        "selected_candidate_id": "yolo26n_kitti_pilot_imgsz512_cpu",
+        "best_score": 0.087805
+      },
+      {
+        "step": 2,
+        "selected_candidate_id": "yolo26n_kitti_pilot_imgsz512_cpu",
+        "best_score": 0.087805
+      },
+      {
+        "step": 3,
+        "selected_candidate_id": "yolo26n_kitti_pilot_imgsz448_cpu",
+        "best_score": 0.097132
+      }
+    ],
+    [
+      {
+        "step": 0,
+        "selected_candidate_id": null,
+        "best_score": null
+      },
+      {
+        "step": 1,
+        "selected_candidate_id": "yolo26n_kitti_pilot_imgsz512_cpu",
+        "best_score": 0.087805
+      },
+      {
+        "step": 2,
+        "selected_candidate_id": "yolo26n_kitti_pilot_imgsz512_cpu",
+        "best_score": 0.087805
+      },
+      {
+        "step": 3,
+        "selected_candidate_id": "yolo26n_kitti_pilot_imgsz480_cpu",
+        "best_score": 0.094617
+      }
+    ],
+    [
+      {
+        "step": 0,
+        "selected_candidate_id": null,
+        "best_score": null
+      },
+      {
+        "step": 1,
+        "selected_candidate_id": "yolo26n_kitti_pilot_imgsz512_cpu",
+        "best_score": 0.087805
+      },
+      {
+        "step": 2,
+        "selected_candidate_id": "yolo26n_kitti_pilot_imgsz512_cpu",
+        "best_score": 0.087805
+      },
+      {
+        "step": 3,
+        "selected_candidate_id": "yolo26n_kitti_pilot_imgsz512_cpu",
+        "best_score": 0.087805
+      }
+    ],
+    [
+      {
+        "step": 0,
+        "selected_candidate_id": null,
+        "best_score": null
+      },
+      {
+        "step": 1,
+        "selected_candidate_id": null,
+        "best_score": null
+      },
+      {
+        "step": 2,
+        "selected_candidate_id": "yolo26n_kitti_pilot_imgsz416_cpu",
+        "best_score": 0.143132
+      },
+      {
+        "step": 3,
+        "selected_candidate_id": "yolo26n_kitti_pilot_imgsz416_cpu",
+        "best_score": 0.143132
+      }
+    ],
+    [
+      {
+        "step": 0,
+        "selected_candidate_id": null,
+        "best_score": null
+      },
+      {
+        "step": 1,
+        "selected_candidate_id": null,
+        "best_score": null
+      },
+      {
+        "step": 2,
+        "selected_candidate_id": "yolo26n_kitti_pilot_imgsz416_cpu",
+        "best_score": 0.143132
+      },
+      {
+        "step": 3,
+        "selected_candidate_id": "yolo26n_kitti_pilot_imgsz416_cpu",
+        "best_score": 0.143132
+      }
+    ],
+    [
+      {
+        "step": 0,
+        "selected_candidate_id": null,
+        "best_score": null
+      },
+      {
+        "step": 1,
+        "selected_candidate_id": null,
+        "best_score": null
+      },
+      {
+        "step": 2,
+        "selected_candidate_id": "yolo26n_kitti_pilot_imgsz416_cpu",
+        "best_score": 0.143132
+      },
+      {
+        "step": 3,
+        "selected_candidate_id": "yolo26n_kitti_pilot_imgsz416_cpu",
+        "best_score": 0.143132
+      }
+    ],
+    [
+      {
+        "step": 0,
+        "selected_candidate_id": null,
+        "best_score": null
+      },
+      {
+        "step": 1,
+        "selected_candidate_id": null,
+        "best_score": null
+      },
+      {
+        "step": 2,
+        "selected_candidate_id": "yolo26n_kitti_pilot_imgsz416_cpu",
+        "best_score": 0.143132
+      },
+      {
+        "step": 3,
+        "selected_candidate_id": "yolo26n_kitti_pilot_imgsz416_cpu",
+        "best_score": 0.143132
+      }
+    ],
+    [
+      {
+        "step": 0,
+        "selected_candidate_id": null,
+        "best_score": null
+      },
+      {
+        "step": 1,
+        "selected_candidate_id": null,
+        "best_score": null
+      },
+      {
+        "step": 2,
+        "selected_candidate_id": "yolo26n_kitti_pilot_imgsz448_cpu",
+        "best_score": 0.097132
+      },
+      {
+        "step": 3,
+        "selected_candidate_id": "yolo26n_kitti_pilot_imgsz416_cpu",
+        "best_score": 0.143132
+      }
+    ],
+    [
+      {
+        "step": 0,
+        "selected_candidate_id": null,
+        "best_score": null
+      },
+      {
+        "step": 1,
+        "selected_candidate_id": null,
+        "best_score": null
+      },
+      {
+        "step": 2,
+        "selected_candidate_id": "yolo26n_kitti_pilot_imgsz448_cpu",
+        "best_score": 0.097132
+      },
+      {
+        "step": 3,
+        "selected_candidate_id": "yolo26n_kitti_pilot_imgsz448_cpu",
+        "best_score": 0.097132
+      }
+    ],
+    [
+      {
+        "step": 0,
+        "selected_candidate_id": null,
+        "best_score": null
+      },
+      {
+        "step": 1,
+        "selected_candidate_id": null,
+        "best_score": null
+      },
+      {
+        "step": 2,
+        "selected_candidate_id": "yolo26n_kitti_pilot_imgsz448_cpu",
+        "best_score": 0.097132
+      },
+      {
+        "step": 3,
+        "selected_candidate_id": "yolo26n_kitti_pilot_imgsz448_cpu",
+        "best_score": 0.097132
+      }
+    ],
+    [
+      {
+        "step": 0,
+        "selected_candidate_id": null,
+        "best_score": null
+      },
+      {
+        "step": 1,
+        "selected_candidate_id": null,
+        "best_score": null
+      },
+      {
+        "step": 2,
+        "selected_candidate_id": "yolo26n_kitti_pilot_imgsz448_cpu",
+        "best_score": 0.097132
+      },
+      {
+        "step": 3,
+        "selected_candidate_id": "yolo26n_kitti_pilot_imgsz448_cpu",
+        "best_score": 0.097132
+      }
+    ],
+    [
+      {
+        "step": 0,
+        "selected_candidate_id": null,
+        "best_score": null
+      },
+      {
+        "step": 1,
+        "selected_candidate_id": null,
+        "best_score": null
+      },
+      {
+        "step": 2,
+        "selected_candidate_id": "yolo26n_kitti_pilot_imgsz480_cpu",
+        "best_score": 0.094617
+      },
+      {
+        "step": 3,
+        "selected_candidate_id": "yolo26n_kitti_pilot_imgsz416_cpu",
+        "best_score": 0.143132
+      }
+    ],
+    [
+      {
+        "step": 0,
+        "selected_candidate_id": null,
+        "best_score": null
+      },
+      {
+        "step": 1,
+        "selected_candidate_id": null,
+        "best_score": null
+      },
+      {
+        "step": 2,
+        "selected_candidate_id": "yolo26n_kitti_pilot_imgsz480_cpu",
+        "best_score": 0.094617
+      },
+      {
+        "step": 3,
+        "selected_candidate_id": "yolo26n_kitti_pilot_imgsz448_cpu",
+        "best_score": 0.097132
+      }
+    ],
+    [
+      {
+        "step": 0,
+        "selected_candidate_id": null,
+        "best_score": null
+      },
+      {
+        "step": 1,
+        "selected_candidate_id": null,
+        "best_score": null
+      },
+      {
+        "step": 2,
+        "selected_candidate_id": "yolo26n_kitti_pilot_imgsz480_cpu",
+        "best_score": 0.094617
+      },
+      {
+        "step": 3,
+        "selected_candidate_id": "yolo26n_kitti_pilot_imgsz480_cpu",
+        "best_score": 0.094617
+      }
+    ],
+    [
+      {
+        "step": 0,
+        "selected_candidate_id": null,
+        "best_score": null
+      },
+      {
+        "step": 1,
+        "selected_candidate_id": null,
+        "best_score": null
+      },
+      {
+        "step": 2,
+        "selected_candidate_id": "yolo26n_kitti_pilot_imgsz480_cpu",
+        "best_score": 0.094617
+      },
+      {
+        "step": 3,
+        "selected_candidate_id": "yolo26n_kitti_pilot_imgsz480_cpu",
+        "best_score": 0.094617
+      }
+    ],
+    [
+      {
+        "step": 0,
+        "selected_candidate_id": null,
+        "best_score": null
+      },
+      {
+        "step": 1,
+        "selected_candidate_id": null,
+        "best_score": null
+      },
+      {
+        "step": 2,
+        "selected_candidate_id": "yolo26n_kitti_pilot_imgsz512_cpu",
+        "best_score": 0.087805
+      },
+      {
+        "step": 3,
+        "selected_candidate_id": "yolo26n_kitti_pilot_imgsz416_cpu",
+        "best_score": 0.143132
+      }
+    ],
+    [
+      {
+        "step": 0,
+        "selected_candidate_id": null,
+        "best_score": null
+      },
+      {
+        "step": 1,
+        "selected_candidate_id": null,
+        "best_score": null
+      },
+      {
+        "step": 2,
+        "selected_candidate_id": "yolo26n_kitti_pilot_imgsz512_cpu",
+        "best_score": 0.087805
+      },
+      {
+        "step": 3,
+        "selected_candidate_id": "yolo26n_kitti_pilot_imgsz448_cpu",
+        "best_score": 0.097132
+      }
+    ],
+    [
+      {
+        "step": 0,
+        "selected_candidate_id": null,
+        "best_score": null
+      },
+      {
+        "step": 1,
+        "selected_candidate_id": null,
+        "best_score": null
+      },
+      {
+        "step": 2,
+        "selected_candidate_id": "yolo26n_kitti_pilot_imgsz512_cpu",
+        "best_score": 0.087805
+      },
+      {
+        "step": 3,
+        "selected_candidate_id": "yolo26n_kitti_pilot_imgsz480_cpu",
+        "best_score": 0.094617
+      }
+    ],
+    [
+      {
+        "step": 0,
+        "selected_candidate_id": null,
+        "best_score": null
+      },
+      {
+        "step": 1,
+        "selected_candidate_id": null,
+        "best_score": null
+      },
+      {
+        "step": 2,
+        "selected_candidate_id": "yolo26n_kitti_pilot_imgsz512_cpu",
+        "best_score": 0.087805
+      },
+      {
+        "step": 3,
+        "selected_candidate_id": "yolo26n_kitti_pilot_imgsz512_cpu",
+        "best_score": 0.087805
+      }
+    ],
+    [
+      {
+        "step": 0,
+        "selected_candidate_id": null,
+        "best_score": null
+      },
+      {
+        "step": 1,
+        "selected_candidate_id": null,
+        "best_score": null
+      },
+      {
+        "step": 2,
+        "selected_candidate_id": null,
+        "best_score": null
+      },
+      {
+        "step": 3,
+        "selected_candidate_id": "yolo26n_kitti_pilot_imgsz416_cpu",
+        "best_score": 0.143132
+      }
+    ],
+    [
+      {
+        "step": 0,
+        "selected_candidate_id": null,
+        "best_score": null
+      },
+      {
+        "step": 1,
+        "selected_candidate_id": null,
+        "best_score": null
+      },
+      {
+        "step": 2,
+        "selected_candidate_id": null,
+        "best_score": null
+      },
+      {
+        "step": 3,
+        "selected_candidate_id": "yolo26n_kitti_pilot_imgsz448_cpu",
+        "best_score": 0.097132
+      }
+    ],
+    [
+      {
+        "step": 0,
+        "selected_candidate_id": null,
+        "best_score": null
+      },
+      {
+        "step": 1,
+        "selected_candidate_id": null,
+        "best_score": null
+      },
+      {
+        "step": 2,
+        "selected_candidate_id": null,
+        "best_score": null
+      },
+      {
+        "step": 3,
+        "selected_candidate_id": "yolo26n_kitti_pilot_imgsz480_cpu",
+        "best_score": 0.094617
+      }
+    ],
+    [
+      {
+        "step": 0,
+        "selected_candidate_id": null,
+        "best_score": null
+      },
+      {
+        "step": 1,
+        "selected_candidate_id": null,
+        "best_score": null
+      },
+      {
+        "step": 2,
+        "selected_candidate_id": null,
+        "best_score": null
+      },
+      {
+        "step": 3,
+        "selected_candidate_id": "yolo26n_kitti_pilot_imgsz512_cpu",
+        "best_score": 0.087805
+      }
+    ],
+    [
+      {
+        "step": 0,
+        "selected_candidate_id": null,
+        "best_score": null
+      },
+      {
+        "step": 1,
+        "selected_candidate_id": null,
+        "best_score": null
+      },
+      {
+        "step": 2,
+        "selected_candidate_id": "yolo26n_kitti_pilot_imgsz416_cpu",
+        "best_score": 0.143132
+      },
+      {
+        "step": 3,
+        "selected_candidate_id": "yolo26n_kitti_pilot_imgsz416_cpu",
+        "best_score": 0.143132
+      }
+    ],
+    [
+      {
+        "step": 0,
+        "selected_candidate_id": null,
+        "best_score": null
+      },
+      {
+        "step": 1,
+        "selected_candidate_id": null,
+        "best_score": null
+      },
+      {
+        "step": 2,
+        "selected_candidate_id": "yolo26n_kitti_pilot_imgsz416_cpu",
+        "best_score": 0.143132
+      },
+      {
+        "step": 3,
+        "selected_candidate_id": "yolo26n_kitti_pilot_imgsz416_cpu",
+        "best_score": 0.143132
+      }
+    ],
+    [
+      {
+        "step": 0,
+        "selected_candidate_id": null,
+        "best_score": null
+      },
+      {
+        "step": 1,
+        "selected_candidate_id": null,
+        "best_score": null
+      },
+      {
+        "step": 2,
+        "selected_candidate_id": "yolo26n_kitti_pilot_imgsz416_cpu",
+        "best_score": 0.143132
+      },
+      {
+        "step": 3,
+        "selected_candidate_id": "yolo26n_kitti_pilot_imgsz416_cpu",
+        "best_score": 0.143132
+      }
+    ],
+    [
+      {
+        "step": 0,
+        "selected_candidate_id": null,
+        "best_score": null
+      },
+      {
+        "step": 1,
+        "selected_candidate_id": null,
+        "best_score": null
+      },
+      {
+        "step": 2,
+        "selected_candidate_id": "yolo26n_kitti_pilot_imgsz416_cpu",
+        "best_score": 0.143132
+      },
+      {
+        "step": 3,
+        "selected_candidate_id": "yolo26n_kitti_pilot_imgsz416_cpu",
+        "best_score": 0.143132
+      }
+    ],
+    [
+      {
+        "step": 0,
+        "selected_candidate_id": null,
+        "best_score": null
+      },
+      {
+        "step": 1,
+        "selected_candidate_id": null,
+        "best_score": null
+      },
+      {
+        "step": 2,
+        "selected_candidate_id": "yolo26n_kitti_pilot_imgsz448_cpu",
+        "best_score": 0.097132
+      },
+      {
+        "step": 3,
+        "selected_candidate_id": "yolo26n_kitti_pilot_imgsz416_cpu",
+        "best_score": 0.143132
+      }
+    ],
+    [
+      {
+        "step": 0,
+        "selected_candidate_id": null,
+        "best_score": null
+      },
+      {
+        "step": 1,
+        "selected_candidate_id": null,
+        "best_score": null
+      },
+      {
+        "step": 2,
+        "selected_candidate_id": "yolo26n_kitti_pilot_imgsz448_cpu",
+        "best_score": 0.097132
+      },
+      {
+        "step": 3,
+        "selected_candidate_id": "yolo26n_kitti_pilot_imgsz448_cpu",
+        "best_score": 0.097132
+      }
+    ],
+    [
+      {
+        "step": 0,
+        "selected_candidate_id": null,
+        "best_score": null
+      },
+      {
+        "step": 1,
+        "selected_candidate_id": null,
+        "best_score": null
+      },
+      {
+        "step": 2,
+        "selected_candidate_id": "yolo26n_kitti_pilot_imgsz448_cpu",
+        "best_score": 0.097132
+      },
+      {
+        "step": 3,
+        "selected_candidate_id": "yolo26n_kitti_pilot_imgsz448_cpu",
+        "best_score": 0.097132
+      }
+    ],
+    [
+      {
+        "step": 0,
+        "selected_candidate_id": null,
+        "best_score": null
+      },
+      {
+        "step": 1,
+        "selected_candidate_id": null,
+        "best_score": null
+      },
+      {
+        "step": 2,
+        "selected_candidate_id": "yolo26n_kitti_pilot_imgsz448_cpu",
+        "best_score": 0.097132
+      },
+      {
+        "step": 3,
+        "selected_candidate_id": "yolo26n_kitti_pilot_imgsz448_cpu",
+        "best_score": 0.097132
+      }
+    ],
+    [
+      {
+        "step": 0,
+        "selected_candidate_id": null,
+        "best_score": null
+      },
+      {
+        "step": 1,
+        "selected_candidate_id": null,
+        "best_score": null
+      },
+      {
+        "step": 2,
+        "selected_candidate_id": "yolo26n_kitti_pilot_imgsz480_cpu",
+        "best_score": 0.094617
+      },
+      {
+        "step": 3,
+        "selected_candidate_id": "yolo26n_kitti_pilot_imgsz416_cpu",
+        "best_score": 0.143132
+      }
+    ],
+    [
+      {
+        "step": 0,
+        "selected_candidate_id": null,
+        "best_score": null
+      },
+      {
+        "step": 1,
+        "selected_candidate_id": null,
+        "best_score": null
+      },
+      {
+        "step": 2,
+        "selected_candidate_id": "yolo26n_kitti_pilot_imgsz480_cpu",
+        "best_score": 0.094617
+      },
+      {
+        "step": 3,
+        "selected_candidate_id": "yolo26n_kitti_pilot_imgsz448_cpu",
+        "best_score": 0.097132
+      }
+    ],
+    [
+      {
+        "step": 0,
+        "selected_candidate_id": null,
+        "best_score": null
+      },
+      {
+        "step": 1,
+        "selected_candidate_id": null,
+        "best_score": null
+      },
+      {
+        "step": 2,
+        "selected_candidate_id": "yolo26n_kitti_pilot_imgsz480_cpu",
+        "best_score": 0.094617
+      },
+      {
+        "step": 3,
+        "selected_candidate_id": "yolo26n_kitti_pilot_imgsz480_cpu",
+        "best_score": 0.094617
+      }
+    ],
+    [
+      {
+        "step": 0,
+        "selected_candidate_id": null,
+        "best_score": null
+      },
+      {
+        "step": 1,
+        "selected_candidate_id": null,
+        "best_score": null
+      },
+      {
+        "step": 2,
+        "selected_candidate_id": "yolo26n_kitti_pilot_imgsz480_cpu",
+        "best_score": 0.094617
+      },
+      {
+        "step": 3,
+        "selected_candidate_id": "yolo26n_kitti_pilot_imgsz480_cpu",
+        "best_score": 0.094617
+      }
+    ],
+    [
+      {
+        "step": 0,
+        "selected_candidate_id": null,
+        "best_score": null
+      },
+      {
+        "step": 1,
+        "selected_candidate_id": null,
+        "best_score": null
+      },
+      {
+        "step": 2,
+        "selected_candidate_id": "yolo26n_kitti_pilot_imgsz512_cpu",
+        "best_score": 0.087805
+      },
+      {
+        "step": 3,
+        "selected_candidate_id": "yolo26n_kitti_pilot_imgsz416_cpu",
+        "best_score": 0.143132
+      }
+    ],
+    [
+      {
+        "step": 0,
+        "selected_candidate_id": null,
+        "best_score": null
+      },
+      {
+        "step": 1,
+        "selected_candidate_id": null,
+        "best_score": null
+      },
+      {
+        "step": 2,
+        "selected_candidate_id": "yolo26n_kitti_pilot_imgsz512_cpu",
+        "best_score": 0.087805
+      },
+      {
+        "step": 3,
+        "selected_candidate_id": "yolo26n_kitti_pilot_imgsz448_cpu",
+        "best_score": 0.097132
+      }
+    ],
+    [
+      {
+        "step": 0,
+        "selected_candidate_id": null,
+        "best_score": null
+      },
+      {
+        "step": 1,
+        "selected_candidate_id": null,
+        "best_score": null
+      },
+      {
+        "step": 2,
+        "selected_candidate_id": "yolo26n_kitti_pilot_imgsz512_cpu",
+        "best_score": 0.087805
+      },
+      {
+        "step": 3,
+        "selected_candidate_id": "yolo26n_kitti_pilot_imgsz480_cpu",
+        "best_score": 0.094617
+      }
+    ],
+    [
+      {
+        "step": 0,
+        "selected_candidate_id": null,
+        "best_score": null
+      },
+      {
+        "step": 1,
+        "selected_candidate_id": null,
+        "best_score": null
+      },
+      {
+        "step": 2,
+        "selected_candidate_id": "yolo26n_kitti_pilot_imgsz512_cpu",
+        "best_score": 0.087805
+      },
+      {
+        "step": 3,
+        "selected_candidate_id": "yolo26n_kitti_pilot_imgsz512_cpu",
+        "best_score": 0.087805
+      }
+    ],
+    [
+      {
+        "step": 0,
+        "selected_candidate_id": null,
+        "best_score": null
+      },
+      {
+        "step": 1,
+        "selected_candidate_id": null,
+        "best_score": null
+      },
+      {
+        "step": 2,
+        "selected_candidate_id": null,
+        "best_score": null
+      },
+      {
+        "step": 3,
+        "selected_candidate_id": "yolo26n_kitti_pilot_imgsz416_cpu",
+        "best_score": 0.143132
+      }
+    ],
+    [
+      {
+        "step": 0,
+        "selected_candidate_id": null,
+        "best_score": null
+      },
+      {
+        "step": 1,
+        "selected_candidate_id": null,
+        "best_score": null
+      },
+      {
+        "step": 2,
+        "selected_candidate_id": null,
+        "best_score": null
+      },
+      {
+        "step": 3,
+        "selected_candidate_id": "yolo26n_kitti_pilot_imgsz448_cpu",
+        "best_score": 0.097132
+      }
+    ],
+    [
+      {
+        "step": 0,
+        "selected_candidate_id": null,
+        "best_score": null
+      },
+      {
+        "step": 1,
+        "selected_candidate_id": null,
+        "best_score": null
+      },
+      {
+        "step": 2,
+        "selected_candidate_id": null,
+        "best_score": null
+      },
+      {
+        "step": 3,
+        "selected_candidate_id": "yolo26n_kitti_pilot_imgsz480_cpu",
+        "best_score": 0.094617
+      }
+    ],
+    [
+      {
+        "step": 0,
+        "selected_candidate_id": null,
+        "best_score": null
+      },
+      {
+        "step": 1,
+        "selected_candidate_id": null,
+        "best_score": null
+      },
+      {
+        "step": 2,
+        "selected_candidate_id": null,
+        "best_score": null
+      },
+      {
+        "step": 3,
+        "selected_candidate_id": "yolo26n_kitti_pilot_imgsz512_cpu",
+        "best_score": 0.087805
+      }
+    ]
+  ],
+  "trials": [
+    {
+      "status": "completed",
+      "initial_sizes": [
+        640
+      ],
+      "order": [
+        480,
+        416,
+        448
+      ],
+      "calls": [
+        {
+          "status": "completed",
+          "visible_sizes": [
+            640
+          ],
+          "available_sizes": [
+            416,
+            448,
+            480,
+            512,
+            576,
+            608
+          ],
+          "elapsed_seconds": 1.425903,
+          "proposal": {
+            "schema_version": "1.0",
+            "image_size": 480,
+            "rationale": "The previous baseline at 640 exceeds the maximum latency constraint of 12.0 ms with 16.429 ms. Lowering the image size to 480 should reduce computational overhead and latency towards the target threshold while maintaining acceptable map50_95 performance above the 0.2 minimum."
+          }
+        },
+        {
+          "status": "completed",
+          "visible_sizes": [
+            640,
+            480
+          ],
+          "available_sizes": [
+            416,
+            448,
+            512,
+            576,
+            608
+          ],
+          "elapsed_seconds": 1.104572,
+          "proposal": {
+            "schema_version": "1.0",
+            "image_size": 416,
+            "rationale": "The previous evaluation at 480 pixels successfully met the latency constraint of <12.0 ms (10.934 ms) and map50_95 constraint of >0.2 (0.236). To further reduce latency towards the balanced optimization goal while remaining above the accuracy threshold, testing the next lower available resolution of 416 pixels is warranted."
+          }
+        },
+        {
+          "status": "completed",
+          "visible_sizes": [
+            640,
+            480,
+            416
+          ],
+          "available_sizes": [
+            448,
+            512,
+            576,
+            608
+          ],
+          "elapsed_seconds": 1.251692,
+          "proposal": {
+            "schema_version": "1.0",
+            "image_size": 448,
+            "rationale": "The resolution 448 is available and unmeasured, lying between 416 (latency 8.75ms, map50_95 0.207) and 480 (latency 10.93ms, map50_95 0.236). Testing 448 aims to find a configuration that meets the maximum latency constraint of 12.0ms while improving mAP above the 0.2 minimum threshold more reliably than 416."
+          }
+        }
+      ],
+      "trajectory": [
+        {
+          "step": 0,
+          "selected_candidate_id": null,
+          "best_score": null
+        },
+        {
+          "step": 1,
+          "selected_candidate_id": "yolo26n_kitti_pilot_imgsz480_cpu",
+          "best_score": 0.094617
+        },
+        {
+          "step": 2,
+          "selected_candidate_id": "yolo26n_kitti_pilot_imgsz416_cpu",
+          "best_score": 0.143132
+        },
+        {
+          "step": 3,
+          "selected_candidate_id": "yolo26n_kitti_pilot_imgsz416_cpu",
+          "best_score": 0.143132
+        }
+      ]
+    },
+    {
+      "status": "completed",
+      "initial_sizes": [
+        640
+      ],
+      "order": [
+        416,
+        448,
+        480
+      ],
+      "calls": [
+        {
+          "status": "completed",
+          "visible_sizes": [
+            640
+          ],
+          "available_sizes": [
+            416,
+            448,
+            480,
+            512,
+            576,
+            608
+          ],
+          "elapsed_seconds": 1.086875,
+          "proposal": {
+            "schema_version": "1.0",
+            "image_size": 416,
+            "rationale": "The baseline image size of 640 yields a latency of 16.429 ms, which violates the maximum latency constraint of 12.0 ms while exceeding the mAP requirement. To reduce latency and meet the constraint, we should explore the smallest available image size, 416, which is expected to significantly lower inference time on CPU."
+          }
+        },
+        {
+          "status": "completed",
+          "visible_sizes": [
+            640,
+            416
+          ],
+          "available_sizes": [
+            448,
+            480,
+            512,
+            576,
+            608
+          ],
+          "elapsed_seconds": 1.137096,
+          "proposal": {
+            "schema_version": "1.0",
+            "image_size": 448,
+            "rationale": "The latency at 640 (16.4ms) violates the 12ms constraint, while 416 meets latency (8.75ms) and map50_95 (0.207 > 0.2). Testing 448 explores the resolution space between 416 and 640 to find the highest resolution that satisfies the maximum median latency constraint of 12.0 ms while potentially improving accuracy over 416."
+          }
+        },
+        {
+          "status": "completed",
+          "visible_sizes": [
+            640,
+            416,
+            448
+          ],
+          "available_sizes": [
+            480,
+            512,
+            576,
+            608
+          ],
+          "elapsed_seconds": 1.052511,
+          "proposal": {
+            "schema_version": "1.0",
+            "image_size": 480,
+            "rationale": "The previous evaluation at 448 achieved a map50_95 of 0.222 with a median latency of 10.628 ms, staying well under the 12.0 ms constraint. Since 480 is the next available image size, testing it will help determine if we can gain accuracy while keeping the latency below the maximum limit."
+          }
+        }
+      ],
+      "trajectory": [
+        {
+          "step": 0,
+          "selected_candidate_id": null,
+          "best_score": null
+        },
+        {
+          "step": 1,
+          "selected_candidate_id": "yolo26n_kitti_pilot_imgsz416_cpu",
+          "best_score": 0.143132
+        },
+        {
+          "step": 2,
+          "selected_candidate_id": "yolo26n_kitti_pilot_imgsz416_cpu",
+          "best_score": 0.143132
+        },
+        {
+          "step": 3,
+          "selected_candidate_id": "yolo26n_kitti_pilot_imgsz416_cpu",
+          "best_score": 0.143132
+        }
+      ]
+    },
+    {
+      "status": "completed",
+      "initial_sizes": [
+        640
+      ],
+      "order": [
+        512,
+        480,
+        576
+      ],
+      "calls": [
+        {
+          "status": "completed",
+          "visible_sizes": [
+            640
+          ],
+          "available_sizes": [
+            416,
+            448,
+            480,
+            512,
+            576,
+            608
+          ],
+          "elapsed_seconds": 1.276157,
+          "proposal": {
+            "schema_version": "1.0",
+            "image_size": 512,
+            "rationale": "The baseline at size 640 exceeds the latency constraint of 12.0ms with 16.429ms while comfortably exceeding the map50_95 requirement. Reducing the image size to 512 is expected to decrease inference latency toward the target limit while retaining sufficient accuracy margin above the minimum map50_95 of 0.2."
+          }
+        },
+        {
+          "status": "completed",
+          "visible_sizes": [
+            640,
+            512
+          ],
+          "available_sizes": [
+            416,
+            448,
+            480,
+            576,
+            608
+          ],
+          "elapsed_seconds": 1.134045,
+          "proposal": {
+            "schema_version": "1.0",
+            "image_size": 480,
+            "rationale": "Tested sizes 640 and 512 exceeded the latency constraint of 12.0 ms or the 512 size achieved 11.279 ms. To safely reduce latency further while staying close to the validated 512 resolution and exploring the available sizes, 480 is the next logical untested candidate to approach the target latency envelope."
+          }
+        },
+        {
+          "status": "completed",
+          "visible_sizes": [
+            640,
+            512,
+            480
+          ],
+          "available_sizes": [
+            416,
+            448,
+            576,
+            608
+          ],
+          "elapsed_seconds": 1.228009,
+          "proposal": {
+            "schema_version": "1.0",
+            "image_size": 576,
+            "rationale": "Measured evidence shows that 512 achieves 11.279ms latency (under the 12.0ms limit) with a mAP of 0.243 (above the 0.2 minimum). While 640 exceeds latency limits, testing 576 from the available sizes will help find the optimal resolution closer to the latency ceiling to maximize accuracy while remaining valid."
+          }
+        }
+      ],
+      "trajectory": [
+        {
+          "step": 0,
+          "selected_candidate_id": null,
+          "best_score": null
+        },
+        {
+          "step": 1,
+          "selected_candidate_id": "yolo26n_kitti_pilot_imgsz512_cpu",
+          "best_score": 0.087805
+        },
+        {
+          "step": 2,
+          "selected_candidate_id": "yolo26n_kitti_pilot_imgsz480_cpu",
+          "best_score": 0.094617
+        },
+        {
+          "step": 3,
+          "selected_candidate_id": "yolo26n_kitti_pilot_imgsz480_cpu",
+          "best_score": 0.094617
+        }
+      ]
+    }
+  ],
+  "limitations": [
+    "Live LLM choices reveal archived measurements, not new benchmarks.",
+    "Initial 640 was chosen after inspecting prior results; exploratory evaluation.",
+    "Historical measurements have differing software environments.",
+    "Repeated LLM calls may be identical and are not necessarily independent.",
+    "Elapsed time covers proposal calls, not model evaluation.",
+    "Tokens, internal provider retries and monetary cost are not measured."
+  ],
+  "model": "gemini-3.5-flash-lite"
+}
