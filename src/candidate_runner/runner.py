@@ -10,6 +10,9 @@ from typing import Any, Dict, List, Optional, Sequence, Tuple
 import yaml
 
 from src.benchmarking.cpu_benchmark import (
+    BenchmarkConfigError,
+    resolve_hardware_id,
+    validate_hardware_id,
     load_config as load_benchmark_config,
     summarize_latencies,
 )
@@ -352,8 +355,12 @@ def build_session_benchmark_config(
     candidate: Dict[str, Any],
     session_number: int,
     result_path: Path,
+    hardware_id: Optional[str] = None,
 ) -> Dict[str, Any]:
     config = copy.deepcopy(base_config)
+    resolved_id = resolve_hardware_id(config, hardware_id)
+    if resolved_id is not None:
+        config["hardware_id"] = resolved_id
     checkpoint = search_space[
         "fixed_configuration"
     ]["model"]["checkpoint"]
@@ -392,6 +399,10 @@ def validate_benchmark_sessions(
             "Exactly three measured benchmark sessions "
             "are required for pooling."
         )
+
+    hardware_ids = [validate_hardware_id(result.get("hardware_id")) for result in results]
+    if any(value != hardware_ids[0] for value in hardware_ids):
+        raise CandidateRunnerError("Benchmark sessions have missing or conflicting hardware IDs.")
 
     reference_protocol = results[0].get("protocol")
     reference_images = results[0].get(
@@ -498,6 +509,7 @@ def pool_benchmark_results(
     environment = first_result["environment"]
 
     return {
+        **({"hardware_id": first_result["hardware_id"]} if first_result.get("hardware_id") is not None else {}),
         "device": protocol["device"],
         "system": environment["system"],
         "architecture": environment["architecture"],
@@ -547,6 +559,7 @@ def run_benchmark_sessions(
     candidate: Dict[str, Any],
     project_root: Path,
     overwrite: bool,
+    hardware_id: Optional[str] = None,
 ) -> Dict[str, Any]:
     benchmark_config_path = Path(
         search_space["evaluation"]["benchmark_config"]
@@ -559,6 +572,7 @@ def run_benchmark_sessions(
     base_config = load_benchmark_config(
         benchmark_config_path
     )
+    hardware_id = resolve_hardware_id(base_config, hardware_id)
     result_paths = benchmark_result_paths(
         project_root,
         candidate["candidate_id"],
@@ -594,6 +608,7 @@ def run_benchmark_sessions(
                 candidate,
                 session_number,
                 result_path,
+                hardware_id=hardware_id,
             )
             temporary_config_path = (
                 temporary_root
@@ -633,7 +648,10 @@ def run_benchmark_sessions(
                     f"{session_number}"
                 ) from error
 
-            results.append(load_json(result_path))
+            result = load_json(result_path)
+            if validate_hardware_id(result.get("hardware_id")) != hardware_id:
+                raise CandidateRunnerError("Benchmark result hardware_id does not match the requested machine.")
+            results.append(result)
 
     included_results = results[STABILIZATION_SESSIONS:]
     included_paths = result_paths[STABILIZATION_SESSIONS:]
@@ -785,6 +803,7 @@ def run_candidates(
     dry_run: bool,
     overwrite: bool,
     template_candidate_id: Optional[str] = None,
+    hardware_id: Optional[str] = None,
 ) -> Dict[str, Any]:
     project_root = project_root_from_config(
         search_space_path
@@ -798,6 +817,19 @@ def run_candidates(
         requested_candidate_id,
     )
 
+    hardware_id = validate_hardware_id(hardware_id)
+    # Resolve config conflicts before expensive validation or any benchmark writes.
+    if hardware_id is not None:
+        config_path = Path(search_space["evaluation"]["benchmark_config"])
+        if not config_path.is_absolute():
+            config_path = project_root / config_path
+        resolve_hardware_id(load_benchmark_config(config_path), hardware_id)
+        for candidate in candidates:
+            if candidate["status"] == "reuse_existing":
+                existing = load_json(candidate_record_path(project_root, candidate["candidate_id"]))
+                if existing.get("benchmark", {}).get("hardware_id") != hardware_id:
+                    raise CandidateRunnerError("Cannot reuse a candidate with missing or conflicting hardware_id.")
+
     source_candidate = None
     if any(c["status"] != "reuse_existing" for c in candidates):
         _, source_candidate = load_template_candidate(
@@ -807,11 +839,15 @@ def run_candidates(
         )
 
     if dry_run:
-        return build_dry_run_plan(
+        plan = build_dry_run_plan(
             search_space,
             candidates,
             project_root,
         )
+
+        if hardware_id is not None:
+            plan["hardware_id"] = hardware_id
+        return plan
 
     completed = []
 
@@ -847,6 +883,7 @@ def run_candidates(
             candidate,
             project_root,
             overwrite,
+            **({"hardware_id": hardware_id} if hardware_id is not None else {}),
         )
         candidate_record = build_candidate_record(
             source_candidate,
@@ -909,6 +946,7 @@ def main() -> None:
         "--template-candidate-id",
         help="Existing candidate supplying model/training metadata only.",
     )
+    argument_parser.add_argument("--hardware-id", help="Operator-supplied identity of the current benchmark machine.")
     arguments = argument_parser.parse_args()
 
     try:
@@ -918,9 +956,11 @@ def main() -> None:
             arguments.dry_run,
             arguments.overwrite,
             template_candidate_id=arguments.template_candidate_id,
+            hardware_id=arguments.hardware_id,
         )
     except (
         CandidateRunnerError,
+        BenchmarkConfigError,
         FileNotFoundError,
         json.JSONDecodeError,
     ) as error:

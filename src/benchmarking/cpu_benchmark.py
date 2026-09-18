@@ -6,7 +6,7 @@ import statistics
 import time
 from datetime import datetime, timezone
 from pathlib import Path
-from typing import Any, Dict, List, Tuple
+from typing import Any, Dict, List, Optional, Tuple
 
 import numpy as np
 import torch
@@ -26,6 +26,25 @@ SUPPORTED_IMAGE_EXTENSIONS = {
 
 class BenchmarkConfigError(ValueError):
     """Raised when the benchmark configuration is invalid."""
+
+
+def validate_hardware_id(value: Any) -> Optional[str]:
+    """Validate an operator-supplied label; this is not hardware discovery."""
+    if value is None:
+        return None
+    if not isinstance(value, str) or not value.strip() or value != value.strip():
+        raise BenchmarkConfigError("hardware_id must be a non-empty string without surrounding whitespace.")
+    if any(char.isspace() for char in value):
+        raise BenchmarkConfigError("hardware_id cannot contain whitespace.")
+    return value
+
+
+def resolve_hardware_id(config: Dict[str, Any], hardware_id: Optional[str]) -> Optional[str]:
+    configured = validate_hardware_id(config.get("hardware_id"))
+    supplied = validate_hardware_id(hardware_id)
+    if configured is not None and supplied is not None and configured != supplied:
+        raise BenchmarkConfigError("Configured hardware_id conflicts with --hardware-id.")
+    return supplied if supplied is not None else configured
 
 
 def load_config(file_path: Path) -> Dict[str, Any]:
@@ -150,6 +169,7 @@ def read_config_values(
             "repetitions_per_image must be greater than 0."
         )
 
+    values["hardware_id"] = validate_hardware_id(config.get("hardware_id"))
     return values
 
 
@@ -348,7 +368,9 @@ def build_result(
     selected_images: List[Path],
     samples: List[Dict[str, Any]],
 ) -> Dict[str, Any]:
+    hardware_id = validate_hardware_id(values.get("hardware_id"))
     return {
+        **({"hardware_id": hardware_id} if hardware_id is not None else {}),
         "schema_version": "1.0",
         "benchmark_id": values["benchmark_id"],
         "candidate_id": values["candidate_id"],
@@ -465,12 +487,17 @@ def main() -> None:
         help="Path to benchmark YAML config.",
     )
 
+    argument_parser.add_argument("--hardware-id", help="Operator-supplied identity of the machine running this benchmark.")
+
     arguments = argument_parser.parse_args()
 
     try:
         config = load_config(
             Path(arguments.config_file)
         )
+        hardware_id = resolve_hardware_id(config, arguments.hardware_id)
+        if hardware_id is not None:
+            config["hardware_id"] = hardware_id
         values = read_config_values(config)
 
         if not values["checkpoint"].exists():
