@@ -1,10 +1,10 @@
 # EdgeNAS-Lite
 
-EdgeNAS-Lite is a lightweight, deterministic prototype for selecting and evaluating hardware-aware YOLO configurations under deployment constraints, with a working Gemini natural-language requirement interface and a deterministic proposal pipeline.
+EdgeNAS-Lite is a lightweight, deterministic prototype for selecting and evaluating hardware-aware YOLO configurations under deployment constraints, with Gemini requirement interpretation, bounded LLM candidate proposals, and deterministic measurement-based selection.
 
 The system accepts natural-language requests through Gemini or structured requirements specifying minimum accuracy, maximum median latency, maximum model size, target device, and optimization priority. It validates those requirements, compares them with measured candidate results, rejects infeasible candidates, ranks feasible options, and produces a deterministic final selection.
 
-> **Current scope — updated 17 September 2026:** the repository contains the YOLO26/KITTI pilot, standardized CPU benchmarking, deterministic requirement/search-space parsing, Candidate Runner, Constraint Checker, Candidate Selector, Search Controller, Knowledge DB, and compatibility-gated Rule-based Proposal with its CLI. The latest milestone adds a bounded LLM requirement interpreter, a real Gemini provider, and `python -m src.llm_agent.cli`. A Vietnamese request was interpreted, validated, and used to select the measured 416 configuration; the saved CLI requirement was checked against the original request. The user confirmed **158 full-suite tests passed**, then **8 new LLM CLI tests passed separately**. The expected combined count is **166**, pending a full-suite rerun. LLM-generated new configurations, budgeted LLM experiment orchestration, broader search dimensions, and a dashboard remain future work.
+> **Current scope — updated 18 September 2026:** Gemini interprets requirements and can propose one unmeasured input resolution from a bounded pool. A live proposal selected 448; the operator ran full validation and five CPU benchmark sessions, added the record to Knowledge DB, and reran selection. Four measured configurations are now indexed. The 448 candidate meets the demo constraints and ranks second; 416 remains selected under the fixed balanced policy. **178 full-suite tests passed, as confirmed by the user.** This is one completed, manually coordinated experiment cycle; automatic multi-step experiment orchestration remains future work. Benchmark OS versions differ between the new and historical records.
 
 ## Why this project?
 
@@ -49,7 +49,7 @@ flowchart TD
     G --> H["Selection and search-run records"]
 ```
 
-The Search Controller orchestrates the deterministic modules and reuses compatible candidate records when available. The implemented LLM interface translates natural-language requirements for the separate knowledge-proposal workflow. LLM-generated search spaces and experiment orchestration remain future work. The LLM does not generate measured metrics. Accuracy, latency, model size, constraint satisfaction, and ranking remain the responsibility of deterministic code.
+The Search Controller orchestrates the deterministic modules and reuses compatible candidate records when available. The implemented LLM interface translates natural-language requirements for the separate knowledge-proposal workflow. A separate Candidate Proposer now writes a validated single-candidate search-space YAML. The operator invokes Candidate Runner and updates Knowledge DB; automatic experiment orchestration remains future work. The LLM does not generate measured metrics. Accuracy, latency, model size, constraint satisfaction, and ranking remain the responsibility of deterministic code.
 
 ### Rule-based proposal workflow
 
@@ -172,7 +172,8 @@ src/candidate_runner/
 The runner:
 
 - consumes the validated search space;
-- supports a non-mutating `--dry-run` execution plan;
+- supports a non-mutating `--dry-run` execution plan, including model/training template validation for pending candidates;
+- accepts `--template-candidate-id` for a one-candidate search space with no reusable entries, checking candidate identity, model family/scale, and checkpoint path;
 - runs full KITTI validation for pending candidates;
 - preserves the validation confidence behavior used for AP calculation;
 - executes five isolated CPU benchmark sessions per new candidate;
@@ -290,7 +291,7 @@ Query filters map to the following fields:
 
 Supplied filters use AND logic, ignore letter case and surrounding whitespace, and reject empty or non-string filter values. Omitted filters impose no restriction. Results are sorted by candidate ID and deep-copied so changes to query results do not mutate the loaded knowledge base. No matches return an empty list.
 
-The current index references the measured 416, 512, and 640 configurations. The Knowledge DB is available as a Python API and is consumed by Rule-based Proposal v1. The Search Controller does not yet consume the Knowledge DB directly. It does not rank candidates, generate metrics, or establish that measurements from different hardware or protocols are comparable.
+The current index references the measured 416, 448, 512, and 640 configurations. The Knowledge DB is available as a Python API and is consumed by Rule-based Proposal v1. The Search Controller does not yet consume the Knowledge DB directly. It does not rank candidates, generate metrics, or establish that measurements from different hardware or protocols are comparable.
 
 ### Candidate Compatibility v1
 
@@ -313,8 +314,8 @@ The current policy ID is `kitti_cpu_pilot_v1`.
 | Hardware identity | Non-empty record identifier matching the supplied target identifier |
 
 Input resolution may differ across candidates. The current experiment compares
-416, 512, and 640; the compatibility function does not restrict sizes to this
-three-value list. It checks evaluated class names, not per-class metric values
+416, 448, 512, and 640; the compatibility function does not restrict sizes to this
+four-value list. It checks evaluated class names, not per-class metric values
 or class-ID mappings.
 
 Reports include `candidate_id`, `policy_id`, `status`, `missing_fields`,
@@ -326,13 +327,13 @@ Reports include `candidate_id`, `policy_id`, `status`, `missing_fields`,
 - `insufficient_metadata`: no conflict was detected, but required evidence is
   missing or the target hardware identifier was not supplied.
 
-The three current records use `benchmark.hardware_id: local_mac_cpu_01`.
+The three historical records use `benchmark.hardware_id: local_mac_cpu_01`.
 This is a project-local identifier assigned after the operator confirmed that
 all three benchmarks ran on the same physical Mac. It is not an automatically
 measured serial number. The pilot record also now stores
 `accuracy.image_size: 640`, based on operator confirmation and review of
 `configs/kitti_val_cpu.yaml`. `metadata_provenance` preserves these sources;
-measured accuracy and latency values were not changed.
+measured accuracy and latency values were not changed. The new 448 record was initially rejected for missing `benchmark.hardware_id`; this field was added as `local_mac_cpu_01` using the operator-confirmation workflow, with a local backup. It then passed the policy. Its hardware provenance is not yet stored in a dedicated `metadata_provenance` entry. Its OS is macOS 26.6.2, versus 26.3.1 in the historical records; the policy does not check this difference.
 
 This policy is enforced by the proposal workflow. The Knowledge DB loader,
 Search Controller reuse checks, and standalone Candidate Selector do not
@@ -374,7 +375,7 @@ Omitting it leaves target hardware unverified and prevents selection when
 records are retrieved. An unknown machine identifier must not be relabeled
 as this local Mac merely to make a record pass.
 
-The saved low-latency demo contains three compatible candidates, no
+The historical saved low-latency demo contains three compatible candidates, no
 compatibility exclusions, two feasible candidates, and the following ranking:
 
 - 416: selected with balanced score 0.143132.
@@ -407,7 +408,7 @@ point. See the CLI usage section for commands and path semantics.
 
 ### LLM requirement interface v1 and Gemini provider
 
-The implemented LLM layer interprets requirements; candidate retrieval, compatibility, constraint checking, and ranking remain deterministic.
+The requirement interpreter translates user requests; the separate Candidate Proposer can now suggest new resolutions; candidate retrieval, compatibility, constraint checking, and ranking remain deterministic.
 
 Known entry points:
 
@@ -453,6 +454,16 @@ The LLM CLI requires a new `.json` output path and uses exclusive file creation:
 
 Eight offline CLI tests cover successful handoff and persistence, clarification, unsupported requests, no feasible candidate, provider errors, invalid JSON, existing-output protection, and missing hardware arguments. They retain the real interpreter/validation, replace the provider and proposal call, and block real HTTP.
 
+### Bounded LLM Candidate Proposer v1
+
+`src/llm_agent/candidate_proposer.py` consumes a structured requirement, the base configuration, the resolution pool, and compatible measured evidence. Gemini returns one `image_size` plus a rationale. Deterministic code rejects invalid schema/types, sizes outside the available pool, and already measured choices. Existing output files and colliding candidate record paths are protected.
+
+The pool contains `[416, 448, 480, 512, 576, 608, 640]`; its grid budget is seven allowed configurations, not seven automatically launched experiments. Each generated execution YAML has budget one and `existing_candidates: []`. Model, dataset, deployment, and evaluation settings remain fixed. The proposer performs no YOLO execution and records the suggestion as unmeasured.
+
+Before the first live proposal, measured sizes were `[416, 512, 640]`; available sizes were `[448, 480, 576, 608]`. Gemini proposed 448. After indexing its measurement, available sizes are `[480, 576, 608]`, subject to compatibility and file-collision checks. A fresh API response is not guaranteed to choose a particular size.
+
+The operator then ran Candidate Runner with `--template-candidate-id yolo26n_kitti_pilot`. The template supplies model/training metadata; accuracy and latency are freshly measured at 448. Hardware-ID completion, index update, and reranking were separate operator steps. This is not yet an autonomous experiment controller.
+
 ## Current progress
 
 | Component | Status |
@@ -480,7 +491,7 @@ Eight offline CLI tests cover successful handoff and persistence, clarification,
 | Search Controller v1 | Complete |
 | End-to-end pipeline execution | Complete for two demo requirements |
 | Selection and search-run JSON records | Complete |
-| Automated tests | 158 full-suite tests passed; 8 new LLM CLI tests passed separately; expected combined count 166, rerun pending |
+| Automated tests | 178 full-suite tests passed, user-confirmed on 18 September 2026 |
 | Candidate filtering across multiple candidates | Complete |
 | Knowledge Database v1: index, loader, metric validation, queries | Complete; 19 tests passed |
 | Knowledge DB integration with proposal workflow | Complete for retrieval, evaluation, and selection |
@@ -492,10 +503,12 @@ Eight offline CLI tests cover successful handoff and persistence, clarification,
 | LLM requirement interpreter | Implemented; structured validation and three interpretation statuses |
 | Gemini provider | Implemented; live demo succeeded and 12 offline provider tests passed |
 | Natural-language proposal CLI | Implemented; saved demo checked and 8 offline CLI tests passed |
-| LLM-generated new configurations and experiment loop | Planned |
+| Bounded LLM Candidate Proposer | Implemented; live 448 proposal validated and measured |
+| Manually coordinated LLM experiment cycle | Complete for 448; indexed and ranked second |
+| Automatic budgeted LLM experiment loop | Planned |
 | Dashboard | Not started |
 
-Earlier documented commits: Knowledge DB v1 (`e733835`), original Rule-based Proposal (`d5010b5`), and pilot compatibility/metadata (`9d75c54`). The latest local milestone is the Gemini interpreter/provider and natural-language CLI. Commit and push of this latest milestone have not been confirmed. Test and live-demo statuses above are based on the user's reported local results; this documentation edit did not execute the repository tests.
+Earlier documented commits include Knowledge DB v1 (`e733835`), Rule-based Proposal (`d5010b5`), and compatibility/metadata (`9d75c54`). Commit `7c60b6f` recording six passing live Gemini semantic cases was confirmed pushed. The current Candidate Proposer/448 milestone has not yet been confirmed committed or pushed. Test counts are based on the user’s local results; this documentation edit did not run the repository suite.
 
 ## Experimental setup
 
@@ -509,13 +522,16 @@ Earlier documented commits: Knowledge DB v1 (`e733835`), original Rule-based Pro
 | KITTI class IDs | `0`, `3`, `5` |
 | Training device | Apple M2 using MPS |
 | Deployment target | Local CPU (`local_mac_cpu_01`, operator-confirmed identity) |
-| Search input sizes | 416 × 416, 512 × 512, 640 × 640 |
+| Measured input sizes | 416, 448, 512, 640 |
+| LLM proposal pool | 416, 448, 480, 512, 576, 608, 640 |
 | Training batch size | 4 |
 | Benchmark batch size | 1 |
 | Python | 3.9.6 |
 | PyTorch | 2.8.0 |
 | Ultralytics | 8.4.123 |
 | Platform | macOS ARM64 |
+
+The software versions above describe the earlier setup, not a verified version inventory for every later run. The 448 benchmark records macOS 26.6.2; historical benchmarks record 26.3.1.
 
 The dataset, virtual environment, complete run directories, and pretrained weights are not stored in the repository. Users remain responsible for complying with the relevant dataset and model licenses.
 
@@ -869,6 +885,32 @@ results/search_runs/low_latency_balanced_demo__yolo26n_kitti_resolution_search_v
 
 All three candidates used `"action": "reuse_record"` in both recorded runs. The controller therefore reused compatible validation and standardized CPU benchmark evidence instead of executing the model again. The missing-record execution path is covered by automated tests.
 
+### 10. First measured LLM-proposed candidate: 448
+
+On 18 September 2026, the live Gemini proposal was executed using the existing pilot checkpoint. Full validation covered 1,496 images and 6,989 selected-class instances. Five CPU sessions were saved; sessions 3–5 contributed 900 latency samples.
+
+| Resolution | mAP50–95 | Median latency (ms) | Model size (MB) | Balanced score | Result |
+|---|---:|---:|---:|---:|---|
+| 416 | 0.207384 | 8.754 | 5.102 | 0.143132 | Selected |
+| 448 | 0.221918 | 10.628 | 5.102 | 0.097132 | Rank 2 |
+| 512 | 0.242931 | 11.279 | 5.102 | 0.087805 | Rank 3 |
+| 640 | 0.273000 | 16.429 | 5.102 | — | Fails median latency |
+
+The requirement remains mAP50–95 ≥ 0.20, median latency ≤ 12 ms, size ≤ 6 MB, with `balanced` preference. All four records pass the current compatibility policy; three satisfy the requirement. The new candidate is feasible but does not improve the best balanced score. Its P95 is 12.913 ms; the requirement constrains median, not P95. Accuracy rises by 1.4534 percentage points relative to 416 while recorded median latency rises by 1.874 ms.
+
+**Comparison limit:** 448 was measured on macOS 26.6.2; 416/512/640 were measured on macOS 26.3.1. The policy does not validate software-version equivalence. Ranking is reproducible from these stored records, but latency differences cannot be attributed solely to resolution. A controlled comparison requires a new matched-environment benchmark series while preserving the historical results.
+
+Evidence:
+
+- `configs/llm_candidate_low_latency_balanced_demo.yaml`
+- `results/proposals/llm_candidate_low_latency_balanced_demo.json` (original unmeasured proposal)
+- `results/benchmarks/yolo26n_kitti_pilot_imgsz448_cpu_cpu_run1.json` through `run5.json`
+- `results/candidates/yolo26n_kitti_pilot_imgsz448_cpu.json`
+- `knowledge/index.yaml` (four indexed candidates)
+- `results/proposals/low_latency_balanced_after_448.json` (measured reranking)
+
+The original proposal remains a historical suggestion; the later candidate and reranking files establish measurement and selection. These files do not prove an LLM advantage over other search strategies.
+
 ## Result artifact layers
 
 | Directory | Purpose |
@@ -946,14 +988,14 @@ Verification status at this documentation update:
 
 | Check | Confirmed result |
 |---|---|
-| Earlier deterministic pipeline, Knowledge DB, compatibility, and Proposal CLI milestone | 105 tests passed (historical) |
-| Full suite after LLM interpreter and Gemini provider work | 158 tests passed, user-reported |
-| Gemini provider tests | 12 passed; included in the 158-test milestone |
-| Newly added LLM CLI tests | 8 passed separately |
-| Combined suite after adding LLM CLI tests | Expected 166; full rerun not yet confirmed |
-| Live Gemini end-to-end and CLI demos | Successful selection of the 416 candidate; saved requirement checked |
+| Full suite after natural-language CLI | 166 passed (historical) |
+| Full suite after Candidate Proposer and Runner changes | **178 passed**, user-confirmed |
+| Candidate Proposer tests | 12 offline tests included in the current suite |
+| Live Gemini semantic evaluation | 6/6 PASS, 0 FAIL, 0 ERROR |
+| Additional clarification evaluation | 3/3 automatic PASS; full manual question review not confirmed |
+| Live proposal and measurement | 448 proposed, validated, benchmarked, indexed, and ranked |
 
-Do not add the 12 provider tests again to the 158 total. The expected combined count is `158 + 8 = 166`. The available evidence does not establish a complete per-file breakdown of all LLM interpreter tests, so no inferred breakdown is listed. This README edit did not rerun tests or benchmarks.
+The six semantic cases cover Vietnamese percentages, English decimals, latency priority, explicitly missing latency/accuracy, and unsupported segmentation. The three clarification cases cover missing latency/accuracy without an explicit instruction to ask and an unresolved latency conflict. These small live evaluations are separate from the 178 software tests and do not establish general semantic accuracy. The documentation update did not rerun the suite or model experiments.
 
 Three integration tests exercise real requirement and search-space
 parsing, candidate-record reuse, constraint checking, selection, and
@@ -1002,10 +1044,10 @@ Run:
 python -m unittest discover -s tests -v
 ```
 
-The expected result after adding the eight LLM CLI tests is (not yet confirmed as a combined run):
+Latest full-suite result confirmed by the user:
 
 ```text
-Ran 166 tests
+Ran 178 tests
 OK
 ```
 
@@ -1087,6 +1129,8 @@ EdgeNAS-Lite/
 │   │   └── low_latency_balanced_demo.yaml
 │   ├── benchmark_cpu.yaml
 │   ├── search_space.yaml
+│   ├── search_space_llm_pool.yaml
+│   ├── llm_candidate_low_latency_balanced_demo.yaml
 │   ├── project_spec.yaml
 │   ├── kitti_smoke.yaml
 │   ├── kitti_pilot.yaml
@@ -1100,6 +1144,7 @@ EdgeNAS-Lite/
 │   ├── candidates/
 │   │   ├── yolo26n_kitti_pilot.json
 │   │   ├── yolo26n_kitti_pilot_imgsz416_cpu.json
+│   │   ├── yolo26n_kitti_pilot_imgsz448_cpu.json
 │   │   └── yolo26n_kitti_pilot_imgsz512_cpu.json
 │   ├── evaluations/
 │   │   ├── edge_cpu_demo__yolo26n_kitti_pilot.json
@@ -1120,6 +1165,7 @@ EdgeNAS-Lite/
 │   └── pilot_cpu_benchmark.json
 ├── src/
 │   ├── llm_agent/
+│   │   ├── candidate_proposer.py
 │   │   ├── interpreter.py
 │   │   ├── gemini_provider.py
 │   │   └── cli.py
@@ -1405,7 +1451,7 @@ print("Matched candidates:", len(matches))
 PYCODE
 ```
 
-Expected for the current index: `Matched candidates: 3`. IDs are ordered as `yolo26n_kitti_pilot`, `yolo26n_kitti_pilot_imgsz416_cpu`, and `yolo26n_kitti_pilot_imgsz512_cpu`. Querying an unknown dataset returns `[]`; calling `query_candidates(knowledge)` returns all indexed candidates.
+Expected for the current index: `Matched candidates: 4`. IDs are ordered as `yolo26n_kitti_pilot`, `yolo26n_kitti_pilot_imgsz416_cpu`, `yolo26n_kitti_pilot_imgsz448_cpu`, and `yolo26n_kitti_pilot_imgsz512_cpu`. Querying an unknown dataset returns `[]`; calling `query_candidates(knowledge)` returns all indexed candidates.
 
 ### Generate and save a rule-based proposal
 
@@ -1462,7 +1508,7 @@ python -m src.proposal.cli \
   --output results/proposals/low_latency_balanced_demo.json
 ```
 
-Expected: `Status: selected`, 3 retrieved, 3 compatible, 0 excluded, 2 feasible,
+Expected with the current index: `Status: selected`, 4 retrieved, 4 compatible, 0 excluded, 3 feasible,
 and selected candidate `yolo26n_kitti_pilot_imgsz416_cpu`. The output path is
 printed as an absolute path; the JSON retains project-relative source references.
 This command reads saved measurements without loading model weights or images.
@@ -1503,7 +1549,7 @@ python -m src.proposal.cli \
 echo $?
 ```
 
-Expected: `no_compatible_candidates`, 3 exclusions, no selection, and exit code
+Expected: `no_compatible_candidates`, 4 exclusions, no selection, and exit code
 `1`. Omitting `--hardware-id` produces an argument error with exit code `2`
 before executing the proposal workflow.
 
@@ -1551,6 +1597,48 @@ The original reports are `results/proposals/gemini_end_to_end_demo.json` (propos
 
 The saved CLI requirement was checked against `object_detection`, `cpu`, `KITTI`, minimum mAP50–95 `0.20`, maximum median latency `12.0` ms, maximum size `6.0` MB, and `balanced`. All three records passed compatibility; 640 failed latency and 416 was selected over feasible 512. This confirms the specific demo, not semantic accuracy on every natural-language request.
 
+### Propose and evaluate one new resolution
+
+Inspect eligible sizes without API calls or writes:
+
+```bash
+python -m src.llm_agent.candidate_proposer \
+  --requirement configs/requests/low_latency_balanced_demo.yaml \
+  --hardware-id local_mac_cpu_01 \
+  --dry-run
+```
+
+For a new live proposal, set `GEMINI_API_KEY`, use a requirement with a new `request_id`, and omit `--dry-run`. Outputs are named from that request ID under `configs/` and `results/proposals/`; the existing demo outputs are not overwritten. The proposer takes structured requirements; the natural-language CLI does not yet automatically invoke it.
+
+The following commands document the completed 448 run:
+
+```bash
+python -m src.candidate_runner.runner \
+  configs/llm_candidate_low_latency_balanced_demo.yaml \
+  --candidate-id yolo26n_kitti_pilot_imgsz448_cpu \
+  --template-candidate-id yolo26n_kitti_pilot \
+  --dry-run
+
+python -m src.candidate_runner.runner \
+  configs/llm_candidate_low_latency_balanced_demo.yaml \
+  --candidate-id yolo26n_kitti_pilot_imgsz448_cpu \
+  --template-candidate-id yolo26n_kitti_pilot
+```
+
+Actual execution needs local checkpoint weights and KITTI. Since 448 is already measured, rerunning execution refuses to overwrite its results by default. Dry-run validates the template but is not proof that all runtime dependencies are available. Runner does not yet automatically populate the required hardware ID; confirm the actual machine and complete metadata before compatibility checking and indexing a new result.
+
+Rerank the four existing records without Gemini, checkpoint loading, or YOLO execution:
+
+```bash
+python -m src.proposal.cli \
+  configs/requests/low_latency_balanced_demo.yaml \
+  --hardware-id local_mac_cpu_01 \
+  --model-family YOLO26 \
+  --output results/proposals/low_latency_balanced_after_448.json
+```
+
+This output is replaceable by the structured CLI; use a new destination to preserve an earlier snapshot. API access requires a key on the machine running the Gemini provider. Reading and reranking recorded evidence requires no API key.
+
 ### Run all tests
 
 ```bash
@@ -1566,6 +1654,8 @@ python -m unittest discover -s tests -v
 | `configs/requests/low_latency_balanced_demo.yaml` | Multi-feasible-candidate ranking requirement |
 | `configs/benchmark_cpu.yaml` | Standard CPU benchmark protocol |
 | `configs/search_space.yaml` | First deterministic resolution search space |
+| `configs/search_space_llm_pool.yaml` | Seven allowed input resolutions for bounded proposals |
+| `configs/llm_candidate_low_latency_balanced_demo.yaml` | Saved single-candidate 448 experiment |
 | `configs/kitti_smoke.yaml` | One-epoch, 10% pipeline test |
 | `configs/kitti_pilot.yaml` | Ten-epoch, 25% pilot experiment |
 | `configs/kitti_val_cpu.yaml` | Full CPU validation of the pilot checkpoint |
@@ -1601,12 +1691,12 @@ The first implemented search space is intentionally small and controlled:
 
 Potential later dimensions include model scale, controlled training budget, export format, and quantization mode. Those dimensions are not part of the completed first search.
 
-All current candidates use the same validation split and standardized benchmark protocol. Changing only input size is deployment-configuration search, not architecture mutation.
+All current candidates report the same validation split and standardized benchmark protocol, but OS versions differ; this is not a fully controlled latency comparison. Changing only input size is deployment-configuration search, not architecture mutation.
 
 ## Limitations
 
 - The pilot uses 25% of the KITTI training split and ten epochs.
-- The current search contains three measured configurations but only one trained checkpoint; these are not three independently trained models.
+- The current knowledge collection contains four measured configurations but only one trained checkpoint; these are not independently trained models.
 - The first search varies only input resolution, so it does not explore model scale, training budget, export format, quantization, or architecture topology.
 - `Cyclist` performance remains substantially lower than `Car` performance.
 - The standardized latency result applies to one local macOS ARM64 CPU environment.
@@ -1620,12 +1710,12 @@ All current candidates use the same validation split and standardized benchmark 
 - The two recorded Search Controller runs reused existing candidate records. The missing-candidate branch is tested with a mocked runner; a real model execution through that branch is not yet documented as a separate experimental run.
 - Knowledge DB v1 validates index references and three numerical metrics, but does not yet validate the entire candidate schema, hardware identity, or all benchmark protocol metadata.
 - Knowledge DB queries filter by accuracy dataset, model family, and benchmark device; matching these fields alone does not establish measurement comparability.
-- The Knowledge DB currently references three records from one checkpoint and local CPU environment; it is not yet a general hardware or deployment knowledge collection.
+- The Knowledge DB currently references four records from one checkpoint and physical Mac, measured across two OS versions; it is not yet a general hardware or deployment knowledge collection.
 - Rule-based Proposal v1 consumes the Knowledge DB and selects from existing evidence; it does not generate new configurations or invoke the Search Controller for new experiments.
 - Proposal compatibility is enforced only by the fixed KITTI CPU pilot policy. Software versions, CPU thread count, dataset image identities, class-ID mappings, and operating conditions are not fully validated. The hardware identifier relies on operator confirmation.
 - Newly generated candidate records must include the required metadata before they can pass proposal compatibility; automatic hardware-ID capture by the Candidate Runner is not part of this milestone.
 - Natural-language interpretation and the Gemini CLI are implemented, but semantic correctness must still be checked; valid JSON/schema alone cannot detect every misunderstanding.
-- There is no implemented LLM loop for proposing new configurations, scheduling experiments, or learning from their results. The dashboard remains planned.
+- The bounded proposer and one manually coordinated measurement cycle are implemented. Automatic scheduling, repeated feedback-driven experiments, total budget enforcement across cycles, resume, and the dashboard remain planned.
 - The current project performs configuration search, not full neural architecture mutation.
 
 ## Portfolio evidence
@@ -1645,14 +1735,17 @@ The repository should not include `.venv/`, downloaded datasets, API keys, compl
 
 ## Roadmap
 
-Completed foundations: deterministic search orchestration, Knowledge DB, compatibility-gated proposal, structured Proposal CLI, bounded LLM requirement interpretation, real Gemini integration, and natural-language CLI. The live demo reused measured evidence and selected the 416 configuration. Verification: 158 full-suite tests passed, followed by eight separately passing new CLI tests.
+Completed: deterministic modules, Knowledge DB, compatibility-gated selection, Gemini interpretation/CLI, a bounded resolution proposer, and one manually coordinated live experiment at 448. The user confirmed 178 full-suite tests passed. Current milestone commit/push remains unconfirmed.
 
-1. Rerun the combined suite (expected 166 tests), review saved reports and staged changes, then commit/push the LLM milestone. Expand natural-language evaluation with missing, ambiguous, contradictory, and unsupported requests, and compare interpretations against explicit expected requirements.
-2. Add bounded LLM candidate proposals within an approved search space, then connect new experiments to the Search Controller with explicit budgets. Never generate or overwrite measured metrics through the LLM.
-3. Extend evidence collection and compatibility beyond the fixed pilot policy: capture hardware identity at measurement time, retain software/thread configuration and dataset identities, and align checks across proposal and experiment-reuse paths.
-4. Expand controlled search to justified dimensions such as model scale, quantization, or deployment format, measuring each new configuration under a comparable protocol.
-5. Compare equal-weight scoring with alternative weights and Pareto-based selection as feasible candidates become more diverse. Weights are not currently configurable.
-6. Extend stopping rules and cache invalidation in the Search Controller, and build a compact dashboard displaying requirements, evidence, exclusions, and selections.
+1. Review and commit the proposer, Runner fix, configs, measured evidence, index, and documentation. Preserve historical reports and omit local backups/inspection files.
+2. Pass explicit hardware identity through Runner/benchmark outputs, retain its provenance and template source, and add regression coverage for these integration paths.
+3. Strengthen software/thread/dataset/checkpoint identity checks and unify reuse policies. Record a matched-environment benchmark series before making controlled latency comparisons.
+4. Automate proposal → validated execution → metadata → Knowledge DB update → reranking with explicit total budgets, stop rules, failure handling, and resume. Integrate the natural-language entry point.
+5. Expand semantic evaluation beyond six semantic and three clarification cases; complete manual review and add unit/ambiguity/conflict cases.
+6. Compare LLM proposals with deterministic/random baselines under equal budgets. Broaden model scale/export/quantization only with new measurements; evaluate alternative weights or Pareto selection.
+7. Build a dashboard and reproducible portfolio demo. Architecture mutation and additional hardware remain longer-term work.
+
+See [the progress roadmap](EdgeNAS-Lite_Progress_Roadmap.md) for the detailed checklist.
 
 ## Reproducibility notes
 
