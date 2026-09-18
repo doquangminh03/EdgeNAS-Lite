@@ -1,0 +1,1654 @@
+{
+  "schema_version": "1.0",
+  "benchmark_id": "yolo26n_kitti_pilot_imgsz448_cpu_cpu_v1_run4",
+  "candidate_id": "yolo26n_kitti_pilot_imgsz448_cpu",
+  "protocol_status": "standardized",
+  "created_at_utc": "2026-09-18T08:41:00.659507+00:00",
+  "model": {
+    "checkpoint": "runs/detect/kitti_yolo26n_pilot/weights/best.pt"
+  },
+  "dataset": {
+    "name": "KITTI",
+    "split": "val",
+    "images_dir": "datasets/kitti/images/val",
+    "available_images": 1496,
+    "selected_images": 100,
+    "selection_seed": 42
+  },
+  "protocol": {
+    "device": "cpu",
+    "image_size": 448,
+    "batch_size": 1,
+    "warmup_runs": 10,
+    "repetitions_per_image": 3,
+    "confidence_threshold": 0.25,
+    "iou_threshold": 0.7,
+    "max_detections": 300,
+    "timing_scope": "preprocess_inference_postprocess",
+    "disk_io_included": false,
+    "raw_samples_saved": true
+  },
+  "environment": {
+    "system": "macOS-26.6.2-arm64-arm-64bit",
+    "architecture": "arm64",
+    "python_version": "3.9.6",
+    "torch_version": "2.8.0",
+    "ultralytics_version": "8.4.123",
+    "numpy_version": "2.0.2",
+    "torch_num_threads": 7
+  },
+  "summary": {
+    "sample_count": 300,
+    "average_latency_ms": 10.567,
+    "median_latency_ms": 10.555,
+    "p95_latency_ms": 10.789,
+    "standard_deviation_ms": 0.185,
+    "min_latency_ms": 10.184,
+    "max_latency_ms": 12.167,
+    "fps_from_median": 94.746
+  },
+  "selected_image_files": [
+    "000102.png",
+    "000259.png",
+    "000268.png",
+    "000293.png",
+    "000310.png",
+    "000432.png",
+    "000455.png",
+    "000570.png",
+    "000721.png",
+    "000733.png",
+    "000843.png",
+    "000847.png",
+    "000918.png",
+    "000975.png",
+    "000995.png",
+    "001046.png",
+    "001084.png",
+    "001115.png",
+    "001213.png",
+    "001357.png",
+    "001524.png",
+    "001672.png",
+    "001734.png",
+    "001751.png",
+    "001753.png",
+    "001832.png",
+    "002015.png",
+    "002102.png",
+    "002192.png",
+    "002251.png",
+    "002262.png",
+    "002267.png",
+    "002285.png",
+    "002334.png",
+    "002363.png",
+    "002423.png",
+    "002453.png",
+    "002561.png",
+    "002720.png",
+    "002736.png",
+    "002777.png",
+    "002812.png",
+    "002845.png",
+    "002955.png",
+    "003004.png",
+    "003266.png",
+    "003345.png",
+    "003482.png",
+    "003507.png",
+    "003554.png",
+    "003641.png",
+    "003696.png",
+    "003728.png",
+    "003748.png",
+    "003781.png",
+    "003916.png",
+    "003928.png",
+    "003935.png",
+    "004187.png",
+    "004359.png",
+    "004382.png",
+    "004383.png",
+    "004599.png",
+    "004660.png",
+    "004730.png",
+    "004760.png",
+    "005157.png",
+    "005412.png",
+    "005429.png",
+    "005526.png",
+    "005576.png",
+    "005655.png",
+    "005694.png",
+    "005847.png",
+    "005964.png",
+    "005972.png",
+    "006087.png",
+    "006108.png",
+    "006161.png",
+    "006252.png",
+    "006347.png",
+    "006430.png",
+    "006432.png",
+    "006468.png",
+    "006475.png",
+    "006554.png",
+    "006564.png",
+    "006696.png",
+    "006777.png",
+    "006828.png",
+    "006923.png",
+    "006948.png",
+    "006980.png",
+    "007092.png",
+    "007120.png",
+    "007124.png",
+    "007158.png",
+    "007302.png",
+    "007445.png",
+    "007449.png"
+  ],
+  "raw_samples": [
+    {
+      "repetition": 1,
+      "image": "002845.png",
+      "latency_ms": 10.784
+    },
+    {
+      "repetition": 1,
+      "image": "002812.png",
+      "latency_ms": 10.576
+    },
+    {
+      "repetition": 1,
+      "image": "006948.png",
+      "latency_ms": 10.822
+    },
+    {
+      "repetition": 1,
+      "image": "000733.png",
+      "latency_ms": 10.561
+    },
+    {
+      "repetition": 1,
+      "image": "004760.png",
+      "latency_ms": 10.711
+    },
+    {
+      "repetition": 1,
+      "image": "003641.png",
+      "latency_ms": 10.591
+    },
+    {
+      "repetition": 1,
+      "image": "000259.png",
+      "latency_ms": 10.484
+    },
+    {
+      "repetition": 1,
+      "image": "005576.png",
+      "latency_ms": 10.784
+    },
+    {
+      "repetition": 1,
+      "image": "001046.png",
+      "latency_ms": 10.687
+    },
+    {
+      "repetition": 1,
+      "image": "006161.png",
+      "latency_ms": 10.584
+    },
+    {
+      "repetition": 1,
+      "image": "005847.png",
+      "latency_ms": 10.793
+    },
+    {
+      "repetition": 1,
+      "image": "000843.png",
+      "latency_ms": 10.743
+    },
+    {
+      "repetition": 1,
+      "image": "003916.png",
+      "latency_ms": 10.769
+    },
+    {
+      "repetition": 1,
+      "image": "003928.png",
+      "latency_ms": 10.655
+    },
+    {
+      "repetition": 1,
+      "image": "005694.png",
+      "latency_ms": 10.746
+    },
+    {
+      "repetition": 1,
+      "image": "003266.png",
+      "latency_ms": 10.682
+    },
+    {
+      "repetition": 1,
+      "image": "003507.png",
+      "latency_ms": 10.75
+    },
+    {
+      "repetition": 1,
+      "image": "006980.png",
+      "latency_ms": 10.642
+    },
+    {
+      "repetition": 1,
+      "image": "006087.png",
+      "latency_ms": 10.424
+    },
+    {
+      "repetition": 1,
+      "image": "002561.png",
+      "latency_ms": 10.643
+    },
+    {
+      "repetition": 1,
+      "image": "002262.png",
+      "latency_ms": 10.607
+    },
+    {
+      "repetition": 1,
+      "image": "001672.png",
+      "latency_ms": 10.499
+    },
+    {
+      "repetition": 1,
+      "image": "002285.png",
+      "latency_ms": 10.599
+    },
+    {
+      "repetition": 1,
+      "image": "007158.png",
+      "latency_ms": 10.515
+    },
+    {
+      "repetition": 1,
+      "image": "006347.png",
+      "latency_ms": 10.567
+    },
+    {
+      "repetition": 1,
+      "image": "003554.png",
+      "latency_ms": 10.713
+    },
+    {
+      "repetition": 1,
+      "image": "006468.png",
+      "latency_ms": 10.677
+    },
+    {
+      "repetition": 1,
+      "image": "002015.png",
+      "latency_ms": 10.628
+    },
+    {
+      "repetition": 1,
+      "image": "006696.png",
+      "latency_ms": 10.62
+    },
+    {
+      "repetition": 1,
+      "image": "002334.png",
+      "latency_ms": 10.604
+    },
+    {
+      "repetition": 1,
+      "image": "000721.png",
+      "latency_ms": 10.469
+    },
+    {
+      "repetition": 1,
+      "image": "003482.png",
+      "latency_ms": 10.751
+    },
+    {
+      "repetition": 1,
+      "image": "004359.png",
+      "latency_ms": 10.597
+    },
+    {
+      "repetition": 1,
+      "image": "004660.png",
+      "latency_ms": 10.581
+    },
+    {
+      "repetition": 1,
+      "image": "005964.png",
+      "latency_ms": 10.688
+    },
+    {
+      "repetition": 1,
+      "image": "003004.png",
+      "latency_ms": 10.634
+    },
+    {
+      "repetition": 1,
+      "image": "007445.png",
+      "latency_ms": 10.675
+    },
+    {
+      "repetition": 1,
+      "image": "003728.png",
+      "latency_ms": 10.475
+    },
+    {
+      "repetition": 1,
+      "image": "006554.png",
+      "latency_ms": 10.716
+    },
+    {
+      "repetition": 1,
+      "image": "000918.png",
+      "latency_ms": 10.421
+    },
+    {
+      "repetition": 1,
+      "image": "002453.png",
+      "latency_ms": 10.792
+    },
+    {
+      "repetition": 1,
+      "image": "001751.png",
+      "latency_ms": 10.711
+    },
+    {
+      "repetition": 1,
+      "image": "002736.png",
+      "latency_ms": 10.461
+    },
+    {
+      "repetition": 1,
+      "image": "002777.png",
+      "latency_ms": 10.561
+    },
+    {
+      "repetition": 1,
+      "image": "001213.png",
+      "latency_ms": 10.597
+    },
+    {
+      "repetition": 1,
+      "image": "005157.png",
+      "latency_ms": 10.665
+    },
+    {
+      "repetition": 1,
+      "image": "004383.png",
+      "latency_ms": 10.563
+    },
+    {
+      "repetition": 1,
+      "image": "004382.png",
+      "latency_ms": 10.663
+    },
+    {
+      "repetition": 1,
+      "image": "000570.png",
+      "latency_ms": 10.502
+    },
+    {
+      "repetition": 1,
+      "image": "002363.png",
+      "latency_ms": 10.654
+    },
+    {
+      "repetition": 1,
+      "image": "007449.png",
+      "latency_ms": 10.429
+    },
+    {
+      "repetition": 1,
+      "image": "003345.png",
+      "latency_ms": 10.46
+    },
+    {
+      "repetition": 1,
+      "image": "000268.png",
+      "latency_ms": 10.413
+    },
+    {
+      "repetition": 1,
+      "image": "003696.png",
+      "latency_ms": 10.48
+    },
+    {
+      "repetition": 1,
+      "image": "001084.png",
+      "latency_ms": 10.574
+    },
+    {
+      "repetition": 1,
+      "image": "002720.png",
+      "latency_ms": 10.583
+    },
+    {
+      "repetition": 1,
+      "image": "004187.png",
+      "latency_ms": 10.677
+    },
+    {
+      "repetition": 1,
+      "image": "005429.png",
+      "latency_ms": 10.509
+    },
+    {
+      "repetition": 1,
+      "image": "001734.png",
+      "latency_ms": 10.756
+    },
+    {
+      "repetition": 1,
+      "image": "004599.png",
+      "latency_ms": 10.775
+    },
+    {
+      "repetition": 1,
+      "image": "001753.png",
+      "latency_ms": 10.61
+    },
+    {
+      "repetition": 1,
+      "image": "000432.png",
+      "latency_ms": 10.499
+    },
+    {
+      "repetition": 1,
+      "image": "000455.png",
+      "latency_ms": 10.408
+    },
+    {
+      "repetition": 1,
+      "image": "005412.png",
+      "latency_ms": 10.583
+    },
+    {
+      "repetition": 1,
+      "image": "006432.png",
+      "latency_ms": 10.778
+    },
+    {
+      "repetition": 1,
+      "image": "001357.png",
+      "latency_ms": 10.418
+    },
+    {
+      "repetition": 1,
+      "image": "006252.png",
+      "latency_ms": 10.404
+    },
+    {
+      "repetition": 1,
+      "image": "002955.png",
+      "latency_ms": 10.434
+    },
+    {
+      "repetition": 1,
+      "image": "006923.png",
+      "latency_ms": 10.291
+    },
+    {
+      "repetition": 1,
+      "image": "001524.png",
+      "latency_ms": 10.292
+    },
+    {
+      "repetition": 1,
+      "image": "000102.png",
+      "latency_ms": 10.31
+    },
+    {
+      "repetition": 1,
+      "image": "007124.png",
+      "latency_ms": 10.538
+    },
+    {
+      "repetition": 1,
+      "image": "003935.png",
+      "latency_ms": 10.62
+    },
+    {
+      "repetition": 1,
+      "image": "007092.png",
+      "latency_ms": 10.662
+    },
+    {
+      "repetition": 1,
+      "image": "003748.png",
+      "latency_ms": 10.477
+    },
+    {
+      "repetition": 1,
+      "image": "006828.png",
+      "latency_ms": 10.739
+    },
+    {
+      "repetition": 1,
+      "image": "001832.png",
+      "latency_ms": 10.687
+    },
+    {
+      "repetition": 1,
+      "image": "005655.png",
+      "latency_ms": 10.629
+    },
+    {
+      "repetition": 1,
+      "image": "006475.png",
+      "latency_ms": 10.402
+    },
+    {
+      "repetition": 1,
+      "image": "006108.png",
+      "latency_ms": 10.637
+    },
+    {
+      "repetition": 1,
+      "image": "004730.png",
+      "latency_ms": 10.477
+    },
+    {
+      "repetition": 1,
+      "image": "002251.png",
+      "latency_ms": 10.657
+    },
+    {
+      "repetition": 1,
+      "image": "002102.png",
+      "latency_ms": 10.739
+    },
+    {
+      "repetition": 1,
+      "image": "006777.png",
+      "latency_ms": 10.466
+    },
+    {
+      "repetition": 1,
+      "image": "007302.png",
+      "latency_ms": 10.55
+    },
+    {
+      "repetition": 1,
+      "image": "000310.png",
+      "latency_ms": 10.682
+    },
+    {
+      "repetition": 1,
+      "image": "003781.png",
+      "latency_ms": 10.836
+    },
+    {
+      "repetition": 1,
+      "image": "005972.png",
+      "latency_ms": 10.746
+    },
+    {
+      "repetition": 1,
+      "image": "000847.png",
+      "latency_ms": 10.526
+    },
+    {
+      "repetition": 1,
+      "image": "005526.png",
+      "latency_ms": 10.547
+    },
+    {
+      "repetition": 1,
+      "image": "006564.png",
+      "latency_ms": 10.631
+    },
+    {
+      "repetition": 1,
+      "image": "000975.png",
+      "latency_ms": 10.502
+    },
+    {
+      "repetition": 1,
+      "image": "001115.png",
+      "latency_ms": 11.213
+    },
+    {
+      "repetition": 1,
+      "image": "002192.png",
+      "latency_ms": 12.167
+    },
+    {
+      "repetition": 1,
+      "image": "002267.png",
+      "latency_ms": 10.938
+    },
+    {
+      "repetition": 1,
+      "image": "002423.png",
+      "latency_ms": 10.886
+    },
+    {
+      "repetition": 1,
+      "image": "007120.png",
+      "latency_ms": 10.722
+    },
+    {
+      "repetition": 1,
+      "image": "000293.png",
+      "latency_ms": 10.433
+    },
+    {
+      "repetition": 1,
+      "image": "000995.png",
+      "latency_ms": 10.515
+    },
+    {
+      "repetition": 1,
+      "image": "006430.png",
+      "latency_ms": 10.398
+    },
+    {
+      "repetition": 2,
+      "image": "002423.png",
+      "latency_ms": 10.595
+    },
+    {
+      "repetition": 2,
+      "image": "005412.png",
+      "latency_ms": 10.406
+    },
+    {
+      "repetition": 2,
+      "image": "002262.png",
+      "latency_ms": 10.487
+    },
+    {
+      "repetition": 2,
+      "image": "002285.png",
+      "latency_ms": 10.698
+    },
+    {
+      "repetition": 2,
+      "image": "000102.png",
+      "latency_ms": 10.537
+    },
+    {
+      "repetition": 2,
+      "image": "000995.png",
+      "latency_ms": 10.577
+    },
+    {
+      "repetition": 2,
+      "image": "003696.png",
+      "latency_ms": 10.645
+    },
+    {
+      "repetition": 2,
+      "image": "005655.png",
+      "latency_ms": 10.407
+    },
+    {
+      "repetition": 2,
+      "image": "004599.png",
+      "latency_ms": 10.578
+    },
+    {
+      "repetition": 2,
+      "image": "006696.png",
+      "latency_ms": 10.529
+    },
+    {
+      "repetition": 2,
+      "image": "001832.png",
+      "latency_ms": 10.555
+    },
+    {
+      "repetition": 2,
+      "image": "002777.png",
+      "latency_ms": 10.461
+    },
+    {
+      "repetition": 2,
+      "image": "002015.png",
+      "latency_ms": 10.438
+    },
+    {
+      "repetition": 2,
+      "image": "002845.png",
+      "latency_ms": 10.777
+    },
+    {
+      "repetition": 2,
+      "image": "006980.png",
+      "latency_ms": 10.644
+    },
+    {
+      "repetition": 2,
+      "image": "000259.png",
+      "latency_ms": 10.64
+    },
+    {
+      "repetition": 2,
+      "image": "005972.png",
+      "latency_ms": 10.583
+    },
+    {
+      "repetition": 2,
+      "image": "002102.png",
+      "latency_ms": 10.586
+    },
+    {
+      "repetition": 2,
+      "image": "005964.png",
+      "latency_ms": 10.539
+    },
+    {
+      "repetition": 2,
+      "image": "000733.png",
+      "latency_ms": 10.564
+    },
+    {
+      "repetition": 2,
+      "image": "002267.png",
+      "latency_ms": 10.427
+    },
+    {
+      "repetition": 2,
+      "image": "003728.png",
+      "latency_ms": 10.565
+    },
+    {
+      "repetition": 2,
+      "image": "006564.png",
+      "latency_ms": 10.605
+    },
+    {
+      "repetition": 2,
+      "image": "005694.png",
+      "latency_ms": 10.636
+    },
+    {
+      "repetition": 2,
+      "image": "002720.png",
+      "latency_ms": 10.602
+    },
+    {
+      "repetition": 2,
+      "image": "006432.png",
+      "latency_ms": 10.57
+    },
+    {
+      "repetition": 2,
+      "image": "005429.png",
+      "latency_ms": 10.495
+    },
+    {
+      "repetition": 2,
+      "image": "003935.png",
+      "latency_ms": 10.462
+    },
+    {
+      "repetition": 2,
+      "image": "005526.png",
+      "latency_ms": 10.436
+    },
+    {
+      "repetition": 2,
+      "image": "006430.png",
+      "latency_ms": 10.344
+    },
+    {
+      "repetition": 2,
+      "image": "007445.png",
+      "latency_ms": 10.61
+    },
+    {
+      "repetition": 2,
+      "image": "003004.png",
+      "latency_ms": 10.496
+    },
+    {
+      "repetition": 2,
+      "image": "006347.png",
+      "latency_ms": 10.499
+    },
+    {
+      "repetition": 2,
+      "image": "000432.png",
+      "latency_ms": 10.397
+    },
+    {
+      "repetition": 2,
+      "image": "000721.png",
+      "latency_ms": 10.388
+    },
+    {
+      "repetition": 2,
+      "image": "003781.png",
+      "latency_ms": 10.502
+    },
+    {
+      "repetition": 2,
+      "image": "002192.png",
+      "latency_ms": 10.538
+    },
+    {
+      "repetition": 2,
+      "image": "006161.png",
+      "latency_ms": 10.414
+    },
+    {
+      "repetition": 2,
+      "image": "003266.png",
+      "latency_ms": 10.447
+    },
+    {
+      "repetition": 2,
+      "image": "001672.png",
+      "latency_ms": 10.615
+    },
+    {
+      "repetition": 2,
+      "image": "002251.png",
+      "latency_ms": 10.518
+    },
+    {
+      "repetition": 2,
+      "image": "005157.png",
+      "latency_ms": 10.562
+    },
+    {
+      "repetition": 2,
+      "image": "006468.png",
+      "latency_ms": 10.466
+    },
+    {
+      "repetition": 2,
+      "image": "003928.png",
+      "latency_ms": 10.745
+    },
+    {
+      "repetition": 2,
+      "image": "002955.png",
+      "latency_ms": 10.565
+    },
+    {
+      "repetition": 2,
+      "image": "003345.png",
+      "latency_ms": 10.499
+    },
+    {
+      "repetition": 2,
+      "image": "002812.png",
+      "latency_ms": 11.105
+    },
+    {
+      "repetition": 2,
+      "image": "007124.png",
+      "latency_ms": 10.361
+    },
+    {
+      "repetition": 2,
+      "image": "000455.png",
+      "latency_ms": 10.546
+    },
+    {
+      "repetition": 2,
+      "image": "002736.png",
+      "latency_ms": 10.719
+    },
+    {
+      "repetition": 2,
+      "image": "002334.png",
+      "latency_ms": 10.554
+    },
+    {
+      "repetition": 2,
+      "image": "004383.png",
+      "latency_ms": 10.383
+    },
+    {
+      "repetition": 2,
+      "image": "001115.png",
+      "latency_ms": 10.72
+    },
+    {
+      "repetition": 2,
+      "image": "007158.png",
+      "latency_ms": 10.731
+    },
+    {
+      "repetition": 2,
+      "image": "000843.png",
+      "latency_ms": 10.661
+    },
+    {
+      "repetition": 2,
+      "image": "003748.png",
+      "latency_ms": 10.518
+    },
+    {
+      "repetition": 2,
+      "image": "006923.png",
+      "latency_ms": 10.58
+    },
+    {
+      "repetition": 2,
+      "image": "000847.png",
+      "latency_ms": 10.669
+    },
+    {
+      "repetition": 2,
+      "image": "004382.png",
+      "latency_ms": 10.438
+    },
+    {
+      "repetition": 2,
+      "image": "002561.png",
+      "latency_ms": 10.506
+    },
+    {
+      "repetition": 2,
+      "image": "000293.png",
+      "latency_ms": 10.493
+    },
+    {
+      "repetition": 2,
+      "image": "007449.png",
+      "latency_ms": 10.913
+    },
+    {
+      "repetition": 2,
+      "image": "001753.png",
+      "latency_ms": 10.654
+    },
+    {
+      "repetition": 2,
+      "image": "001751.png",
+      "latency_ms": 10.512
+    },
+    {
+      "repetition": 2,
+      "image": "002363.png",
+      "latency_ms": 10.362
+    },
+    {
+      "repetition": 2,
+      "image": "004730.png",
+      "latency_ms": 10.203
+    },
+    {
+      "repetition": 2,
+      "image": "003554.png",
+      "latency_ms": 10.212
+    },
+    {
+      "repetition": 2,
+      "image": "001084.png",
+      "latency_ms": 10.469
+    },
+    {
+      "repetition": 2,
+      "image": "006777.png",
+      "latency_ms": 10.437
+    },
+    {
+      "repetition": 2,
+      "image": "007092.png",
+      "latency_ms": 10.536
+    },
+    {
+      "repetition": 2,
+      "image": "001524.png",
+      "latency_ms": 10.539
+    },
+    {
+      "repetition": 2,
+      "image": "006948.png",
+      "latency_ms": 10.481
+    },
+    {
+      "repetition": 2,
+      "image": "001357.png",
+      "latency_ms": 10.584
+    },
+    {
+      "repetition": 2,
+      "image": "003507.png",
+      "latency_ms": 10.626
+    },
+    {
+      "repetition": 2,
+      "image": "001046.png",
+      "latency_ms": 10.567
+    },
+    {
+      "repetition": 2,
+      "image": "000975.png",
+      "latency_ms": 10.412
+    },
+    {
+      "repetition": 2,
+      "image": "000570.png",
+      "latency_ms": 10.346
+    },
+    {
+      "repetition": 2,
+      "image": "001734.png",
+      "latency_ms": 10.58
+    },
+    {
+      "repetition": 2,
+      "image": "003641.png",
+      "latency_ms": 10.656
+    },
+    {
+      "repetition": 2,
+      "image": "006475.png",
+      "latency_ms": 10.573
+    },
+    {
+      "repetition": 2,
+      "image": "005576.png",
+      "latency_ms": 10.533
+    },
+    {
+      "repetition": 2,
+      "image": "006252.png",
+      "latency_ms": 10.536
+    },
+    {
+      "repetition": 2,
+      "image": "007120.png",
+      "latency_ms": 10.454
+    },
+    {
+      "repetition": 2,
+      "image": "005847.png",
+      "latency_ms": 10.436
+    },
+    {
+      "repetition": 2,
+      "image": "003916.png",
+      "latency_ms": 10.597
+    },
+    {
+      "repetition": 2,
+      "image": "004760.png",
+      "latency_ms": 10.516
+    },
+    {
+      "repetition": 2,
+      "image": "000268.png",
+      "latency_ms": 10.443
+    },
+    {
+      "repetition": 2,
+      "image": "006108.png",
+      "latency_ms": 10.77
+    },
+    {
+      "repetition": 2,
+      "image": "004660.png",
+      "latency_ms": 10.487
+    },
+    {
+      "repetition": 2,
+      "image": "006087.png",
+      "latency_ms": 10.354
+    },
+    {
+      "repetition": 2,
+      "image": "004187.png",
+      "latency_ms": 10.427
+    },
+    {
+      "repetition": 2,
+      "image": "000918.png",
+      "latency_ms": 10.627
+    },
+    {
+      "repetition": 2,
+      "image": "007302.png",
+      "latency_ms": 10.595
+    },
+    {
+      "repetition": 2,
+      "image": "006554.png",
+      "latency_ms": 10.543
+    },
+    {
+      "repetition": 2,
+      "image": "003482.png",
+      "latency_ms": 10.602
+    },
+    {
+      "repetition": 2,
+      "image": "004359.png",
+      "latency_ms": 10.521
+    },
+    {
+      "repetition": 2,
+      "image": "001213.png",
+      "latency_ms": 10.409
+    },
+    {
+      "repetition": 2,
+      "image": "006828.png",
+      "latency_ms": 10.498
+    },
+    {
+      "repetition": 2,
+      "image": "002453.png",
+      "latency_ms": 10.36
+    },
+    {
+      "repetition": 2,
+      "image": "000310.png",
+      "latency_ms": 10.522
+    },
+    {
+      "repetition": 3,
+      "image": "003781.png",
+      "latency_ms": 10.666
+    },
+    {
+      "repetition": 3,
+      "image": "002267.png",
+      "latency_ms": 10.674
+    },
+    {
+      "repetition": 3,
+      "image": "006432.png",
+      "latency_ms": 10.635
+    },
+    {
+      "repetition": 3,
+      "image": "003345.png",
+      "latency_ms": 10.746
+    },
+    {
+      "repetition": 3,
+      "image": "001832.png",
+      "latency_ms": 10.435
+    },
+    {
+      "repetition": 3,
+      "image": "004660.png",
+      "latency_ms": 10.536
+    },
+    {
+      "repetition": 3,
+      "image": "005576.png",
+      "latency_ms": 10.471
+    },
+    {
+      "repetition": 3,
+      "image": "000843.png",
+      "latency_ms": 10.555
+    },
+    {
+      "repetition": 3,
+      "image": "002285.png",
+      "latency_ms": 10.477
+    },
+    {
+      "repetition": 3,
+      "image": "002015.png",
+      "latency_ms": 10.404
+    },
+    {
+      "repetition": 3,
+      "image": "003748.png",
+      "latency_ms": 10.351
+    },
+    {
+      "repetition": 3,
+      "image": "007449.png",
+      "latency_ms": 10.602
+    },
+    {
+      "repetition": 3,
+      "image": "006564.png",
+      "latency_ms": 10.637
+    },
+    {
+      "repetition": 3,
+      "image": "002423.png",
+      "latency_ms": 10.559
+    },
+    {
+      "repetition": 3,
+      "image": "002334.png",
+      "latency_ms": 10.416
+    },
+    {
+      "repetition": 3,
+      "image": "003641.png",
+      "latency_ms": 10.422
+    },
+    {
+      "repetition": 3,
+      "image": "003928.png",
+      "latency_ms": 10.412
+    },
+    {
+      "repetition": 3,
+      "image": "004382.png",
+      "latency_ms": 10.416
+    },
+    {
+      "repetition": 3,
+      "image": "000847.png",
+      "latency_ms": 10.634
+    },
+    {
+      "repetition": 3,
+      "image": "005847.png",
+      "latency_ms": 10.732
+    },
+    {
+      "repetition": 3,
+      "image": "002845.png",
+      "latency_ms": 10.457
+    },
+    {
+      "repetition": 3,
+      "image": "001115.png",
+      "latency_ms": 10.393
+    },
+    {
+      "repetition": 3,
+      "image": "006696.png",
+      "latency_ms": 10.48
+    },
+    {
+      "repetition": 3,
+      "image": "001357.png",
+      "latency_ms": 10.435
+    },
+    {
+      "repetition": 3,
+      "image": "004383.png",
+      "latency_ms": 10.368
+    },
+    {
+      "repetition": 3,
+      "image": "001213.png",
+      "latency_ms": 10.39
+    },
+    {
+      "repetition": 3,
+      "image": "007158.png",
+      "latency_ms": 10.372
+    },
+    {
+      "repetition": 3,
+      "image": "000570.png",
+      "latency_ms": 10.435
+    },
+    {
+      "repetition": 3,
+      "image": "000102.png",
+      "latency_ms": 10.509
+    },
+    {
+      "repetition": 3,
+      "image": "000432.png",
+      "latency_ms": 10.448
+    },
+    {
+      "repetition": 3,
+      "image": "003916.png",
+      "latency_ms": 10.654
+    },
+    {
+      "repetition": 3,
+      "image": "003004.png",
+      "latency_ms": 10.425
+    },
+    {
+      "repetition": 3,
+      "image": "004599.png",
+      "latency_ms": 10.507
+    },
+    {
+      "repetition": 3,
+      "image": "002736.png",
+      "latency_ms": 10.445
+    },
+    {
+      "repetition": 3,
+      "image": "007445.png",
+      "latency_ms": 10.394
+    },
+    {
+      "repetition": 3,
+      "image": "005655.png",
+      "latency_ms": 10.352
+    },
+    {
+      "repetition": 3,
+      "image": "006252.png",
+      "latency_ms": 10.528
+    },
+    {
+      "repetition": 3,
+      "image": "005412.png",
+      "latency_ms": 10.257
+    },
+    {
+      "repetition": 3,
+      "image": "004730.png",
+      "latency_ms": 10.455
+    },
+    {
+      "repetition": 3,
+      "image": "002251.png",
+      "latency_ms": 10.637
+    },
+    {
+      "repetition": 3,
+      "image": "004187.png",
+      "latency_ms": 10.636
+    },
+    {
+      "repetition": 3,
+      "image": "001751.png",
+      "latency_ms": 10.563
+    },
+    {
+      "repetition": 3,
+      "image": "001672.png",
+      "latency_ms": 10.425
+    },
+    {
+      "repetition": 3,
+      "image": "006108.png",
+      "latency_ms": 10.417
+    },
+    {
+      "repetition": 3,
+      "image": "006161.png",
+      "latency_ms": 10.538
+    },
+    {
+      "repetition": 3,
+      "image": "006087.png",
+      "latency_ms": 10.493
+    },
+    {
+      "repetition": 3,
+      "image": "002102.png",
+      "latency_ms": 10.544
+    },
+    {
+      "repetition": 3,
+      "image": "006347.png",
+      "latency_ms": 10.622
+    },
+    {
+      "repetition": 3,
+      "image": "005964.png",
+      "latency_ms": 10.689
+    },
+    {
+      "repetition": 3,
+      "image": "000268.png",
+      "latency_ms": 10.682
+    },
+    {
+      "repetition": 3,
+      "image": "006923.png",
+      "latency_ms": 10.539
+    },
+    {
+      "repetition": 3,
+      "image": "003554.png",
+      "latency_ms": 10.364
+    },
+    {
+      "repetition": 3,
+      "image": "001046.png",
+      "latency_ms": 10.586
+    },
+    {
+      "repetition": 3,
+      "image": "003482.png",
+      "latency_ms": 10.525
+    },
+    {
+      "repetition": 3,
+      "image": "001084.png",
+      "latency_ms": 10.682
+    },
+    {
+      "repetition": 3,
+      "image": "007302.png",
+      "latency_ms": 10.483
+    },
+    {
+      "repetition": 3,
+      "image": "003935.png",
+      "latency_ms": 10.443
+    },
+    {
+      "repetition": 3,
+      "image": "005429.png",
+      "latency_ms": 10.346
+    },
+    {
+      "repetition": 3,
+      "image": "004359.png",
+      "latency_ms": 10.308
+    },
+    {
+      "repetition": 3,
+      "image": "002262.png",
+      "latency_ms": 10.421
+    },
+    {
+      "repetition": 3,
+      "image": "000455.png",
+      "latency_ms": 10.356
+    },
+    {
+      "repetition": 3,
+      "image": "001753.png",
+      "latency_ms": 10.361
+    },
+    {
+      "repetition": 3,
+      "image": "007120.png",
+      "latency_ms": 10.484
+    },
+    {
+      "repetition": 3,
+      "image": "000310.png",
+      "latency_ms": 10.201
+    },
+    {
+      "repetition": 3,
+      "image": "006948.png",
+      "latency_ms": 10.586
+    },
+    {
+      "repetition": 3,
+      "image": "000975.png",
+      "latency_ms": 10.708
+    },
+    {
+      "repetition": 3,
+      "image": "002777.png",
+      "latency_ms": 10.815
+    },
+    {
+      "repetition": 3,
+      "image": "002363.png",
+      "latency_ms": 10.434
+    },
+    {
+      "repetition": 3,
+      "image": "006554.png",
+      "latency_ms": 10.252
+    },
+    {
+      "repetition": 3,
+      "image": "000721.png",
+      "latency_ms": 10.417
+    },
+    {
+      "repetition": 3,
+      "image": "006468.png",
+      "latency_ms": 10.294
+    },
+    {
+      "repetition": 3,
+      "image": "006777.png",
+      "latency_ms": 10.483
+    },
+    {
+      "repetition": 3,
+      "image": "006475.png",
+      "latency_ms": 10.661
+    },
+    {
+      "repetition": 3,
+      "image": "002453.png",
+      "latency_ms": 10.789
+    },
+    {
+      "repetition": 3,
+      "image": "002955.png",
+      "latency_ms": 10.728
+    },
+    {
+      "repetition": 3,
+      "image": "000733.png",
+      "latency_ms": 10.621
+    },
+    {
+      "repetition": 3,
+      "image": "003266.png",
+      "latency_ms": 10.31
+    },
+    {
+      "repetition": 3,
+      "image": "002812.png",
+      "latency_ms": 10.686
+    },
+    {
+      "repetition": 3,
+      "image": "003696.png",
+      "latency_ms": 10.931
+    },
+    {
+      "repetition": 3,
+      "image": "005972.png",
+      "latency_ms": 10.664
+    },
+    {
+      "repetition": 3,
+      "image": "007092.png",
+      "latency_ms": 10.66
+    },
+    {
+      "repetition": 3,
+      "image": "006430.png",
+      "latency_ms": 10.553
+    },
+    {
+      "repetition": 3,
+      "image": "002720.png",
+      "latency_ms": 10.573
+    },
+    {
+      "repetition": 3,
+      "image": "004760.png",
+      "latency_ms": 10.693
+    },
+    {
+      "repetition": 3,
+      "image": "001524.png",
+      "latency_ms": 10.61
+    },
+    {
+      "repetition": 3,
+      "image": "000918.png",
+      "latency_ms": 10.784
+    },
+    {
+      "repetition": 3,
+      "image": "000259.png",
+      "latency_ms": 11.249
+    },
+    {
+      "repetition": 3,
+      "image": "005694.png",
+      "latency_ms": 10.738
+    },
+    {
+      "repetition": 3,
+      "image": "007124.png",
+      "latency_ms": 10.543
+    },
+    {
+      "repetition": 3,
+      "image": "006980.png",
+      "latency_ms": 10.505
+    },
+    {
+      "repetition": 3,
+      "image": "000293.png",
+      "latency_ms": 10.559
+    },
+    {
+      "repetition": 3,
+      "image": "002561.png",
+      "latency_ms": 10.652
+    },
+    {
+      "repetition": 3,
+      "image": "002192.png",
+      "latency_ms": 10.749
+    },
+    {
+      "repetition": 3,
+      "image": "003507.png",
+      "latency_ms": 11.04
+    },
+    {
+      "repetition": 3,
+      "image": "001734.png",
+      "latency_ms": 11.419
+    },
+    {
+      "repetition": 3,
+      "image": "000995.png",
+      "latency_ms": 10.463
+    },
+    {
+      "repetition": 3,
+      "image": "006828.png",
+      "latency_ms": 10.399
+    },
+    {
+      "repetition": 3,
+      "image": "005526.png",
+      "latency_ms": 10.184
+    },
+    {
+      "repetition": 3,
+      "image": "005157.png",
+      "latency_ms": 10.659
+    },
+    {
+      "repetition": 3,
+      "image": "003728.png",
+      "latency_ms": 10.397
+    }
+  ]
+}

@@ -11,3 +11,5 @@ candidate_records:
 
   - candidate_id: yolo26n_kitti_pilot
     record_path: results/candidates/yolo26n_kitti_pilot.json
+  - candidate_id: yolo26n_kitti_pilot_imgsz448_cpu
+    record_path: results/candidates/yolo26n_kitti_pilot_imgsz448_cpu.json

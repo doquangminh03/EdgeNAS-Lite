@@ -652,46 +652,75 @@ def run_benchmark_sessions(
 def load_template_candidate(
     search_space: Dict[str, Any],
     project_root: Path,
+    template_candidate_id: Optional[str] = None,
 ) -> Tuple[str, Dict[str, Any]]:
-    reusable = [
-        item
-        for item in search_space["existing_candidates"]
-        if item["reuse_accuracy"]
-        and item["reuse_benchmark"]
-    ]
+    if template_candidate_id is None:
+        reusable = [
+            item
+            for item in search_space["existing_candidates"]
+            if item["reuse_accuracy"] and item["reuse_benchmark"]
+        ]
 
-    if not reusable:
-        raise CandidateRunnerError(
-            "At least one complete existing candidate is "
-            "required as the model/training template."
-        )
+        if not reusable:
+            raise CandidateRunnerError(
+                "No model/training template. "
+                "Provide --template-candidate-id."
+            )
 
-    source_candidate_id = reusable[0]["candidate_id"]
-    source_path = candidate_record_path(
-        project_root,
-        source_candidate_id,
+        template_candidate_id = reusable[0]["candidate_id"]
+
+    allowed = (
+        "abcdefghijklmnopqrstuvwxyz"
+        "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
+        "0123456789_-"
     )
-    source_candidate = load_json(source_path)
+    if (
+        not template_candidate_id
+        or any(char not in allowed for char in template_candidate_id)
+    ):
+        raise CandidateRunnerError("Invalid template candidate ID.")
 
-    if source_candidate.get("candidate_id") != source_candidate_id:
+    source = load_json(
+        candidate_record_path(project_root, template_candidate_id)
+    )
+
+    if source.get("candidate_id") != template_candidate_id:
         raise CandidateRunnerError(
             "Template candidate ID does not match its file."
         )
 
-    for required_section in (
-        "model",
-        "training",
-    ):
-        if not isinstance(
-            source_candidate.get(required_section),
-            dict,
-        ):
+    for section in ("model", "training"):
+        if not isinstance(source.get(section), dict) or not source[section]:
             raise CandidateRunnerError(
-                "Template candidate is missing section: "
-                f"{required_section}"
+                f"Template candidate is missing section: {section}"
             )
 
-    return source_candidate_id, source_candidate
+    expected = search_space["fixed_configuration"]["model"]
+    actual = source["model"]
+
+    for key in ("family", "scale"):
+        if actual.get(key) != expected[key]:
+            raise CandidateRunnerError(
+                f"Template model mismatch: {key}"
+            )
+
+    checkpoint = actual.get("checkpoint")
+    if not isinstance(checkpoint, str) or not checkpoint.strip():
+        raise CandidateRunnerError("Template checkpoint is missing.")
+
+    def resolve_checkpoint(value: str) -> Path:
+        path = Path(value)
+        return (
+            path if path.is_absolute() else project_root / path
+        ).resolve()
+
+    if (
+        resolve_checkpoint(checkpoint)
+        != resolve_checkpoint(expected["checkpoint"])
+    ):
+        raise CandidateRunnerError("Template checkpoint mismatch.")
+
+    return template_candidate_id, source
 
 
 def build_candidate_record(
@@ -755,6 +784,7 @@ def run_candidates(
     requested_candidate_id: Optional[str],
     dry_run: bool,
     overwrite: bool,
+    template_candidate_id: Optional[str] = None,
 ) -> Dict[str, Any]:
     project_root = project_root_from_config(
         search_space_path
@@ -768,6 +798,14 @@ def run_candidates(
         requested_candidate_id,
     )
 
+    source_candidate = None
+    if any(c["status"] != "reuse_existing" for c in candidates):
+        _, source_candidate = load_template_candidate(
+            search_space,
+            project_root,
+            template_candidate_id,
+        )
+
     if dry_run:
         return build_dry_run_plan(
             search_space,
@@ -775,12 +813,6 @@ def run_candidates(
             project_root,
         )
 
-    _, source_candidate = (
-        load_template_candidate(
-            search_space,
-            project_root,
-        )
-    )
     completed = []
 
     for candidate in candidates:
@@ -873,6 +905,10 @@ def main() -> None:
         action="store_true",
         help="Allow replacement of generated candidate results.",
     )
+    argument_parser.add_argument(
+        "--template-candidate-id",
+        help="Existing candidate supplying model/training metadata only.",
+    )
     arguments = argument_parser.parse_args()
 
     try:
@@ -881,6 +917,7 @@ def main() -> None:
             arguments.candidate_id,
             arguments.dry_run,
             arguments.overwrite,
+            template_candidate_id=arguments.template_candidate_id,
         )
     except (
         CandidateRunnerError,

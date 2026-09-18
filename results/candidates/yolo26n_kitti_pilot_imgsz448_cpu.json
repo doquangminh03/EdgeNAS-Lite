@@ -1,0 +1,97 @@
+{
+  "schema_version": "1.0",
+  "candidate_id": "yolo26n_kitti_pilot_imgsz448_cpu",
+  "model": {
+    "family": "YOLO26",
+    "scale": "n",
+    "checkpoint": "runs/detect/kitti_yolo26n_pilot/weights/best.pt",
+    "parameters": 2376396,
+    "parameters_m": 2.376,
+    "model_size_mb": 5.102
+  },
+  "training": {
+    "dataset": "KITTI",
+    "epochs": 10,
+    "training_fraction": 0.25,
+    "image_size": 640,
+    "batch_size": 4,
+    "device": "mps",
+    "seed": 42,
+    "classes": [
+      "car",
+      "pedestrian",
+      "cyclist"
+    ]
+  },
+  "accuracy": {
+    "dataset": "KITTI",
+    "split": "val",
+    "image_size": 448,
+    "validation_images": 1496,
+    "validation_instances": 6989,
+    "precision": 0.495695,
+    "recall": 0.415051,
+    "map50": 0.412728,
+    "map50_95": 0.221918,
+    "per_class": {
+      "car": {
+        "class_id": 0,
+        "precision": 0.64578,
+        "recall": 0.678971,
+        "map50": 0.707974,
+        "map50_95": 0.436058
+      },
+      "pedestrian": {
+        "class_id": 3,
+        "precision": 0.456225,
+        "recall": 0.384365,
+        "map50": 0.354016,
+        "map50_95": 0.154431
+      },
+      "cyclist": {
+        "class_id": 5,
+        "precision": 0.385079,
+        "recall": 0.181818,
+        "map50": 0.176193,
+        "map50_95": 0.075266
+      }
+    }
+  },
+  "benchmark": {
+    "device": "cpu",
+    "system": "macOS-26.6.2-arm64-arm-64bit",
+    "architecture": "arm64",
+    "image_size": 448,
+    "batch_size": 1,
+    "dataset": "KITTI",
+    "split": "val",
+    "selected_images": 100,
+    "selection_seed": 42,
+    "session_count": 3,
+    "warmup_runs_per_session": 10,
+    "repetitions_per_image": 3,
+    "total_latency_samples": 900,
+    "average_latency_ms": 11.23,
+    "median_latency_ms": 10.628,
+    "p95_latency_ms": 12.913,
+    "standard_deviation_ms": 3.896,
+    "min_latency_ms": 10.115,
+    "max_latency_ms": 79.217,
+    "fps_from_median": 94.087,
+    "timing_scope": "preprocess_inference_postprocess",
+    "disk_io_included": false,
+    "protocol_status": "standardized",
+    "protocol_version": "cpu_v1",
+    "raw_samples_saved": true,
+    "source_results": [
+      "results/benchmarks/yolo26n_kitti_pilot_imgsz448_cpu_cpu_run3.json",
+      "results/benchmarks/yolo26n_kitti_pilot_imgsz448_cpu_cpu_run4.json",
+      "results/benchmarks/yolo26n_kitti_pilot_imgsz448_cpu_cpu_run5.json"
+    ],
+    "excluded_stabilization_runs": [
+      "results/benchmarks/yolo26n_kitti_pilot_imgsz448_cpu_cpu_run1.json",
+      "results/benchmarks/yolo26n_kitti_pilot_imgsz448_cpu_cpu_run2.json"
+    ],
+    "hardware_id": "local_mac_cpu_01"
+  }
+}

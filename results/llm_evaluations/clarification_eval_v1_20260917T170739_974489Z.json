@@ -1,0 +1,71 @@
+{
+  "evaluation_version": "clarification_eval_v1",
+  "started_at_utc": "2026-09-17T17:07:39.974489+00:00",
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "planned_cases": 3,
+  "run_status": "completed",
+  "review_note": "Automatic checks verify status, null requirement, and non-empty questions. Question relevance needs human review.",
+  "results": [
+    {
+      "case_id": "missing_latency_unprompted",
+      "user_text": "Tôi cần object detection trên KITTI, chạy CPU. mAP50-95 tối thiểu 20%, kích thước file model tối đa 6 MB. Ưu tiên cân bằng.",
+      "expected_status": "needs_clarification",
+      "expected_requirement": null,
+      "expected_question_topic": "Giới hạn median latency.",
+      "manual_review": "pending",
+      "outcome": "PASS",
+      "actual": {
+        "status": "needs_clarification",
+        "requirement": null,
+        "questions": [
+          "Bạn chưa chỉ định giới hạn độ trễ median (maximum_median_latency_ms) tối đa là bao nhiêu. Vui lòng cung cấp giá trị này."
+        ],
+        "reasons": []
+      },
+      "issues": []
+    },
+    {
+      "case_id": "missing_accuracy_unprompted",
+      "user_text": "Tôi cần object detection trên KITTI, chạy CPU. Median latency tối đa 12 ms, kích thước file model tối đa 6 MB. Ưu tiên cân bằng.",
+      "expected_status": "needs_clarification",
+      "expected_requirement": null,
+      "expected_question_topic": "Ngưỡng mAP50-95 tối thiểu.",
+      "manual_review": "pending",
+      "outcome": "PASS",
+      "actual": {
+        "status": "needs_clarification",
+        "requirement": null,
+        "questions": [
+          "Bạn chưa cung cấp ngưỡng mAP50-95 tối thiểu yêu cầu. Vui lòng chỉ định giá trị này."
+        ],
+        "reasons": []
+      },
+      "issues": []
+    },
+    {
+      "case_id": "unresolved_latency",
+      "user_text": "Tôi cần object detection trên KITTI, chạy CPU. mAP50-95 tối thiểu 20%, file model tối đa 6 MB. Ưu tiên cân bằng. Tài liệu A ghi giới hạn median latency là 12 ms, tài liệu B ghi giới hạn là 20 ms. Chưa xác định tài liệu nào là yêu cầu chính thức.",
+      "expected_status": "needs_clarification",
+      "expected_requirement": null,
+      "expected_question_topic": "Làm rõ giới hạn median latency là 12 ms hay 20 ms.",
+      "manual_review": "pending",
+      "outcome": "PASS",
+      "actual": {
+        "status": "needs_clarification",
+        "requirement": null,
+        "questions": [
+          "Tài liệu nào (tài liệu A với giới hạn median latency 12 ms hay tài liệu B với giới hạn 20 ms) là yêu cầu chính thức cho median latency?"
+        ],
+        "reasons": []
+      },
+      "issues": []
+    }
+  ],
+  "summary": {
+    "PASS": 3,
+    "FAIL": 0,
+    "ERROR": 0
+  },
+  "finished_at_utc": "2026-09-17T17:07:43.396751+00:00"
+}
