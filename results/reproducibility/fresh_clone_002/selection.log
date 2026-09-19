@@ -1,0 +1,9 @@
+Request: low_latency_balanced_demo
+Hardware: local_mac_cpu_01
+Status: selected
+Retrieved: 7
+Compatible: 7
+Excluded: 0
+Feasible: 4
+Selected: yolo26n_kitti_pilot_imgsz416_cpu
+Saved: /private/var/folders/nw/yrwk9kt54xj0bw0dhrw8ykmh0000gn/T/edgenas_clone_7orxyssz/repo/results/proposals/fresh_clone_check.json

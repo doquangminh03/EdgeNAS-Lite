@@ -1,0 +1,63 @@
+{
+  "schema_version": "1.0",
+  "run_id": "clean_env_001",
+  "status": "passed",
+  "started_at_utc": "2026-09-19T13:23:12.391994+00:00",
+  "scope": "clean dependencies; current working tree; same machine",
+  "python": "3.9.6",
+  "platform": "macOS-26.6.2-arm64-arm-64bit",
+  "requirements_sha256": "e9d815766bc0a69323eb87b394edac8ac1f66217c172bd5b405f3064d2e3b264",
+  "steps": [
+    {
+      "name": "create_venv",
+      "log": "create_venv.log",
+      "status": "passed",
+      "exit_code": 0,
+      "seconds": 1.97
+    },
+    {
+      "name": "install",
+      "log": "install.log",
+      "status": "passed",
+      "exit_code": 0,
+      "seconds": 64.32
+    },
+    {
+      "name": "pip_check",
+      "log": "pip_check.log",
+      "status": "passed",
+      "exit_code": 0,
+      "seconds": 0.63
+    },
+    {
+      "name": "imports",
+      "log": "imports.log",
+      "status": "passed",
+      "exit_code": 0,
+      "seconds": 24.15
+    },
+    {
+      "name": "tests",
+      "log": "tests.log",
+      "status": "passed",
+      "exit_code": 0,
+      "seconds": 4.23
+    },
+    {
+      "name": "workflow_help",
+      "log": "workflow_help.log",
+      "status": "passed",
+      "exit_code": 0,
+      "seconds": 0.08
+    }
+  ],
+  "limitations": [
+    "Not a fresh clone or a different hardware/OS test.",
+    "No live Gemini workflow or new model measurement is requested.",
+    "Dataset contents and checkpoint contents are not validated."
+  ],
+  "environment_path": "/var/folders/nw/yrwk9kt54xj0bw0dhrw8ykmh0000gn/T/edgenas_clean_hvz2h4km/venv",
+  "active_step": "workflow_help",
+  "requirements_unchanged": true,
+  "finished_at_utc": "2026-09-19T13:24:47.809140+00:00"
+}

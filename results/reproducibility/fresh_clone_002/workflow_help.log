@@ -1,0 +1,16 @@
+usage: workflow.py [-h] --text TEXT --run-id RUN_ID --hardware-id HARDWARE_ID
+                   [--budget BUDGET]
+                   [--template-candidate-id TEMPLATE_CANDIDATE_ID]
+                   [--model MODEL]
+
+Natural-language selection with optional budgeted experiments.
+
+optional arguments:
+  -h, --help            show this help message and exit
+  --text TEXT
+  --run-id RUN_ID
+  --hardware-id HARDWARE_ID
+  --budget BUDGET       Maximum experiment slots; 0 selects known candidates
+                        only.
+  --template-candidate-id TEMPLATE_CANDIDATE_ID
+  --model MODEL

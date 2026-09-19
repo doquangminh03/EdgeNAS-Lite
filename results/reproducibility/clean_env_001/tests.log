@@ -1,0 +1,229 @@
+test_budget_limits_execution (test_budget_controller.TestBudgetController) ... Experiment: batch_001
+Experiment: batch_002
+ok
+test_dry_run_writes_nothing (test_budget_controller.TestBudgetController) ... ok
+test_failure_stops_and_is_not_retried (test_budget_controller.TestBudgetController) ... Experiment: batch_001
+ok
+test_pool_exhaustion_stops (test_budget_controller.TestBudgetController) ... Experiment: batch_001
+ok
+test_reconcile_finished_child_then_continue (test_budget_controller.TestBudgetController) ... Experiment: batch_002
+ok
+test_resume_does_not_repeat_completed (test_budget_controller.TestBudgetController) ... Experiment: batch_001
+Experiment: batch_002
+ok
+test_accepts_each_supported_resolution (test_candidate_compatibility.TestCandidateCompatibility) ... ok
+test_does_not_modify_candidate (test_candidate_compatibility.TestCandidateCompatibility) ... ok
+test_rejects_accuracy_benchmark_resolution_mismatch (test_candidate_compatibility.TestCandidateCompatibility) ... ok
+test_rejects_different_evaluated_classes (test_candidate_compatibility.TestCandidateCompatibility) ... ok
+test_rejects_different_hardware (test_candidate_compatibility.TestCandidateCompatibility) ... ok
+test_rejects_incompatible_benchmark_settings (test_candidate_compatibility.TestCandidateCompatibility) ... ok
+test_reports_missing_accuracy_image_size (test_candidate_compatibility.TestCandidateCompatibility) ... ok
+test_reports_missing_hardware_id (test_candidate_compatibility.TestCandidateCompatibility) ... ok
+test_requires_target_hardware_identity (test_candidate_compatibility.TestCandidateCompatibility) ... ok
+test_accepts_available_integer (test_candidate_proposer.TestCandidateProposer) ... ok
+test_context_blocks_existing_candidate_path_without_index_entry (test_candidate_proposer.TestCandidateProposer) ... ok
+test_context_detects_sizes_and_does_not_mutate_inputs (test_candidate_proposer.TestCandidateProposer) ... ok
+test_context_excludes_different_checkpoint_and_incompatible_evidence (test_candidate_proposer.TestCandidateProposer) ... ok
+test_empty_available_or_evidence_stops_before_provider (test_candidate_proposer.TestCandidateProposer) ... ok
+test_one_candidate_plan_preserves_fixed_settings_and_original_pool (test_candidate_proposer.TestCandidateProposer) ... ok
+test_provider_receives_context_once_and_output_is_validated (test_candidate_proposer.TestCandidateProposer) ... ok
+test_rejects_duplicate_keys_nonfinite_and_markdown (test_candidate_proposer.TestCandidateProposer) ... ok
+test_rejects_measured_outside_and_wrong_types (test_candidate_proposer.TestCandidateProposer) ... ok
+test_rejects_metrics_extra_keys_and_bad_rationale (test_candidate_proposer.TestCandidateProposer) ... ok
+test_rejects_unsafe_request_id (test_candidate_proposer.TestCandidateProposer) ... ok
+test_saves_new_pair_and_preserves_existing_files (test_candidate_proposer.TestCandidateProposer) ... ok
+test_benchmark_config_is_candidate_specific (test_candidate_runner.TestCandidateRunner) ... ok
+test_candidate_record_preserves_training_metadata (test_candidate_runner.TestCandidateRunner) ... ok
+test_extracts_overall_and_per_class_accuracy (test_candidate_runner.TestCandidateRunner) ... ok
+test_pools_three_benchmark_sessions (test_candidate_runner.TestCandidateRunner) ... ok
+test_rejects_candidate_outside_search_space (test_candidate_runner.TestCandidateRunner) ... ok
+test_rejects_wrong_benchmark_image_size (test_candidate_runner.TestCandidateRunner) ... ok
+test_validation_uses_low_default_confidence (test_candidate_runner.TestCandidateRunner) ... ok
+test_accuracy_goal_selects_highest_accuracy (test_candidate_selector.TestCandidateSelector) ... ok
+test_balanced_goal_uses_equal_constraint_headroom (test_candidate_selector.TestCandidateSelector) ... ok
+test_balanced_tie_prefers_accuracy_regardless_of_input_order (test_candidate_selector.TestCandidateSelector) ... ok
+test_identical_metrics_use_candidate_id_as_final_tiebreaker (test_candidate_selector.TestCandidateSelector) ... ok
+test_latency_goal_selects_lowest_latency (test_candidate_selector.TestCandidateSelector) ... ok
+test_model_size_goal_selects_smallest_model (test_candidate_selector.TestCandidateSelector) ... ok
+test_rejects_duplicate_candidate_ids (test_candidate_selector.TestCandidateSelector) ... ok
+test_rejects_inconsistent_pass_value (test_candidate_selector.TestCandidateSelector) ... ok
+test_rejects_non_positive_latency (test_candidate_selector.TestCandidateSelector) ... ok
+test_rejects_stale_constraint_value (test_candidate_selector.TestCandidateSelector) ... ok
+test_returns_no_selection_when_every_candidate_fails (test_candidate_selector.TestCandidateSelector) ... ok
+test_selects_only_feasible_current_candidate (test_candidate_selector.TestCandidateSelector) ... ok
+test_candidate_passes_all_constraints (test_constraint_checker.TestConstraintChecker) ... ok
+test_fails_accuracy_constraint (test_constraint_checker.TestConstraintChecker) ... ok
+test_fails_latency_constraint (test_constraint_checker.TestConstraintChecker) ... ok
+test_fails_model_size_constraint (test_constraint_checker.TestConstraintChecker) ... ok
+test_rejects_dataset_mismatch (test_constraint_checker.TestConstraintChecker) ... ok
+test_rejects_device_mismatch (test_constraint_checker.TestConstraintChecker) ... ok
+test_rejects_invalid_accuracy_value (test_constraint_checker.TestConstraintChecker) ... ok
+test_rejects_missing_metric (test_constraint_checker.TestConstraintChecker) ... ok
+test_collect_images_filters_extensions (test_cpu_benchmark.TestCpuBenchmark) ... ok
+test_rejects_batch_size_above_one (test_cpu_benchmark.TestCpuBenchmark) ... ok
+test_rejects_excessive_sample_size (test_cpu_benchmark.TestCpuBenchmark) ... ok
+test_rejects_non_cpu_device (test_cpu_benchmark.TestCpuBenchmark) ... ok
+test_select_images_is_deterministic (test_cpu_benchmark.TestCpuBenchmark) ... ok
+test_summarizes_latency_samples (test_cpu_benchmark.TestCpuBenchmark) ... ok
+test_benchmark_failure_preserves_index_and_report (test_experiment_controller.TestExperimentController) ... ok
+test_budget_rejected_before_provider (test_experiment_controller.TestExperimentController) ... ok
+test_dry_run_no_calls_or_writes (test_experiment_controller.TestExperimentController) ... ok
+test_existing_measurement_not_overwritten (test_experiment_controller.TestExperimentController) ... ok
+test_existing_run_blocks_api (test_experiment_controller.TestExperimentController) ... ok
+test_incompatible_not_registered (test_experiment_controller.TestExperimentController) ... ok
+test_index_changed_during_measurement_preserved (test_experiment_controller.TestExperimentController) ... ok
+test_invalid_proposal_no_measurement (test_experiment_controller.TestExperimentController) ... ok
+test_lock_blocks_execution (test_experiment_controller.TestExperimentController) ... ok
+test_no_available_candidate_no_api (test_experiment_controller.TestExperimentController) ... ok
+test_success_one_measurement_and_registration (test_experiment_controller.TestExperimentController) ... ok
+test_wrong_measured_resolution_rejected (test_experiment_controller.TestExperimentController) ... ok
+test_handles_http_error_with_non_json_body (test_gemini_provider.TestGeminiProvider) ... ok
+test_handles_network_error_and_timeout_without_retry (test_gemini_provider.TestGeminiProvider) ... ok
+test_joins_text_and_ignores_thought_parts (test_gemini_provider.TestGeminiProvider) ... ok
+test_redacts_api_key_in_http_error (test_gemini_provider.TestGeminiProvider) ... ok
+test_rejects_invalid_api_key (test_gemini_provider.TestGeminiProvider) ... ok
+test_rejects_invalid_messages_before_http (test_gemini_provider.TestGeminiProvider) ... ok
+test_rejects_invalid_model_identifier (test_gemini_provider.TestGeminiProvider) ... ok
+test_rejects_missing_candidates_or_abnormal_finish (test_gemini_provider.TestGeminiProvider) ... ok
+test_rejects_missing_empty_or_non_text_content (test_gemini_provider.TestGeminiProvider) ... ok
+test_rejects_unreadable_json_response (test_gemini_provider.TestGeminiProvider) ... ok
+test_requires_api_key (test_gemini_provider.TestGeminiProvider) ... ok
+test_sends_expected_request_and_returns_text (test_gemini_provider.TestGeminiProvider) ... ok
+test_config_id (test_hardware_metadata.TestHardwareMetadata) ... ok
+test_conflict_fails_before_validation (test_hardware_metadata.TestHardwareMetadata) ... ok
+test_conflicting_config_rejected (test_hardware_metadata.TestHardwareMetadata) ... ok
+test_explicit_id (test_hardware_metadata.TestHardwareMetadata) ... ok
+test_five_sessions_receive_and_return_id (test_hardware_metadata.TestHardwareMetadata) ... Running CPU benchmark session 1/5: candidate
+Running CPU benchmark session 2/5: candidate
+Running CPU benchmark session 3/5: candidate
+Running CPU benchmark session 4/5: candidate
+Running CPU benchmark session 5/5: candidate
+ok
+test_invalid_ids (test_hardware_metadata.TestHardwareMetadata) ... ok
+test_legacy_missing_id_is_not_invented (test_hardware_metadata.TestHardwareMetadata) ... ok
+test_legacy_pool_does_not_invent_id (test_hardware_metadata.TestHardwareMetadata) ... ok
+test_mixed_ids_rejected (test_hardware_metadata.TestHardwareMetadata) ... ok
+test_partially_missing_ids_rejected (test_hardware_metadata.TestHardwareMetadata) ... ok
+test_pool_retains_id (test_hardware_metadata.TestHardwareMetadata) ... ok
+test_raw_result_records_operator_id (test_hardware_metadata.TestHardwareMetadata) ... ok
+test_reused_candidate_wrong_machine_rejected (test_hardware_metadata.TestHardwareMetadata) ... ok
+test_session_config_preserves_base (test_hardware_metadata.TestHardwareMetadata) ... ok
+test_session_wrong_id_stops_immediately (test_hardware_metadata.TestHardwareMetadata) ... Running CPU benchmark session 1/5: c
+ok
+test_accepts_valid_metrics_and_accuracy_boundaries (test_knowledge_database.TestCandidateMetricValidation) ... ok
+test_rejects_invalid_accuracy (test_knowledge_database.TestCandidateMetricValidation) ... ok
+test_rejects_invalid_latency (test_knowledge_database.TestCandidateMetricValidation) ... ok
+test_rejects_invalid_model_size (test_knowledge_database.TestCandidateMetricValidation) ... ok
+test_rejects_missing_metric (test_knowledge_database.TestCandidateMetricValidation) ... ok
+test_rejects_missing_or_invalid_section (test_knowledge_database.TestCandidateMetricValidation) ... ok
+test_loads_record_and_preserves_source_path (test_knowledge_database.TestKnowledgeLoader) ... ok
+test_rejects_candidate_id_mismatch (test_knowledge_database.TestKnowledgeLoader) ... ok
+test_rejects_duplicate_candidate_id (test_knowledge_database.TestKnowledgeLoader) ... ok
+test_rejects_invalid_metrics_when_loading (test_knowledge_database.TestKnowledgeLoader) ... ok
+test_rejects_record_path_outside_project (test_knowledge_database.TestKnowledgeLoader) ... ok
+test_reports_missing_record_file (test_knowledge_database.TestKnowledgeLoader) ... ok
+test_applies_single_filter (test_knowledge_query.TestKnowledgeQuery) ... ok
+test_combines_all_filters (test_knowledge_query.TestKnowledgeQuery) ... ok
+test_ignores_case_and_surrounding_whitespace (test_knowledge_query.TestKnowledgeQuery) ... ok
+test_rejects_invalid_filter_values (test_knowledge_query.TestKnowledgeQuery) ... ok
+test_result_changes_do_not_modify_source (test_knowledge_query.TestKnowledgeQuery) ... ok
+test_returns_empty_list_when_no_match (test_knowledge_query.TestKnowledgeQuery) ... ok
+test_without_filters_returns_all_in_stable_order (test_knowledge_query.TestKnowledgeQuery) ... ok
+test_clarification_saves_questions_without_proposal (test_llm_cli.TestLLMCLI) ... ok
+test_existing_output_is_preserved_without_calling_provider (test_llm_cli.TestLLMCLI) ... ok
+test_invalid_response_does_not_create_report_or_proposal (test_llm_cli.TestLLMCLI) ... ok
+test_missing_hardware_argument_stops_before_provider (test_llm_cli.TestLLMCLI) ... ok
+test_no_feasible_candidate_saves_report_and_returns_one (test_llm_cli.TestLLMCLI) ... ok
+test_provider_error_does_not_create_report_or_proposal (test_llm_cli.TestLLMCLI) ... ok
+test_ready_passes_requirement_to_proposal_and_saves_report (test_llm_cli.TestLLMCLI) ... ok
+test_unsupported_saves_reasons_without_proposal (test_llm_cli.TestLLMCLI) ... ok
+test_accepts_clarification_without_requirement (test_llm_contract.TestInterpretationContract) ... ok
+test_accepts_ready_requirement (test_llm_contract.TestInterpretationContract) ... ok
+test_accepts_unsupported_with_reason (test_llm_contract.TestInterpretationContract) ... ok
+test_ready_result_does_not_share_nested_input (test_llm_contract.TestInterpretationContract) ... ok
+test_rejects_invalid_question_or_reason_lists (test_llm_contract.TestInterpretationContract) ... ok
+test_rejects_invalid_requirement_constraints (test_llm_contract.TestInterpretationContract) ... ok
+test_rejects_invalid_status (test_llm_contract.TestInterpretationContract) ... ok
+test_rejects_missing_or_unknown_fields (test_llm_contract.TestInterpretationContract) ... ok
+test_rejects_missing_requirement_constraint (test_llm_contract.TestInterpretationContract) ... ok
+test_rejects_mixed_clarification_and_unsupported_fields (test_llm_contract.TestInterpretationContract) ... ok
+test_rejects_non_object_response (test_llm_contract.TestInterpretationContract) ... ok
+test_rejects_ready_with_questions_or_reasons (test_llm_contract.TestInterpretationContract) ... ok
+test_rejects_ready_without_requirement_object (test_llm_contract.TestInterpretationContract) ... ok
+test_rejects_requirement_in_non_ready_response (test_llm_contract.TestInterpretationContract) ... ok
+test_requires_questions_for_clarification (test_llm_contract.TestInterpretationContract) ... ok
+test_requires_reasons_for_unsupported (test_llm_contract.TestInterpretationContract) ... ok
+test_trims_text_without_modifying_input (test_llm_contract.TestInterpretationContract) ... ok
+test_invalid_request_id_does_not_call_provider (test_llm_interpreter.TestRequirementInterpreter) ... ok
+test_invalid_user_text_does_not_call_provider (test_llm_interpreter.TestRequirementInterpreter) ... ok
+test_preserves_clarification_without_requirement (test_llm_interpreter.TestRequirementInterpreter) ... ok
+test_preserves_unsupported_response (test_llm_interpreter.TestRequirementInterpreter) ... ok
+test_provider_failure_is_propagated_without_retry (test_llm_interpreter.TestRequirementInterpreter) ... ok
+test_rejects_contract_violation_from_provider (test_llm_interpreter.TestRequirementInterpreter) ... ok
+test_rejects_invalid_provider_response (test_llm_interpreter.TestRequirementInterpreter) ... ok
+test_rejects_mismatched_request_id (test_llm_interpreter.TestRequirementInterpreter) ... ok
+test_returns_validated_ready_requirement (test_llm_interpreter.TestRequirementInterpreter) ... ok
+test_sends_user_text_and_request_id_to_provider (test_llm_interpreter.TestRequirementInterpreter) ... ok
+test_accepts_ready_json (test_llm_response.TestInterpretationResponse) ... ok
+test_accepts_surrounding_whitespace (test_llm_response.TestInterpretationResponse) ... ok
+test_accepts_unsupported_response (test_llm_response.TestInterpretationResponse) ... ok
+test_applies_contract_validation_after_json_decoding (test_llm_response.TestInterpretationResponse) ... ok
+test_preserves_vietnamese_clarification (test_llm_response.TestInterpretationResponse) ... ok
+test_rejects_duplicate_nested_constraint (test_llm_response.TestInterpretationResponse) ... ok
+test_rejects_duplicate_top_level_key (test_llm_response.TestInterpretationResponse) ... ok
+test_rejects_empty_or_non_string_input (test_llm_response.TestInterpretationResponse) ... ok
+test_rejects_malformed_json (test_llm_response.TestInterpretationResponse) ... ok
+test_rejects_markdown_or_extra_text (test_llm_response.TestInterpretationResponse) ... ok
+test_rejects_multiple_json_objects (test_llm_response.TestInterpretationResponse) ... ok
+test_rejects_non_finite_constants (test_llm_response.TestInterpretationResponse) ... ok
+test_rejects_non_object_json (test_llm_response.TestInterpretationResponse) ... ok
+test_rejects_numeric_overflow (test_llm_response.TestInterpretationResponse) ... ok
+test_different_hardware_saves_report_with_exit_one (test_proposal_cli.TestProposalCLI) ... ok
+test_invalid_hardware_argument_returns_two_without_output (test_proposal_cli.TestProposalCLI) ... ok
+test_missing_hardware_argument_returns_two_without_output (test_proposal_cli.TestProposalCLI) ... ok
+test_missing_requirement_returns_two_without_output (test_proposal_cli.TestProposalCLI) ... ok
+test_no_feasible_candidate_saves_report_with_exit_one (test_proposal_cli.TestProposalCLI) ... ok
+test_no_matching_candidates_saves_report_with_exit_one (test_proposal_cli.TestProposalCLI) ... ok
+test_output_cannot_replace_inputs (test_proposal_cli.TestProposalCLI) ... ok
+test_selects_candidate_and_saves_json_with_exit_zero (test_proposal_cli.TestProposalCLI) ... ok
+test_rejects_invalid_optimization_goal (test_requirement_parser.TestRequirementParser) ... ok
+test_rejects_map_above_one (test_requirement_parser.TestRequirementParser) ... ok
+test_rejects_missing_request_id (test_requirement_parser.TestRequirementParser) ... ok
+test_rejects_negative_latency (test_requirement_parser.TestRequirementParser) ... ok
+test_rejects_unknown_field (test_requirement_parser.TestRequirementParser) ... ok
+test_rejects_unsupported_device (test_requirement_parser.TestRequirementParser) ... ok
+test_rejects_zero_model_size (test_requirement_parser.TestRequirementParser) ... ok
+test_valid_request (test_requirement_parser.TestRequirementParser) ... ok
+test_blocks_selection_without_target_hardware (test_rule_based_proposal.TestRuleBasedProposal) ... ok
+test_excludes_all_candidates_for_different_hardware (test_rule_based_proposal.TestRuleBasedProposal) ... ok
+test_excludes_incompatible_protocol_before_ranking (test_rule_based_proposal.TestRuleBasedProposal) ... ok
+test_excludes_missing_metadata_before_ranking (test_rule_based_proposal.TestRuleBasedProposal) ... ok
+test_reports_no_feasible_candidate (test_rule_based_proposal.TestRuleBasedProposal) ... ok
+test_reports_no_matching_candidates (test_rule_based_proposal.TestRuleBasedProposal) ... ok
+test_selects_416_from_multiple_feasible_candidates (test_rule_based_proposal.TestRuleBasedProposal) ... ok
+test_selects_640_as_only_feasible_candidate (test_rule_based_proposal.TestRuleBasedProposal) ... ok
+test_accepts_matching_requirement_target (test_search_controller.TestSearchController) ... ok
+test_complete_run_generates_missing_candidate (test_search_controller.TestSearchController) ... ok
+test_complete_run_reuses_evaluates_and_selects (test_search_controller.TestSearchController) ... ok
+test_dry_run_does_not_write_results (test_search_controller.TestSearchController) ... ok
+test_plan_rejects_missing_reusable_candidate (test_search_controller.TestSearchController) ... ok
+test_plan_reuses_existing_records (test_search_controller.TestSearchController) ... ok
+test_rejects_candidate_with_wrong_image_size (test_search_controller.TestSearchController) ... ok
+test_rejects_mismatched_requirement_target (test_search_controller.TestSearchController) ... ok
+test_multiple_feasible_candidates_rank_and_select_416 (test_search_integration.TestSearchIntegration) ... ok
+test_no_feasible_candidate_saves_empty_selection (test_search_integration.TestSearchIntegration) ... ok
+test_reuse_pipeline_selects_640_and_saves_outputs (test_search_integration.TestSearchIntegration) ... ok
+test_rejects_budget_mismatch (test_search_space_parser.TestSearchSpaceParser) ... ok
+test_rejects_duplicate_image_sizes (test_search_space_parser.TestSearchSpaceParser) ... ok
+test_rejects_existing_candidate_outside_space (test_search_space_parser.TestSearchSpaceParser) ... ok
+test_rejects_image_size_not_divisible_by_32 (test_search_space_parser.TestSearchSpaceParser) ... ok
+test_rejects_incomplete_metric_contract (test_search_space_parser.TestSearchSpaceParser) ... ok
+test_rejects_mismatched_classes_and_ids (test_search_space_parser.TestSearchSpaceParser) ... ok
+test_rejects_retraining (test_search_space_parser.TestSearchSpaceParser) ... ok
+test_rejects_unsupported_device (test_search_space_parser.TestSearchSpaceParser) ... ok
+test_valid_search_space_expands_candidates (test_search_space_parser.TestSearchSpaceParser) ... ok
+
+----------------------------------------------------------------------
+Ran 211 tests in 1.088s
+
+OK
