@@ -2,7 +2,7 @@
 
 LLM-guided, hardware-aware YOLO deployment-configuration search with measured evidence and deterministic selection.
 
-> Updated 18 September 2026. The prototype includes Gemini requirement interpretation, bounded candidate proposals, automated experiment execution, budgeted batches, and a natural-language workflow. Seven resolutions have been measured. The balanced demo still selects 416; the experiments do not establish an LLM advantage over baseline search.
+> Updated 19 September 2026. The core prototype includes Gemini requirement interpretation, bounded candidate proposals, automated experiments, budgeted batches, and a natural-language workflow. Seven resolutions have been measured; the balanced demo selects 416. Clean-environment verification passed with 211 tests, and fresh-clone verification passed at commit `b6adb98`. The portfolio report has been generated. Current experiments do not establish an LLM advantage over baseline search.
 
 ## Scope
 
@@ -95,7 +95,7 @@ All three trials found a feasible candidate on the first choice. Ascending order
 
 ## Installation and local checks
 
-The verified local environment uses Python 3.9.6, PyTorch 2.8.0, Ultralytics 8.4.123, and macOS ARM64. `requirements.txt` pins the recorded environment; installation in a fresh environment and on other platforms remains unverified.
+The verified local environment uses Python 3.9.6, PyTorch 2.8.0, Ultralytics 8.4.123, and macOS ARM64. Installation from pinned requirements and 211 software tests passed in a clean environment on the same machine. A fresh remote clone subsequently passed checks using that verified environment. Installation on other machines and platforms remains unverified.
 
 ```bash
 git clone https://github.com/doquangminh03/EdgeNAS-Lite.git
@@ -178,7 +178,7 @@ Experiment budgets limit slots, not tokens, monetary cost, or all possible HTTP 
 | `results/llm_evaluations/` | Live interpretation evaluations |
 | `artifacts/kitti_pilot/` | Retained pilot plots and metrics |
 
-The last explicitly counted full-suite result supplied was **193 tests OK**, after hardware-metadata changes. Earlier milestones were 166 and 178. Later modules and checks were added, but a new full-suite total has not been confirmed. Do not use 193 as a verified count for the entire latest tree.
+The latest explicitly counted full-suite result is **211 tests OK**, recorded during clean-environment verification. The fresh-clone test step also passed; its count is recorded separately in its own tests.log.
 
 Live interpretation evaluation: six semantic cases passed; three additional clarification cases passed automatic checks. Full manual review of all clarification questions remains unconfirmed. These API cases are separate from software tests.
 
@@ -188,14 +188,81 @@ python -m unittest discover -s tests -v
 
 This documentation update does not rerun tests, training, benchmarks, or API evaluations, and does not confirm that all local artifacts have been committed or pushed.
 
-## Remaining work
+## Reproducibility milestone
 
-1. Validate installation and tests in a clean environment; then verify a fresh-clone demo and document asset/key setup.
-2. Record a new full-suite result for the current source tree and verify repository artifact completeness.
-3. Strengthen checkpoint/dataset identity, software and thread metadata, and reuse-policy consistency; benchmark under matched conditions for controlled comparisons.
-4. Expand semantic and search-strategy evaluation using predefined tasks, fair initial evidence, equal budgets, and more trials.
-5. Improve recovery and add a presentation dashboard if needed for the portfolio.
-6. Extend model scale, export format, quantization, or hardware only with new measured evidence. Architecture search is longer-term work.
+Two separate checks passed on the original machine:
+
+- **Clean environment:** installed pinned dependencies into a new virtual
+  environment; dependency checks, imports, 211 tests, and workflow CLI
+  loading passed.
+- **Fresh remote clone:** verified commit `b6adb98` using the previously
+  verified environment. Requirements matched the dependency snapshot;
+  pip check, tests, workflow CLI loading, and structured selection passed.
+  Selection evaluated seven candidates, found four feasible, and chose 416.
+
+The first clone attempt exposed an untracked workflow.py. After the source
+was committed and pushed, fresh_clone_002 passed.
+
+Evidence locations:
+
+- `results/reproducibility/clean_env_001/report.json`
+- `results/reproducibility/clean_env_001/tests.log`
+- `results/reproducibility/fresh_clone_002/report.json`
+- `results/reproducibility/fresh_clone_002/tests.log`
+
+The fresh-clone check ran on the same machine using the verified
+environment. It did not call Gemini or perform new YOLO measurements.
+Cross-machine execution remains unverified.
+
+## Portfolio report
+
+The initial portfolio report was generated using
+`scripts/build_portfolio_report.py`.
+
+View the [pilot report](results/portfolio/demo_v1/REPORT.md).
+
+![Measured accuracy and latency](results/portfolio/demo_v1/accuracy_latency.png)
+
+Generated files under `results/portfolio/demo_v1/`:
+
+- `REPORT.md`: English report with scope, results, selection, and limitations.
+- `candidates.csv`: metrics, feasibility, rankings, and source references.
+- `accuracy_latency.png`: measured-result figure.
+- `accuracy_latency.svg`: vector version of the figure.
+- `evidence.json`: selection evidence and candidate references.
+
+The generator compares current candidate metrics with the passed
+fresh-clone selection before writing outputs. It makes no API calls and
+runs no models. This version targets the low_latency_balanced_demo
+milestone and its fixed thresholds.
+
+Run `python scripts/build_portfolio_report.py` to generate the default
+output. Existing output directories are protected. For another copy,
+run `python scripts/build_portfolio_report.py --output results/portfolio/demo_v2`.
+
+Generated reports must be committed to be available in a normal clone.
+
+## Release closeout and future work
+
+The core deployment-configuration prototype is implemented and demonstrated.
+
+Remaining portfolio-v1 closeout work:
+
+1. Review the generated report and figures.
+2. Synchronize the detailed roadmap with the verified milestones.
+3. Commit the report generator and intended evidence artifacts, check
+   documentation links, and record a short end-to-end demonstration.
+
+Future extensions:
+
+- Verify setup on another machine and document asset/key provisioning.
+- Strengthen checkpoint/dataset identity and software/thread metadata.
+- Collect matched-environment benchmarks for controlled comparisons.
+- Expand semantic and search evaluation with predefined tasks, fair
+  initial evidence, equal budgets, and more trials.
+- Improve recovery and optionally add a dashboard.
+- Extend model scale, export format, quantization, or hardware using new
+  measurements. Architecture search remains longer-term work.
 
 See [the detailed roadmap](EdgeNAS-Lite_Progress_Roadmap.md).
 

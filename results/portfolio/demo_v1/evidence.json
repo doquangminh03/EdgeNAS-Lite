@@ -1,0 +1,216 @@
+{
+  "verification_report": "results/reproducibility/fresh_clone_002/report.json",
+  "verified_commit": "b6adb98d505f859533e79d33dfd0768beefbb863",
+  "selection": {
+    "schema_version": "1.0",
+    "selection_id": "low_latency_balanced_demo__selection",
+    "request_id": "low_latency_balanced_demo",
+    "target": {
+      "task": "object_detection",
+      "device": "cpu",
+      "dataset": "KITTI"
+    },
+    "optimization_goal": "balanced",
+    "evaluated_candidate_count": 7,
+    "feasible_candidate_count": 4,
+    "rejected_candidates": [
+      {
+        "candidate_id": "yolo26n_kitti_pilot",
+        "failed_constraints": [
+          "maximum_median_latency_ms"
+        ],
+        "metrics": {
+          "map50_95": 0.273,
+          "median_latency_ms": 16.429,
+          "model_size_mb": 5.102
+        }
+      },
+      {
+        "candidate_id": "yolo26n_kitti_pilot_imgsz576_cpu",
+        "failed_constraints": [
+          "maximum_median_latency_ms"
+        ],
+        "metrics": {
+          "map50_95": 0.261257,
+          "median_latency_ms": 13.082,
+          "model_size_mb": 5.102
+        }
+      },
+      {
+        "candidate_id": "yolo26n_kitti_pilot_imgsz608_cpu",
+        "failed_constraints": [
+          "maximum_median_latency_ms"
+        ],
+        "metrics": {
+          "map50_95": 0.272838,
+          "median_latency_ms": 13.616,
+          "model_size_mb": 5.102
+        }
+      }
+    ],
+    "selection_status": "selected",
+    "selection_method": "optimization_goal_balanced",
+    "selected_candidate_id": "yolo26n_kitti_pilot_imgsz416_cpu",
+    "selected_metrics": {
+      "map50_95": 0.207384,
+      "median_latency_ms": 8.754,
+      "model_size_mb": 5.102
+    },
+    "reason": "Selected the highest-ranked feasible candidate for optimization goal 'balanced'.",
+    "ranking": [
+      {
+        "rank": 1,
+        "candidate_id": "yolo26n_kitti_pilot_imgsz416_cpu",
+        "score": 0.143132,
+        "score_components": {
+          "accuracy_headroom": 0.00923,
+          "latency_headroom": 0.2705,
+          "model_size_headroom": 0.149667
+        },
+        "metrics": {
+          "map50_95": 0.207384,
+          "median_latency_ms": 8.754,
+          "model_size_mb": 5.102
+        }
+      },
+      {
+        "rank": 2,
+        "candidate_id": "yolo26n_kitti_pilot_imgsz448_cpu",
+        "score": 0.097132,
+        "score_components": {
+          "accuracy_headroom": 0.027397,
+          "latency_headroom": 0.114333,
+          "model_size_headroom": 0.149667
+        },
+        "metrics": {
+          "map50_95": 0.221918,
+          "median_latency_ms": 10.628,
+          "model_size_mb": 5.102
+        }
+      },
+      {
+        "rank": 3,
+        "candidate_id": "yolo26n_kitti_pilot_imgsz480_cpu",
+        "score": 0.094617,
+        "score_components": {
+          "accuracy_headroom": 0.04535,
+          "latency_headroom": 0.088833,
+          "model_size_headroom": 0.149667
+        },
+        "metrics": {
+          "map50_95": 0.23628,
+          "median_latency_ms": 10.934,
+          "model_size_mb": 5.102
+        }
+      },
+      {
+        "rank": 4,
+        "candidate_id": "yolo26n_kitti_pilot_imgsz512_cpu",
+        "score": 0.087805,
+        "score_components": {
+          "accuracy_headroom": 0.053664,
+          "latency_headroom": 0.060083,
+          "model_size_headroom": 0.149667
+        },
+        "metrics": {
+          "map50_95": 0.242931,
+          "median_latency_ms": 11.279,
+          "model_size_mb": 5.102
+        }
+      }
+    ]
+  },
+  "candidates": [
+    {
+      "candidate_id": "yolo26n_kitti_pilot_imgsz416_cpu",
+      "image_size": 416,
+      "map50_95": 0.207384,
+      "median_latency_ms": 8.754,
+      "model_size_mb": 5.102,
+      "feasible": true,
+      "selected": true,
+      "rank": 1,
+      "score": 0.143132,
+      "failed_constraints": "",
+      "record_path": "results/candidates/yolo26n_kitti_pilot_imgsz416_cpu.json"
+    },
+    {
+      "candidate_id": "yolo26n_kitti_pilot_imgsz448_cpu",
+      "image_size": 448,
+      "map50_95": 0.221918,
+      "median_latency_ms": 10.628,
+      "model_size_mb": 5.102,
+      "feasible": true,
+      "selected": false,
+      "rank": 2,
+      "score": 0.097132,
+      "failed_constraints": "",
+      "record_path": "results/candidates/yolo26n_kitti_pilot_imgsz448_cpu.json"
+    },
+    {
+      "candidate_id": "yolo26n_kitti_pilot_imgsz480_cpu",
+      "image_size": 480,
+      "map50_95": 0.23628,
+      "median_latency_ms": 10.934,
+      "model_size_mb": 5.102,
+      "feasible": true,
+      "selected": false,
+      "rank": 3,
+      "score": 0.094617,
+      "failed_constraints": "",
+      "record_path": "results/candidates/yolo26n_kitti_pilot_imgsz480_cpu.json"
+    },
+    {
+      "candidate_id": "yolo26n_kitti_pilot_imgsz512_cpu",
+      "image_size": 512,
+      "map50_95": 0.242931,
+      "median_latency_ms": 11.279,
+      "model_size_mb": 5.102,
+      "feasible": true,
+      "selected": false,
+      "rank": 4,
+      "score": 0.087805,
+      "failed_constraints": "",
+      "record_path": "results/candidates/yolo26n_kitti_pilot_imgsz512_cpu.json"
+    },
+    {
+      "candidate_id": "yolo26n_kitti_pilot_imgsz576_cpu",
+      "image_size": 576,
+      "map50_95": 0.261257,
+      "median_latency_ms": 13.082,
+      "model_size_mb": 5.102,
+      "feasible": false,
+      "selected": false,
+      "rank": "",
+      "score": "",
+      "failed_constraints": "maximum_median_latency_ms",
+      "record_path": "results/candidates/yolo26n_kitti_pilot_imgsz576_cpu.json"
+    },
+    {
+      "candidate_id": "yolo26n_kitti_pilot_imgsz608_cpu",
+      "image_size": 608,
+      "map50_95": 0.272838,
+      "median_latency_ms": 13.616,
+      "model_size_mb": 5.102,
+      "feasible": false,
+      "selected": false,
+      "rank": "",
+      "score": "",
+      "failed_constraints": "maximum_median_latency_ms",
+      "record_path": "results/candidates/yolo26n_kitti_pilot_imgsz608_cpu.json"
+    },
+    {
+      "candidate_id": "yolo26n_kitti_pilot",
+      "image_size": 640,
+      "map50_95": 0.273,
+      "median_latency_ms": 16.429,
+      "model_size_mb": 5.102,
+      "feasible": false,
+      "selected": false,
+      "rank": "",
+      "score": "",
+      "failed_constraints": "maximum_median_latency_ms",
+      "record_path": "results/candidates/yolo26n_kitti_pilot.json"
+    }
+  ]
+}

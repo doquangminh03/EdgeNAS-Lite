@@ -1,0 +1,8 @@
+candidate_id,image_size,map50_95,median_latency_ms,model_size_mb,feasible,selected,rank,score,failed_constraints,record_path
+yolo26n_kitti_pilot_imgsz416_cpu,416,0.207384,8.754,5.102,True,True,1,0.143132,,results/candidates/yolo26n_kitti_pilot_imgsz416_cpu.json
+yolo26n_kitti_pilot_imgsz448_cpu,448,0.221918,10.628,5.102,True,False,2,0.097132,,results/candidates/yolo26n_kitti_pilot_imgsz448_cpu.json
+yolo26n_kitti_pilot_imgsz480_cpu,480,0.23628,10.934,5.102,True,False,3,0.094617,,results/candidates/yolo26n_kitti_pilot_imgsz480_cpu.json
+yolo26n_kitti_pilot_imgsz512_cpu,512,0.242931,11.279,5.102,True,False,4,0.087805,,results/candidates/yolo26n_kitti_pilot_imgsz512_cpu.json
+yolo26n_kitti_pilot_imgsz576_cpu,576,0.261257,13.082,5.102,False,False,,,maximum_median_latency_ms,results/candidates/yolo26n_kitti_pilot_imgsz576_cpu.json
+yolo26n_kitti_pilot_imgsz608_cpu,608,0.272838,13.616,5.102,False,False,,,maximum_median_latency_ms,results/candidates/yolo26n_kitti_pilot_imgsz608_cpu.json
+yolo26n_kitti_pilot,640,0.273,16.429,5.102,False,False,,,maximum_median_latency_ms,results/candidates/yolo26n_kitti_pilot.json
