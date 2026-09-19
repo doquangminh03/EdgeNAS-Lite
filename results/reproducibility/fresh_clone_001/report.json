@@ -1,0 +1,41 @@
+{
+  "schema_version": "1.0",
+  "status": "failed",
+  "branch": "main",
+  "scope": "remote branch; fresh checkout; previously verified environment; same machine",
+  "checkout": "/var/folders/nw/yrwk9kt54xj0bw0dhrw8ykmh0000gn/T/edgenas_clone_f1p9l6ac/repo",
+  "steps": [
+    {
+      "name": "clone",
+      "exit_code": 0,
+      "status": "passed",
+      "log": "clone.log"
+    },
+    {
+      "name": "pip_check",
+      "exit_code": 0,
+      "status": "passed",
+      "log": "pip_check.log"
+    },
+    {
+      "name": "tests",
+      "exit_code": 0,
+      "status": "passed",
+      "log": "tests.log"
+    },
+    {
+      "name": "workflow_help",
+      "exit_code": 1,
+      "status": "failed",
+      "log": "workflow_help.log"
+    }
+  ],
+  "started_at_utc": "2026-09-19T13:46:06.348323+00:00",
+  "active_step": "workflow_help",
+  "commit": "b6a5c974a02d64ab6dc3f430740e76342e67233a",
+  "requirements_sha256": "e9d815766bc0a69323eb87b394edac8ac1f66217c172bd5b405f3064d2e3b264",
+  "requirements_match_clean_environment": true,
+  "error_type": "RuntimeError",
+  "error": "workflow_help failed; inspect its log.",
+  "finished_at_utc": "2026-09-19T13:46:11.750153+00:00"
+}
