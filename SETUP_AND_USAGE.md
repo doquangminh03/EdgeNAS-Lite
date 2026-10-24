@@ -2,6 +2,18 @@
 
 Run all commands from the EdgeNAS-Lite project root. Shell examples use macOS/Linux syntax.
 
+## 0. Lightweight replay setup
+
+Select a Python 3.9 interpreter, create a separate virtual environment, and install
+`requirements-demo.txt` for archived selection and offline response evaluation.
+PyTorch, Ultralytics, dataset, checkpoint and Gemini credentials are unnecessary
+for that path. `requirements.txt` remains the full measurement/training environment.
+The continuation verified a fresh lightweight environment on macOS ARM64; this
+does not establish a fresh full ML install or cross-platform support.
+
+See [reproduction levels](docs/REPRODUCIBILITY.md) and the
+[latest verification report](docs/PORTFOLIO_REMEDIATION_REPORT.md).
+
 ## 1. Install
 
 The verified environment is Python 3.9.6 on macOS ARM64, with PyTorch 2.8.0 and Ultralytics 8.4.123. Pinned dependencies and tests passed in a clean environment on the original machine. Other platforms have not been validated; these pins are not a cross-platform compatibility guarantee.
@@ -138,3 +150,33 @@ The generator requires matching evidence and a new output directory. It produces
 | Missing dataset or checkpoint | Supply the matching local assets before running evaluation; recorded-evidence selection can run without them. |
 
 Keep API keys, virtual environments, datasets, and local backups out of Git. Review generated logs before sharing them.
+
+## 7. Remediation and provenance
+
+Run `python -m scripts.verify_offline_demo --output-dir NEW_DIRECTORY` for the
+six API-free scenarios, including accuracy selection and no feasible result.
+For clarification without a live API, inspect the archived `needs_clarification`
+responses linked in the remediation report; rerun new requests only with an
+explicit API spending budget. `--budget 0` limits experiments, not API spend.
+
+The proposal CLI accepts `--strict-comparison` to require complete equal
+comparison metadata. Historical records fail that check by design. Default
+archived selection remains available with its environment limitations.
+Structured Search Controller execution now requires `--hardware-id` and rejects
+incompatible reused evidence before writing evaluation/selection reports.
+
+For campaign, manifests, expanded language evaluation, search replay and retrain
+commands, see [REPRODUCIBILITY.md](docs/REPRODUCIBILITY.md). Repository licensing
+remains [an owner decision](docs/LICENSE_STATUS.md).
+
+
+## 8. CPU thread contract
+
+For new controlled measurements, campaign `--threads 1` uses
+`cpu_campaign_v2` / `cpu_threads_v2`. The benchmark first runs one untimed setup
+prediction to initialize the lazy predictor/backend, then enforces the requested
+torch intra-op count before configured warmup and timing. Raw records include
+requested/observed counts and each sample's before/after observations. Any
+mismatch fails rather than creating successful campaign evidence. The old
+continuation campaign is retained as a recorded 7-thread run, not a verified
+1-thread result. See [thread fix evidence](docs/THREAD_CONTROL_FIX.md).

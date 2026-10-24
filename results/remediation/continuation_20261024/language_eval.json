@@ -1,0 +1,234 @@
+{
+  "evaluation_version": "language_heldout_v1",
+  "cases_sha256": "a17a31685b2908e66f78aff107ab4fff3c667fa2386a5aca5e9b30c27cd05758",
+  "mode": "saved_responses",
+  "created_at_utc": "2026-10-24T13:35:26.749854+00:00",
+  "rubric": {
+    "schema": "Strict interpretation contract.",
+    "status": "Exact expected status.",
+    "fields": "Exact target, constraints in ms/MB and optimization goal; request ID must match.",
+    "clarification": "Reviewer must check questions ask for missing/conflicting fields, avoid inventing values, and preserve supported scope. Record reviewer, reason, pass/fail; never auto-pass."
+  },
+  "cases": [
+    {
+      "case_id": "heldout_01",
+      "status": "NOT_RUN",
+      "response": null,
+      "evaluation": null
+    },
+    {
+      "case_id": "heldout_02",
+      "status": "NOT_RUN",
+      "response": null,
+      "evaluation": null
+    },
+    {
+      "case_id": "heldout_03",
+      "status": "NOT_RUN",
+      "response": null,
+      "evaluation": null
+    },
+    {
+      "case_id": "heldout_04",
+      "status": "NOT_RUN",
+      "response": null,
+      "evaluation": null
+    },
+    {
+      "case_id": "heldout_05",
+      "status": "NOT_RUN",
+      "response": null,
+      "evaluation": null
+    },
+    {
+      "case_id": "heldout_06",
+      "status": "NOT_RUN",
+      "response": null,
+      "evaluation": null
+    },
+    {
+      "case_id": "heldout_07",
+      "status": "NOT_RUN",
+      "response": null,
+      "evaluation": null
+    },
+    {
+      "case_id": "heldout_08",
+      "status": "NOT_RUN",
+      "response": null,
+      "evaluation": null
+    },
+    {
+      "case_id": "heldout_09",
+      "status": "NOT_RUN",
+      "response": null,
+      "evaluation": null
+    },
+    {
+      "case_id": "heldout_10",
+      "status": "NOT_RUN",
+      "response": null,
+      "evaluation": null
+    },
+    {
+      "case_id": "heldout_11",
+      "status": "NOT_RUN",
+      "response": null,
+      "evaluation": null
+    },
+    {
+      "case_id": "heldout_12",
+      "status": "NOT_RUN",
+      "response": null,
+      "evaluation": null
+    },
+    {
+      "case_id": "heldout_13",
+      "status": "NOT_RUN",
+      "response": null,
+      "evaluation": null
+    },
+    {
+      "case_id": "heldout_14",
+      "status": "NOT_RUN",
+      "response": null,
+      "evaluation": null
+    },
+    {
+      "case_id": "heldout_15",
+      "status": "NOT_RUN",
+      "response": null,
+      "evaluation": null
+    },
+    {
+      "case_id": "heldout_16",
+      "status": "NOT_RUN",
+      "response": null,
+      "evaluation": null
+    },
+    {
+      "case_id": "heldout_17",
+      "status": "NOT_RUN",
+      "response": null,
+      "evaluation": null
+    },
+    {
+      "case_id": "heldout_18",
+      "status": "NOT_RUN",
+      "response": null,
+      "evaluation": null
+    },
+    {
+      "case_id": "heldout_19",
+      "status": "NOT_RUN",
+      "response": null,
+      "evaluation": null
+    },
+    {
+      "case_id": "heldout_20",
+      "status": "NOT_RUN",
+      "response": null,
+      "evaluation": null
+    },
+    {
+      "case_id": "heldout_21",
+      "status": "NOT_RUN",
+      "response": null,
+      "evaluation": null
+    },
+    {
+      "case_id": "heldout_22",
+      "status": "NOT_RUN",
+      "response": null,
+      "evaluation": null
+    },
+    {
+      "case_id": "heldout_23",
+      "status": "NOT_RUN",
+      "response": null,
+      "evaluation": null
+    },
+    {
+      "case_id": "heldout_24",
+      "status": "NOT_RUN",
+      "response": null,
+      "evaluation": null
+    },
+    {
+      "case_id": "heldout_25",
+      "status": "NOT_RUN",
+      "response": null,
+      "evaluation": null
+    },
+    {
+      "case_id": "heldout_26",
+      "status": "NOT_RUN",
+      "response": null,
+      "evaluation": null
+    },
+    {
+      "case_id": "heldout_27",
+      "status": "NOT_RUN",
+      "response": null,
+      "evaluation": null
+    },
+    {
+      "case_id": "heldout_28",
+      "status": "NOT_RUN",
+      "response": null,
+      "evaluation": null
+    },
+    {
+      "case_id": "heldout_29",
+      "status": "NOT_RUN",
+      "response": null,
+      "evaluation": null
+    },
+    {
+      "case_id": "heldout_30",
+      "status": "NOT_RUN",
+      "response": null,
+      "evaluation": null
+    },
+    {
+      "case_id": "heldout_31",
+      "status": "NOT_RUN",
+      "response": null,
+      "evaluation": null
+    },
+    {
+      "case_id": "heldout_32",
+      "status": "NOT_RUN",
+      "response": null,
+      "evaluation": null
+    },
+    {
+      "case_id": "heldout_33",
+      "status": "NOT_RUN",
+      "response": null,
+      "evaluation": null
+    },
+    {
+      "case_id": "heldout_34",
+      "status": "NOT_RUN",
+      "response": null,
+      "evaluation": null
+    },
+    {
+      "case_id": "heldout_35",
+      "status": "NOT_RUN",
+      "response": null,
+      "evaluation": null
+    },
+    {
+      "case_id": "heldout_36",
+      "status": "NOT_RUN",
+      "response": null,
+      "evaluation": null
+    }
+  ],
+  "limitations": [
+    "Schema tests are not live model quality evidence.",
+    "Clarification relevance requires named reviewer and rubric; PENDING is not a pass."
+  ]
+}

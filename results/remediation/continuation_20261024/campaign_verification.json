@@ -1,0 +1,57 @@
+{
+  "campaign": "results/benchmarks/campaigns/continuation_measured_v2_20261024/campaign.json",
+  "status": "VERIFIED",
+  "completed_runs": 35,
+  "raw_samples": 10500,
+  "retained_samples": 6300,
+  "environment_signature_count": 1,
+  "summary": {
+    "416": {
+      "pooled_sample_count": 900,
+      "pooled_median_latency_ms": 8.7275,
+      "pooled_p95_latency_ms": 9.0181,
+      "session_median_population_sd_ms": 0.032967997950874725
+    },
+    "448": {
+      "pooled_sample_count": 900,
+      "pooled_median_latency_ms": 10.62,
+      "pooled_p95_latency_ms": 10.979249999999999,
+      "session_median_population_sd_ms": 0.039668067202165994
+    },
+    "480": {
+      "pooled_sample_count": 900,
+      "pooled_median_latency_ms": 11.3255,
+      "pooled_p95_latency_ms": 14.369449999999999,
+      "session_median_population_sd_ms": 0.5148024432299791
+    },
+    "512": {
+      "pooled_sample_count": 900,
+      "pooled_median_latency_ms": 11.483,
+      "pooled_p95_latency_ms": 12.70805,
+      "session_median_population_sd_ms": 0.4995266648427181
+    },
+    "576": {
+      "pooled_sample_count": 900,
+      "pooled_median_latency_ms": 13.575,
+      "pooled_p95_latency_ms": 15.62415,
+      "session_median_population_sd_ms": 0.6886863501543274
+    },
+    "608": {
+      "pooled_sample_count": 900,
+      "pooled_median_latency_ms": 13.9785,
+      "pooled_p95_latency_ms": 14.447099999999999,
+      "session_median_population_sd_ms": 0.07874148983999567
+    },
+    "640": {
+      "pooled_sample_count": 900,
+      "pooled_median_latency_ms": 16.951,
+      "pooled_p95_latency_ms": 19.5728,
+      "session_median_population_sd_ms": 0.2731153602417844
+    }
+  },
+  "campaign_sha256": "14ee834212af747141afbaafaf9aa8c71a70cc89e318e005776bfa2b807046b9",
+  "limitations": [
+    "No new validation accuracy; not promoted to index.",
+    "Concurrent code review and short unit-test executions; host was not isolated."
+  ]
+}

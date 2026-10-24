@@ -1,0 +1,18 @@
+fix: complete portfolio remediation and CPU thread control
+
+Reject non-finite requirements and gate reused records through shared
+pilot compatibility checks, with an optional strict comparison mode.
+
+Initialize the lazy Ultralytics backend before enforcing CPU threads.
+Check requested/observed threads around warmup and each timed prediction;
+reject missing or mismatched thread evidence in versioned campaigns.
+
+Add reproducibility manifests, offline evaluation and sensitivity tools,
+lightweight demo dependencies, CI configuration, and evidence-backed docs.
+Keep archived selection evidence separate from the new 1-thread campaign.
+Do not promote the index or claim new accuracy or live LLM results.
+
+Validation: 235 software tests passed; local checkpoint integration passed;
+35 campaign runs / 10,500 raw samples passed 1-thread boundary checks.
+Historical evidence remains unchanged. GitHub CI is configured, not run;
+repository license selection remains an owner decision.

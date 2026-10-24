@@ -1,0 +1,8 @@
+{
+  "torch_threads_before": 1,
+  "torch_threads_after_requested_setting": 1,
+  "torch_threads_after_ultralytics_select_device": 7,
+  "ultralytics_NUM_THREADS": 7,
+  "os_cpu_count": 8,
+  "method": "Direct select_device(cpu) call; no checkpoint load, inference, network or API."
+}

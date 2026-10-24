@@ -1,0 +1,67 @@
+{
+  "baseline_head": "d6653dfb6f2b8255149d9cf249d6af221bb57bdf",
+  "original_include_count": 244,
+  "original_exclude_count": 23,
+  "final_include_count": 251,
+  "final_exclude_count": 23,
+  "initial_source_snapshot_match": "82/82 before documentation edits",
+  "source_snapshot_after_final_review": 83,
+  "intentional_changes": [
+    "README.md",
+    "docs/THREAD_CONTROL_FIX.md",
+    "docs/FINAL_COMMIT_REVIEW.md"
+  ],
+  "application_code_changes_in_this_review": false,
+  "new_features": false,
+  "previous_validation": {
+    "software_tests_passed": 235,
+    "checkpoint_integration": "PASS",
+    "campaign_runs": 35,
+    "raw_samples": 10500,
+    "thread_boundaries": 1
+  },
+  "tests_or_model_reexecuted": false,
+  "archived_index_promoted": false,
+  "branch": {
+    "requested": "fix/portfolio-readiness",
+    "status": "created_and_checked_out",
+    "base_head": "d6653dfb6f2b8255149d9cf249d6af221bb57bdf",
+    "current": "fix/portfolio-readiness",
+    "actual_head": "d6653dfb6f2b8255149d9cf249d6af221bb57bdf",
+    "sandbox_attempt_exit_code": 128,
+    "sandbox_error": "cannot lock ref: unable to create directory for .git/refs/heads/fix/portfolio-readiness",
+    "approved_scoped_execution_exit_code": 0,
+    "global_permissions_changed": false
+  },
+  "staged": false,
+  "committed": false,
+  "pushed": false,
+  "merged": false,
+  "paid_api_calls": 0,
+  "tracked_content_changes": 14,
+  "secret_scan": {
+    "files_scanned": 432,
+    "patterns": [
+      "google_api_key",
+      "github_token",
+      "openai_key",
+      "aws_access_id",
+      "private_key",
+      "credential_url",
+      "bearer_token",
+      "literal_secret_assignment"
+    ],
+    "findings": [],
+    "unchanged_historical_images_not_OCRd": [
+      "artifacts/kitti_pilot/confusion_matrix.png",
+      "artifacts/kitti_pilot/results.png",
+      "artifacts/kitti_pilot/val_batch0_pred.jpg",
+      "results/portfolio/demo_v1/accuracy_latency.png"
+    ],
+    "no_binary_in_proposed_commit": true,
+    "scanned_after_branch_creation": true
+  },
+  "scope_check": "PASS; every changed/nonignored-untracked path is classified, no prohibited payload",
+  "local_markdown_links": "PASS",
+  "diff_check_exit_code": 0
+}

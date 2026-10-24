@@ -1,0 +1,9 @@
+test_preflight_hashes_assets_without_writing_output (test_benchmark_campaign.TestBenchmarkCampaign) ... ok
+test_rejects_invalid_session_exclusion (test_benchmark_campaign.TestBenchmarkCampaign) ... ok
+test_schedule_is_seeded_and_contains_each_resolution_once (test_benchmark_campaign.TestBenchmarkCampaign) ... ok
+test_summary_excludes_stabilization_and_keeps_session_units (test_benchmark_campaign.TestBenchmarkCampaign) ... ok
+
+----------------------------------------------------------------------
+Ran 4 tests in 0.044s
+
+OK

@@ -1,0 +1,33 @@
+{
+  "tests": {
+    "pass": 235,
+    "fail": 0,
+    "error": 0,
+    "skip": 0,
+    "exit_code": 0,
+    "log": "tests_verified.log"
+  },
+  "real_checkpoint_integration": "PASS; 6 timed samples; requested/observed 1 after backend setup 7",
+  "campaign": "threads1_fixed_20261024",
+  "campaign_status": "completed",
+  "runs": 35,
+  "raw_samples": 10500,
+  "retained_samples": 6300,
+  "requested_threads": 1,
+  "observed_threads": 1,
+  "prior_evidence_files_unchanged": 143,
+  "tracked_historical_files_unchanged": 127,
+  "source_snapshot_entries_verified": 82,
+  "campaign_start_source_hashes_match_final": true,
+  "local_links": "PASS",
+  "diff_check_exit_code": 0,
+  "old_campaign_protocol_1_thread": "NOT_MET; kept unchanged",
+  "index_promoted": false,
+  "accuracy_remeasured": false,
+  "git_metadata_or_permissions_changed": false,
+  "staged": false,
+  "committed": false,
+  "pushed": false,
+  "merged": false,
+  "paid_api_calls": 0
+}

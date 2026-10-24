@@ -1,0 +1,7 @@
+{
+  "manifest": "results/remediation/continuation_20261024/final_source_sha256.json",
+  "manifest_sha256": "ff6ac03be46f25dd87961cecf8c08512a8cbe54973a47f4779fd1b5f637b64e1",
+  "checked": 80,
+  "matched": 80,
+  "differences": []
+}

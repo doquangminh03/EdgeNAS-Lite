@@ -5,7 +5,7 @@ from src.candidate_selector.selector import select_candidate
 from src.constraint_checker.checker import evaluate_candidate
 from src.knowledge_database.loader import load_knowledge_base
 from src.knowledge_database.query import query_candidates
-from src.proposal.compatibility import check_candidate_compatibility
+from src.proposal.compatibility import check_candidate_compatibility, check_strict_comparison
 from src.requirement_parser.parser import (
     load_requirement,
     parse_requirement_data,
@@ -57,6 +57,7 @@ def evaluate_retrieved_candidates(
     retrieval: Dict[str, Any],
     *,
     expected_hardware_id: Optional[str] = None,
+    strict_comparison: bool = False,
 ) -> Dict[str, Any]:
     requirement = parse_requirement_data(retrieval["requirement"])
 
@@ -68,6 +69,7 @@ def evaluate_retrieved_candidates(
     feasible_ids = []
     rejected_ids = []
 
+    comparison = check_strict_comparison([item["record"] for item in retrieval["candidates"]]) if strict_comparison else None
     for item in retrieval["candidates"]:
         record = item["record"]
 
@@ -84,7 +86,7 @@ def evaluate_retrieved_candidates(
         candidate_id = record["candidate_id"]
 
         # Only compatible records may enter constraint evaluation.
-        if report["status"] != "compatible":
+        if report["status"] != "compatible" or (comparison is not None and comparison["status"] != "compatible"):
             excluded_ids.append(candidate_id)
             continue
 
@@ -105,6 +107,7 @@ def evaluate_retrieved_candidates(
         **retrieval,
         "expected_hardware_id": expected_hardware_id,
         "compatibility_reports": compatibility_reports,
+        "strict_comparison": comparison,
         "compatible_candidate_ids": compatible_ids,
         "excluded_candidate_ids": excluded_ids,
         "evaluations": evaluations,
@@ -120,6 +123,7 @@ def propose_from_knowledge(
     project_root: Union[str, Path] = ".",
     model_family: Optional[str] = None,
     expected_hardware_id: Optional[str] = None,
+    strict_comparison: bool = False,
 ) -> Dict[str, Any]:
     retrieval = retrieve_candidates_for_requirement(
         requirement_file,
@@ -131,6 +135,7 @@ def propose_from_knowledge(
     evaluated = evaluate_retrieved_candidates(
         retrieval,
         expected_hardware_id=expected_hardware_id,
+        strict_comparison=strict_comparison,
     )
 
     if not evaluated["candidates"]:

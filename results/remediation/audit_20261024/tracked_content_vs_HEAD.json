@@ -1,0 +1,1466 @@
+{
+  "head": "d6653dfb6f2b8255149d9cf249d6af221bb57bdf",
+  "tracked_blob_count": 195,
+  "historical_blob_count": 127,
+  "historical_changed": [],
+  "changed": [
+    {
+      "path": ".gitignore",
+      "head_blob": "99c865cb915d65d95c12913e00b47fde6917b39b",
+      "working_blob": "097038620f9c16fd44a695d3cb66123f82f8d795",
+      "content_equal": false,
+      "head_mode": "100644"
+    },
+    {
+      "path": "EdgeNAS-Lite_Progress_Roadmap.md",
+      "head_blob": "95890c339f1f106afa0028824c5f25cbf3978fd9",
+      "working_blob": "4b1c90c450220341b8c61a02826c05a9d7377820",
+      "content_equal": false,
+      "head_mode": "100644"
+    },
+    {
+      "path": "README.md",
+      "head_blob": "cdba795268e47c4fc8721b877b42b2913c8c0e58",
+      "working_blob": "7bdac4c1266ddd991976c394516c22926cf7224d",
+      "content_equal": false,
+      "head_mode": "100644"
+    },
+    {
+      "path": "SETUP_AND_USAGE.md",
+      "head_blob": "5215985bc88aebecddbb735be98ad570fcef40c5",
+      "working_blob": "26291ff0f992045bae708309691094ece0f7b992",
+      "content_equal": false,
+      "head_mode": "100644"
+    },
+    {
+      "path": "src/benchmarking/cpu_benchmark.py",
+      "head_blob": "72b8bb4916052583fc2096efcbe3e5d3732475e6",
+      "working_blob": "dac787357f3337f123969d2254c74bc3625b087f",
+      "content_equal": false,
+      "head_mode": "100644"
+    },
+    {
+      "path": "src/proposal/cli.py",
+      "head_blob": "3212088eef8bbaf96e62a582877aa3cb260e895c",
+      "working_blob": "4f7cf1e8bd3a18e19ebb18b80ae46f233d3fce83",
+      "content_equal": false,
+      "head_mode": "100644"
+    },
+    {
+      "path": "src/proposal/compatibility.py",
+      "head_blob": "25ee93e08185e9b60e461a7a0c76304406b6e6ec",
+      "working_blob": "f862c6498c43e10a2342b2efb687bef45f40e21b",
+      "content_equal": false,
+      "head_mode": "100644"
+    },
+    {
+      "path": "src/proposal/rule_based.py",
+      "head_blob": "52213e3aafd3b33e0e45213f92fc8b651d3b397e",
+      "working_blob": "c364b91f01608a70090f3578ee34119d8a2cddbe",
+      "content_equal": false,
+      "head_mode": "100644"
+    },
+    {
+      "path": "src/requirement_parser/parser.py",
+      "head_blob": "f8bce02bdc818c9dc60f89ca5b484741762a382e",
+      "working_blob": "72689edf272f230945b474cba29f5b9e95652f2b",
+      "content_equal": false,
+      "head_mode": "100644"
+    },
+    {
+      "path": "src/search_controller/controller.py",
+      "head_blob": "5aa76eea7c30c1f7a86929d06d27a25473044a83",
+      "working_blob": "7d01495ceaa6777061cd5890204b594261b315a2",
+      "content_equal": false,
+      "head_mode": "100644"
+    },
+    {
+      "path": "tests/test_requirement_parser.py",
+      "head_blob": "d1cf1a6f0d00b45e35f45f4bd03cd5462dd221e7",
+      "working_blob": "85c3914965249e18ae20242919244ee2ae4a4b2d",
+      "content_equal": false,
+      "head_mode": "100644"
+    },
+    {
+      "path": "tests/test_search_controller.py",
+      "head_blob": "28c501b42810d73478a059f802473b830955b16e",
+      "working_blob": "7211a70abb975dcb7445bf46dc2729d3d889d8ab",
+      "content_equal": false,
+      "head_mode": "100644"
+    },
+    {
+      "path": "tests/test_search_integration.py",
+      "head_blob": "139e42a64fc91764efcb6c347ed05dd3a7b56a44",
+      "working_blob": "e55003189342012dcc8a90ff0bc40707b54e3c73",
+      "content_equal": false,
+      "head_mode": "100644"
+    }
+  ],
+  "files": [
+    {
+      "path": ".gitignore",
+      "head_blob": "99c865cb915d65d95c12913e00b47fde6917b39b",
+      "working_blob": "097038620f9c16fd44a695d3cb66123f82f8d795",
+      "content_equal": false,
+      "head_mode": "100644"
+    },
+    {
+      "path": "EdgeNAS-Lite_Progress_Roadmap.md",
+      "head_blob": "95890c339f1f106afa0028824c5f25cbf3978fd9",
+      "working_blob": "4b1c90c450220341b8c61a02826c05a9d7377820",
+      "content_equal": false,
+      "head_mode": "100644"
+    },
+    {
+      "path": "README.md",
+      "head_blob": "cdba795268e47c4fc8721b877b42b2913c8c0e58",
+      "working_blob": "7bdac4c1266ddd991976c394516c22926cf7224d",
+      "content_equal": false,
+      "head_mode": "100644"
+    },
+    {
+      "path": "SETUP_AND_USAGE.md",
+      "head_blob": "5215985bc88aebecddbb735be98ad570fcef40c5",
+      "working_blob": "26291ff0f992045bae708309691094ece0f7b992",
+      "content_equal": false,
+      "head_mode": "100644"
+    },
+    {
+      "path": "artifacts/kitti_pilot/confusion_matrix.png",
+      "head_blob": "2ac9c0ee3385f21212196a9276148eaaee2b998a",
+      "working_blob": "2ac9c0ee3385f21212196a9276148eaaee2b998a",
+      "content_equal": true,
+      "head_mode": "100644"
+    },
+    {
+      "path": "artifacts/kitti_pilot/metrics.json",
+      "head_blob": "8c93e497e61d9a69bfd0aa3b76cccfc9a453a13c",
+      "working_blob": "8c93e497e61d9a69bfd0aa3b76cccfc9a453a13c",
+      "content_equal": true,
+      "head_mode": "100644"
+    },
+    {
+      "path": "artifacts/kitti_pilot/results.csv",
+      "head_blob": "a327c7df55645a55fcae6370c0e89f1292256dd7",
+      "working_blob": "a327c7df55645a55fcae6370c0e89f1292256dd7",
+      "content_equal": true,
+      "head_mode": "100644"
+    },
+    {
+      "path": "artifacts/kitti_pilot/results.png",
+      "head_blob": "6a1cb6e7b48e928abe87f559dfb99eea0e6d774e",
+      "working_blob": "6a1cb6e7b48e928abe87f559dfb99eea0e6d774e",
+      "content_equal": true,
+      "head_mode": "100644"
+    },
+    {
+      "path": "artifacts/kitti_pilot/val_batch0_pred.jpg",
+      "head_blob": "977f4a6a85d1a01f87bb02c20c35381788a25f94",
+      "working_blob": "977f4a6a85d1a01f87bb02c20c35381788a25f94",
+      "content_equal": true,
+      "head_mode": "100644"
+    },
+    {
+      "path": "configs/benchmark_cpu.yaml",
+      "head_blob": "d80f266cc216133d91c787cb9f30424825afc32d",
+      "working_blob": "d80f266cc216133d91c787cb9f30424825afc32d",
+      "content_equal": true,
+      "head_mode": "100644"
+    },
+    {
+      "path": "configs/kitti_pilot.yaml",
+      "head_blob": "3c68c3c61b2456d2b4a314a100839fc6ec5f06f6",
+      "working_blob": "3c68c3c61b2456d2b4a314a100839fc6ec5f06f6",
+      "content_equal": true,
+      "head_mode": "100644"
+    },
+    {
+      "path": "configs/kitti_smoke.yaml",
+      "head_blob": "c332aec66a6e4ee79b4f8c22cd943e9cebdf3e14",
+      "working_blob": "c332aec66a6e4ee79b4f8c22cd943e9cebdf3e14",
+      "content_equal": true,
+      "head_mode": "100644"
+    },
+    {
+      "path": "configs/kitti_val_cpu.yaml",
+      "head_blob": "42a5bf2a020868379279f5711cc2e4f362e0fec7",
+      "working_blob": "42a5bf2a020868379279f5711cc2e4f362e0fec7",
+      "content_equal": true,
+      "head_mode": "100644"
+    },
+    {
+      "path": "configs/llm_candidate_low_latency_balanced_demo.yaml",
+      "head_blob": "be4c2f7baffa6c71c4260313f011806c56d02ee0",
+      "working_blob": "be4c2f7baffa6c71c4260313f011806c56d02ee0",
+      "content_equal": true,
+      "head_mode": "100644"
+    },
+    {
+      "path": "configs/llm_experiment_low_latency_batch_001_001.yaml",
+      "head_blob": "4bfa3995a005eba65fa01970d15348cda4064054",
+      "working_blob": "4bfa3995a005eba65fa01970d15348cda4064054",
+      "content_equal": true,
+      "head_mode": "100644"
+    },
+    {
+      "path": "configs/llm_experiment_low_latency_batch_001_002.yaml",
+      "head_blob": "e19f654c9600d91c4587574b919b961ff04ed089",
+      "working_blob": "e19f654c9600d91c4587574b919b961ff04ed089",
+      "content_equal": true,
+      "head_mode": "100644"
+    },
+    {
+      "path": "configs/llm_experiment_low_latency_cycle_001.yaml",
+      "head_blob": "123555b63eedbce8524ac229621e17d9036b3dd7",
+      "working_blob": "123555b63eedbce8524ac229621e17d9036b3dd7",
+      "content_equal": true,
+      "head_mode": "100644"
+    },
+    {
+      "path": "configs/project_spec.yaml",
+      "head_blob": "02d2415d11cf6bcbc6dadf33ea18b7901bc46da1",
+      "working_blob": "02d2415d11cf6bcbc6dadf33ea18b7901bc46da1",
+      "content_equal": true,
+      "head_mode": "100644"
+    },
+    {
+      "path": "configs/requests/edge_cpu_demo.yaml",
+      "head_blob": "40115a673785c93065c33a6ba49af046528bdc5e",
+      "working_blob": "40115a673785c93065c33a6ba49af046528bdc5e",
+      "content_equal": true,
+      "head_mode": "100644"
+    },
+    {
+      "path": "configs/requests/low_latency_balanced_demo.yaml",
+      "head_blob": "d66d8cc445cec3e2ee939f62885ea05436a8ea69",
+      "working_blob": "d66d8cc445cec3e2ee939f62885ea05436a8ea69",
+      "content_equal": true,
+      "head_mode": "100644"
+    },
+    {
+      "path": "configs/search_space.yaml",
+      "head_blob": "be99572c2b51b5230f5721ddc53795a67bfd2531",
+      "working_blob": "be99572c2b51b5230f5721ddc53795a67bfd2531",
+      "content_equal": true,
+      "head_mode": "100644"
+    },
+    {
+      "path": "configs/search_space_llm_pool.yaml",
+      "head_blob": "8d58b026ac6c6506afc662774e25c22622e7d66b",
+      "working_blob": "8d58b026ac6c6506afc662774e25c22622e7d66b",
+      "content_equal": true,
+      "head_mode": "100644"
+    },
+    {
+      "path": "knowledge/index.yaml",
+      "head_blob": "ddc595b61a7706f998ebc35ebb8ffe9ac2578197",
+      "working_blob": "ddc595b61a7706f998ebc35ebb8ffe9ac2578197",
+      "content_equal": true,
+      "head_mode": "100644"
+    },
+    {
+      "path": "requirements.txt",
+      "head_blob": "559efc3b04ac39da2c1c3e55d32d8f751a75a2a9",
+      "working_blob": "559efc3b04ac39da2c1c3e55d32d8f751a75a2a9",
+      "content_equal": true,
+      "head_mode": "100644"
+    },
+    {
+      "path": "results/baseline_benchmark.json",
+      "head_blob": "cfbdb804652a0602fc0e80ec533028d69cbc50fb",
+      "working_blob": "cfbdb804652a0602fc0e80ec533028d69cbc50fb",
+      "content_equal": true,
+      "head_mode": "100644"
+    },
+    {
+      "path": "results/benchmarks/yolo26n_kitti_pilot_cpu.json",
+      "head_blob": "151e12478fcd506a7264688b0d33f3149e9755da",
+      "working_blob": "151e12478fcd506a7264688b0d33f3149e9755da",
+      "content_equal": true,
+      "head_mode": "100644"
+    },
+    {
+      "path": "results/benchmarks/yolo26n_kitti_pilot_cpu_run1.json",
+      "head_blob": "7254e657f41935eb559da7425053d5c26269c07f",
+      "working_blob": "7254e657f41935eb559da7425053d5c26269c07f",
+      "content_equal": true,
+      "head_mode": "100644"
+    },
+    {
+      "path": "results/benchmarks/yolo26n_kitti_pilot_cpu_run2.json",
+      "head_blob": "cd452d1ecfecc415015512bbc753bd58186969bb",
+      "working_blob": "cd452d1ecfecc415015512bbc753bd58186969bb",
+      "content_equal": true,
+      "head_mode": "100644"
+    },
+    {
+      "path": "results/benchmarks/yolo26n_kitti_pilot_cpu_run3.json",
+      "head_blob": "376b285aad1ea3eba7490b50f50b60f76da32621",
+      "working_blob": "376b285aad1ea3eba7490b50f50b60f76da32621",
+      "content_equal": true,
+      "head_mode": "100644"
+    },
+    {
+      "path": "results/benchmarks/yolo26n_kitti_pilot_cpu_run4.json",
+      "head_blob": "87c1c92c28065ad5ed435d6813a859b0b1849d44",
+      "working_blob": "87c1c92c28065ad5ed435d6813a859b0b1849d44",
+      "content_equal": true,
+      "head_mode": "100644"
+    },
+    {
+      "path": "results/benchmarks/yolo26n_kitti_pilot_cpu_run5.json",
+      "head_blob": "151e12478fcd506a7264688b0d33f3149e9755da",
+      "working_blob": "151e12478fcd506a7264688b0d33f3149e9755da",
+      "content_equal": true,
+      "head_mode": "100644"
+    },
+    {
+      "path": "results/benchmarks/yolo26n_kitti_pilot_imgsz416_cpu_cpu_run1.json",
+      "head_blob": "ce1701f5b0aa80a3ca6b5d2bed39952124950304",
+      "working_blob": "ce1701f5b0aa80a3ca6b5d2bed39952124950304",
+      "content_equal": true,
+      "head_mode": "100644"
+    },
+    {
+      "path": "results/benchmarks/yolo26n_kitti_pilot_imgsz416_cpu_cpu_run2.json",
+      "head_blob": "c91e8c1dc6fd2d55f78b91b0320aca801f81d0dc",
+      "working_blob": "c91e8c1dc6fd2d55f78b91b0320aca801f81d0dc",
+      "content_equal": true,
+      "head_mode": "100644"
+    },
+    {
+      "path": "results/benchmarks/yolo26n_kitti_pilot_imgsz416_cpu_cpu_run3.json",
+      "head_blob": "be52eaf17fb378d17667b4598e7033da52c75760",
+      "working_blob": "be52eaf17fb378d17667b4598e7033da52c75760",
+      "content_equal": true,
+      "head_mode": "100644"
+    },
+    {
+      "path": "results/benchmarks/yolo26n_kitti_pilot_imgsz416_cpu_cpu_run4.json",
+      "head_blob": "b935cc8210a676ab2927a62be0f39767e08d7989",
+      "working_blob": "b935cc8210a676ab2927a62be0f39767e08d7989",
+      "content_equal": true,
+      "head_mode": "100644"
+    },
+    {
+      "path": "results/benchmarks/yolo26n_kitti_pilot_imgsz416_cpu_cpu_run5.json",
+      "head_blob": "627fd583502beabda5622eeac1c15acfb723132c",
+      "working_blob": "627fd583502beabda5622eeac1c15acfb723132c",
+      "content_equal": true,
+      "head_mode": "100644"
+    },
+    {
+      "path": "results/benchmarks/yolo26n_kitti_pilot_imgsz448_cpu_cpu_run1.json",
+      "head_blob": "61c22e93be7976baf1709e96fb6692734d8faf51",
+      "working_blob": "61c22e93be7976baf1709e96fb6692734d8faf51",
+      "content_equal": true,
+      "head_mode": "100644"
+    },
+    {
+      "path": "results/benchmarks/yolo26n_kitti_pilot_imgsz448_cpu_cpu_run2.json",
+      "head_blob": "a0ca89842c9e10c10c63a3d85e2a541d9a6af7e2",
+      "working_blob": "a0ca89842c9e10c10c63a3d85e2a541d9a6af7e2",
+      "content_equal": true,
+      "head_mode": "100644"
+    },
+    {
+      "path": "results/benchmarks/yolo26n_kitti_pilot_imgsz448_cpu_cpu_run3.json",
+      "head_blob": "60da4ce6b25cc66dc8c8717c77b1da6b457d8745",
+      "working_blob": "60da4ce6b25cc66dc8c8717c77b1da6b457d8745",
+      "content_equal": true,
+      "head_mode": "100644"
+    },
+    {
+      "path": "results/benchmarks/yolo26n_kitti_pilot_imgsz448_cpu_cpu_run4.json",
+      "head_blob": "8e7237ecb380932f6e4a7d18bb91cf601b14b3fc",
+      "working_blob": "8e7237ecb380932f6e4a7d18bb91cf601b14b3fc",
+      "content_equal": true,
+      "head_mode": "100644"
+    },
+    {
+      "path": "results/benchmarks/yolo26n_kitti_pilot_imgsz448_cpu_cpu_run5.json",
+      "head_blob": "0fbe1a3613eb2f70ad0a28a95909fe9c1b2e012e",
+      "working_blob": "0fbe1a3613eb2f70ad0a28a95909fe9c1b2e012e",
+      "content_equal": true,
+      "head_mode": "100644"
+    },
+    {
+      "path": "results/benchmarks/yolo26n_kitti_pilot_imgsz480_cpu_cpu_run1.json",
+      "head_blob": "235b9a971c2f99a67172e5ca85c37ee58745453e",
+      "working_blob": "235b9a971c2f99a67172e5ca85c37ee58745453e",
+      "content_equal": true,
+      "head_mode": "100644"
+    },
+    {
+      "path": "results/benchmarks/yolo26n_kitti_pilot_imgsz480_cpu_cpu_run2.json",
+      "head_blob": "4332d41cbd0486d131bb23bde7fedc83980eb1f3",
+      "working_blob": "4332d41cbd0486d131bb23bde7fedc83980eb1f3",
+      "content_equal": true,
+      "head_mode": "100644"
+    },
+    {
+      "path": "results/benchmarks/yolo26n_kitti_pilot_imgsz480_cpu_cpu_run3.json",
+      "head_blob": "c7c820d3a9d450805845e859d295fed4c4fa6d4a",
+      "working_blob": "c7c820d3a9d450805845e859d295fed4c4fa6d4a",
+      "content_equal": true,
+      "head_mode": "100644"
+    },
+    {
+      "path": "results/benchmarks/yolo26n_kitti_pilot_imgsz480_cpu_cpu_run4.json",
+      "head_blob": "de137b731e89031d54d405d23fb8eec59ac13c8b",
+      "working_blob": "de137b731e89031d54d405d23fb8eec59ac13c8b",
+      "content_equal": true,
+      "head_mode": "100644"
+    },
+    {
+      "path": "results/benchmarks/yolo26n_kitti_pilot_imgsz480_cpu_cpu_run5.json",
+      "head_blob": "6c8a76f96d7daeb730dd72e2dae561d494af9c7e",
+      "working_blob": "6c8a76f96d7daeb730dd72e2dae561d494af9c7e",
+      "content_equal": true,
+      "head_mode": "100644"
+    },
+    {
+      "path": "results/benchmarks/yolo26n_kitti_pilot_imgsz512_cpu_cpu_run1.json",
+      "head_blob": "0e566339ffe32b76889d62a5ed393c58f6ea6b05",
+      "working_blob": "0e566339ffe32b76889d62a5ed393c58f6ea6b05",
+      "content_equal": true,
+      "head_mode": "100644"
+    },
+    {
+      "path": "results/benchmarks/yolo26n_kitti_pilot_imgsz512_cpu_cpu_run2.json",
+      "head_blob": "a09d52e73313b58573f26703216a2136b4b16cb0",
+      "working_blob": "a09d52e73313b58573f26703216a2136b4b16cb0",
+      "content_equal": true,
+      "head_mode": "100644"
+    },
+    {
+      "path": "results/benchmarks/yolo26n_kitti_pilot_imgsz512_cpu_cpu_run3.json",
+      "head_blob": "cc21081cbdadd5ae0e83a0c8b419ad144b683c07",
+      "working_blob": "cc21081cbdadd5ae0e83a0c8b419ad144b683c07",
+      "content_equal": true,
+      "head_mode": "100644"
+    },
+    {
+      "path": "results/benchmarks/yolo26n_kitti_pilot_imgsz512_cpu_cpu_run4.json",
+      "head_blob": "cadfe60ab109f9d07652b02d3f4f70c25116bd53",
+      "working_blob": "cadfe60ab109f9d07652b02d3f4f70c25116bd53",
+      "content_equal": true,
+      "head_mode": "100644"
+    },
+    {
+      "path": "results/benchmarks/yolo26n_kitti_pilot_imgsz512_cpu_cpu_run5.json",
+      "head_blob": "d856a880f4f2556c4f69485a0ec02959e9aae83a",
+      "working_blob": "d856a880f4f2556c4f69485a0ec02959e9aae83a",
+      "content_equal": true,
+      "head_mode": "100644"
+    },
+    {
+      "path": "results/benchmarks/yolo26n_kitti_pilot_imgsz576_cpu_cpu_run1.json",
+      "head_blob": "90d5c44bec2e3112acbf62649ee88d072acffe17",
+      "working_blob": "90d5c44bec2e3112acbf62649ee88d072acffe17",
+      "content_equal": true,
+      "head_mode": "100644"
+    },
+    {
+      "path": "results/benchmarks/yolo26n_kitti_pilot_imgsz576_cpu_cpu_run2.json",
+      "head_blob": "a6b4f75bfac675f0bfe0e05435b8d927eb972c3d",
+      "working_blob": "a6b4f75bfac675f0bfe0e05435b8d927eb972c3d",
+      "content_equal": true,
+      "head_mode": "100644"
+    },
+    {
+      "path": "results/benchmarks/yolo26n_kitti_pilot_imgsz576_cpu_cpu_run3.json",
+      "head_blob": "fa204941d1a881350b4c3e4a708e60ff2f194367",
+      "working_blob": "fa204941d1a881350b4c3e4a708e60ff2f194367",
+      "content_equal": true,
+      "head_mode": "100644"
+    },
+    {
+      "path": "results/benchmarks/yolo26n_kitti_pilot_imgsz576_cpu_cpu_run4.json",
+      "head_blob": "541c7a17c323f91164d027eb320c6cbf9d2e6be4",
+      "working_blob": "541c7a17c323f91164d027eb320c6cbf9d2e6be4",
+      "content_equal": true,
+      "head_mode": "100644"
+    },
+    {
+      "path": "results/benchmarks/yolo26n_kitti_pilot_imgsz576_cpu_cpu_run5.json",
+      "head_blob": "ff416f8e6618417553ce1650dbf24eece5a2684b",
+      "working_blob": "ff416f8e6618417553ce1650dbf24eece5a2684b",
+      "content_equal": true,
+      "head_mode": "100644"
+    },
+    {
+      "path": "results/benchmarks/yolo26n_kitti_pilot_imgsz608_cpu_cpu_run1.json",
+      "head_blob": "4f9d69f368777d9866847904963358749e4b22f6",
+      "working_blob": "4f9d69f368777d9866847904963358749e4b22f6",
+      "content_equal": true,
+      "head_mode": "100644"
+    },
+    {
+      "path": "results/benchmarks/yolo26n_kitti_pilot_imgsz608_cpu_cpu_run2.json",
+      "head_blob": "e877813c2497957c692bb27583a3b9317f034b5c",
+      "working_blob": "e877813c2497957c692bb27583a3b9317f034b5c",
+      "content_equal": true,
+      "head_mode": "100644"
+    },
+    {
+      "path": "results/benchmarks/yolo26n_kitti_pilot_imgsz608_cpu_cpu_run3.json",
+      "head_blob": "0792c1cf0dc0e0216378833a638429419a9fe4fd",
+      "working_blob": "0792c1cf0dc0e0216378833a638429419a9fe4fd",
+      "content_equal": true,
+      "head_mode": "100644"
+    },
+    {
+      "path": "results/benchmarks/yolo26n_kitti_pilot_imgsz608_cpu_cpu_run4.json",
+      "head_blob": "7a4be69e09124be8aa1f1cb5fb5bd3022c026f7f",
+      "working_blob": "7a4be69e09124be8aa1f1cb5fb5bd3022c026f7f",
+      "content_equal": true,
+      "head_mode": "100644"
+    },
+    {
+      "path": "results/benchmarks/yolo26n_kitti_pilot_imgsz608_cpu_cpu_run5.json",
+      "head_blob": "de5a5ca69bb4c9164b57e9a31484194a3a65d602",
+      "working_blob": "de5a5ca69bb4c9164b57e9a31484194a3a65d602",
+      "content_equal": true,
+      "head_mode": "100644"
+    },
+    {
+      "path": "results/candidates/yolo26n_kitti_pilot.json",
+      "head_blob": "a1f0a8fe1a15d037b3e06e8b9252674dbf9955bf",
+      "working_blob": "a1f0a8fe1a15d037b3e06e8b9252674dbf9955bf",
+      "content_equal": true,
+      "head_mode": "100644"
+    },
+    {
+      "path": "results/candidates/yolo26n_kitti_pilot_imgsz416_cpu.json",
+      "head_blob": "a1d21551e5fe7c2b5a81e7cb727c15b18405e015",
+      "working_blob": "a1d21551e5fe7c2b5a81e7cb727c15b18405e015",
+      "content_equal": true,
+      "head_mode": "100644"
+    },
+    {
+      "path": "results/candidates/yolo26n_kitti_pilot_imgsz448_cpu.json",
+      "head_blob": "a3533f1eaaa3795ff3205c5891dc265f5dd44921",
+      "working_blob": "a3533f1eaaa3795ff3205c5891dc265f5dd44921",
+      "content_equal": true,
+      "head_mode": "100644"
+    },
+    {
+      "path": "results/candidates/yolo26n_kitti_pilot_imgsz480_cpu.json",
+      "head_blob": "89ef0831bcbccf78f83f3357598b3c67832825fa",
+      "working_blob": "89ef0831bcbccf78f83f3357598b3c67832825fa",
+      "content_equal": true,
+      "head_mode": "100644"
+    },
+    {
+      "path": "results/candidates/yolo26n_kitti_pilot_imgsz512_cpu.json",
+      "head_blob": "482bdbb9c5cd4352402e542e054dc08f5886fb4c",
+      "working_blob": "482bdbb9c5cd4352402e542e054dc08f5886fb4c",
+      "content_equal": true,
+      "head_mode": "100644"
+    },
+    {
+      "path": "results/candidates/yolo26n_kitti_pilot_imgsz576_cpu.json",
+      "head_blob": "b4658abb46984820876e08e7ad282cfe2e297df1",
+      "working_blob": "b4658abb46984820876e08e7ad282cfe2e297df1",
+      "content_equal": true,
+      "head_mode": "100644"
+    },
+    {
+      "path": "results/candidates/yolo26n_kitti_pilot_imgsz608_cpu.json",
+      "head_blob": "c673a600cb98a79c322a01ebce034cefe69303e6",
+      "working_blob": "c673a600cb98a79c322a01ebce034cefe69303e6",
+      "content_equal": true,
+      "head_mode": "100644"
+    },
+    {
+      "path": "results/evaluations/edge_cpu_demo__yolo26n_kitti_pilot.json",
+      "head_blob": "01405158e65d1b8404dea227b8b0d5c80d6157f4",
+      "working_blob": "01405158e65d1b8404dea227b8b0d5c80d6157f4",
+      "content_equal": true,
+      "head_mode": "100644"
+    },
+    {
+      "path": "results/evaluations/edge_cpu_demo__yolo26n_kitti_pilot_imgsz416_cpu.json",
+      "head_blob": "008992709bb089f23b2e78c59acd17f00ec27617",
+      "working_blob": "008992709bb089f23b2e78c59acd17f00ec27617",
+      "content_equal": true,
+      "head_mode": "100644"
+    },
+    {
+      "path": "results/evaluations/edge_cpu_demo__yolo26n_kitti_pilot_imgsz512_cpu.json",
+      "head_blob": "72ae746659729f84e601f464e517848a772d575d",
+      "working_blob": "72ae746659729f84e601f464e517848a772d575d",
+      "content_equal": true,
+      "head_mode": "100644"
+    },
+    {
+      "path": "results/evaluations/low_latency_balanced_demo__yolo26n_kitti_pilot.json",
+      "head_blob": "a7aed6f99b620eb2e0947e0445dd04124097ccdf",
+      "working_blob": "a7aed6f99b620eb2e0947e0445dd04124097ccdf",
+      "content_equal": true,
+      "head_mode": "100644"
+    },
+    {
+      "path": "results/evaluations/low_latency_balanced_demo__yolo26n_kitti_pilot_imgsz416_cpu.json",
+      "head_blob": "be8d20d87d05cb5f61ec2d07246b34e699d3d444",
+      "working_blob": "be8d20d87d05cb5f61ec2d07246b34e699d3d444",
+      "content_equal": true,
+      "head_mode": "100644"
+    },
+    {
+      "path": "results/evaluations/low_latency_balanced_demo__yolo26n_kitti_pilot_imgsz512_cpu.json",
+      "head_blob": "7c3e6061e352b48da9035cb3d12958cd924a2877",
+      "working_blob": "7c3e6061e352b48da9035cb3d12958cd924a2877",
+      "content_equal": true,
+      "head_mode": "100644"
+    },
+    {
+      "path": "results/llm_batches/low_latency_batch_001.json",
+      "head_blob": "457b6c460188b981e3e9dba164ed344d5335f2c1",
+      "working_blob": "457b6c460188b981e3e9dba164ed344d5335f2c1",
+      "content_equal": true,
+      "head_mode": "100644"
+    },
+    {
+      "path": "results/llm_evaluations/clarification_eval_v1_20260917T170739_974489Z.json",
+      "head_blob": "88a8705c40123708bb588abc8fad31a1d3ffb913",
+      "working_blob": "88a8705c40123708bb588abc8fad31a1d3ffb913",
+      "content_equal": true,
+      "head_mode": "100644"
+    },
+    {
+      "path": "results/llm_evaluations/semantic_eval_v1_20260917T170117_091979Z.json",
+      "head_blob": "2d7d03bb64392e2aefc84cde8773939b1f364bbb",
+      "working_blob": "2d7d03bb64392e2aefc84cde8773939b1f364bbb",
+      "content_equal": true,
+      "head_mode": "100644"
+    },
+    {
+      "path": "results/llm_experiments/low_latency_batch_001_001.json",
+      "head_blob": "0d54c8b4d78bc9c7184b63a4d99de8660dd25a2c",
+      "working_blob": "0d54c8b4d78bc9c7184b63a4d99de8660dd25a2c",
+      "content_equal": true,
+      "head_mode": "100644"
+    },
+    {
+      "path": "results/llm_experiments/low_latency_batch_001_002.json",
+      "head_blob": "c9487ee05b36f468ad135e946ed9760f7b32ecc1",
+      "working_blob": "c9487ee05b36f468ad135e946ed9760f7b32ecc1",
+      "content_equal": true,
+      "head_mode": "100644"
+    },
+    {
+      "path": "results/llm_experiments/low_latency_cycle_001.json",
+      "head_blob": "1d995b1b8f2a774c28fe0fc3f1266a36df2cdc30",
+      "working_blob": "1d995b1b8f2a774c28fe0fc3f1266a36df2cdc30",
+      "content_equal": true,
+      "head_mode": "100644"
+    },
+    {
+      "path": "results/pilot_cpu_benchmark.json",
+      "head_blob": "6a70ec57201b49972da0a6ed7c7aca1287b959b5",
+      "working_blob": "6a70ec57201b49972da0a6ed7c7aca1287b959b5",
+      "content_equal": true,
+      "head_mode": "100644"
+    },
+    {
+      "path": "results/portfolio/demo_v1/REPORT.md",
+      "head_blob": "c9033fc63ebcc9d9bb8424c8c9d7700e1cc68f3c",
+      "working_blob": "c9033fc63ebcc9d9bb8424c8c9d7700e1cc68f3c",
+      "content_equal": true,
+      "head_mode": "100644"
+    },
+    {
+      "path": "results/portfolio/demo_v1/accuracy_latency.png",
+      "head_blob": "c0d7b2faf2419c6c1e126b83bad458168624f4c6",
+      "working_blob": "c0d7b2faf2419c6c1e126b83bad458168624f4c6",
+      "content_equal": true,
+      "head_mode": "100644"
+    },
+    {
+      "path": "results/portfolio/demo_v1/accuracy_latency.svg",
+      "head_blob": "b7a031132f0b6fc8edee02bc9bdae2505b99e5cc",
+      "working_blob": "b7a031132f0b6fc8edee02bc9bdae2505b99e5cc",
+      "content_equal": true,
+      "head_mode": "100644"
+    },
+    {
+      "path": "results/portfolio/demo_v1/candidates.csv",
+      "head_blob": "04e8d02260f0e1a01f9aa3b52b5d62a3c65282e2",
+      "working_blob": "04e8d02260f0e1a01f9aa3b52b5d62a3c65282e2",
+      "content_equal": true,
+      "head_mode": "100644"
+    },
+    {
+      "path": "results/portfolio/demo_v1/evidence.json",
+      "head_blob": "88a11c705286252cfa8f75a2b77edb2edd86e45a",
+      "working_blob": "88a11c705286252cfa8f75a2b77edb2edd86e45a",
+      "content_equal": true,
+      "head_mode": "100644"
+    },
+    {
+      "path": "results/proposals/gemini_cli_demo.json",
+      "head_blob": "017f535c1ba9e69c14ced44b644398313152114d",
+      "working_blob": "017f535c1ba9e69c14ced44b644398313152114d",
+      "content_equal": true,
+      "head_mode": "100644"
+    },
+    {
+      "path": "results/proposals/gemini_end_to_end_demo.json",
+      "head_blob": "03bd682fb1d33af62d934fc9705fa70f8e1fe234",
+      "working_blob": "03bd682fb1d33af62d934fc9705fa70f8e1fe234",
+      "content_equal": true,
+      "head_mode": "100644"
+    },
+    {
+      "path": "results/proposals/hardware_mismatch_demo.json",
+      "head_blob": "675967e4e23fe98d8fa4cc1c9f8fce0c70352c29",
+      "working_blob": "675967e4e23fe98d8fa4cc1c9f8fce0c70352c29",
+      "content_equal": true,
+      "head_mode": "100644"
+    },
+    {
+      "path": "results/proposals/llm_candidate_low_latency_balanced_demo.json",
+      "head_blob": "69b07b13bd4104c1c18e0c9445c97a872819be7c",
+      "working_blob": "69b07b13bd4104c1c18e0c9445c97a872819be7c",
+      "content_equal": true,
+      "head_mode": "100644"
+    },
+    {
+      "path": "results/proposals/llm_experiment_low_latency_batch_001_001.json",
+      "head_blob": "0ac31cef9fcabb15a8c0467f95c3882f92964af1",
+      "working_blob": "0ac31cef9fcabb15a8c0467f95c3882f92964af1",
+      "content_equal": true,
+      "head_mode": "100644"
+    },
+    {
+      "path": "results/proposals/llm_experiment_low_latency_batch_001_002.json",
+      "head_blob": "2d7fb557d1c5c3b9208c7fcb41224f7d1d276d18",
+      "working_blob": "2d7fb557d1c5c3b9208c7fcb41224f7d1d276d18",
+      "content_equal": true,
+      "head_mode": "100644"
+    },
+    {
+      "path": "results/proposals/llm_experiment_low_latency_cycle_001.json",
+      "head_blob": "874befb73600d7a01327bfd00e8ee9efbc0ebc05",
+      "working_blob": "874befb73600d7a01327bfd00e8ee9efbc0ebc05",
+      "content_equal": true,
+      "head_mode": "100644"
+    },
+    {
+      "path": "results/proposals/low_latency_balanced_after_448.json",
+      "head_blob": "6cbdd93e5ca1811d522a554fa736987257abda74",
+      "working_blob": "6cbdd93e5ca1811d522a554fa736987257abda74",
+      "content_equal": true,
+      "head_mode": "100644"
+    },
+    {
+      "path": "results/proposals/low_latency_balanced_demo.json",
+      "head_blob": "3e79f546d0b6e4102766e1ec51aa691641bc9016",
+      "working_blob": "3e79f546d0b6e4102766e1ec51aa691641bc9016",
+      "content_equal": true,
+      "head_mode": "100644"
+    },
+    {
+      "path": "results/reproducibility/clean_env_001/create_venv.log",
+      "head_blob": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391",
+      "working_blob": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391",
+      "content_equal": true,
+      "head_mode": "100644"
+    },
+    {
+      "path": "results/reproducibility/clean_env_001/imports.log",
+      "head_blob": "1704d0d0c9da78f7b0a43892e1c397e12750588f",
+      "working_blob": "1704d0d0c9da78f7b0a43892e1c397e12750588f",
+      "content_equal": true,
+      "head_mode": "100644"
+    },
+    {
+      "path": "results/reproducibility/clean_env_001/install.log",
+      "head_blob": "8df676c292b383653d017ee855306626bb1a9e93",
+      "working_blob": "8df676c292b383653d017ee855306626bb1a9e93",
+      "content_equal": true,
+      "head_mode": "100644"
+    },
+    {
+      "path": "results/reproducibility/clean_env_001/pip_check.log",
+      "head_blob": "c688d8ccdad82420475fc31cb40020cccfeeef2b",
+      "working_blob": "c688d8ccdad82420475fc31cb40020cccfeeef2b",
+      "content_equal": true,
+      "head_mode": "100644"
+    },
+    {
+      "path": "results/reproducibility/clean_env_001/report.json",
+      "head_blob": "94654d4c100044e6b5a845b5370684e523b908e0",
+      "working_blob": "94654d4c100044e6b5a845b5370684e523b908e0",
+      "content_equal": true,
+      "head_mode": "100644"
+    },
+    {
+      "path": "results/reproducibility/clean_env_001/requirements_snapshot.txt",
+      "head_blob": "559efc3b04ac39da2c1c3e55d32d8f751a75a2a9",
+      "working_blob": "559efc3b04ac39da2c1c3e55d32d8f751a75a2a9",
+      "content_equal": true,
+      "head_mode": "100644"
+    },
+    {
+      "path": "results/reproducibility/clean_env_001/tests.log",
+      "head_blob": "f86311203fa276eff2292485d949531b7da2b0fe",
+      "working_blob": "f86311203fa276eff2292485d949531b7da2b0fe",
+      "content_equal": true,
+      "head_mode": "100644"
+    },
+    {
+      "path": "results/reproducibility/clean_env_001/workflow_help.log",
+      "head_blob": "384850f437e770a531984e6c951f2d6c3f072135",
+      "working_blob": "384850f437e770a531984e6c951f2d6c3f072135",
+      "content_equal": true,
+      "head_mode": "100644"
+    },
+    {
+      "path": "results/reproducibility/fresh_clone_001/clone.log",
+      "head_blob": "82de201e95c3cd700429bc424dea849334a9f550",
+      "working_blob": "82de201e95c3cd700429bc424dea849334a9f550",
+      "content_equal": true,
+      "head_mode": "100644"
+    },
+    {
+      "path": "results/reproducibility/fresh_clone_001/pip_check.log",
+      "head_blob": "c688d8ccdad82420475fc31cb40020cccfeeef2b",
+      "working_blob": "c688d8ccdad82420475fc31cb40020cccfeeef2b",
+      "content_equal": true,
+      "head_mode": "100644"
+    },
+    {
+      "path": "results/reproducibility/fresh_clone_001/report.json",
+      "head_blob": "051e8860f8789b8215f86d43ad4890a59b5d71ca",
+      "working_blob": "051e8860f8789b8215f86d43ad4890a59b5d71ca",
+      "content_equal": true,
+      "head_mode": "100644"
+    },
+    {
+      "path": "results/reproducibility/fresh_clone_001/tests.log",
+      "head_blob": "0f98dcbbd95933f375f11ffd406681962e50d05d",
+      "working_blob": "0f98dcbbd95933f375f11ffd406681962e50d05d",
+      "content_equal": true,
+      "head_mode": "100644"
+    },
+    {
+      "path": "results/reproducibility/fresh_clone_001/workflow_help.log",
+      "head_blob": "3840d25a8de8f2466dbda3099d5a7a9a8ae6ccf6",
+      "working_blob": "3840d25a8de8f2466dbda3099d5a7a9a8ae6ccf6",
+      "content_equal": true,
+      "head_mode": "100644"
+    },
+    {
+      "path": "results/reproducibility/fresh_clone_002/clone.log",
+      "head_blob": "123b9573f16fc06fcb83b7308322aa0479b17a72",
+      "working_blob": "123b9573f16fc06fcb83b7308322aa0479b17a72",
+      "content_equal": true,
+      "head_mode": "100644"
+    },
+    {
+      "path": "results/reproducibility/fresh_clone_002/pip_check.log",
+      "head_blob": "c688d8ccdad82420475fc31cb40020cccfeeef2b",
+      "working_blob": "c688d8ccdad82420475fc31cb40020cccfeeef2b",
+      "content_equal": true,
+      "head_mode": "100644"
+    },
+    {
+      "path": "results/reproducibility/fresh_clone_002/report.json",
+      "head_blob": "29ce80b69fed2eb22a32d186281c1fdde19bcd65",
+      "working_blob": "29ce80b69fed2eb22a32d186281c1fdde19bcd65",
+      "content_equal": true,
+      "head_mode": "100644"
+    },
+    {
+      "path": "results/reproducibility/fresh_clone_002/selection.log",
+      "head_blob": "a4000268f9164fc7bf6f80e862645eaffc5bcbd2",
+      "working_blob": "a4000268f9164fc7bf6f80e862645eaffc5bcbd2",
+      "content_equal": true,
+      "head_mode": "100644"
+    },
+    {
+      "path": "results/reproducibility/fresh_clone_002/tests.log",
+      "head_blob": "a35d6b83f5a71af2a150ba9dd41ab92327ec673b",
+      "working_blob": "a35d6b83f5a71af2a150ba9dd41ab92327ec673b",
+      "content_equal": true,
+      "head_mode": "100644"
+    },
+    {
+      "path": "results/reproducibility/fresh_clone_002/workflow_help.log",
+      "head_blob": "384850f437e770a531984e6c951f2d6c3f072135",
+      "working_blob": "384850f437e770a531984e6c951f2d6c3f072135",
+      "content_equal": true,
+      "head_mode": "100644"
+    },
+    {
+      "path": "results/search_evaluations/hidden_search_v1.json",
+      "head_blob": "e263539a54b95d83287d1c601b0e120ab3825ccd",
+      "working_blob": "e263539a54b95d83287d1c601b0e120ab3825ccd",
+      "content_equal": true,
+      "head_mode": "100644"
+    },
+    {
+      "path": "results/search_evaluations/search_replay_v1.json",
+      "head_blob": "c72b9cb4fa226ab66e26af119576319b5010f033",
+      "working_blob": "c72b9cb4fa226ab66e26af119576319b5010f033",
+      "content_equal": true,
+      "head_mode": "100644"
+    },
+    {
+      "path": "results/search_runs/edge_cpu_demo__yolo26n_kitti_resolution_search_v1.json",
+      "head_blob": "01f866b996f82195698c0687ff2d1120319c0581",
+      "working_blob": "01f866b996f82195698c0687ff2d1120319c0581",
+      "content_equal": true,
+      "head_mode": "100644"
+    },
+    {
+      "path": "results/search_runs/low_latency_balanced_demo__yolo26n_kitti_resolution_search_v1.json",
+      "head_blob": "5c6c956b028b59f0ba3ada7103cc0cebba3b9c95",
+      "working_blob": "5c6c956b028b59f0ba3ada7103cc0cebba3b9c95",
+      "content_equal": true,
+      "head_mode": "100644"
+    },
+    {
+      "path": "results/selections/edge_cpu_demo.json",
+      "head_blob": "57f08bcdfa7561111c272c54e0e9a3bbc153e078",
+      "working_blob": "57f08bcdfa7561111c272c54e0e9a3bbc153e078",
+      "content_equal": true,
+      "head_mode": "100644"
+    },
+    {
+      "path": "results/selections/low_latency_balanced_demo.json",
+      "head_blob": "6d8e227ff7bda2d453ff41cf7c50c5907091e545",
+      "working_blob": "6d8e227ff7bda2d453ff41cf7c50c5907091e545",
+      "content_equal": true,
+      "head_mode": "100644"
+    },
+    {
+      "path": "results/workflows/demo_rehearsal_20260919_225324/interpretation.json",
+      "head_blob": "619ef71131fc2f410c2bc77be38bbde2435b089c",
+      "working_blob": "619ef71131fc2f410c2bc77be38bbde2435b089c",
+      "content_equal": true,
+      "head_mode": "100644"
+    },
+    {
+      "path": "results/workflows/demo_rehearsal_20260919_225324/requirement.yaml",
+      "head_blob": "28ee2891064d1dcbc06db48fe562b26e24ee926b",
+      "working_blob": "28ee2891064d1dcbc06db48fe562b26e24ee926b",
+      "content_equal": true,
+      "head_mode": "100644"
+    },
+    {
+      "path": "results/workflows/demo_rehearsal_20260919_225324/workflow.json",
+      "head_blob": "42b8453f41859a15950cfb27aea3350eaf0ebd4b",
+      "working_blob": "42b8453f41859a15950cfb27aea3350eaf0ebd4b",
+      "content_equal": true,
+      "head_mode": "100644"
+    },
+    {
+      "path": "results/workflows/demo_rehearsal_20260919_225440/interpretation.json",
+      "head_blob": "e210320eaa89e60101c95798c38ab45de772a5cd",
+      "working_blob": "e210320eaa89e60101c95798c38ab45de772a5cd",
+      "content_equal": true,
+      "head_mode": "100644"
+    },
+    {
+      "path": "results/workflows/demo_rehearsal_20260919_225440/requirement.yaml",
+      "head_blob": "d6f99f6590d160f9124ab5e02e520d5941084f81",
+      "working_blob": "d6f99f6590d160f9124ab5e02e520d5941084f81",
+      "content_equal": true,
+      "head_mode": "100644"
+    },
+    {
+      "path": "results/workflows/demo_rehearsal_20260919_225440/workflow.json",
+      "head_blob": "e90b6637c67d285780f7d740eebcb3665c48dbe8",
+      "working_blob": "e90b6637c67d285780f7d740eebcb3665c48dbe8",
+      "content_equal": true,
+      "head_mode": "100644"
+    },
+    {
+      "path": "results/workflows/english_demo_001/interpretation.json",
+      "head_blob": "3a77d053366fcf3bd46fbf3aec49460b73cb50cf",
+      "working_blob": "3a77d053366fcf3bd46fbf3aec49460b73cb50cf",
+      "content_equal": true,
+      "head_mode": "100644"
+    },
+    {
+      "path": "results/workflows/english_demo_001/requirement.yaml",
+      "head_blob": "89a3233cb7380ba969183d4e4946ef7b6514ba10",
+      "working_blob": "89a3233cb7380ba969183d4e4946ef7b6514ba10",
+      "content_equal": true,
+      "head_mode": "100644"
+    },
+    {
+      "path": "results/workflows/english_demo_001/workflow.json",
+      "head_blob": "53880f0dccad6de7d0439772387a3832df526e43",
+      "working_blob": "53880f0dccad6de7d0439772387a3832df526e43",
+      "content_equal": true,
+      "head_mode": "100644"
+    },
+    {
+      "path": "results/workflows/english_demo_002/interpretation.json",
+      "head_blob": "0eed59b2282bcadce86e7fd733d78d318ddb6b18",
+      "working_blob": "0eed59b2282bcadce86e7fd733d78d318ddb6b18",
+      "content_equal": true,
+      "head_mode": "100644"
+    },
+    {
+      "path": "results/workflows/english_demo_002/requirement.yaml",
+      "head_blob": "482793263eb12bcc85593fbd950380c942507fab",
+      "working_blob": "482793263eb12bcc85593fbd950380c942507fab",
+      "content_equal": true,
+      "head_mode": "100644"
+    },
+    {
+      "path": "results/workflows/english_demo_002/workflow.json",
+      "head_blob": "67a7f442e7ebe7bbd3da3872e0746543a4ff3702",
+      "working_blob": "67a7f442e7ebe7bbd3da3872e0746543a4ff3702",
+      "content_equal": true,
+      "head_mode": "100644"
+    },
+    {
+      "path": "scripts/build_portfolio_report.py",
+      "head_blob": "fafdfb21fc4127825cfcc93d88af0e755e4bfca7",
+      "working_blob": "fafdfb21fc4127825cfcc93d88af0e755e4bfca7",
+      "content_equal": true,
+      "head_mode": "100644"
+    },
+    {
+      "path": "scripts/check_environment.py",
+      "head_blob": "efe513c01a2abc2fb4c27a89cc139a15006a6580",
+      "working_blob": "efe513c01a2abc2fb4c27a89cc139a15006a6580",
+      "content_equal": true,
+      "head_mode": "100644"
+    },
+    {
+      "path": "scripts/evaluate_hidden_search.py",
+      "head_blob": "f8ac9fa7f37ddafe9f4efc6edbae0b36884f600b",
+      "working_blob": "f8ac9fa7f37ddafe9f4efc6edbae0b36884f600b",
+      "content_equal": true,
+      "head_mode": "100644"
+    },
+    {
+      "path": "scripts/evaluate_search_replay.py",
+      "head_blob": "5ddd3c83004aa78d2b423e53a7cea9e684092f3d",
+      "working_blob": "5ddd3c83004aa78d2b423e53a7cea9e684092f3d",
+      "content_equal": true,
+      "head_mode": "100644"
+    },
+    {
+      "path": "scripts/verify_clean_environment.py",
+      "head_blob": "064811561ab2feb6b74048619af8e604e16873b6",
+      "working_blob": "064811561ab2feb6b74048619af8e604e16873b6",
+      "content_equal": true,
+      "head_mode": "100644"
+    },
+    {
+      "path": "smoke_test.py",
+      "head_blob": "acb506d75c6b1abd8fed6e4274d15e52f7611780",
+      "working_blob": "acb506d75c6b1abd8fed6e4274d15e52f7611780",
+      "content_equal": true,
+      "head_mode": "100644"
+    },
+    {
+      "path": "src/benchmarking/__init__.py",
+      "head_blob": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391",
+      "working_blob": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391",
+      "content_equal": true,
+      "head_mode": "100644"
+    },
+    {
+      "path": "src/benchmarking/cpu_benchmark.py",
+      "head_blob": "72b8bb4916052583fc2096efcbe3e5d3732475e6",
+      "working_blob": "dac787357f3337f123969d2254c74bc3625b087f",
+      "content_equal": false,
+      "head_mode": "100644"
+    },
+    {
+      "path": "src/candidate_runner/__init__.py",
+      "head_blob": "b05c58d70e773a47244ebba0896c47025e1000ab",
+      "working_blob": "b05c58d70e773a47244ebba0896c47025e1000ab",
+      "content_equal": true,
+      "head_mode": "100644"
+    },
+    {
+      "path": "src/candidate_runner/runner.py",
+      "head_blob": "35127463fd1b855c9ade8570d89d9255a3c42117",
+      "working_blob": "35127463fd1b855c9ade8570d89d9255a3c42117",
+      "content_equal": true,
+      "head_mode": "100644"
+    },
+    {
+      "path": "src/candidate_selector/__init__.py",
+      "head_blob": "b7eac6d3df3ab8fa4e6d8da5ce138d9726c6e8fe",
+      "working_blob": "b7eac6d3df3ab8fa4e6d8da5ce138d9726c6e8fe",
+      "content_equal": true,
+      "head_mode": "100644"
+    },
+    {
+      "path": "src/candidate_selector/selector.py",
+      "head_blob": "797455ed520529728299c10a91da61cfba18f250",
+      "working_blob": "797455ed520529728299c10a91da61cfba18f250",
+      "content_equal": true,
+      "head_mode": "100644"
+    },
+    {
+      "path": "src/constraint_checker/__init__.py",
+      "head_blob": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391",
+      "working_blob": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391",
+      "content_equal": true,
+      "head_mode": "100644"
+    },
+    {
+      "path": "src/constraint_checker/checker.py",
+      "head_blob": "f339e6a89fa71c0c8b00ad187339b077139151bc",
+      "working_blob": "f339e6a89fa71c0c8b00ad187339b077139151bc",
+      "content_equal": true,
+      "head_mode": "100644"
+    },
+    {
+      "path": "src/evaluation/benchmark.py",
+      "head_blob": "3c881638abe50c4818de13895378385ec5d43a46",
+      "working_blob": "3c881638abe50c4818de13895378385ec5d43a46",
+      "content_equal": true,
+      "head_mode": "100644"
+    },
+    {
+      "path": "src/knowledge_database/__init__.py",
+      "head_blob": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391",
+      "working_blob": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391",
+      "content_equal": true,
+      "head_mode": "100644"
+    },
+    {
+      "path": "src/knowledge_database/loader.py",
+      "head_blob": "b96a3b675f408c34e2ae621595cd0b221be0a92d",
+      "working_blob": "b96a3b675f408c34e2ae621595cd0b221be0a92d",
+      "content_equal": true,
+      "head_mode": "100644"
+    },
+    {
+      "path": "src/knowledge_database/query.py",
+      "head_blob": "d5ee02732de9df967b3c5f135070e0911fe80483",
+      "working_blob": "d5ee02732de9df967b3c5f135070e0911fe80483",
+      "content_equal": true,
+      "head_mode": "100644"
+    },
+    {
+      "path": "src/llm_agent/__init__.py",
+      "head_blob": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391",
+      "working_blob": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391",
+      "content_equal": true,
+      "head_mode": "100644"
+    },
+    {
+      "path": "src/llm_agent/budget_controller.py",
+      "head_blob": "5c7e139229bf57c960ba403d163912c7a8ba5a55",
+      "working_blob": "5c7e139229bf57c960ba403d163912c7a8ba5a55",
+      "content_equal": true,
+      "head_mode": "100644"
+    },
+    {
+      "path": "src/llm_agent/candidate_proposer.py",
+      "head_blob": "e2f7e8be07e0bd6d586dca16554150f0f7f9b427",
+      "working_blob": "e2f7e8be07e0bd6d586dca16554150f0f7f9b427",
+      "content_equal": true,
+      "head_mode": "100644"
+    },
+    {
+      "path": "src/llm_agent/cli.py",
+      "head_blob": "8b6dde1266db4989b73e2a62c929398b92e07d76",
+      "working_blob": "8b6dde1266db4989b73e2a62c929398b92e07d76",
+      "content_equal": true,
+      "head_mode": "100644"
+    },
+    {
+      "path": "src/llm_agent/contract.py",
+      "head_blob": "00b061756ae50025db2735ef62576a16bfa0b652",
+      "working_blob": "00b061756ae50025db2735ef62576a16bfa0b652",
+      "content_equal": true,
+      "head_mode": "100644"
+    },
+    {
+      "path": "src/llm_agent/experiment_controller.py",
+      "head_blob": "e815c0a30de7e974a834616ca67860f4b0b2377c",
+      "working_blob": "e815c0a30de7e974a834616ca67860f4b0b2377c",
+      "content_equal": true,
+      "head_mode": "100644"
+    },
+    {
+      "path": "src/llm_agent/gemini_provider.py",
+      "head_blob": "5283e70fd1a8d34b72f3b166d9acec7097df55e3",
+      "working_blob": "5283e70fd1a8d34b72f3b166d9acec7097df55e3",
+      "content_equal": true,
+      "head_mode": "100644"
+    },
+    {
+      "path": "src/llm_agent/interpreter.py",
+      "head_blob": "17cc40d13c1cd3d18648539bd85ddcae1c9df0f0",
+      "working_blob": "17cc40d13c1cd3d18648539bd85ddcae1c9df0f0",
+      "content_equal": true,
+      "head_mode": "100644"
+    },
+    {
+      "path": "src/llm_agent/prompts.py",
+      "head_blob": "df3f6bae206a8f8075a957f5663f48548ea00bf7",
+      "working_blob": "df3f6bae206a8f8075a957f5663f48548ea00bf7",
+      "content_equal": true,
+      "head_mode": "100644"
+    },
+    {
+      "path": "src/llm_agent/response.py",
+      "head_blob": "36c169664051cd73eff3bea3da89c712f2387e0f",
+      "working_blob": "36c169664051cd73eff3bea3da89c712f2387e0f",
+      "content_equal": true,
+      "head_mode": "100644"
+    },
+    {
+      "path": "src/llm_agent/workflow.py",
+      "head_blob": "a7d9abdcf7d39074ab0021e63a8936aee722c4f3",
+      "working_blob": "a7d9abdcf7d39074ab0021e63a8936aee722c4f3",
+      "content_equal": true,
+      "head_mode": "100644"
+    },
+    {
+      "path": "src/proposal/__init__.py",
+      "head_blob": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391",
+      "working_blob": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391",
+      "content_equal": true,
+      "head_mode": "100644"
+    },
+    {
+      "path": "src/proposal/cli.py",
+      "head_blob": "3212088eef8bbaf96e62a582877aa3cb260e895c",
+      "working_blob": "4f7cf1e8bd3a18e19ebb18b80ae46f233d3fce83",
+      "content_equal": false,
+      "head_mode": "100644"
+    },
+    {
+      "path": "src/proposal/compatibility.py",
+      "head_blob": "25ee93e08185e9b60e461a7a0c76304406b6e6ec",
+      "working_blob": "f862c6498c43e10a2342b2efb687bef45f40e21b",
+      "content_equal": false,
+      "head_mode": "100644"
+    },
+    {
+      "path": "src/proposal/output.py",
+      "head_blob": "077445f804b3b0e5ac4b5cda35274f89d698940d",
+      "working_blob": "077445f804b3b0e5ac4b5cda35274f89d698940d",
+      "content_equal": true,
+      "head_mode": "100644"
+    },
+    {
+      "path": "src/proposal/rule_based.py",
+      "head_blob": "52213e3aafd3b33e0e45213f92fc8b651d3b397e",
+      "working_blob": "c364b91f01608a70090f3578ee34119d8a2cddbe",
+      "content_equal": false,
+      "head_mode": "100644"
+    },
+    {
+      "path": "src/requirement_parser/__init__.py",
+      "head_blob": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391",
+      "working_blob": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391",
+      "content_equal": true,
+      "head_mode": "100644"
+    },
+    {
+      "path": "src/requirement_parser/parser.py",
+      "head_blob": "f8bce02bdc818c9dc60f89ca5b484741762a382e",
+      "working_blob": "72689edf272f230945b474cba29f5b9e95652f2b",
+      "content_equal": false,
+      "head_mode": "100644"
+    },
+    {
+      "path": "src/requirement_parser/schema.py",
+      "head_blob": "90728a6daee683624d0faf88b7e66755171e9718",
+      "working_blob": "90728a6daee683624d0faf88b7e66755171e9718",
+      "content_equal": true,
+      "head_mode": "100644"
+    },
+    {
+      "path": "src/search_controller/__init__.py",
+      "head_blob": "8ad7618be3d83af68a53964917031553afeeb5ab",
+      "working_blob": "8ad7618be3d83af68a53964917031553afeeb5ab",
+      "content_equal": true,
+      "head_mode": "100644"
+    },
+    {
+      "path": "src/search_controller/controller.py",
+      "head_blob": "5aa76eea7c30c1f7a86929d06d27a25473044a83",
+      "working_blob": "7d01495ceaa6777061cd5890204b594261b315a2",
+      "content_equal": false,
+      "head_mode": "100644"
+    },
+    {
+      "path": "src/search_space/__init__.py",
+      "head_blob": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391",
+      "working_blob": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391",
+      "content_equal": true,
+      "head_mode": "100644"
+    },
+    {
+      "path": "src/search_space/parser.py",
+      "head_blob": "57863581570014cf55a3aad15c082955af831443",
+      "working_blob": "57863581570014cf55a3aad15c082955af831443",
+      "content_equal": true,
+      "head_mode": "100644"
+    },
+    {
+      "path": "tests/test_budget_controller.py",
+      "head_blob": "4f62d0264f49768be372ace43c72979990f72e69",
+      "working_blob": "4f62d0264f49768be372ace43c72979990f72e69",
+      "content_equal": true,
+      "head_mode": "100644"
+    },
+    {
+      "path": "tests/test_candidate_compatibility.py",
+      "head_blob": "ac4193292ce0796fbaa1a8cc6f11fd313455a48d",
+      "working_blob": "ac4193292ce0796fbaa1a8cc6f11fd313455a48d",
+      "content_equal": true,
+      "head_mode": "100644"
+    },
+    {
+      "path": "tests/test_candidate_proposer.py",
+      "head_blob": "486fb13aa54f9628e2f7f0503cf5073c568c3736",
+      "working_blob": "486fb13aa54f9628e2f7f0503cf5073c568c3736",
+      "content_equal": true,
+      "head_mode": "100644"
+    },
+    {
+      "path": "tests/test_candidate_runner.py",
+      "head_blob": "77db3bf90e0e1a87cff00c08550392c4b84978a1",
+      "working_blob": "77db3bf90e0e1a87cff00c08550392c4b84978a1",
+      "content_equal": true,
+      "head_mode": "100644"
+    },
+    {
+      "path": "tests/test_candidate_selector.py",
+      "head_blob": "205cc9087523340dacf5847b2d2259f362f83926",
+      "working_blob": "205cc9087523340dacf5847b2d2259f362f83926",
+      "content_equal": true,
+      "head_mode": "100644"
+    },
+    {
+      "path": "tests/test_constraint_checker.py",
+      "head_blob": "666e816245616415d0229a53de94e9f3d598c911",
+      "working_blob": "666e816245616415d0229a53de94e9f3d598c911",
+      "content_equal": true,
+      "head_mode": "100644"
+    },
+    {
+      "path": "tests/test_cpu_benchmark.py",
+      "head_blob": "c67483011fd16089d3b4413b1ded9901054dc3c2",
+      "working_blob": "c67483011fd16089d3b4413b1ded9901054dc3c2",
+      "content_equal": true,
+      "head_mode": "100644"
+    },
+    {
+      "path": "tests/test_experiment_controller.py",
+      "head_blob": "123a9e4e7387eeaf6cc90d37399f34bf2d13e3cf",
+      "working_blob": "123a9e4e7387eeaf6cc90d37399f34bf2d13e3cf",
+      "content_equal": true,
+      "head_mode": "100644"
+    },
+    {
+      "path": "tests/test_gemini_provider.py",
+      "head_blob": "4cd0655abe4d86e4e3ec0c53c186369111bfc1c2",
+      "working_blob": "4cd0655abe4d86e4e3ec0c53c186369111bfc1c2",
+      "content_equal": true,
+      "head_mode": "100644"
+    },
+    {
+      "path": "tests/test_hardware_metadata.py",
+      "head_blob": "e70536c93f3a6c819cdf3af8fad78c88c29a2459",
+      "working_blob": "e70536c93f3a6c819cdf3af8fad78c88c29a2459",
+      "content_equal": true,
+      "head_mode": "100644"
+    },
+    {
+      "path": "tests/test_knowledge_database.py",
+      "head_blob": "67ac5103438af2d7c132911658515be65005dac7",
+      "working_blob": "67ac5103438af2d7c132911658515be65005dac7",
+      "content_equal": true,
+      "head_mode": "100644"
+    },
+    {
+      "path": "tests/test_knowledge_query.py",
+      "head_blob": "80e2bba15e8fce3f4b9a01d4537465637f060fc1",
+      "working_blob": "80e2bba15e8fce3f4b9a01d4537465637f060fc1",
+      "content_equal": true,
+      "head_mode": "100644"
+    },
+    {
+      "path": "tests/test_llm_cli.py",
+      "head_blob": "553a4fc6aa4c8ee3de473a41a0b4aa5c85570291",
+      "working_blob": "553a4fc6aa4c8ee3de473a41a0b4aa5c85570291",
+      "content_equal": true,
+      "head_mode": "100644"
+    },
+    {
+      "path": "tests/test_llm_contract.py",
+      "head_blob": "b3ab5182ac2efca85043a81d8cc181e8f8421f1b",
+      "working_blob": "b3ab5182ac2efca85043a81d8cc181e8f8421f1b",
+      "content_equal": true,
+      "head_mode": "100644"
+    },
+    {
+      "path": "tests/test_llm_interpreter.py",
+      "head_blob": "3b14e2d3b879e590223cfe032c00beb3453a6729",
+      "working_blob": "3b14e2d3b879e590223cfe032c00beb3453a6729",
+      "content_equal": true,
+      "head_mode": "100644"
+    },
+    {
+      "path": "tests/test_llm_response.py",
+      "head_blob": "b8619a61e22edbfbb775719a15f9ce75dfec4bf0",
+      "working_blob": "b8619a61e22edbfbb775719a15f9ce75dfec4bf0",
+      "content_equal": true,
+      "head_mode": "100644"
+    },
+    {
+      "path": "tests/test_proposal_cli.py",
+      "head_blob": "9112842a319789c40f219e66eb9389ca6d9ad893",
+      "working_blob": "9112842a319789c40f219e66eb9389ca6d9ad893",
+      "content_equal": true,
+      "head_mode": "100644"
+    },
+    {
+      "path": "tests/test_requirement_parser.py",
+      "head_blob": "d1cf1a6f0d00b45e35f45f4bd03cd5462dd221e7",
+      "working_blob": "85c3914965249e18ae20242919244ee2ae4a4b2d",
+      "content_equal": false,
+      "head_mode": "100644"
+    },
+    {
+      "path": "tests/test_rule_based_proposal.py",
+      "head_blob": "bded51a65ab2cbe0976d0db0e380d80ea9bf6cec",
+      "working_blob": "bded51a65ab2cbe0976d0db0e380d80ea9bf6cec",
+      "content_equal": true,
+      "head_mode": "100644"
+    },
+    {
+      "path": "tests/test_search_controller.py",
+      "head_blob": "28c501b42810d73478a059f802473b830955b16e",
+      "working_blob": "7211a70abb975dcb7445bf46dc2729d3d889d8ab",
+      "content_equal": false,
+      "head_mode": "100644"
+    },
+    {
+      "path": "tests/test_search_integration.py",
+      "head_blob": "139e42a64fc91764efcb6c347ed05dd3a7b56a44",
+      "working_blob": "e55003189342012dcc8a90ff0bc40707b54e3c73",
+      "content_equal": false,
+      "head_mode": "100644"
+    },
+    {
+      "path": "tests/test_search_space_parser.py",
+      "head_blob": "c3dd75adeb1c23542b3a98fb37d99f09b5add56e",
+      "working_blob": "c3dd75adeb1c23542b3a98fb37d99f09b5add56e",
+      "content_equal": true,
+      "head_mode": "100644"
+    }
+  ]
+}

@@ -161,3 +161,37 @@ def check_candidate_compatibility(
         "missing_fields": sorted(set(missing_fields)),
         "unverified": unverified,
     }
+
+STRICT_PROVENANCE_FIELDS = (
+    "checkpoint_sha256", "dataset_manifest_sha256", "accuracy_manifest_sha256",
+    "system", "architecture", "python_version", "torch_version",
+    "ultralytics_version", "numpy_version", "torch_num_threads",
+    "protocol_version", "timing_scope", "batch_size", "classes", "split",
+)
+
+
+def check_strict_comparison(records):
+    """Group only complete, equal provenance; never upgrade archived evidence.
+
+    New evidence supplies a top-level comparison_provenance mapping. The
+    checkpoint and accuracy manifest must be identical across resolutions;
+    image_size intentionally differs and is checked by the pilot gate.
+    """
+    if not records:
+        return {"status": "insufficient_metadata", "problems": ["No records."]}
+    problems = []
+    reference = records[0].get("comparison_provenance", {})
+    if not isinstance(reference, dict):
+        reference = {}
+    for record in records:
+        provenance = record.get("comparison_provenance", {})
+        if not isinstance(provenance, dict):
+            provenance = {}
+        for field in STRICT_PROVENANCE_FIELDS:
+            value = provenance.get(field)
+            if is_missing(value):
+                problems.append({"candidate_id": record.get("candidate_id"), "field": field, "reason": "missing"})
+            elif value != reference.get(field):
+                problems.append({"candidate_id": record.get("candidate_id"), "field": field, "reason": "mismatch"})
+    return {"status": "compatible" if not problems else "incompatible", "problems": problems,
+            "policy_id": "strict_comparison_v1"}

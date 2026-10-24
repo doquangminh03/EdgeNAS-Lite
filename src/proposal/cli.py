@@ -69,6 +69,7 @@ def build_parser() -> argparse.ArgumentParser:
         help="Output JSON path. An existing proposal file will be replaced.",
     )
 
+    parser.add_argument("--strict-comparison", action="store_true", help="Require complete matching comparison provenance; archived demo records will be excluded.")
     return parser
 
 
@@ -94,6 +95,7 @@ def main(argv: Optional[Sequence[str]] = None) -> int:
             project_root=root,
             model_family=args.model_family,
             expected_hardware_id=args.hardware_id,
+            strict_comparison=args.strict_comparison,
         )
 
         # Candidate records are evidence, so output must not replace them.

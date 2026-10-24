@@ -1,5 +1,6 @@
 import argparse
 import json
+import math
 from pathlib import Path
 from typing import Any, Dict, Set, Union
 
@@ -68,10 +69,22 @@ def require_non_empty_string(value: Any, field_name: str) -> str:
 def require_number(value: Any, field_name: str) -> float:
     if isinstance(value, bool) or not isinstance(value, (int, float)):
         raise RequirementValidationError(
-            f"'{field_name}' must be a number."
+            f"'{field_name}' must be a finite number."
         )
 
-    return float(value)
+    try:
+        number = float(value)
+    except (OverflowError, ValueError) as error:
+        raise RequirementValidationError(
+            f"'{field_name}' must be a finite number."
+        ) from error
+
+    if not math.isfinite(number):
+        raise RequirementValidationError(
+            f"'{field_name}' must be a finite number."
+        )
+
+    return number
 
 
 def parse_requirement_data(data: Dict[str, Any]) -> Requirement:

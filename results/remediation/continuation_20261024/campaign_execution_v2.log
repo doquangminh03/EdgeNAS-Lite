@@ -1,0 +1,4 @@
+  File "/Volumes/Minh' s USB/EdgeNAS-Lite/scripts/benchmark_campaign.py", line 323
+    expected_images = [str((root / image["path"]).relative_to(root / session_config["dataset"]["images_dir"]))) for image in plan["dataset"]["images"]]
+                                                                                                              ^
+SyntaxError: closing parenthesis ')' does not match opening parenthesis '['

@@ -1,0 +1,9 @@
+Request: verify_hardware_mismatch
+Hardware: other_cpu
+Status: no_compatible_candidates
+Retrieved: 7
+Compatible: 0
+Excluded: 7
+Feasible: 0
+Selected: None
+Saved: /Volumes/Minh' s USB/EdgeNAS-Lite/results/remediation/continuation_20261024/offline_scenarios/hardware_mismatch_proposal.json

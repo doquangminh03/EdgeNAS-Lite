@@ -1,0 +1,409 @@
+{
+  "name": "KITTI",
+  "split": "val",
+  "sample_count": 100,
+  "selection_seed": 42,
+  "manifest_sha256": "7c7fda805edd1544268fd14bec60f613ef253197bcc52a171940f0926f1a1d44",
+  "images": [
+    {
+      "path": "datasets/kitti/images/val/000102.png",
+      "sha256": "365b72d8521af2f382fe5b18e29efeda716a042fca54df164c7a9bdab401cdb1"
+    },
+    {
+      "path": "datasets/kitti/images/val/000259.png",
+      "sha256": "9507beda50107b2991fe131a97f6254aa721a54c76111d358fcf0dfbe342b6fd"
+    },
+    {
+      "path": "datasets/kitti/images/val/000268.png",
+      "sha256": "395a9e2be2a1a293e00e9fb780acff2c5bd35c5a5f7c4c1d36c3913888f223ab"
+    },
+    {
+      "path": "datasets/kitti/images/val/000293.png",
+      "sha256": "cba5febdedfff533b041298cf96e3cc0df9334f8c7ac59a88581867c126da9f8"
+    },
+    {
+      "path": "datasets/kitti/images/val/000310.png",
+      "sha256": "dfa2ec939eacad154707f4485f1565914adee3d6786491feb1eb41d4eb1f178d"
+    },
+    {
+      "path": "datasets/kitti/images/val/000432.png",
+      "sha256": "bd2abfe1d5f16c7fb6e09991832f4d470c87c1d13867b69edf92d20e4eb1a3e8"
+    },
+    {
+      "path": "datasets/kitti/images/val/000455.png",
+      "sha256": "d88c3b39a6cc18e495d960bb7b533997ea53108c5ba587aa21cd06ff34e4f1ba"
+    },
+    {
+      "path": "datasets/kitti/images/val/000570.png",
+      "sha256": "4d7e5dfd037bf37d7f92a8706f97eefa8a308ce1954fcb89ccc13de85f550a5a"
+    },
+    {
+      "path": "datasets/kitti/images/val/000721.png",
+      "sha256": "c0836c8b43a26e6da65c9741c487b43cf511658202e5acdee505386ad6252173"
+    },
+    {
+      "path": "datasets/kitti/images/val/000733.png",
+      "sha256": "45a19214fe68f11c76f032b12ea72df8a04312cdd3005b782673d28c43874411"
+    },
+    {
+      "path": "datasets/kitti/images/val/000843.png",
+      "sha256": "13283257def01ea0adbeba22b5c982f6f60d0989e0e262b58572ff3d5a130f16"
+    },
+    {
+      "path": "datasets/kitti/images/val/000847.png",
+      "sha256": "415e28d6c606250ec7085817702ddecebef17b68c07bace789ffcbbe9852cc49"
+    },
+    {
+      "path": "datasets/kitti/images/val/000918.png",
+      "sha256": "d2d7a3b26c2be609146cea1bdd8bfec02cec711f42b9cc910eef62566c78e334"
+    },
+    {
+      "path": "datasets/kitti/images/val/000975.png",
+      "sha256": "e8a33a8960b951357f2d92d14b66475265a4626baf51940c48baad698fecad4d"
+    },
+    {
+      "path": "datasets/kitti/images/val/000995.png",
+      "sha256": "32346a9e7d7d4132d2145f80357a80fded6214e2aa4328efc10f7c27e7b634a5"
+    },
+    {
+      "path": "datasets/kitti/images/val/001046.png",
+      "sha256": "e25a96704480f20aa8f92e278dbe4de3e4e8eef87c7bf6ea9770749af361dd99"
+    },
+    {
+      "path": "datasets/kitti/images/val/001084.png",
+      "sha256": "a3c09b8624eebe2f3a9b3a825b432d2afd89af918810c2b6930bbe771cab2f48"
+    },
+    {
+      "path": "datasets/kitti/images/val/001115.png",
+      "sha256": "3bf155e1cea317782e2a87f12544b790603d99876d1c9543d24e24c26d30a3e2"
+    },
+    {
+      "path": "datasets/kitti/images/val/001213.png",
+      "sha256": "f4c331efe1aae04115c3c61b62053cba47fa7289c440f128c44c480e4f212428"
+    },
+    {
+      "path": "datasets/kitti/images/val/001357.png",
+      "sha256": "6b783c3b3757124d7e2a6fc4c4f4c8a8b6341c1794e8522f9f5b744c97c1fd72"
+    },
+    {
+      "path": "datasets/kitti/images/val/001524.png",
+      "sha256": "411232f2ac456e70acfc4b61bdfd381e91c025b6b3a081e6d059c4c22ce0fb63"
+    },
+    {
+      "path": "datasets/kitti/images/val/001672.png",
+      "sha256": "1685694a6832ad852978abf1c15bca1517630b6c148de954b498cc90f2b41245"
+    },
+    {
+      "path": "datasets/kitti/images/val/001734.png",
+      "sha256": "f2582c0d1203d171adf2dda39b9717d3e95d34b6a6b68f1fb09025014b560ace"
+    },
+    {
+      "path": "datasets/kitti/images/val/001751.png",
+      "sha256": "311e39da70dce08fe1e68640b4063cfc0eda2e512ed56e6d0050e535ec444520"
+    },
+    {
+      "path": "datasets/kitti/images/val/001753.png",
+      "sha256": "4f437eaeef8506edd4aa8e1b0ea3a042c73c32f99c83a5f0f31514db9a4f04ca"
+    },
+    {
+      "path": "datasets/kitti/images/val/001832.png",
+      "sha256": "2e0d7be2b7660a808b7bee277cb90b60403a0f0df2f935572dd8b20e9cf07c5c"
+    },
+    {
+      "path": "datasets/kitti/images/val/002015.png",
+      "sha256": "dd82fe6992506f3e29ce9cbba93e09b32bb11537a20bc69289506420e2654945"
+    },
+    {
+      "path": "datasets/kitti/images/val/002102.png",
+      "sha256": "5adb97a50590bc6a8182108c7f8b4ac7df070f997717547815bb6041eada22c5"
+    },
+    {
+      "path": "datasets/kitti/images/val/002192.png",
+      "sha256": "dad1aee79d9af2201baf07177f40fc3d4aef94b473537cace99e533502a612c7"
+    },
+    {
+      "path": "datasets/kitti/images/val/002251.png",
+      "sha256": "0b5521d9d31a58ca9fb85b944c325a81ce19868df06933772565ade45dbcd54a"
+    },
+    {
+      "path": "datasets/kitti/images/val/002262.png",
+      "sha256": "1dda9146dbcadc7d6a1b34a82be7f23d890c9731ecfcf6b6e283ad0866217763"
+    },
+    {
+      "path": "datasets/kitti/images/val/002267.png",
+      "sha256": "8b435420bec3a34c0b2d8fa8a9a44cbf88aa7ea13c8647b66eef08d31b6c021b"
+    },
+    {
+      "path": "datasets/kitti/images/val/002285.png",
+      "sha256": "d5af0eea200b30b7635c4fdfa987cdb13dc0c220c05585c2444b869b03d8f44c"
+    },
+    {
+      "path": "datasets/kitti/images/val/002334.png",
+      "sha256": "9c0b936151291a7aa39d8c111d587055fa84d82cc342ee7c5cfca894501aee5d"
+    },
+    {
+      "path": "datasets/kitti/images/val/002363.png",
+      "sha256": "6b793621defe08a8a25f410e752093627abff395af1405f5942a2ba8e704d905"
+    },
+    {
+      "path": "datasets/kitti/images/val/002423.png",
+      "sha256": "4ed41082ef3368e1cc3ea6d40fd858845371ab59fa1e5722693992bca4fde845"
+    },
+    {
+      "path": "datasets/kitti/images/val/002453.png",
+      "sha256": "a6b44a5ba188c28dc2959e97a2b85b5e90d8771ab1a23fdc38326d684cb5d3ca"
+    },
+    {
+      "path": "datasets/kitti/images/val/002561.png",
+      "sha256": "7ee1ef86054e3683df6310ae23cfb8d3600112d546af1fe6011bda71e1778d1b"
+    },
+    {
+      "path": "datasets/kitti/images/val/002720.png",
+      "sha256": "a89da904ab01aec52af0313d78b18227cf8414bb3796aeb1df03ba9b880e4fcf"
+    },
+    {
+      "path": "datasets/kitti/images/val/002736.png",
+      "sha256": "e47862581bef64165204d70fd7cbd91e4b72d31eb8c83fdb4f9a75ba23542b0e"
+    },
+    {
+      "path": "datasets/kitti/images/val/002777.png",
+      "sha256": "e8a578fd45791e9dcc2a8268030857993654ed14135f1cdf6182d2d33c2f2da1"
+    },
+    {
+      "path": "datasets/kitti/images/val/002812.png",
+      "sha256": "4f427db35e3858d5885e42e67b780452e9b4712a0123dcd3d15297744a65d2da"
+    },
+    {
+      "path": "datasets/kitti/images/val/002845.png",
+      "sha256": "b9ad56bff36526b7a8e273abc423e5e097550d2eb598c18256cfa3bc9e06dedf"
+    },
+    {
+      "path": "datasets/kitti/images/val/002955.png",
+      "sha256": "8bea44bc8070aed047081927e550f2ddc8131e02500d4f3f0b6f57fd97f056da"
+    },
+    {
+      "path": "datasets/kitti/images/val/003004.png",
+      "sha256": "d0ac6c23d3a2d3302356c9322fb760cf08197852a67c5202804dbd199e37c44d"
+    },
+    {
+      "path": "datasets/kitti/images/val/003266.png",
+      "sha256": "38109ed4d920364ef2246042db75023e4352f52a9cd48d1c63194e515e0c3c20"
+    },
+    {
+      "path": "datasets/kitti/images/val/003345.png",
+      "sha256": "23d82add5ed410d9e84eb1388924512c7174e2a02c966d897d67f9d5d4b195f8"
+    },
+    {
+      "path": "datasets/kitti/images/val/003482.png",
+      "sha256": "2c76cd50ec4b4b47fd7b3873ab7a0ab1c78aa58f359fa95f7de95cbc8fd731b8"
+    },
+    {
+      "path": "datasets/kitti/images/val/003507.png",
+      "sha256": "089f0c2e88b37fb387b584fe5cf63416b3c6a4f22fea2ea1e835977251fcf4c7"
+    },
+    {
+      "path": "datasets/kitti/images/val/003554.png",
+      "sha256": "d266714fb66db18387a3ad1717fa0dcc84c8d0131025ea515751d4953ddd19b4"
+    },
+    {
+      "path": "datasets/kitti/images/val/003641.png",
+      "sha256": "92ba8cb16c212d3b69fab1936a9f12138a3298436ee74e0a51bd86eac6a35322"
+    },
+    {
+      "path": "datasets/kitti/images/val/003696.png",
+      "sha256": "dba269e1845471f8382e1d9337e8080e4722299653b244fee3a22cfdd39e62db"
+    },
+    {
+      "path": "datasets/kitti/images/val/003728.png",
+      "sha256": "e3bb6fe997d5827bea2edacbc98859c172e59e1d33f3e77ef11a0aac941faf9c"
+    },
+    {
+      "path": "datasets/kitti/images/val/003748.png",
+      "sha256": "2c24b530f08a6f13a4f9ea55e474814dabb1f2e9069a28e72d952b2f2d326b4c"
+    },
+    {
+      "path": "datasets/kitti/images/val/003781.png",
+      "sha256": "08b988d2cf8204a95e64fc38191d11223a382704b598779325a251839b5bc7bf"
+    },
+    {
+      "path": "datasets/kitti/images/val/003916.png",
+      "sha256": "c129576895c1f447c4deb4a5ee6bffcc66906a6c4f83747d2ecb910276244d17"
+    },
+    {
+      "path": "datasets/kitti/images/val/003928.png",
+      "sha256": "78f5748d3df1b447ca4000f9e21878f1c9ee40ad77cc15db122340aba8730c17"
+    },
+    {
+      "path": "datasets/kitti/images/val/003935.png",
+      "sha256": "4e6146b2f2f886f1d9bcba5a70be4beb80b4667a0fcfba7a061949ec20ee39c6"
+    },
+    {
+      "path": "datasets/kitti/images/val/004187.png",
+      "sha256": "579b51faf0bc9089f09b2535b9a445fa016e949a7f19dd503847e5bbda212143"
+    },
+    {
+      "path": "datasets/kitti/images/val/004359.png",
+      "sha256": "fcfb570fe2ece725d687632e65103144bfe6508eed1caf5c4f3323b3fbd1fb2e"
+    },
+    {
+      "path": "datasets/kitti/images/val/004382.png",
+      "sha256": "a818317a45654b7288e522a223b90d69cca62317cfc2a859791e9c84f95ee998"
+    },
+    {
+      "path": "datasets/kitti/images/val/004383.png",
+      "sha256": "04961367dfa95c0d607ae3bdd0e220c24c53fe7aafc5031950bceda15ebd7944"
+    },
+    {
+      "path": "datasets/kitti/images/val/004599.png",
+      "sha256": "6ad10b9aa401ef250be7dda60c530ce1dc5bd4cbdd66ab7af428f01140dd32f3"
+    },
+    {
+      "path": "datasets/kitti/images/val/004660.png",
+      "sha256": "c3d2f51648b1817bf2bfdd937e90d7724b0131f285449c319720274ff4d4044d"
+    },
+    {
+      "path": "datasets/kitti/images/val/004730.png",
+      "sha256": "556f065190fbbd9a2fca9d9676e8c10219bbcb05608d763a9a82b84a190523f5"
+    },
+    {
+      "path": "datasets/kitti/images/val/004760.png",
+      "sha256": "d34ba55cdd8b7967b7c7c5f2f051d8c35cd3505ee990c8ddb36d40bd4a56fc4e"
+    },
+    {
+      "path": "datasets/kitti/images/val/005157.png",
+      "sha256": "779157c6597d59f318d1d7e460108eda2a7a9c8c32bf4d18924fe272754031d1"
+    },
+    {
+      "path": "datasets/kitti/images/val/005412.png",
+      "sha256": "e6c03ed236b0771cafc147404f4664db43f222e573126bb6a03aa42a868cea3b"
+    },
+    {
+      "path": "datasets/kitti/images/val/005429.png",
+      "sha256": "254114f04f31ea88bec24d9591872c08746292a404e4bbbb5a1d397e80bb974b"
+    },
+    {
+      "path": "datasets/kitti/images/val/005526.png",
+      "sha256": "936f60dac39fd3007249b3811cf1e003f2e631498c7289998b8baadbc16bd326"
+    },
+    {
+      "path": "datasets/kitti/images/val/005576.png",
+      "sha256": "5a9fd8a01997a23ec5b677cecd1e3c3aba0d7ef9088c422ba2bc3f9ad7bd33ce"
+    },
+    {
+      "path": "datasets/kitti/images/val/005655.png",
+      "sha256": "49baa9fb10dedda119daeb7e8c78e0e92219ff7b239ae4ba60d7a2680f4ea240"
+    },
+    {
+      "path": "datasets/kitti/images/val/005694.png",
+      "sha256": "3f6926e368de347b29e1ba42b4d7bf0d4dd4dafe03ee7a9eedbbe4194f0216da"
+    },
+    {
+      "path": "datasets/kitti/images/val/005847.png",
+      "sha256": "f752b611a28afb653ed2341ac6f1670f60fe4a0fdf8684b6fedbb4d8f48181a7"
+    },
+    {
+      "path": "datasets/kitti/images/val/005964.png",
+      "sha256": "e5a3f7842962d4b63a106f92b9701bd5cf3f1d9eacee216fa80b9350eb004021"
+    },
+    {
+      "path": "datasets/kitti/images/val/005972.png",
+      "sha256": "2317a13c1057d22b830f502e5b70b9bf0697b82b48562dfc433d935edc810a9d"
+    },
+    {
+      "path": "datasets/kitti/images/val/006087.png",
+      "sha256": "41f41149f1742a5fb64f1c86ba9e15f98b7b9c5d129b17bb7daec7589c860563"
+    },
+    {
+      "path": "datasets/kitti/images/val/006108.png",
+      "sha256": "9c8e65860054b25f5fa876f4893c197cf73f9d0c7ad7c8b3dbe6a237f8ab8138"
+    },
+    {
+      "path": "datasets/kitti/images/val/006161.png",
+      "sha256": "38d60b0f362c09c93b58b23e16801b3d6d2afbd202b2eb2930f0f5f7f949d34f"
+    },
+    {
+      "path": "datasets/kitti/images/val/006252.png",
+      "sha256": "0a5f95c1d02395dec978fde9a78f30f41acea2d918b3911d22f7f07dc4f1d4d3"
+    },
+    {
+      "path": "datasets/kitti/images/val/006347.png",
+      "sha256": "5baaab2e0e3eecb4284a0dcefdbe76cb3e11eeefa62dce3ec10db04f06ec80ca"
+    },
+    {
+      "path": "datasets/kitti/images/val/006430.png",
+      "sha256": "f3d3369be57b16f89bf4ea6c6e8bddc7ddf19a9dbe6f0b04fda2d025757265c7"
+    },
+    {
+      "path": "datasets/kitti/images/val/006432.png",
+      "sha256": "3eff9133d9a3f650a36bc4c199757c208cb4fdcb20fb6e48b6dfc9815f589b2d"
+    },
+    {
+      "path": "datasets/kitti/images/val/006468.png",
+      "sha256": "fec103057d5e00b8ce12a51268d8d0b7f4ebf0ef26f367760ad3677670d07154"
+    },
+    {
+      "path": "datasets/kitti/images/val/006475.png",
+      "sha256": "f74782da8de4da9162c628b86c5210d43147b088e929ad44074792daaac97bce"
+    },
+    {
+      "path": "datasets/kitti/images/val/006554.png",
+      "sha256": "92a8477af10f535a8e88b7805eefc322a92c587db69b165a16ad45b543d9f200"
+    },
+    {
+      "path": "datasets/kitti/images/val/006564.png",
+      "sha256": "a8a4eec977e89dc5a56119a57bcaf536ace1518857ac4170a2cb16311ebeb07c"
+    },
+    {
+      "path": "datasets/kitti/images/val/006696.png",
+      "sha256": "a5a1a6f11cccdb311d3059cc9189ca4980a68dc516a1793d499cfe317d3fb468"
+    },
+    {
+      "path": "datasets/kitti/images/val/006777.png",
+      "sha256": "eead8dea16d66840c54572efceb5eb3ca8039cb4fee5d2981424a0c1586787c8"
+    },
+    {
+      "path": "datasets/kitti/images/val/006828.png",
+      "sha256": "3eaa3590950a6cbc76aa5f2290a7b28d6c86e855414a2218f101b7d9da769a7c"
+    },
+    {
+      "path": "datasets/kitti/images/val/006923.png",
+      "sha256": "4be1c2e9acdc48f0bf7f4452b2ce2f221a9d0ffe9efa2e4bd54d8dd34c2e7c4f"
+    },
+    {
+      "path": "datasets/kitti/images/val/006948.png",
+      "sha256": "3aa6d23d537ff13083fc20b8a108a0d424db495c16073d6f3a334889e8e88927"
+    },
+    {
+      "path": "datasets/kitti/images/val/006980.png",
+      "sha256": "e4192095119b826b63ca292d726a81dc9126bb1ba144b3e490b1705e9c762a16"
+    },
+    {
+      "path": "datasets/kitti/images/val/007092.png",
+      "sha256": "fd5de711c2e5a1f0b6cda4d9a313fc47efa16d6be035cafa9e1da9c0fccc4171"
+    },
+    {
+      "path": "datasets/kitti/images/val/007120.png",
+      "sha256": "09c8284a06331b4ec34456a04fbc70981f2477e345a85873523e21cb6bb6c890"
+    },
+    {
+      "path": "datasets/kitti/images/val/007124.png",
+      "sha256": "4e9a8d43a9f4ab9b6c1dd02e3070dde3425e8a1947aa3cf6ff14ba74fee7647c"
+    },
+    {
+      "path": "datasets/kitti/images/val/007158.png",
+      "sha256": "49faf8fb773845b7adabefc5109c81c78eebfbea0a6cf748daafc41f5326645c"
+    },
+    {
+      "path": "datasets/kitti/images/val/007302.png",
+      "sha256": "e083fe9acf7e6add5211389515d186dfc2db49a64100dd10650d1469b8096bb5"
+    },
+    {
+      "path": "datasets/kitti/images/val/007445.png",
+      "sha256": "6f1bed1945eab0f5aa18f25722a7645b07359c9b2c01f193bf6c5409d125874f"
+    },
+    {
+      "path": "datasets/kitti/images/val/007449.png",
+      "sha256": "9a772f0d1348728a4aaec9a1785a8e3de27fa1af70e9677be6253ba8d6a5b5f0"
+    }
+  ]
+}

@@ -1,0 +1,352 @@
+Loading model: runs/detect/kitti_yolo26n_pilot/weights/best.pt
+Preloading 100 images...
+Running 10 warm-up runs...
+Measuring 300 predictions...
+
+Benchmark completed
+Median latency: 9.509 ms
+P95 latency: 9.93 ms
+FPS from median: 105.158
+Result saved to: /Volumes/Minh' s USB/EdgeNAS-Lite/results/benchmarks/campaigns/threads1_fixed_20261024/session_01/imgsz_416.json
+Loading model: runs/detect/kitti_yolo26n_pilot/weights/best.pt
+Preloading 100 images...
+Running 10 warm-up runs...
+Measuring 300 predictions...
+
+Benchmark completed
+Median latency: 18.249 ms
+P95 latency: 18.699 ms
+FPS from median: 54.796
+Result saved to: /Volumes/Minh' s USB/EdgeNAS-Lite/results/benchmarks/campaigns/threads1_fixed_20261024/session_01/imgsz_608.json
+Loading model: runs/detect/kitti_yolo26n_pilot/weights/best.pt
+Preloading 100 images...
+Running 10 warm-up runs...
+Measuring 300 predictions...
+
+Benchmark completed
+Median latency: 12.986 ms
+P95 latency: 13.224 ms
+FPS from median: 77.006
+Result saved to: /Volumes/Minh' s USB/EdgeNAS-Lite/results/benchmarks/campaigns/threads1_fixed_20261024/session_01/imgsz_480.json
+Loading model: runs/detect/kitti_yolo26n_pilot/weights/best.pt
+Preloading 100 images...
+Running 10 warm-up runs...
+Measuring 300 predictions...
+
+Benchmark completed
+Median latency: 17.559 ms
+P95 latency: 18.098 ms
+FPS from median: 56.949
+Result saved to: /Volumes/Minh' s USB/EdgeNAS-Lite/results/benchmarks/campaigns/threads1_fixed_20261024/session_01/imgsz_576.json
+Loading model: runs/detect/kitti_yolo26n_pilot/weights/best.pt
+Preloading 100 images...
+Running 10 warm-up runs...
+Measuring 300 predictions...
+
+Benchmark completed
+Median latency: 12.331 ms
+P95 latency: 12.573 ms
+FPS from median: 81.096
+Result saved to: /Volumes/Minh' s USB/EdgeNAS-Lite/results/benchmarks/campaigns/threads1_fixed_20261024/session_01/imgsz_448.json
+Loading model: runs/detect/kitti_yolo26n_pilot/weights/best.pt
+Preloading 100 images...
+Running 10 warm-up runs...
+Measuring 300 predictions...
+
+Benchmark completed
+Median latency: 22.084 ms
+P95 latency: 22.635 ms
+FPS from median: 45.282
+Result saved to: /Volumes/Minh' s USB/EdgeNAS-Lite/results/benchmarks/campaigns/threads1_fixed_20261024/session_01/imgsz_640.json
+Loading model: runs/detect/kitti_yolo26n_pilot/weights/best.pt
+Preloading 100 images...
+Running 10 warm-up runs...
+Measuring 300 predictions...
+
+Benchmark completed
+Median latency: 13.694 ms
+P95 latency: 14.395 ms
+FPS from median: 73.027
+Result saved to: /Volumes/Minh' s USB/EdgeNAS-Lite/results/benchmarks/campaigns/threads1_fixed_20261024/session_01/imgsz_512.json
+Loading model: runs/detect/kitti_yolo26n_pilot/weights/best.pt
+Preloading 100 images...
+Running 10 warm-up runs...
+Measuring 300 predictions...
+
+Benchmark completed
+Median latency: 12.968 ms
+P95 latency: 13.301 ms
+FPS from median: 77.11
+Result saved to: /Volumes/Minh' s USB/EdgeNAS-Lite/results/benchmarks/campaigns/threads1_fixed_20261024/session_02/imgsz_480.json
+Loading model: runs/detect/kitti_yolo26n_pilot/weights/best.pt
+Preloading 100 images...
+Running 10 warm-up runs...
+Measuring 300 predictions...
+
+Benchmark completed
+Median latency: 21.922 ms
+P95 latency: 22.465 ms
+FPS from median: 45.615
+Result saved to: /Volumes/Minh' s USB/EdgeNAS-Lite/results/benchmarks/campaigns/threads1_fixed_20261024/session_02/imgsz_640.json
+Loading model: runs/detect/kitti_yolo26n_pilot/weights/best.pt
+Preloading 100 images...
+Running 10 warm-up runs...
+Measuring 300 predictions...
+
+Benchmark completed
+Median latency: 17.449 ms
+P95 latency: 17.859 ms
+FPS from median: 57.312
+Result saved to: /Volumes/Minh' s USB/EdgeNAS-Lite/results/benchmarks/campaigns/threads1_fixed_20261024/session_02/imgsz_576.json
+Loading model: runs/detect/kitti_yolo26n_pilot/weights/best.pt
+Preloading 100 images...
+Running 10 warm-up runs...
+Measuring 300 predictions...
+
+Benchmark completed
+Median latency: 13.658 ms
+P95 latency: 16.146 ms
+FPS from median: 73.217
+Result saved to: /Volumes/Minh' s USB/EdgeNAS-Lite/results/benchmarks/campaigns/threads1_fixed_20261024/session_02/imgsz_512.json
+Loading model: runs/detect/kitti_yolo26n_pilot/weights/best.pt
+Preloading 100 images...
+Running 10 warm-up runs...
+Measuring 300 predictions...
+
+Benchmark completed
+Median latency: 19.588 ms
+P95 latency: 23.055 ms
+FPS from median: 51.05
+Result saved to: /Volumes/Minh' s USB/EdgeNAS-Lite/results/benchmarks/campaigns/threads1_fixed_20261024/session_02/imgsz_608.json
+Loading model: runs/detect/kitti_yolo26n_pilot/weights/best.pt
+Preloading 100 images...
+Running 10 warm-up runs...
+Measuring 300 predictions...
+
+Benchmark completed
+Median latency: 12.294 ms
+P95 latency: 14.574 ms
+FPS from median: 81.34
+Result saved to: /Volumes/Minh' s USB/EdgeNAS-Lite/results/benchmarks/campaigns/threads1_fixed_20261024/session_02/imgsz_448.json
+Loading model: runs/detect/kitti_yolo26n_pilot/weights/best.pt
+Preloading 100 images...
+Running 10 warm-up runs...
+Measuring 300 predictions...
+
+Benchmark completed
+Median latency: 9.665 ms
+P95 latency: 11.585 ms
+FPS from median: 103.461
+Result saved to: /Volumes/Minh' s USB/EdgeNAS-Lite/results/benchmarks/campaigns/threads1_fixed_20261024/session_02/imgsz_416.json
+Loading model: runs/detect/kitti_yolo26n_pilot/weights/best.pt
+Preloading 100 images...
+Running 10 warm-up runs...
+Measuring 300 predictions...
+
+Benchmark completed
+Median latency: 13.763 ms
+P95 latency: 16.568 ms
+FPS from median: 72.659
+Result saved to: /Volumes/Minh' s USB/EdgeNAS-Lite/results/benchmarks/campaigns/threads1_fixed_20261024/session_03/imgsz_512.json
+Loading model: runs/detect/kitti_yolo26n_pilot/weights/best.pt
+Preloading 100 images...
+Running 10 warm-up runs...
+Measuring 300 predictions...
+
+Benchmark completed
+Median latency: 18.258 ms
+P95 latency: 20.487 ms
+FPS from median: 54.772
+Result saved to: /Volumes/Minh' s USB/EdgeNAS-Lite/results/benchmarks/campaigns/threads1_fixed_20261024/session_03/imgsz_608.json
+Loading model: runs/detect/kitti_yolo26n_pilot/weights/best.pt
+Preloading 100 images...
+Running 10 warm-up runs...
+Measuring 300 predictions...
+
+Benchmark completed
+Median latency: 13.133 ms
+P95 latency: 16.107 ms
+FPS from median: 76.147
+Result saved to: /Volumes/Minh' s USB/EdgeNAS-Lite/results/benchmarks/campaigns/threads1_fixed_20261024/session_03/imgsz_480.json
+Loading model: runs/detect/kitti_yolo26n_pilot/weights/best.pt
+Preloading 100 images...
+Running 10 warm-up runs...
+Measuring 300 predictions...
+
+Benchmark completed
+Median latency: 18.246 ms
+P95 latency: 25.681 ms
+FPS from median: 54.807
+Result saved to: /Volumes/Minh' s USB/EdgeNAS-Lite/results/benchmarks/campaigns/threads1_fixed_20261024/session_03/imgsz_576.json
+Loading model: runs/detect/kitti_yolo26n_pilot/weights/best.pt
+Preloading 100 images...
+Running 10 warm-up runs...
+Measuring 300 predictions...
+
+Benchmark completed
+Median latency: 21.962 ms
+P95 latency: 22.987 ms
+FPS from median: 45.532
+Result saved to: /Volumes/Minh' s USB/EdgeNAS-Lite/results/benchmarks/campaigns/threads1_fixed_20261024/session_03/imgsz_640.json
+Loading model: runs/detect/kitti_yolo26n_pilot/weights/best.pt
+Preloading 100 images...
+Running 10 warm-up runs...
+Measuring 300 predictions...
+
+Benchmark completed
+Median latency: 9.781 ms
+P95 latency: 10.705 ms
+FPS from median: 102.239
+Result saved to: /Volumes/Minh' s USB/EdgeNAS-Lite/results/benchmarks/campaigns/threads1_fixed_20261024/session_03/imgsz_416.json
+Loading model: runs/detect/kitti_yolo26n_pilot/weights/best.pt
+Preloading 100 images...
+Running 10 warm-up runs...
+Measuring 300 predictions...
+
+Benchmark completed
+Median latency: 12.322 ms
+P95 latency: 12.667 ms
+FPS from median: 81.156
+Result saved to: /Volumes/Minh' s USB/EdgeNAS-Lite/results/benchmarks/campaigns/threads1_fixed_20261024/session_03/imgsz_448.json
+Loading model: runs/detect/kitti_yolo26n_pilot/weights/best.pt
+Preloading 100 images...
+Running 10 warm-up runs...
+Measuring 300 predictions...
+
+Benchmark completed
+Median latency: 12.411 ms
+P95 latency: 12.868 ms
+FPS from median: 80.574
+Result saved to: /Volumes/Minh' s USB/EdgeNAS-Lite/results/benchmarks/campaigns/threads1_fixed_20261024/session_04/imgsz_448.json
+Loading model: runs/detect/kitti_yolo26n_pilot/weights/best.pt
+Preloading 100 images...
+Running 10 warm-up runs...
+Measuring 300 predictions...
+
+Benchmark completed
+Median latency: 13.601 ms
+P95 latency: 13.94 ms
+FPS from median: 73.524
+Result saved to: /Volumes/Minh' s USB/EdgeNAS-Lite/results/benchmarks/campaigns/threads1_fixed_20261024/session_04/imgsz_512.json
+Loading model: runs/detect/kitti_yolo26n_pilot/weights/best.pt
+Preloading 100 images...
+Running 10 warm-up runs...
+Measuring 300 predictions...
+
+Benchmark completed
+Median latency: 13.063 ms
+P95 latency: 13.379 ms
+FPS from median: 76.549
+Result saved to: /Volumes/Minh' s USB/EdgeNAS-Lite/results/benchmarks/campaigns/threads1_fixed_20261024/session_04/imgsz_480.json
+Loading model: runs/detect/kitti_yolo26n_pilot/weights/best.pt
+Preloading 100 images...
+Running 10 warm-up runs...
+Measuring 300 predictions...
+
+Benchmark completed
+Median latency: 9.55 ms
+P95 latency: 9.815 ms
+FPS from median: 104.707
+Result saved to: /Volumes/Minh' s USB/EdgeNAS-Lite/results/benchmarks/campaigns/threads1_fixed_20261024/session_04/imgsz_416.json
+Loading model: runs/detect/kitti_yolo26n_pilot/weights/best.pt
+Preloading 100 images...
+Running 10 warm-up runs...
+Measuring 300 predictions...
+
+Benchmark completed
+Median latency: 18.34 ms
+P95 latency: 19.597 ms
+FPS from median: 54.524
+Result saved to: /Volumes/Minh' s USB/EdgeNAS-Lite/results/benchmarks/campaigns/threads1_fixed_20261024/session_04/imgsz_608.json
+Loading model: runs/detect/kitti_yolo26n_pilot/weights/best.pt
+Preloading 100 images...
+Running 10 warm-up runs...
+Measuring 300 predictions...
+
+Benchmark completed
+Median latency: 22.03 ms
+P95 latency: 22.651 ms
+FPS from median: 45.393
+Result saved to: /Volumes/Minh' s USB/EdgeNAS-Lite/results/benchmarks/campaigns/threads1_fixed_20261024/session_04/imgsz_640.json
+Loading model: runs/detect/kitti_yolo26n_pilot/weights/best.pt
+Preloading 100 images...
+Running 10 warm-up runs...
+Measuring 300 predictions...
+
+Benchmark completed
+Median latency: 17.343 ms
+P95 latency: 17.847 ms
+FPS from median: 57.658
+Result saved to: /Volumes/Minh' s USB/EdgeNAS-Lite/results/benchmarks/campaigns/threads1_fixed_20261024/session_04/imgsz_576.json
+Loading model: runs/detect/kitti_yolo26n_pilot/weights/best.pt
+Preloading 100 images...
+Running 10 warm-up runs...
+Measuring 300 predictions...
+
+Benchmark completed
+Median latency: 9.513 ms
+P95 latency: 9.812 ms
+FPS from median: 105.119
+Result saved to: /Volumes/Minh' s USB/EdgeNAS-Lite/results/benchmarks/campaigns/threads1_fixed_20261024/session_05/imgsz_416.json
+Loading model: runs/detect/kitti_yolo26n_pilot/weights/best.pt
+Preloading 100 images...
+Running 10 warm-up runs...
+Measuring 300 predictions...
+
+Benchmark completed
+Median latency: 18.422 ms
+P95 latency: 19.463 ms
+FPS from median: 54.283
+Result saved to: /Volumes/Minh' s USB/EdgeNAS-Lite/results/benchmarks/campaigns/threads1_fixed_20261024/session_05/imgsz_608.json
+Loading model: runs/detect/kitti_yolo26n_pilot/weights/best.pt
+Preloading 100 images...
+Running 10 warm-up runs...
+Measuring 300 predictions...
+
+Benchmark completed
+Median latency: 22.05 ms
+P95 latency: 22.641 ms
+FPS from median: 45.35
+Result saved to: /Volumes/Minh' s USB/EdgeNAS-Lite/results/benchmarks/campaigns/threads1_fixed_20261024/session_05/imgsz_640.json
+Loading model: runs/detect/kitti_yolo26n_pilot/weights/best.pt
+Preloading 100 images...
+Running 10 warm-up runs...
+Measuring 300 predictions...
+
+Benchmark completed
+Median latency: 13.006 ms
+P95 latency: 13.362 ms
+FPS from median: 76.888
+Result saved to: /Volumes/Minh' s USB/EdgeNAS-Lite/results/benchmarks/campaigns/threads1_fixed_20261024/session_05/imgsz_480.json
+Loading model: runs/detect/kitti_yolo26n_pilot/weights/best.pt
+Preloading 100 images...
+Running 10 warm-up runs...
+Measuring 300 predictions...
+
+Benchmark completed
+Median latency: 12.244 ms
+P95 latency: 12.603 ms
+FPS from median: 81.669
+Result saved to: /Volumes/Minh' s USB/EdgeNAS-Lite/results/benchmarks/campaigns/threads1_fixed_20261024/session_05/imgsz_448.json
+Loading model: runs/detect/kitti_yolo26n_pilot/weights/best.pt
+Preloading 100 images...
+Running 10 warm-up runs...
+Measuring 300 predictions...
+
+Benchmark completed
+Median latency: 13.603 ms
+P95 latency: 13.952 ms
+FPS from median: 73.513
+Result saved to: /Volumes/Minh' s USB/EdgeNAS-Lite/results/benchmarks/campaigns/threads1_fixed_20261024/session_05/imgsz_512.json
+Loading model: runs/detect/kitti_yolo26n_pilot/weights/best.pt
+Preloading 100 images...
+Running 10 warm-up runs...
+Measuring 300 predictions...
+
+Benchmark completed
+Median latency: 17.427 ms
+P95 latency: 18.674 ms
+FPS from median: 57.382
+Result saved to: /Volumes/Minh' s USB/EdgeNAS-Lite/results/benchmarks/campaigns/threads1_fixed_20261024/session_05/imgsz_576.json
+Campaign status: completed
+Campaign report: /Volumes/Minh' s USB/EdgeNAS-Lite/results/benchmarks/campaigns/threads1_fixed_20261024/campaign.json

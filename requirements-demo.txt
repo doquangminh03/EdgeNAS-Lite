@@ -1,0 +1,2 @@
+# Offline archived selection and language response evaluation only.
+PyYAML==6.0.3

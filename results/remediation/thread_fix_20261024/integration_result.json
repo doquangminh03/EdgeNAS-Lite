@@ -1,0 +1,114 @@
+{
+  "hardware_id": "continuation_mac_cpu_20261024",
+  "schema_version": "1.0",
+  "benchmark_id": "thread_fix_local_integration_20261024",
+  "candidate_id": "yolo26n_kitti_pilot",
+  "protocol_status": "standardized",
+  "created_at_utc": "2026-10-24T14:50:43.421251+00:00",
+  "model": {
+    "checkpoint": "runs/detect/kitti_yolo26n_pilot/weights/best.pt"
+  },
+  "dataset": {
+    "name": "KITTI",
+    "split": "val",
+    "images_dir": "datasets/kitti/images/val",
+    "available_images": 1496,
+    "selected_images": 3,
+    "selection_seed": 42
+  },
+  "protocol": {
+    "version": "cpu_threads_v2",
+    "backend_setup_predictions": 1,
+    "requested_cpu_threads": 1,
+    "thread_check_scope": "warmup_and_each_timed_prediction_boundaries_outside_timer",
+    "device": "cpu",
+    "image_size": 416,
+    "batch_size": 1,
+    "warmup_runs": 2,
+    "repetitions_per_image": 2,
+    "confidence_threshold": 0.25,
+    "iou_threshold": 0.7,
+    "max_detections": 300,
+    "timing_scope": "preprocess_inference_postprocess",
+    "disk_io_included": false,
+    "raw_samples_saved": true
+  },
+  "environment": {
+    "system": "macOS-26.6.2-arm64-arm-64bit",
+    "architecture": "arm64",
+    "python_version": "3.9.6",
+    "torch_version": "2.8.0",
+    "ultralytics_version": "8.4.123",
+    "numpy_version": "2.0.2",
+    "torch_num_threads": 1,
+    "requested_cpu_threads": 1,
+    "thread_observations": {
+      "after_backend_setup": 7,
+      "before_warmup": 1,
+      "after_warmup": 1,
+      "before_timing": 1,
+      "after_timing": 1
+    },
+    "campaign_id": null,
+    "session_id": null
+  },
+  "summary": {
+    "sample_count": 6,
+    "average_latency_ms": 9.376,
+    "median_latency_ms": 9.39,
+    "p95_latency_ms": 9.479,
+    "standard_deviation_ms": 0.084,
+    "min_latency_ms": 9.254,
+    "max_latency_ms": 9.494,
+    "fps_from_median": 106.491
+  },
+  "selected_image_files": [
+    "000259.png",
+    "001213.png",
+    "006468.png"
+  ],
+  "raw_samples": [
+    {
+      "repetition": 1,
+      "image": "001213.png",
+      "latency_ms": 9.494,
+      "torch_num_threads_before": 1,
+      "torch_num_threads_after": 1
+    },
+    {
+      "repetition": 1,
+      "image": "000259.png",
+      "latency_ms": 9.365,
+      "torch_num_threads_before": 1,
+      "torch_num_threads_after": 1
+    },
+    {
+      "repetition": 1,
+      "image": "006468.png",
+      "latency_ms": 9.436,
+      "torch_num_threads_before": 1,
+      "torch_num_threads_after": 1
+    },
+    {
+      "repetition": 2,
+      "image": "006468.png",
+      "latency_ms": 9.416,
+      "torch_num_threads_before": 1,
+      "torch_num_threads_after": 1
+    },
+    {
+      "repetition": 2,
+      "image": "001213.png",
+      "latency_ms": 9.254,
+      "torch_num_threads_before": 1,
+      "torch_num_threads_after": 1
+    },
+    {
+      "repetition": 2,
+      "image": "000259.png",
+      "latency_ms": 9.288,
+      "torch_num_threads_before": 1,
+      "torch_num_threads_after": 1
+    }
+  ]
+}

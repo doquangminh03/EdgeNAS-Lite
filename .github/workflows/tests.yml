@@ -1,0 +1,27 @@
+name: offline-tests
+on: [push, pull_request]
+jobs:
+  core:
+    runs-on: macos-14
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.9'
+      - run: python -m pip install -r requirements-demo.txt
+      - run: python -m unittest discover -s tests -p 'test_requirement_parser.py' -v
+      - run: python -m unittest discover -s tests -p 'test_benchmark_campaign.py' -v
+      - run: python -m unittest discover -s tests -p 'test_remediation_tools.py' -v
+      - run: python -m src.proposal.cli configs/requests/low_latency_balanced_demo.yaml --hardware-id local_mac_cpu_01 --model-family YOLO26 --output "${{ runner.temp }}/selection.json"
+      - run: |
+          python -c 'import json,os; p=json.load(open(os.environ["RUNNER_TEMP"]+"/selection.json")); s=p["selection"]; assert s["evaluated_candidate_count"]==7 and s["feasible_candidate_count"]==4 and s["selected_candidate_id"]=="yolo26n_kitti_pilot_imgsz416_cpu"'
+  full:
+    runs-on: macos-14
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.9'
+      - run: python -m pip install -r requirements.txt
+      - run: python -m pip check
+      - run: python -m unittest discover -s tests -v

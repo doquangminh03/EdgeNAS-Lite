@@ -170,7 +170,43 @@ def read_config_values(
         )
 
     values["hardware_id"] = validate_hardware_id(config.get("hardware_id"))
+    values["requested_cpu_threads"] = validate_cpu_threads(
+        config["protocol"].get("cpu_threads")
+    )
     return values
+
+
+def validate_cpu_threads(value: Any) -> Optional[int]:
+    if value is not None and (type(value) is not int or value <= 0):
+        raise BenchmarkConfigError("cpu_threads must be a positive integer.")
+    return value
+
+
+def observe_cpu_threads(values: Dict[str, Any], stage: str) -> int:
+    """Check outside the timed predict call; never silently repair later drift."""
+    observed = torch.get_num_threads()
+    requested = values.get("requested_cpu_threads")
+    if requested is not None and observed != requested:
+        raise BenchmarkConfigError(
+            f"CPU thread mismatch at {stage}: requested {requested}, observed {observed}."
+        )
+    return observed
+
+
+def initialize_backend(
+    model: YOLO,
+    image: np.ndarray,
+    values: Dict[str, Any],
+) -> None:
+    # Public predict initializes the lazy predictor/backend and its internal
+    # warmup. This single setup prediction is outside declared warmups/timing.
+    run_prediction(model, image, values)
+    observations = {"after_backend_setup": torch.get_num_threads()}
+    requested = validate_cpu_threads(values.get("requested_cpu_threads"))
+    if requested is not None:
+        torch.set_num_threads(requested)
+    observations["before_warmup"] = observe_cpu_threads(values, "before_warmup")
+    values["thread_observations"] = observations
 
 
 def collect_images(images_dir: Path) -> List[Path]:
@@ -183,6 +219,7 @@ def collect_images(images_dir: Path) -> List[Path]:
         path
         for path in images_dir.rglob("*")
         if path.is_file()
+        and not path.name.startswith("._")
         and path.suffix.lower()
         in SUPPORTED_IMAGE_EXTENSIONS
     )
@@ -257,6 +294,7 @@ def run_warmup(
     values: Dict[str, Any],
 ) -> None:
     for run_index in range(values["warmup_runs"]):
+        observe_cpu_threads(values, "before_warmup_prediction")
         _, image = images[
             run_index % len(images)
         ]
@@ -266,6 +304,11 @@ def run_warmup(
             image,
             values,
         )
+        observe_cpu_threads(values, "after_warmup_prediction")
+
+    values.setdefault("thread_observations", {})["after_warmup"] = observe_cpu_threads(
+        values, "after_warmup"
+    )
 
 
 def measure_latency(
@@ -274,6 +317,9 @@ def measure_latency(
     values: Dict[str, Any],
 ) -> List[Dict[str, Any]]:
     samples = []
+    values.setdefault("thread_observations", {})["before_timing"] = observe_cpu_threads(
+        values, "before_timing"
+    )
 
     for repetition in range(
         values["repetitions_per_image"]
@@ -285,6 +331,7 @@ def measure_latency(
         ).shuffle(ordered_images)
 
         for image_path, image in ordered_images:
+            threads_before = observe_cpu_threads(values, "before_timed_prediction")
             start_time = time.perf_counter_ns()
 
             run_prediction(
@@ -294,6 +341,7 @@ def measure_latency(
             )
 
             end_time = time.perf_counter_ns()
+            threads_after = observe_cpu_threads(values, "after_timed_prediction")
 
             latency_ms = (
                 end_time - start_time
@@ -311,9 +359,12 @@ def measure_latency(
                         latency_ms,
                         3,
                     ),
+                    "torch_num_threads_before": threads_before,
+                    "torch_num_threads_after": threads_after,
                 }
             )
 
+    values["thread_observations"]["after_timing"] = observe_cpu_threads(values, "after_timing")
     return samples
 
 
@@ -369,6 +420,7 @@ def build_result(
     samples: List[Dict[str, Any]],
 ) -> Dict[str, Any]:
     hardware_id = validate_hardware_id(values.get("hardware_id"))
+    observed_threads = observe_cpu_threads(values, "build_result")
     return {
         **({"hardware_id": hardware_id} if hardware_id is not None else {}),
         "schema_version": "1.0",
@@ -398,6 +450,10 @@ def build_result(
             "selection_seed": values["seed"],
         },
         "protocol": {
+            "version": "cpu_threads_v2",
+            "backend_setup_predictions": 1,
+            "requested_cpu_threads": values.get("requested_cpu_threads"),
+            "thread_check_scope": "warmup_and_each_timed_prediction_boundaries_outside_timer",
             "device": values["device"],
             "image_size": values["image_size"],
             "batch_size": values["batch_size"],
@@ -433,9 +489,11 @@ def build_result(
                 ultralytics.__version__
             ),
             "numpy_version": np.__version__,
-            "torch_num_threads": (
-                torch.get_num_threads()
-            ),
+            "torch_num_threads": observed_threads,
+            "requested_cpu_threads": values.get("requested_cpu_threads"),
+            "thread_observations": dict(values.get("thread_observations", {})),
+            "campaign_id": values.get("campaign_id"),
+            "session_id": values.get("session_id"),
         },
         "summary": summarize_latencies(
             samples
@@ -488,6 +546,9 @@ def main() -> None:
     )
 
     argument_parser.add_argument("--hardware-id", help="Operator-supplied identity of the machine running this benchmark.")
+    argument_parser.add_argument("--threads", type=int, default=None)
+    argument_parser.add_argument("--campaign-id")
+    argument_parser.add_argument("--session-id", type=int)
 
     arguments = argument_parser.parse_args()
 
@@ -499,6 +560,19 @@ def main() -> None:
         if hardware_id is not None:
             config["hardware_id"] = hardware_id
         values = read_config_values(config)
+        if arguments.threads is not None:
+            requested = validate_cpu_threads(arguments.threads)
+            if values["requested_cpu_threads"] not in (None, requested):
+                raise BenchmarkConfigError("Configured cpu_threads conflicts with --threads.")
+            values["requested_cpu_threads"] = requested
+        if "campaign_id" in config:
+            values["campaign_id"] = config["campaign_id"]
+        if "session_id" in config:
+            values["session_id"] = config["session_id"]
+        if arguments.campaign_id is not None:
+            values["campaign_id"] = arguments.campaign_id
+        if arguments.session_id is not None:
+            values["session_id"] = arguments.session_id
 
         if not values["checkpoint"].exists():
             raise FileNotFoundError(
@@ -529,6 +603,8 @@ def main() -> None:
         preloaded_images = preload_images(
             selected_images
         )
+
+        initialize_backend(model, preloaded_images[0][1], values)
 
         print(
             f"Running {values['warmup_runs']} warm-up runs..."

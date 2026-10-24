@@ -1,0 +1,13 @@
+/Users/quangminhdo/.matplotlib is not a writable directory
+Matplotlib created a temporary cache directory at /var/folders/nw/yrwk9kt54xj0bw0dhrw8ykmh0000gn/T/matplotlib-761u6jwp because there was an issue with the default path (/Users/quangminhdo/.matplotlib); it is highly recommended to set the MPLCONFIGDIR environment variable to a writable directory, in particular to speed up the import of Matplotlib and to better support multiprocessing.
+Matplotlib is building the font cache; this may take a moment.
+/Volumes/Minh' s USB/EdgeNAS-Lite/.venv/lib/python3.9/site-packages/urllib3/__init__.py:35: NotOpenSSLWarning: urllib3 v2 only supports OpenSSL 1.1.1+, currently the 'ssl' module is compiled with 'LibreSSL 2.8.3'. See: https://github.com/urllib3/urllib3/issues/3020
+  warnings.warn(
+Loading model: /Volumes/Minh' s USB/EdgeNAS-Lite/runs/detect/kitti_yolo26n_pilot/weights/best.pt
+WARNING ⚠️ GitHub assets check failure for https://api.github.com/repos/ultralytics/assets/releases/tags/v8.4.0: HTTPSConnectionPool(host='api.github.com', port=443): Max retries exceeded with url: /repos/ultralytics/assets/releases/tags/v8.4.0 (Caused by NameResolutionError("HTTPSConnection(host='api.github.com', port=443): Failed to resolve 'api.github.com' ([Errno 8] nodename nor servname provided, or not known)"))
+WARNING ⚠️ GitHub assets check failure for https://api.github.com/repos/ultralytics/assets/releases/latest: HTTPSConnectionPool(host='api.github.com', port=443): Max retries exceeded with url: /repos/ultralytics/assets/releases/latest (Caused by NameResolutionError("HTTPSConnection(host='api.github.com', port=443): Failed to resolve 'api.github.com' ([Errno 8] nodename nor servname provided, or not known)"))
+usage: cpu_benchmark.py [-h] [--hardware-id HARDWARE_ID] [--threads THREADS]
+                        [--campaign-id CAMPAIGN_ID] [--session-id SESSION_ID]
+                        config_file
+cpu_benchmark.py: error: [Errno 2] No such file or directory: '/Volumes/Minh s USB/EdgeNAS-Lite/runs/detect/kitti_yolo26n_pilot/weights/best.pt'
+Campaign error: Command '["/Volumes/Minh' s USB/EdgeNAS-Lite/.venv/bin/python", '-m', 'src.benchmarking.cpu_benchmark', "/Volumes/Minh' s USB/EdgeNAS-Lite/results/benchmarks/campaigns/continuation_measured_20261024/session_01/benchmark_imgsz_416.yaml", '--hardware-id', 'continuation_mac_cpu_20261024', '--threads', '1', '--campaign-id', 'continuation_measured_20261024', '--session-id', '1']' returned non-zero exit status 2.
