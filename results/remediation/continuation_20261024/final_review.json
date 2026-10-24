@@ -1,0 +1,15 @@
+{
+  "tests": {
+    "pass": 229,
+    "fail": 0,
+    "error": 0,
+    "skip": 0
+  },
+  "fresh_core_tests_pass": 23,
+  "local_links": "PASS",
+  "diff_check_exit": 0,
+  "tracked_archived_evidence_unchanged": true,
+  "push": false,
+  "merge": false,
+  "live_api_calls": 0
+}

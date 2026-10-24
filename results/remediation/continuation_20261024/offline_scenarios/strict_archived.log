@@ -1,0 +1,9 @@
+Request: verify_strict_archived
+Hardware: local_mac_cpu_01
+Status: no_compatible_candidates
+Retrieved: 7
+Compatible: 0
+Excluded: 7
+Feasible: 0
+Selected: None
+Saved: /Volumes/Minh' s USB/EdgeNAS-Lite/results/remediation/continuation_20261024/offline_scenarios/strict_archived_proposal.json

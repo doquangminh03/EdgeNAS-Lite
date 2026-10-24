@@ -1,0 +1,2073 @@
+{
+  "version": "policy_sensitivity_replay_v1",
+  "evidence_kind": "archived_measurement_replay",
+  "weights": {
+    "equal": [
+      1,
+      1,
+      1
+    ],
+    "accuracy_heavy": [
+      8,
+      1,
+      1
+    ],
+    "latency_heavy": [
+      1,
+      8,
+      1
+    ],
+    "size_heavy": [
+      1,
+      1,
+      8
+    ]
+  },
+  "sensitivity": {
+    "equal": [
+      {
+        "rank": 1,
+        "candidate_id": "yolo26n_kitti_pilot_imgsz416_cpu",
+        "score": 0.143132,
+        "score_components": {
+          "accuracy_headroom": 0.00923,
+          "latency_headroom": 0.2705,
+          "model_size_headroom": 0.149667
+        },
+        "metrics": {
+          "map50_95": 0.207384,
+          "median_latency_ms": 8.754,
+          "model_size_mb": 5.102
+        }
+      },
+      {
+        "rank": 2,
+        "candidate_id": "yolo26n_kitti_pilot_imgsz448_cpu",
+        "score": 0.097132,
+        "score_components": {
+          "accuracy_headroom": 0.027397,
+          "latency_headroom": 0.114333,
+          "model_size_headroom": 0.149667
+        },
+        "metrics": {
+          "map50_95": 0.221918,
+          "median_latency_ms": 10.628,
+          "model_size_mb": 5.102
+        }
+      },
+      {
+        "rank": 3,
+        "candidate_id": "yolo26n_kitti_pilot_imgsz480_cpu",
+        "score": 0.094617,
+        "score_components": {
+          "accuracy_headroom": 0.04535,
+          "latency_headroom": 0.088833,
+          "model_size_headroom": 0.149667
+        },
+        "metrics": {
+          "map50_95": 0.23628,
+          "median_latency_ms": 10.934,
+          "model_size_mb": 5.102
+        }
+      },
+      {
+        "rank": 4,
+        "candidate_id": "yolo26n_kitti_pilot_imgsz512_cpu",
+        "score": 0.087805,
+        "score_components": {
+          "accuracy_headroom": 0.053664,
+          "latency_headroom": 0.060083,
+          "model_size_headroom": 0.149667
+        },
+        "metrics": {
+          "map50_95": 0.242931,
+          "median_latency_ms": 11.279,
+          "model_size_mb": 5.102
+        }
+      }
+    ],
+    "accuracy_heavy": [
+      {
+        "rank": 4,
+        "candidate_id": "yolo26n_kitti_pilot_imgsz512_cpu",
+        "score": 0.063906,
+        "score_components": {
+          "accuracy_headroom": 0.053664,
+          "latency_headroom": 0.060083,
+          "model_size_headroom": 0.149667
+        },
+        "metrics": {
+          "map50_95": 0.242931,
+          "median_latency_ms": 11.279,
+          "model_size_mb": 5.102
+        }
+      },
+      {
+        "rank": 3,
+        "candidate_id": "yolo26n_kitti_pilot_imgsz480_cpu",
+        "score": 0.06013,
+        "score_components": {
+          "accuracy_headroom": 0.04535,
+          "latency_headroom": 0.088833,
+          "model_size_headroom": 0.149667
+        },
+        "metrics": {
+          "map50_95": 0.23628,
+          "median_latency_ms": 10.934,
+          "model_size_mb": 5.102
+        }
+      },
+      {
+        "rank": 1,
+        "candidate_id": "yolo26n_kitti_pilot_imgsz416_cpu",
+        "score": 0.049401,
+        "score_components": {
+          "accuracy_headroom": 0.00923,
+          "latency_headroom": 0.2705,
+          "model_size_headroom": 0.149667
+        },
+        "metrics": {
+          "map50_95": 0.207384,
+          "median_latency_ms": 8.754,
+          "model_size_mb": 5.102
+        }
+      },
+      {
+        "rank": 2,
+        "candidate_id": "yolo26n_kitti_pilot_imgsz448_cpu",
+        "score": 0.048318,
+        "score_components": {
+          "accuracy_headroom": 0.027397,
+          "latency_headroom": 0.114333,
+          "model_size_headroom": 0.149667
+        },
+        "metrics": {
+          "map50_95": 0.221918,
+          "median_latency_ms": 10.628,
+          "model_size_mb": 5.102
+        }
+      }
+    ],
+    "latency_heavy": [
+      {
+        "rank": 1,
+        "candidate_id": "yolo26n_kitti_pilot_imgsz416_cpu",
+        "score": 0.23229,
+        "score_components": {
+          "accuracy_headroom": 0.00923,
+          "latency_headroom": 0.2705,
+          "model_size_headroom": 0.149667
+        },
+        "metrics": {
+          "map50_95": 0.207384,
+          "median_latency_ms": 8.754,
+          "model_size_mb": 5.102
+        }
+      },
+      {
+        "rank": 2,
+        "candidate_id": "yolo26n_kitti_pilot_imgsz448_cpu",
+        "score": 0.109173,
+        "score_components": {
+          "accuracy_headroom": 0.027397,
+          "latency_headroom": 0.114333,
+          "model_size_headroom": 0.149667
+        },
+        "metrics": {
+          "map50_95": 0.221918,
+          "median_latency_ms": 10.628,
+          "model_size_mb": 5.102
+        }
+      },
+      {
+        "rank": 3,
+        "candidate_id": "yolo26n_kitti_pilot_imgsz480_cpu",
+        "score": 0.090568,
+        "score_components": {
+          "accuracy_headroom": 0.04535,
+          "latency_headroom": 0.088833,
+          "model_size_headroom": 0.149667
+        },
+        "metrics": {
+          "map50_95": 0.23628,
+          "median_latency_ms": 10.934,
+          "model_size_mb": 5.102
+        }
+      },
+      {
+        "rank": 4,
+        "candidate_id": "yolo26n_kitti_pilot_imgsz512_cpu",
+        "score": 0.0684,
+        "score_components": {
+          "accuracy_headroom": 0.053664,
+          "latency_headroom": 0.060083,
+          "model_size_headroom": 0.149667
+        },
+        "metrics": {
+          "map50_95": 0.242931,
+          "median_latency_ms": 11.279,
+          "model_size_mb": 5.102
+        }
+      }
+    ],
+    "size_heavy": [
+      {
+        "rank": 1,
+        "candidate_id": "yolo26n_kitti_pilot_imgsz416_cpu",
+        "score": 0.147707,
+        "score_components": {
+          "accuracy_headroom": 0.00923,
+          "latency_headroom": 0.2705,
+          "model_size_headroom": 0.149667
+        },
+        "metrics": {
+          "map50_95": 0.207384,
+          "median_latency_ms": 8.754,
+          "model_size_mb": 5.102
+        }
+      },
+      {
+        "rank": 2,
+        "candidate_id": "yolo26n_kitti_pilot_imgsz448_cpu",
+        "score": 0.133907,
+        "score_components": {
+          "accuracy_headroom": 0.027397,
+          "latency_headroom": 0.114333,
+          "model_size_headroom": 0.149667
+        },
+        "metrics": {
+          "map50_95": 0.221918,
+          "median_latency_ms": 10.628,
+          "model_size_mb": 5.102
+        }
+      },
+      {
+        "rank": 3,
+        "candidate_id": "yolo26n_kitti_pilot_imgsz480_cpu",
+        "score": 0.133152,
+        "score_components": {
+          "accuracy_headroom": 0.04535,
+          "latency_headroom": 0.088833,
+          "model_size_headroom": 0.149667
+        },
+        "metrics": {
+          "map50_95": 0.23628,
+          "median_latency_ms": 10.934,
+          "model_size_mb": 5.102
+        }
+      },
+      {
+        "rank": 4,
+        "candidate_id": "yolo26n_kitti_pilot_imgsz512_cpu",
+        "score": 0.131108,
+        "score_components": {
+          "accuracy_headroom": 0.053664,
+          "latency_headroom": 0.060083,
+          "model_size_headroom": 0.149667
+        },
+        "metrics": {
+          "map50_95": 0.242931,
+          "median_latency_ms": 11.279,
+          "model_size_mb": 5.102
+        }
+      }
+    ]
+  },
+  "pareto_frontier": [
+    {
+      "candidate_id": "yolo26n_kitti_pilot",
+      "metrics": {
+        "map50_95": 0.273,
+        "median_latency_ms": 16.429,
+        "model_size_mb": 5.102
+      }
+    },
+    {
+      "candidate_id": "yolo26n_kitti_pilot_imgsz416_cpu",
+      "metrics": {
+        "map50_95": 0.207384,
+        "median_latency_ms": 8.754,
+        "model_size_mb": 5.102
+      }
+    },
+    {
+      "candidate_id": "yolo26n_kitti_pilot_imgsz448_cpu",
+      "metrics": {
+        "map50_95": 0.221918,
+        "median_latency_ms": 10.628,
+        "model_size_mb": 5.102
+      }
+    },
+    {
+      "candidate_id": "yolo26n_kitti_pilot_imgsz480_cpu",
+      "metrics": {
+        "map50_95": 0.23628,
+        "median_latency_ms": 10.934,
+        "model_size_mb": 5.102
+      }
+    },
+    {
+      "candidate_id": "yolo26n_kitti_pilot_imgsz512_cpu",
+      "metrics": {
+        "map50_95": 0.242931,
+        "median_latency_ms": 11.279,
+        "model_size_mb": 5.102
+      }
+    },
+    {
+      "candidate_id": "yolo26n_kitti_pilot_imgsz576_cpu",
+      "metrics": {
+        "map50_95": 0.261257,
+        "median_latency_ms": 13.082,
+        "model_size_mb": 5.102
+      }
+    },
+    {
+      "candidate_id": "yolo26n_kitti_pilot_imgsz608_cpu",
+      "metrics": {
+        "map50_95": 0.272838,
+        "median_latency_ms": 13.616,
+        "model_size_mb": 5.102
+      }
+    }
+  ],
+  "search_replay": [
+    {
+      "request": {
+        "schema_version": "1.0",
+        "request_id": "replay_balanced",
+        "target": {
+          "task": "object_detection",
+          "device": "cpu",
+          "dataset": "KITTI"
+        },
+        "constraints": {
+          "minimum_map50_95": 0.2,
+          "maximum_median_latency_ms": 12,
+          "maximum_model_size_mb": 6.0
+        },
+        "preferences": {
+          "optimization_goal": "balanced"
+        }
+      },
+      "seed": 11,
+      "initial_evidence": [
+        "yolo26n_kitti_pilot"
+      ],
+      "budget": 3,
+      "llm_status": "NOT_RUN",
+      "methods": {
+        "ascending": {
+          "order": [
+            "yolo26n_kitti_pilot_imgsz416_cpu",
+            "yolo26n_kitti_pilot_imgsz448_cpu",
+            "yolo26n_kitti_pilot_imgsz480_cpu"
+          ],
+          "trajectory": [
+            {
+              "step": 0,
+              "best_score": null
+            },
+            {
+              "step": 1,
+              "best_score": 0.143132
+            },
+            {
+              "step": 2,
+              "best_score": 0.143132
+            },
+            {
+              "step": 3,
+              "best_score": 0.143132
+            }
+          ],
+          "experiments_to_feasible": 1,
+          "experiments_to_best": 1,
+          "failure_to_find_feasible": false
+        },
+        "random_without_replacement": {
+          "order": [
+            "yolo26n_kitti_pilot_imgsz480_cpu",
+            "yolo26n_kitti_pilot_imgsz416_cpu",
+            "yolo26n_kitti_pilot_imgsz448_cpu"
+          ],
+          "trajectory": [
+            {
+              "step": 0,
+              "best_score": null
+            },
+            {
+              "step": 1,
+              "best_score": 0.094617
+            },
+            {
+              "step": 2,
+              "best_score": 0.143132
+            },
+            {
+              "step": 3,
+              "best_score": 0.143132
+            }
+          ],
+          "experiments_to_feasible": 1,
+          "experiments_to_best": 2,
+          "failure_to_find_feasible": false
+        }
+      },
+      "proposal_latency_seconds": null,
+      "token_usage": null,
+      "cost": null
+    },
+    {
+      "request": {
+        "schema_version": "1.0",
+        "request_id": "replay_balanced",
+        "target": {
+          "task": "object_detection",
+          "device": "cpu",
+          "dataset": "KITTI"
+        },
+        "constraints": {
+          "minimum_map50_95": 0.2,
+          "maximum_median_latency_ms": 12,
+          "maximum_model_size_mb": 6.0
+        },
+        "preferences": {
+          "optimization_goal": "balanced"
+        }
+      },
+      "seed": 29,
+      "initial_evidence": [
+        "yolo26n_kitti_pilot"
+      ],
+      "budget": 3,
+      "llm_status": "NOT_RUN",
+      "methods": {
+        "ascending": {
+          "order": [
+            "yolo26n_kitti_pilot_imgsz416_cpu",
+            "yolo26n_kitti_pilot_imgsz448_cpu",
+            "yolo26n_kitti_pilot_imgsz480_cpu"
+          ],
+          "trajectory": [
+            {
+              "step": 0,
+              "best_score": null
+            },
+            {
+              "step": 1,
+              "best_score": 0.143132
+            },
+            {
+              "step": 2,
+              "best_score": 0.143132
+            },
+            {
+              "step": 3,
+              "best_score": 0.143132
+            }
+          ],
+          "experiments_to_feasible": 1,
+          "experiments_to_best": 1,
+          "failure_to_find_feasible": false
+        },
+        "random_without_replacement": {
+          "order": [
+            "yolo26n_kitti_pilot_imgsz608_cpu",
+            "yolo26n_kitti_pilot_imgsz448_cpu",
+            "yolo26n_kitti_pilot_imgsz512_cpu"
+          ],
+          "trajectory": [
+            {
+              "step": 0,
+              "best_score": null
+            },
+            {
+              "step": 1,
+              "best_score": null
+            },
+            {
+              "step": 2,
+              "best_score": 0.097132
+            },
+            {
+              "step": 3,
+              "best_score": 0.097132
+            }
+          ],
+          "experiments_to_feasible": 2,
+          "experiments_to_best": null,
+          "failure_to_find_feasible": false
+        }
+      },
+      "proposal_latency_seconds": null,
+      "token_usage": null,
+      "cost": null
+    },
+    {
+      "request": {
+        "schema_version": "1.0",
+        "request_id": "replay_balanced",
+        "target": {
+          "task": "object_detection",
+          "device": "cpu",
+          "dataset": "KITTI"
+        },
+        "constraints": {
+          "minimum_map50_95": 0.2,
+          "maximum_median_latency_ms": 12,
+          "maximum_model_size_mb": 6.0
+        },
+        "preferences": {
+          "optimization_goal": "balanced"
+        }
+      },
+      "seed": 47,
+      "initial_evidence": [
+        "yolo26n_kitti_pilot"
+      ],
+      "budget": 3,
+      "llm_status": "NOT_RUN",
+      "methods": {
+        "ascending": {
+          "order": [
+            "yolo26n_kitti_pilot_imgsz416_cpu",
+            "yolo26n_kitti_pilot_imgsz448_cpu",
+            "yolo26n_kitti_pilot_imgsz480_cpu"
+          ],
+          "trajectory": [
+            {
+              "step": 0,
+              "best_score": null
+            },
+            {
+              "step": 1,
+              "best_score": 0.143132
+            },
+            {
+              "step": 2,
+              "best_score": 0.143132
+            },
+            {
+              "step": 3,
+              "best_score": 0.143132
+            }
+          ],
+          "experiments_to_feasible": 1,
+          "experiments_to_best": 1,
+          "failure_to_find_feasible": false
+        },
+        "random_without_replacement": {
+          "order": [
+            "yolo26n_kitti_pilot_imgsz576_cpu",
+            "yolo26n_kitti_pilot_imgsz448_cpu",
+            "yolo26n_kitti_pilot_imgsz608_cpu"
+          ],
+          "trajectory": [
+            {
+              "step": 0,
+              "best_score": null
+            },
+            {
+              "step": 1,
+              "best_score": null
+            },
+            {
+              "step": 2,
+              "best_score": 0.097132
+            },
+            {
+              "step": 3,
+              "best_score": 0.097132
+            }
+          ],
+          "experiments_to_feasible": 2,
+          "experiments_to_best": null,
+          "failure_to_find_feasible": false
+        }
+      },
+      "proposal_latency_seconds": null,
+      "token_usage": null,
+      "cost": null
+    },
+    {
+      "request": {
+        "schema_version": "1.0",
+        "request_id": "replay_balanced",
+        "target": {
+          "task": "object_detection",
+          "device": "cpu",
+          "dataset": "KITTI"
+        },
+        "constraints": {
+          "minimum_map50_95": 0.2,
+          "maximum_median_latency_ms": 12,
+          "maximum_model_size_mb": 6.0
+        },
+        "preferences": {
+          "optimization_goal": "balanced"
+        }
+      },
+      "seed": 83,
+      "initial_evidence": [
+        "yolo26n_kitti_pilot"
+      ],
+      "budget": 3,
+      "llm_status": "NOT_RUN",
+      "methods": {
+        "ascending": {
+          "order": [
+            "yolo26n_kitti_pilot_imgsz416_cpu",
+            "yolo26n_kitti_pilot_imgsz448_cpu",
+            "yolo26n_kitti_pilot_imgsz480_cpu"
+          ],
+          "trajectory": [
+            {
+              "step": 0,
+              "best_score": null
+            },
+            {
+              "step": 1,
+              "best_score": 0.143132
+            },
+            {
+              "step": 2,
+              "best_score": 0.143132
+            },
+            {
+              "step": 3,
+              "best_score": 0.143132
+            }
+          ],
+          "experiments_to_feasible": 1,
+          "experiments_to_best": 1,
+          "failure_to_find_feasible": false
+        },
+        "random_without_replacement": {
+          "order": [
+            "yolo26n_kitti_pilot_imgsz480_cpu",
+            "yolo26n_kitti_pilot_imgsz448_cpu",
+            "yolo26n_kitti_pilot_imgsz576_cpu"
+          ],
+          "trajectory": [
+            {
+              "step": 0,
+              "best_score": null
+            },
+            {
+              "step": 1,
+              "best_score": 0.094617
+            },
+            {
+              "step": 2,
+              "best_score": 0.097132
+            },
+            {
+              "step": 3,
+              "best_score": 0.097132
+            }
+          ],
+          "experiments_to_feasible": 1,
+          "experiments_to_best": null,
+          "failure_to_find_feasible": false
+        }
+      },
+      "proposal_latency_seconds": null,
+      "token_usage": null,
+      "cost": null
+    },
+    {
+      "request": {
+        "schema_version": "1.0",
+        "request_id": "replay_balanced",
+        "target": {
+          "task": "object_detection",
+          "device": "cpu",
+          "dataset": "KITTI"
+        },
+        "constraints": {
+          "minimum_map50_95": 0.2,
+          "maximum_median_latency_ms": 12,
+          "maximum_model_size_mb": 6.0
+        },
+        "preferences": {
+          "optimization_goal": "balanced"
+        }
+      },
+      "seed": 101,
+      "initial_evidence": [
+        "yolo26n_kitti_pilot"
+      ],
+      "budget": 3,
+      "llm_status": "NOT_RUN",
+      "methods": {
+        "ascending": {
+          "order": [
+            "yolo26n_kitti_pilot_imgsz416_cpu",
+            "yolo26n_kitti_pilot_imgsz448_cpu",
+            "yolo26n_kitti_pilot_imgsz480_cpu"
+          ],
+          "trajectory": [
+            {
+              "step": 0,
+              "best_score": null
+            },
+            {
+              "step": 1,
+              "best_score": 0.143132
+            },
+            {
+              "step": 2,
+              "best_score": 0.143132
+            },
+            {
+              "step": 3,
+              "best_score": 0.143132
+            }
+          ],
+          "experiments_to_feasible": 1,
+          "experiments_to_best": 1,
+          "failure_to_find_feasible": false
+        },
+        "random_without_replacement": {
+          "order": [
+            "yolo26n_kitti_pilot_imgsz512_cpu",
+            "yolo26n_kitti_pilot_imgsz416_cpu",
+            "yolo26n_kitti_pilot_imgsz608_cpu"
+          ],
+          "trajectory": [
+            {
+              "step": 0,
+              "best_score": null
+            },
+            {
+              "step": 1,
+              "best_score": 0.087805
+            },
+            {
+              "step": 2,
+              "best_score": 0.143132
+            },
+            {
+              "step": 3,
+              "best_score": 0.143132
+            }
+          ],
+          "experiments_to_feasible": 1,
+          "experiments_to_best": 2,
+          "failure_to_find_feasible": false
+        }
+      },
+      "proposal_latency_seconds": null,
+      "token_usage": null,
+      "cost": null
+    },
+    {
+      "request": {
+        "schema_version": "1.0",
+        "request_id": "replay_accuracy",
+        "target": {
+          "task": "object_detection",
+          "device": "cpu",
+          "dataset": "KITTI"
+        },
+        "constraints": {
+          "minimum_map50_95": 0.24,
+          "maximum_median_latency_ms": 12,
+          "maximum_model_size_mb": 6.0
+        },
+        "preferences": {
+          "optimization_goal": "balanced"
+        }
+      },
+      "seed": 11,
+      "initial_evidence": [
+        "yolo26n_kitti_pilot"
+      ],
+      "budget": 3,
+      "llm_status": "NOT_RUN",
+      "methods": {
+        "ascending": {
+          "order": [
+            "yolo26n_kitti_pilot_imgsz416_cpu",
+            "yolo26n_kitti_pilot_imgsz448_cpu",
+            "yolo26n_kitti_pilot_imgsz480_cpu"
+          ],
+          "trajectory": [
+            {
+              "step": 0,
+              "best_score": null
+            },
+            {
+              "step": 1,
+              "best_score": null
+            },
+            {
+              "step": 2,
+              "best_score": null
+            },
+            {
+              "step": 3,
+              "best_score": null
+            }
+          ],
+          "experiments_to_feasible": null,
+          "experiments_to_best": null,
+          "failure_to_find_feasible": true
+        },
+        "random_without_replacement": {
+          "order": [
+            "yolo26n_kitti_pilot_imgsz480_cpu",
+            "yolo26n_kitti_pilot_imgsz416_cpu",
+            "yolo26n_kitti_pilot_imgsz448_cpu"
+          ],
+          "trajectory": [
+            {
+              "step": 0,
+              "best_score": null
+            },
+            {
+              "step": 1,
+              "best_score": null
+            },
+            {
+              "step": 2,
+              "best_score": null
+            },
+            {
+              "step": 3,
+              "best_score": null
+            }
+          ],
+          "experiments_to_feasible": null,
+          "experiments_to_best": null,
+          "failure_to_find_feasible": true
+        }
+      },
+      "proposal_latency_seconds": null,
+      "token_usage": null,
+      "cost": null
+    },
+    {
+      "request": {
+        "schema_version": "1.0",
+        "request_id": "replay_accuracy",
+        "target": {
+          "task": "object_detection",
+          "device": "cpu",
+          "dataset": "KITTI"
+        },
+        "constraints": {
+          "minimum_map50_95": 0.24,
+          "maximum_median_latency_ms": 12,
+          "maximum_model_size_mb": 6.0
+        },
+        "preferences": {
+          "optimization_goal": "balanced"
+        }
+      },
+      "seed": 29,
+      "initial_evidence": [
+        "yolo26n_kitti_pilot"
+      ],
+      "budget": 3,
+      "llm_status": "NOT_RUN",
+      "methods": {
+        "ascending": {
+          "order": [
+            "yolo26n_kitti_pilot_imgsz416_cpu",
+            "yolo26n_kitti_pilot_imgsz448_cpu",
+            "yolo26n_kitti_pilot_imgsz480_cpu"
+          ],
+          "trajectory": [
+            {
+              "step": 0,
+              "best_score": null
+            },
+            {
+              "step": 1,
+              "best_score": null
+            },
+            {
+              "step": 2,
+              "best_score": null
+            },
+            {
+              "step": 3,
+              "best_score": null
+            }
+          ],
+          "experiments_to_feasible": null,
+          "experiments_to_best": null,
+          "failure_to_find_feasible": true
+        },
+        "random_without_replacement": {
+          "order": [
+            "yolo26n_kitti_pilot_imgsz608_cpu",
+            "yolo26n_kitti_pilot_imgsz448_cpu",
+            "yolo26n_kitti_pilot_imgsz512_cpu"
+          ],
+          "trajectory": [
+            {
+              "step": 0,
+              "best_score": null
+            },
+            {
+              "step": 1,
+              "best_score": null
+            },
+            {
+              "step": 2,
+              "best_score": null
+            },
+            {
+              "step": 3,
+              "best_score": 0.071202
+            }
+          ],
+          "experiments_to_feasible": 3,
+          "experiments_to_best": 3,
+          "failure_to_find_feasible": false
+        }
+      },
+      "proposal_latency_seconds": null,
+      "token_usage": null,
+      "cost": null
+    },
+    {
+      "request": {
+        "schema_version": "1.0",
+        "request_id": "replay_accuracy",
+        "target": {
+          "task": "object_detection",
+          "device": "cpu",
+          "dataset": "KITTI"
+        },
+        "constraints": {
+          "minimum_map50_95": 0.24,
+          "maximum_median_latency_ms": 12,
+          "maximum_model_size_mb": 6.0
+        },
+        "preferences": {
+          "optimization_goal": "balanced"
+        }
+      },
+      "seed": 47,
+      "initial_evidence": [
+        "yolo26n_kitti_pilot"
+      ],
+      "budget": 3,
+      "llm_status": "NOT_RUN",
+      "methods": {
+        "ascending": {
+          "order": [
+            "yolo26n_kitti_pilot_imgsz416_cpu",
+            "yolo26n_kitti_pilot_imgsz448_cpu",
+            "yolo26n_kitti_pilot_imgsz480_cpu"
+          ],
+          "trajectory": [
+            {
+              "step": 0,
+              "best_score": null
+            },
+            {
+              "step": 1,
+              "best_score": null
+            },
+            {
+              "step": 2,
+              "best_score": null
+            },
+            {
+              "step": 3,
+              "best_score": null
+            }
+          ],
+          "experiments_to_feasible": null,
+          "experiments_to_best": null,
+          "failure_to_find_feasible": true
+        },
+        "random_without_replacement": {
+          "order": [
+            "yolo26n_kitti_pilot_imgsz576_cpu",
+            "yolo26n_kitti_pilot_imgsz448_cpu",
+            "yolo26n_kitti_pilot_imgsz608_cpu"
+          ],
+          "trajectory": [
+            {
+              "step": 0,
+              "best_score": null
+            },
+            {
+              "step": 1,
+              "best_score": null
+            },
+            {
+              "step": 2,
+              "best_score": null
+            },
+            {
+              "step": 3,
+              "best_score": null
+            }
+          ],
+          "experiments_to_feasible": null,
+          "experiments_to_best": null,
+          "failure_to_find_feasible": true
+        }
+      },
+      "proposal_latency_seconds": null,
+      "token_usage": null,
+      "cost": null
+    },
+    {
+      "request": {
+        "schema_version": "1.0",
+        "request_id": "replay_accuracy",
+        "target": {
+          "task": "object_detection",
+          "device": "cpu",
+          "dataset": "KITTI"
+        },
+        "constraints": {
+          "minimum_map50_95": 0.24,
+          "maximum_median_latency_ms": 12,
+          "maximum_model_size_mb": 6.0
+        },
+        "preferences": {
+          "optimization_goal": "balanced"
+        }
+      },
+      "seed": 83,
+      "initial_evidence": [
+        "yolo26n_kitti_pilot"
+      ],
+      "budget": 3,
+      "llm_status": "NOT_RUN",
+      "methods": {
+        "ascending": {
+          "order": [
+            "yolo26n_kitti_pilot_imgsz416_cpu",
+            "yolo26n_kitti_pilot_imgsz448_cpu",
+            "yolo26n_kitti_pilot_imgsz480_cpu"
+          ],
+          "trajectory": [
+            {
+              "step": 0,
+              "best_score": null
+            },
+            {
+              "step": 1,
+              "best_score": null
+            },
+            {
+              "step": 2,
+              "best_score": null
+            },
+            {
+              "step": 3,
+              "best_score": null
+            }
+          ],
+          "experiments_to_feasible": null,
+          "experiments_to_best": null,
+          "failure_to_find_feasible": true
+        },
+        "random_without_replacement": {
+          "order": [
+            "yolo26n_kitti_pilot_imgsz480_cpu",
+            "yolo26n_kitti_pilot_imgsz448_cpu",
+            "yolo26n_kitti_pilot_imgsz576_cpu"
+          ],
+          "trajectory": [
+            {
+              "step": 0,
+              "best_score": null
+            },
+            {
+              "step": 1,
+              "best_score": null
+            },
+            {
+              "step": 2,
+              "best_score": null
+            },
+            {
+              "step": 3,
+              "best_score": null
+            }
+          ],
+          "experiments_to_feasible": null,
+          "experiments_to_best": null,
+          "failure_to_find_feasible": true
+        }
+      },
+      "proposal_latency_seconds": null,
+      "token_usage": null,
+      "cost": null
+    },
+    {
+      "request": {
+        "schema_version": "1.0",
+        "request_id": "replay_accuracy",
+        "target": {
+          "task": "object_detection",
+          "device": "cpu",
+          "dataset": "KITTI"
+        },
+        "constraints": {
+          "minimum_map50_95": 0.24,
+          "maximum_median_latency_ms": 12,
+          "maximum_model_size_mb": 6.0
+        },
+        "preferences": {
+          "optimization_goal": "balanced"
+        }
+      },
+      "seed": 101,
+      "initial_evidence": [
+        "yolo26n_kitti_pilot"
+      ],
+      "budget": 3,
+      "llm_status": "NOT_RUN",
+      "methods": {
+        "ascending": {
+          "order": [
+            "yolo26n_kitti_pilot_imgsz416_cpu",
+            "yolo26n_kitti_pilot_imgsz448_cpu",
+            "yolo26n_kitti_pilot_imgsz480_cpu"
+          ],
+          "trajectory": [
+            {
+              "step": 0,
+              "best_score": null
+            },
+            {
+              "step": 1,
+              "best_score": null
+            },
+            {
+              "step": 2,
+              "best_score": null
+            },
+            {
+              "step": 3,
+              "best_score": null
+            }
+          ],
+          "experiments_to_feasible": null,
+          "experiments_to_best": null,
+          "failure_to_find_feasible": true
+        },
+        "random_without_replacement": {
+          "order": [
+            "yolo26n_kitti_pilot_imgsz512_cpu",
+            "yolo26n_kitti_pilot_imgsz416_cpu",
+            "yolo26n_kitti_pilot_imgsz608_cpu"
+          ],
+          "trajectory": [
+            {
+              "step": 0,
+              "best_score": null
+            },
+            {
+              "step": 1,
+              "best_score": 0.071202
+            },
+            {
+              "step": 2,
+              "best_score": 0.071202
+            },
+            {
+              "step": 3,
+              "best_score": 0.071202
+            }
+          ],
+          "experiments_to_feasible": 1,
+          "experiments_to_best": 1,
+          "failure_to_find_feasible": false
+        }
+      },
+      "proposal_latency_seconds": null,
+      "token_usage": null,
+      "cost": null
+    },
+    {
+      "request": {
+        "schema_version": "1.0",
+        "request_id": "replay_relaxed",
+        "target": {
+          "task": "object_detection",
+          "device": "cpu",
+          "dataset": "KITTI"
+        },
+        "constraints": {
+          "minimum_map50_95": 0.2,
+          "maximum_median_latency_ms": 20,
+          "maximum_model_size_mb": 6.0
+        },
+        "preferences": {
+          "optimization_goal": "balanced"
+        }
+      },
+      "seed": 11,
+      "initial_evidence": [
+        "yolo26n_kitti_pilot"
+      ],
+      "budget": 3,
+      "llm_status": "NOT_RUN",
+      "methods": {
+        "ascending": {
+          "order": [
+            "yolo26n_kitti_pilot_imgsz416_cpu",
+            "yolo26n_kitti_pilot_imgsz448_cpu",
+            "yolo26n_kitti_pilot_imgsz480_cpu"
+          ],
+          "trajectory": [
+            {
+              "step": 0,
+              "best_score": 0.139822
+            },
+            {
+              "step": 1,
+              "best_score": 0.240399
+            },
+            {
+              "step": 2,
+              "best_score": 0.240399
+            },
+            {
+              "step": 3,
+              "best_score": 0.240399
+            }
+          ],
+          "experiments_to_feasible": 0,
+          "experiments_to_best": 1,
+          "failure_to_find_feasible": false
+        },
+        "random_without_replacement": {
+          "order": [
+            "yolo26n_kitti_pilot_imgsz480_cpu",
+            "yolo26n_kitti_pilot_imgsz416_cpu",
+            "yolo26n_kitti_pilot_imgsz448_cpu"
+          ],
+          "trajectory": [
+            {
+              "step": 0,
+              "best_score": 0.139822
+            },
+            {
+              "step": 1,
+              "best_score": 0.216106
+            },
+            {
+              "step": 2,
+              "best_score": 0.240399
+            },
+            {
+              "step": 3,
+              "best_score": 0.240399
+            }
+          ],
+          "experiments_to_feasible": 0,
+          "experiments_to_best": 2,
+          "failure_to_find_feasible": false
+        }
+      },
+      "proposal_latency_seconds": null,
+      "token_usage": null,
+      "cost": null
+    },
+    {
+      "request": {
+        "schema_version": "1.0",
+        "request_id": "replay_relaxed",
+        "target": {
+          "task": "object_detection",
+          "device": "cpu",
+          "dataset": "KITTI"
+        },
+        "constraints": {
+          "minimum_map50_95": 0.2,
+          "maximum_median_latency_ms": 20,
+          "maximum_model_size_mb": 6.0
+        },
+        "preferences": {
+          "optimization_goal": "balanced"
+        }
+      },
+      "seed": 29,
+      "initial_evidence": [
+        "yolo26n_kitti_pilot"
+      ],
+      "budget": 3,
+      "llm_status": "NOT_RUN",
+      "methods": {
+        "ascending": {
+          "order": [
+            "yolo26n_kitti_pilot_imgsz416_cpu",
+            "yolo26n_kitti_pilot_imgsz448_cpu",
+            "yolo26n_kitti_pilot_imgsz480_cpu"
+          ],
+          "trajectory": [
+            {
+              "step": 0,
+              "best_score": 0.139822
+            },
+            {
+              "step": 1,
+              "best_score": 0.240399
+            },
+            {
+              "step": 2,
+              "best_score": 0.240399
+            },
+            {
+              "step": 3,
+              "best_score": 0.240399
+            }
+          ],
+          "experiments_to_feasible": 0,
+          "experiments_to_best": 1,
+          "failure_to_find_feasible": false
+        },
+        "random_without_replacement": {
+          "order": [
+            "yolo26n_kitti_pilot_imgsz608_cpu",
+            "yolo26n_kitti_pilot_imgsz448_cpu",
+            "yolo26n_kitti_pilot_imgsz512_cpu"
+          ],
+          "trajectory": [
+            {
+              "step": 0,
+              "best_score": 0.139822
+            },
+            {
+              "step": 1,
+              "best_score": 0.186638
+            },
+            {
+              "step": 2,
+              "best_score": 0.215221
+            },
+            {
+              "step": 3,
+              "best_score": 0.215221
+            }
+          ],
+          "experiments_to_feasible": 0,
+          "experiments_to_best": null,
+          "failure_to_find_feasible": false
+        }
+      },
+      "proposal_latency_seconds": null,
+      "token_usage": null,
+      "cost": null
+    },
+    {
+      "request": {
+        "schema_version": "1.0",
+        "request_id": "replay_relaxed",
+        "target": {
+          "task": "object_detection",
+          "device": "cpu",
+          "dataset": "KITTI"
+        },
+        "constraints": {
+          "minimum_map50_95": 0.2,
+          "maximum_median_latency_ms": 20,
+          "maximum_model_size_mb": 6.0
+        },
+        "preferences": {
+          "optimization_goal": "balanced"
+        }
+      },
+      "seed": 47,
+      "initial_evidence": [
+        "yolo26n_kitti_pilot"
+      ],
+      "budget": 3,
+      "llm_status": "NOT_RUN",
+      "methods": {
+        "ascending": {
+          "order": [
+            "yolo26n_kitti_pilot_imgsz416_cpu",
+            "yolo26n_kitti_pilot_imgsz448_cpu",
+            "yolo26n_kitti_pilot_imgsz480_cpu"
+          ],
+          "trajectory": [
+            {
+              "step": 0,
+              "best_score": 0.139822
+            },
+            {
+              "step": 1,
+              "best_score": 0.240399
+            },
+            {
+              "step": 2,
+              "best_score": 0.240399
+            },
+            {
+              "step": 3,
+              "best_score": 0.240399
+            }
+          ],
+          "experiments_to_feasible": 0,
+          "experiments_to_best": 1,
+          "failure_to_find_feasible": false
+        },
+        "random_without_replacement": {
+          "order": [
+            "yolo26n_kitti_pilot_imgsz576_cpu",
+            "yolo26n_kitti_pilot_imgsz448_cpu",
+            "yolo26n_kitti_pilot_imgsz608_cpu"
+          ],
+          "trajectory": [
+            {
+              "step": 0,
+              "best_score": 0.139822
+            },
+            {
+              "step": 1,
+              "best_score": 0.190713
+            },
+            {
+              "step": 2,
+              "best_score": 0.215221
+            },
+            {
+              "step": 3,
+              "best_score": 0.215221
+            }
+          ],
+          "experiments_to_feasible": 0,
+          "experiments_to_best": null,
+          "failure_to_find_feasible": false
+        }
+      },
+      "proposal_latency_seconds": null,
+      "token_usage": null,
+      "cost": null
+    },
+    {
+      "request": {
+        "schema_version": "1.0",
+        "request_id": "replay_relaxed",
+        "target": {
+          "task": "object_detection",
+          "device": "cpu",
+          "dataset": "KITTI"
+        },
+        "constraints": {
+          "minimum_map50_95": 0.2,
+          "maximum_median_latency_ms": 20,
+          "maximum_model_size_mb": 6.0
+        },
+        "preferences": {
+          "optimization_goal": "balanced"
+        }
+      },
+      "seed": 83,
+      "initial_evidence": [
+        "yolo26n_kitti_pilot"
+      ],
+      "budget": 3,
+      "llm_status": "NOT_RUN",
+      "methods": {
+        "ascending": {
+          "order": [
+            "yolo26n_kitti_pilot_imgsz416_cpu",
+            "yolo26n_kitti_pilot_imgsz448_cpu",
+            "yolo26n_kitti_pilot_imgsz480_cpu"
+          ],
+          "trajectory": [
+            {
+              "step": 0,
+              "best_score": 0.139822
+            },
+            {
+              "step": 1,
+              "best_score": 0.240399
+            },
+            {
+              "step": 2,
+              "best_score": 0.240399
+            },
+            {
+              "step": 3,
+              "best_score": 0.240399
+            }
+          ],
+          "experiments_to_feasible": 0,
+          "experiments_to_best": 1,
+          "failure_to_find_feasible": false
+        },
+        "random_without_replacement": {
+          "order": [
+            "yolo26n_kitti_pilot_imgsz480_cpu",
+            "yolo26n_kitti_pilot_imgsz448_cpu",
+            "yolo26n_kitti_pilot_imgsz576_cpu"
+          ],
+          "trajectory": [
+            {
+              "step": 0,
+              "best_score": 0.139822
+            },
+            {
+              "step": 1,
+              "best_score": 0.216106
+            },
+            {
+              "step": 2,
+              "best_score": 0.216106
+            },
+            {
+              "step": 3,
+              "best_score": 0.216106
+            }
+          ],
+          "experiments_to_feasible": 0,
+          "experiments_to_best": null,
+          "failure_to_find_feasible": false
+        }
+      },
+      "proposal_latency_seconds": null,
+      "token_usage": null,
+      "cost": null
+    },
+    {
+      "request": {
+        "schema_version": "1.0",
+        "request_id": "replay_relaxed",
+        "target": {
+          "task": "object_detection",
+          "device": "cpu",
+          "dataset": "KITTI"
+        },
+        "constraints": {
+          "minimum_map50_95": 0.2,
+          "maximum_median_latency_ms": 20,
+          "maximum_model_size_mb": 6.0
+        },
+        "preferences": {
+          "optimization_goal": "balanced"
+        }
+      },
+      "seed": 101,
+      "initial_evidence": [
+        "yolo26n_kitti_pilot"
+      ],
+      "budget": 3,
+      "llm_status": "NOT_RUN",
+      "methods": {
+        "ascending": {
+          "order": [
+            "yolo26n_kitti_pilot_imgsz416_cpu",
+            "yolo26n_kitti_pilot_imgsz448_cpu",
+            "yolo26n_kitti_pilot_imgsz480_cpu"
+          ],
+          "trajectory": [
+            {
+              "step": 0,
+              "best_score": 0.139822
+            },
+            {
+              "step": 1,
+              "best_score": 0.240399
+            },
+            {
+              "step": 2,
+              "best_score": 0.240399
+            },
+            {
+              "step": 3,
+              "best_score": 0.240399
+            }
+          ],
+          "experiments_to_feasible": 0,
+          "experiments_to_best": 1,
+          "failure_to_find_feasible": false
+        },
+        "random_without_replacement": {
+          "order": [
+            "yolo26n_kitti_pilot_imgsz512_cpu",
+            "yolo26n_kitti_pilot_imgsz416_cpu",
+            "yolo26n_kitti_pilot_imgsz608_cpu"
+          ],
+          "trajectory": [
+            {
+              "step": 0,
+              "best_score": 0.139822
+            },
+            {
+              "step": 1,
+              "best_score": 0.213127
+            },
+            {
+              "step": 2,
+              "best_score": 0.240399
+            },
+            {
+              "step": 3,
+              "best_score": 0.240399
+            }
+          ],
+          "experiments_to_feasible": 0,
+          "experiments_to_best": 2,
+          "failure_to_find_feasible": false
+        }
+      },
+      "proposal_latency_seconds": null,
+      "token_usage": null,
+      "cost": null
+    },
+    {
+      "request": {
+        "schema_version": "1.0",
+        "request_id": "replay_impossible",
+        "target": {
+          "task": "object_detection",
+          "device": "cpu",
+          "dataset": "KITTI"
+        },
+        "constraints": {
+          "minimum_map50_95": 0.9,
+          "maximum_median_latency_ms": 1,
+          "maximum_model_size_mb": 6.0
+        },
+        "preferences": {
+          "optimization_goal": "balanced"
+        }
+      },
+      "seed": 11,
+      "initial_evidence": [
+        "yolo26n_kitti_pilot"
+      ],
+      "budget": 3,
+      "llm_status": "NOT_RUN",
+      "methods": {
+        "ascending": {
+          "order": [
+            "yolo26n_kitti_pilot_imgsz416_cpu",
+            "yolo26n_kitti_pilot_imgsz448_cpu",
+            "yolo26n_kitti_pilot_imgsz480_cpu"
+          ],
+          "trajectory": [
+            {
+              "step": 0,
+              "best_score": null
+            },
+            {
+              "step": 1,
+              "best_score": null
+            },
+            {
+              "step": 2,
+              "best_score": null
+            },
+            {
+              "step": 3,
+              "best_score": null
+            }
+          ],
+          "experiments_to_feasible": null,
+          "experiments_to_best": null,
+          "failure_to_find_feasible": true
+        },
+        "random_without_replacement": {
+          "order": [
+            "yolo26n_kitti_pilot_imgsz480_cpu",
+            "yolo26n_kitti_pilot_imgsz416_cpu",
+            "yolo26n_kitti_pilot_imgsz448_cpu"
+          ],
+          "trajectory": [
+            {
+              "step": 0,
+              "best_score": null
+            },
+            {
+              "step": 1,
+              "best_score": null
+            },
+            {
+              "step": 2,
+              "best_score": null
+            },
+            {
+              "step": 3,
+              "best_score": null
+            }
+          ],
+          "experiments_to_feasible": null,
+          "experiments_to_best": null,
+          "failure_to_find_feasible": true
+        }
+      },
+      "proposal_latency_seconds": null,
+      "token_usage": null,
+      "cost": null
+    },
+    {
+      "request": {
+        "schema_version": "1.0",
+        "request_id": "replay_impossible",
+        "target": {
+          "task": "object_detection",
+          "device": "cpu",
+          "dataset": "KITTI"
+        },
+        "constraints": {
+          "minimum_map50_95": 0.9,
+          "maximum_median_latency_ms": 1,
+          "maximum_model_size_mb": 6.0
+        },
+        "preferences": {
+          "optimization_goal": "balanced"
+        }
+      },
+      "seed": 29,
+      "initial_evidence": [
+        "yolo26n_kitti_pilot"
+      ],
+      "budget": 3,
+      "llm_status": "NOT_RUN",
+      "methods": {
+        "ascending": {
+          "order": [
+            "yolo26n_kitti_pilot_imgsz416_cpu",
+            "yolo26n_kitti_pilot_imgsz448_cpu",
+            "yolo26n_kitti_pilot_imgsz480_cpu"
+          ],
+          "trajectory": [
+            {
+              "step": 0,
+              "best_score": null
+            },
+            {
+              "step": 1,
+              "best_score": null
+            },
+            {
+              "step": 2,
+              "best_score": null
+            },
+            {
+              "step": 3,
+              "best_score": null
+            }
+          ],
+          "experiments_to_feasible": null,
+          "experiments_to_best": null,
+          "failure_to_find_feasible": true
+        },
+        "random_without_replacement": {
+          "order": [
+            "yolo26n_kitti_pilot_imgsz608_cpu",
+            "yolo26n_kitti_pilot_imgsz448_cpu",
+            "yolo26n_kitti_pilot_imgsz512_cpu"
+          ],
+          "trajectory": [
+            {
+              "step": 0,
+              "best_score": null
+            },
+            {
+              "step": 1,
+              "best_score": null
+            },
+            {
+              "step": 2,
+              "best_score": null
+            },
+            {
+              "step": 3,
+              "best_score": null
+            }
+          ],
+          "experiments_to_feasible": null,
+          "experiments_to_best": null,
+          "failure_to_find_feasible": true
+        }
+      },
+      "proposal_latency_seconds": null,
+      "token_usage": null,
+      "cost": null
+    },
+    {
+      "request": {
+        "schema_version": "1.0",
+        "request_id": "replay_impossible",
+        "target": {
+          "task": "object_detection",
+          "device": "cpu",
+          "dataset": "KITTI"
+        },
+        "constraints": {
+          "minimum_map50_95": 0.9,
+          "maximum_median_latency_ms": 1,
+          "maximum_model_size_mb": 6.0
+        },
+        "preferences": {
+          "optimization_goal": "balanced"
+        }
+      },
+      "seed": 47,
+      "initial_evidence": [
+        "yolo26n_kitti_pilot"
+      ],
+      "budget": 3,
+      "llm_status": "NOT_RUN",
+      "methods": {
+        "ascending": {
+          "order": [
+            "yolo26n_kitti_pilot_imgsz416_cpu",
+            "yolo26n_kitti_pilot_imgsz448_cpu",
+            "yolo26n_kitti_pilot_imgsz480_cpu"
+          ],
+          "trajectory": [
+            {
+              "step": 0,
+              "best_score": null
+            },
+            {
+              "step": 1,
+              "best_score": null
+            },
+            {
+              "step": 2,
+              "best_score": null
+            },
+            {
+              "step": 3,
+              "best_score": null
+            }
+          ],
+          "experiments_to_feasible": null,
+          "experiments_to_best": null,
+          "failure_to_find_feasible": true
+        },
+        "random_without_replacement": {
+          "order": [
+            "yolo26n_kitti_pilot_imgsz576_cpu",
+            "yolo26n_kitti_pilot_imgsz448_cpu",
+            "yolo26n_kitti_pilot_imgsz608_cpu"
+          ],
+          "trajectory": [
+            {
+              "step": 0,
+              "best_score": null
+            },
+            {
+              "step": 1,
+              "best_score": null
+            },
+            {
+              "step": 2,
+              "best_score": null
+            },
+            {
+              "step": 3,
+              "best_score": null
+            }
+          ],
+          "experiments_to_feasible": null,
+          "experiments_to_best": null,
+          "failure_to_find_feasible": true
+        }
+      },
+      "proposal_latency_seconds": null,
+      "token_usage": null,
+      "cost": null
+    },
+    {
+      "request": {
+        "schema_version": "1.0",
+        "request_id": "replay_impossible",
+        "target": {
+          "task": "object_detection",
+          "device": "cpu",
+          "dataset": "KITTI"
+        },
+        "constraints": {
+          "minimum_map50_95": 0.9,
+          "maximum_median_latency_ms": 1,
+          "maximum_model_size_mb": 6.0
+        },
+        "preferences": {
+          "optimization_goal": "balanced"
+        }
+      },
+      "seed": 83,
+      "initial_evidence": [
+        "yolo26n_kitti_pilot"
+      ],
+      "budget": 3,
+      "llm_status": "NOT_RUN",
+      "methods": {
+        "ascending": {
+          "order": [
+            "yolo26n_kitti_pilot_imgsz416_cpu",
+            "yolo26n_kitti_pilot_imgsz448_cpu",
+            "yolo26n_kitti_pilot_imgsz480_cpu"
+          ],
+          "trajectory": [
+            {
+              "step": 0,
+              "best_score": null
+            },
+            {
+              "step": 1,
+              "best_score": null
+            },
+            {
+              "step": 2,
+              "best_score": null
+            },
+            {
+              "step": 3,
+              "best_score": null
+            }
+          ],
+          "experiments_to_feasible": null,
+          "experiments_to_best": null,
+          "failure_to_find_feasible": true
+        },
+        "random_without_replacement": {
+          "order": [
+            "yolo26n_kitti_pilot_imgsz480_cpu",
+            "yolo26n_kitti_pilot_imgsz448_cpu",
+            "yolo26n_kitti_pilot_imgsz576_cpu"
+          ],
+          "trajectory": [
+            {
+              "step": 0,
+              "best_score": null
+            },
+            {
+              "step": 1,
+              "best_score": null
+            },
+            {
+              "step": 2,
+              "best_score": null
+            },
+            {
+              "step": 3,
+              "best_score": null
+            }
+          ],
+          "experiments_to_feasible": null,
+          "experiments_to_best": null,
+          "failure_to_find_feasible": true
+        }
+      },
+      "proposal_latency_seconds": null,
+      "token_usage": null,
+      "cost": null
+    },
+    {
+      "request": {
+        "schema_version": "1.0",
+        "request_id": "replay_impossible",
+        "target": {
+          "task": "object_detection",
+          "device": "cpu",
+          "dataset": "KITTI"
+        },
+        "constraints": {
+          "minimum_map50_95": 0.9,
+          "maximum_median_latency_ms": 1,
+          "maximum_model_size_mb": 6.0
+        },
+        "preferences": {
+          "optimization_goal": "balanced"
+        }
+      },
+      "seed": 101,
+      "initial_evidence": [
+        "yolo26n_kitti_pilot"
+      ],
+      "budget": 3,
+      "llm_status": "NOT_RUN",
+      "methods": {
+        "ascending": {
+          "order": [
+            "yolo26n_kitti_pilot_imgsz416_cpu",
+            "yolo26n_kitti_pilot_imgsz448_cpu",
+            "yolo26n_kitti_pilot_imgsz480_cpu"
+          ],
+          "trajectory": [
+            {
+              "step": 0,
+              "best_score": null
+            },
+            {
+              "step": 1,
+              "best_score": null
+            },
+            {
+              "step": 2,
+              "best_score": null
+            },
+            {
+              "step": 3,
+              "best_score": null
+            }
+          ],
+          "experiments_to_feasible": null,
+          "experiments_to_best": null,
+          "failure_to_find_feasible": true
+        },
+        "random_without_replacement": {
+          "order": [
+            "yolo26n_kitti_pilot_imgsz512_cpu",
+            "yolo26n_kitti_pilot_imgsz416_cpu",
+            "yolo26n_kitti_pilot_imgsz608_cpu"
+          ],
+          "trajectory": [
+            {
+              "step": 0,
+              "best_score": null
+            },
+            {
+              "step": 1,
+              "best_score": null
+            },
+            {
+              "step": 2,
+              "best_score": null
+            },
+            {
+              "step": 3,
+              "best_score": null
+            }
+          ],
+          "experiments_to_feasible": null,
+          "experiments_to_best": null,
+          "failure_to_find_feasible": true
+        }
+      },
+      "proposal_latency_seconds": null,
+      "token_usage": null,
+      "cost": null
+    }
+  ],
+  "source_sha256": {
+    "results/candidates/yolo26n_kitti_pilot.json": "49d7e0f9427a4f3a05e78bd9169a4338e1d1c92ca968d2b573c24d03baf5f61a",
+    "results/candidates/yolo26n_kitti_pilot_imgsz416_cpu.json": "5032d4de302a66e0c34c1045e2eab5190b1080c8aaccdc0280b5a67e2f206d6e",
+    "results/candidates/yolo26n_kitti_pilot_imgsz448_cpu.json": "f0a0aa01ef05bd16a4572fca6dbea1fe0f0311122836c2936a17fc1747f68470",
+    "results/candidates/yolo26n_kitti_pilot_imgsz480_cpu.json": "161e0e034584876b4139b531720f9e4f0cc18afda29700021ea6e8b1392091da",
+    "results/candidates/yolo26n_kitti_pilot_imgsz512_cpu.json": "a1fda0eb3a9791b111475f09dd5b5491d792e9ceddb1f0e5cc57231ce744f051",
+    "results/candidates/yolo26n_kitti_pilot_imgsz576_cpu.json": "cfc94df009c8c0504f9c24a1aa813c472e891802a67a617642e6782ea69fe74b",
+    "results/candidates/yolo26n_kitti_pilot_imgsz608_cpu.json": "7237e6b377bb71e9a990a97a4d535686eb221fd851f80e2230990d08b8fb062e"
+  },
+  "limitations": [
+    "Equal weights do not equalize effect: headroom scales differ.",
+    "File size is constant and does not measure runtime RAM.",
+    "Search replay has hypothetical experiment slots, not measured execution cost.",
+    "Archived software environments differ; no controlled resolution-only comparison.",
+    "Saved orders are exploratory unless generated with the exact initial evidence and hidden metrics withheld.",
+    "No superiority claim; inspect llm_status to distinguish planned and executed trials."
+  ]
+}

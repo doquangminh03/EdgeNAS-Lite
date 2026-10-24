@@ -1,0 +1,457 @@
+/Users/quangminhdo/.matplotlib is not a writable directory
+Matplotlib created a temporary cache directory at /var/folders/nw/yrwk9kt54xj0bw0dhrw8ykmh0000gn/T/matplotlib-8ymmubyz because there was an issue with the default path (/Users/quangminhdo/.matplotlib); it is highly recommended to set the MPLCONFIGDIR environment variable to a writable directory, in particular to speed up the import of Matplotlib and to better support multiprocessing.
+Matplotlib is building the font cache; this may take a moment.
+Loading model: runs/detect/kitti_yolo26n_pilot/weights/best.pt
+Preloading 100 images...
+Running 10 warm-up runs...
+Measuring 300 predictions...
+
+Benchmark completed
+Median latency: 8.711 ms
+P95 latency: 8.973 ms
+FPS from median: 114.797
+Result saved to: /Volumes/Minh' s USB/EdgeNAS-Lite/results/benchmarks/campaigns/continuation_measured_v2_20261024/session_01/imgsz_416.json
+/Users/quangminhdo/.matplotlib is not a writable directory
+Matplotlib created a temporary cache directory at /var/folders/nw/yrwk9kt54xj0bw0dhrw8ykmh0000gn/T/matplotlib-lzpe6lj3 because there was an issue with the default path (/Users/quangminhdo/.matplotlib); it is highly recommended to set the MPLCONFIGDIR environment variable to a writable directory, in particular to speed up the import of Matplotlib and to better support multiprocessing.
+Matplotlib is building the font cache; this may take a moment.
+Loading model: runs/detect/kitti_yolo26n_pilot/weights/best.pt
+Preloading 100 images...
+Running 10 warm-up runs...
+Measuring 300 predictions...
+
+Benchmark completed
+Median latency: 13.952 ms
+P95 latency: 14.337 ms
+FPS from median: 71.674
+Result saved to: /Volumes/Minh' s USB/EdgeNAS-Lite/results/benchmarks/campaigns/continuation_measured_v2_20261024/session_01/imgsz_608.json
+/Users/quangminhdo/.matplotlib is not a writable directory
+Matplotlib created a temporary cache directory at /var/folders/nw/yrwk9kt54xj0bw0dhrw8ykmh0000gn/T/matplotlib-lcckk6xm because there was an issue with the default path (/Users/quangminhdo/.matplotlib); it is highly recommended to set the MPLCONFIGDIR environment variable to a writable directory, in particular to speed up the import of Matplotlib and to better support multiprocessing.
+Matplotlib is building the font cache; this may take a moment.
+Loading model: runs/detect/kitti_yolo26n_pilot/weights/best.pt
+Preloading 100 images...
+Running 10 warm-up runs...
+Measuring 300 predictions...
+
+Benchmark completed
+Median latency: 11.069 ms
+P95 latency: 11.377 ms
+FPS from median: 90.342
+Result saved to: /Volumes/Minh' s USB/EdgeNAS-Lite/results/benchmarks/campaigns/continuation_measured_v2_20261024/session_01/imgsz_480.json
+/Users/quangminhdo/.matplotlib is not a writable directory
+Matplotlib created a temporary cache directory at /var/folders/nw/yrwk9kt54xj0bw0dhrw8ykmh0000gn/T/matplotlib-fhva6jax because there was an issue with the default path (/Users/quangminhdo/.matplotlib); it is highly recommended to set the MPLCONFIGDIR environment variable to a writable directory, in particular to speed up the import of Matplotlib and to better support multiprocessing.
+Matplotlib is building the font cache; this may take a moment.
+Loading model: runs/detect/kitti_yolo26n_pilot/weights/best.pt
+Preloading 100 images...
+Running 10 warm-up runs...
+Measuring 300 predictions...
+
+Benchmark completed
+Median latency: 13.471 ms
+P95 latency: 13.83 ms
+FPS from median: 74.234
+Result saved to: /Volumes/Minh' s USB/EdgeNAS-Lite/results/benchmarks/campaigns/continuation_measured_v2_20261024/session_01/imgsz_576.json
+/Users/quangminhdo/.matplotlib is not a writable directory
+Matplotlib created a temporary cache directory at /var/folders/nw/yrwk9kt54xj0bw0dhrw8ykmh0000gn/T/matplotlib-f4o7zs3i because there was an issue with the default path (/Users/quangminhdo/.matplotlib); it is highly recommended to set the MPLCONFIGDIR environment variable to a writable directory, in particular to speed up the import of Matplotlib and to better support multiprocessing.
+Matplotlib is building the font cache; this may take a moment.
+Loading model: runs/detect/kitti_yolo26n_pilot/weights/best.pt
+Preloading 100 images...
+Running 10 warm-up runs...
+Measuring 300 predictions...
+
+Benchmark completed
+Median latency: 11.725 ms
+P95 latency: 12.184 ms
+FPS from median: 85.288
+Result saved to: /Volumes/Minh' s USB/EdgeNAS-Lite/results/benchmarks/campaigns/continuation_measured_v2_20261024/session_01/imgsz_448.json
+/Users/quangminhdo/.matplotlib is not a writable directory
+Matplotlib created a temporary cache directory at /var/folders/nw/yrwk9kt54xj0bw0dhrw8ykmh0000gn/T/matplotlib-7slrpves because there was an issue with the default path (/Users/quangminhdo/.matplotlib); it is highly recommended to set the MPLCONFIGDIR environment variable to a writable directory, in particular to speed up the import of Matplotlib and to better support multiprocessing.
+Matplotlib is building the font cache; this may take a moment.
+Loading model: runs/detect/kitti_yolo26n_pilot/weights/best.pt
+Preloading 100 images...
+Running 10 warm-up runs...
+Measuring 300 predictions...
+
+Benchmark completed
+Median latency: 18.582 ms
+P95 latency: 21.153 ms
+FPS from median: 53.814
+Result saved to: /Volumes/Minh' s USB/EdgeNAS-Lite/results/benchmarks/campaigns/continuation_measured_v2_20261024/session_01/imgsz_640.json
+/Users/quangminhdo/.matplotlib is not a writable directory
+Matplotlib created a temporary cache directory at /var/folders/nw/yrwk9kt54xj0bw0dhrw8ykmh0000gn/T/matplotlib-l0pbzwcj because there was an issue with the default path (/Users/quangminhdo/.matplotlib); it is highly recommended to set the MPLCONFIGDIR environment variable to a writable directory, in particular to speed up the import of Matplotlib and to better support multiprocessing.
+Matplotlib is building the font cache; this may take a moment.
+Loading model: runs/detect/kitti_yolo26n_pilot/weights/best.pt
+Preloading 100 images...
+Running 10 warm-up runs...
+Measuring 300 predictions...
+
+Benchmark completed
+Median latency: 11.397 ms
+P95 latency: 12.031 ms
+FPS from median: 87.742
+Result saved to: /Volumes/Minh' s USB/EdgeNAS-Lite/results/benchmarks/campaigns/continuation_measured_v2_20261024/session_01/imgsz_512.json
+/Users/quangminhdo/.matplotlib is not a writable directory
+Matplotlib created a temporary cache directory at /var/folders/nw/yrwk9kt54xj0bw0dhrw8ykmh0000gn/T/matplotlib-ot4c41az because there was an issue with the default path (/Users/quangminhdo/.matplotlib); it is highly recommended to set the MPLCONFIGDIR environment variable to a writable directory, in particular to speed up the import of Matplotlib and to better support multiprocessing.
+Matplotlib is building the font cache; this may take a moment.
+Loading model: runs/detect/kitti_yolo26n_pilot/weights/best.pt
+Preloading 100 images...
+Running 10 warm-up runs...
+Measuring 300 predictions...
+
+Benchmark completed
+Median latency: 11.216 ms
+P95 latency: 12.017 ms
+FPS from median: 89.154
+Result saved to: /Volumes/Minh' s USB/EdgeNAS-Lite/results/benchmarks/campaigns/continuation_measured_v2_20261024/session_02/imgsz_480.json
+/Users/quangminhdo/.matplotlib is not a writable directory
+Matplotlib created a temporary cache directory at /var/folders/nw/yrwk9kt54xj0bw0dhrw8ykmh0000gn/T/matplotlib-c06aav_t because there was an issue with the default path (/Users/quangminhdo/.matplotlib); it is highly recommended to set the MPLCONFIGDIR environment variable to a writable directory, in particular to speed up the import of Matplotlib and to better support multiprocessing.
+Matplotlib is building the font cache; this may take a moment.
+Loading model: runs/detect/kitti_yolo26n_pilot/weights/best.pt
+Preloading 100 images...
+Running 10 warm-up runs...
+Measuring 300 predictions...
+
+Benchmark completed
+Median latency: 17.046 ms
+P95 latency: 17.964 ms
+FPS from median: 58.667
+Result saved to: /Volumes/Minh' s USB/EdgeNAS-Lite/results/benchmarks/campaigns/continuation_measured_v2_20261024/session_02/imgsz_640.json
+/Users/quangminhdo/.matplotlib is not a writable directory
+Matplotlib created a temporary cache directory at /var/folders/nw/yrwk9kt54xj0bw0dhrw8ykmh0000gn/T/matplotlib-tf5xkfqv because there was an issue with the default path (/Users/quangminhdo/.matplotlib); it is highly recommended to set the MPLCONFIGDIR environment variable to a writable directory, in particular to speed up the import of Matplotlib and to better support multiprocessing.
+Matplotlib is building the font cache; this may take a moment.
+Loading model: runs/detect/kitti_yolo26n_pilot/weights/best.pt
+Preloading 100 images...
+Running 10 warm-up runs...
+Measuring 300 predictions...
+
+Benchmark completed
+Median latency: 13.538 ms
+P95 latency: 14.133 ms
+FPS from median: 73.866
+Result saved to: /Volumes/Minh' s USB/EdgeNAS-Lite/results/benchmarks/campaigns/continuation_measured_v2_20261024/session_02/imgsz_576.json
+/Users/quangminhdo/.matplotlib is not a writable directory
+Matplotlib created a temporary cache directory at /var/folders/nw/yrwk9kt54xj0bw0dhrw8ykmh0000gn/T/matplotlib-n6qm3drf because there was an issue with the default path (/Users/quangminhdo/.matplotlib); it is highly recommended to set the MPLCONFIGDIR environment variable to a writable directory, in particular to speed up the import of Matplotlib and to better support multiprocessing.
+Matplotlib is building the font cache; this may take a moment.
+Loading model: runs/detect/kitti_yolo26n_pilot/weights/best.pt
+Preloading 100 images...
+Running 10 warm-up runs...
+Measuring 300 predictions...
+
+Benchmark completed
+Median latency: 11.372 ms
+P95 latency: 11.925 ms
+FPS from median: 87.931
+Result saved to: /Volumes/Minh' s USB/EdgeNAS-Lite/results/benchmarks/campaigns/continuation_measured_v2_20261024/session_02/imgsz_512.json
+/Users/quangminhdo/.matplotlib is not a writable directory
+Matplotlib created a temporary cache directory at /var/folders/nw/yrwk9kt54xj0bw0dhrw8ykmh0000gn/T/matplotlib-nhc922nh because there was an issue with the default path (/Users/quangminhdo/.matplotlib); it is highly recommended to set the MPLCONFIGDIR environment variable to a writable directory, in particular to speed up the import of Matplotlib and to better support multiprocessing.
+Matplotlib is building the font cache; this may take a moment.
+Loading model: runs/detect/kitti_yolo26n_pilot/weights/best.pt
+Preloading 100 images...
+Running 10 warm-up runs...
+Measuring 300 predictions...
+
+Benchmark completed
+Median latency: 14.046 ms
+P95 latency: 14.52 ms
+FPS from median: 71.197
+Result saved to: /Volumes/Minh' s USB/EdgeNAS-Lite/results/benchmarks/campaigns/continuation_measured_v2_20261024/session_02/imgsz_608.json
+/Users/quangminhdo/.matplotlib is not a writable directory
+Matplotlib created a temporary cache directory at /var/folders/nw/yrwk9kt54xj0bw0dhrw8ykmh0000gn/T/matplotlib-8lqhh7qp because there was an issue with the default path (/Users/quangminhdo/.matplotlib); it is highly recommended to set the MPLCONFIGDIR environment variable to a writable directory, in particular to speed up the import of Matplotlib and to better support multiprocessing.
+Matplotlib is building the font cache; this may take a moment.
+Loading model: runs/detect/kitti_yolo26n_pilot/weights/best.pt
+Preloading 100 images...
+Running 10 warm-up runs...
+Measuring 300 predictions...
+
+Benchmark completed
+Median latency: 10.614 ms
+P95 latency: 10.967 ms
+FPS from median: 94.215
+Result saved to: /Volumes/Minh' s USB/EdgeNAS-Lite/results/benchmarks/campaigns/continuation_measured_v2_20261024/session_02/imgsz_448.json
+/Users/quangminhdo/.matplotlib is not a writable directory
+Matplotlib created a temporary cache directory at /var/folders/nw/yrwk9kt54xj0bw0dhrw8ykmh0000gn/T/matplotlib-aob2d2nb because there was an issue with the default path (/Users/quangminhdo/.matplotlib); it is highly recommended to set the MPLCONFIGDIR environment variable to a writable directory, in particular to speed up the import of Matplotlib and to better support multiprocessing.
+Matplotlib is building the font cache; this may take a moment.
+Loading model: runs/detect/kitti_yolo26n_pilot/weights/best.pt
+Preloading 100 images...
+Running 10 warm-up runs...
+Measuring 300 predictions...
+
+Benchmark completed
+Median latency: 8.748 ms
+P95 latency: 9.154 ms
+FPS from median: 114.305
+Result saved to: /Volumes/Minh' s USB/EdgeNAS-Lite/results/benchmarks/campaigns/continuation_measured_v2_20261024/session_02/imgsz_416.json
+/Users/quangminhdo/.matplotlib is not a writable directory
+Matplotlib created a temporary cache directory at /var/folders/nw/yrwk9kt54xj0bw0dhrw8ykmh0000gn/T/matplotlib-cc3fub_1 because there was an issue with the default path (/Users/quangminhdo/.matplotlib); it is highly recommended to set the MPLCONFIGDIR environment variable to a writable directory, in particular to speed up the import of Matplotlib and to better support multiprocessing.
+Matplotlib is building the font cache; this may take a moment.
+Loading model: runs/detect/kitti_yolo26n_pilot/weights/best.pt
+Preloading 100 images...
+Running 10 warm-up runs...
+Measuring 300 predictions...
+
+Benchmark completed
+Median latency: 11.383 ms
+P95 latency: 11.836 ms
+FPS from median: 87.85
+Result saved to: /Volumes/Minh' s USB/EdgeNAS-Lite/results/benchmarks/campaigns/continuation_measured_v2_20261024/session_03/imgsz_512.json
+/Users/quangminhdo/.matplotlib is not a writable directory
+Matplotlib created a temporary cache directory at /var/folders/nw/yrwk9kt54xj0bw0dhrw8ykmh0000gn/T/matplotlib-wl09rph5 because there was an issue with the default path (/Users/quangminhdo/.matplotlib); it is highly recommended to set the MPLCONFIGDIR environment variable to a writable directory, in particular to speed up the import of Matplotlib and to better support multiprocessing.
+Matplotlib is building the font cache; this may take a moment.
+Loading model: runs/detect/kitti_yolo26n_pilot/weights/best.pt
+Preloading 100 images...
+Running 10 warm-up runs...
+Measuring 300 predictions...
+
+Benchmark completed
+Median latency: 14.036 ms
+P95 latency: 14.482 ms
+FPS from median: 71.245
+Result saved to: /Volumes/Minh' s USB/EdgeNAS-Lite/results/benchmarks/campaigns/continuation_measured_v2_20261024/session_03/imgsz_608.json
+/Users/quangminhdo/.matplotlib is not a writable directory
+Matplotlib created a temporary cache directory at /var/folders/nw/yrwk9kt54xj0bw0dhrw8ykmh0000gn/T/matplotlib-cdod825x because there was an issue with the default path (/Users/quangminhdo/.matplotlib); it is highly recommended to set the MPLCONFIGDIR environment variable to a writable directory, in particular to speed up the import of Matplotlib and to better support multiprocessing.
+Matplotlib is building the font cache; this may take a moment.
+Loading model: runs/detect/kitti_yolo26n_pilot/weights/best.pt
+Preloading 100 images...
+Running 10 warm-up runs...
+Measuring 300 predictions...
+
+Benchmark completed
+Median latency: 11.276 ms
+P95 latency: 13.453 ms
+FPS from median: 88.68
+Result saved to: /Volumes/Minh' s USB/EdgeNAS-Lite/results/benchmarks/campaigns/continuation_measured_v2_20261024/session_03/imgsz_480.json
+/Users/quangminhdo/.matplotlib is not a writable directory
+Matplotlib created a temporary cache directory at /var/folders/nw/yrwk9kt54xj0bw0dhrw8ykmh0000gn/T/matplotlib-glnfetgv because there was an issue with the default path (/Users/quangminhdo/.matplotlib); it is highly recommended to set the MPLCONFIGDIR environment variable to a writable directory, in particular to speed up the import of Matplotlib and to better support multiprocessing.
+Matplotlib is building the font cache; this may take a moment.
+Loading model: runs/detect/kitti_yolo26n_pilot/weights/best.pt
+Preloading 100 images...
+Running 10 warm-up runs...
+Measuring 300 predictions...
+
+Benchmark completed
+Median latency: 14.948 ms
+P95 latency: 16.748 ms
+FPS from median: 66.896
+Result saved to: /Volumes/Minh' s USB/EdgeNAS-Lite/results/benchmarks/campaigns/continuation_measured_v2_20261024/session_03/imgsz_576.json
+/Users/quangminhdo/.matplotlib is not a writable directory
+Matplotlib created a temporary cache directory at /var/folders/nw/yrwk9kt54xj0bw0dhrw8ykmh0000gn/T/matplotlib-ckdez2cg because there was an issue with the default path (/Users/quangminhdo/.matplotlib); it is highly recommended to set the MPLCONFIGDIR environment variable to a writable directory, in particular to speed up the import of Matplotlib and to better support multiprocessing.
+Matplotlib is building the font cache; this may take a moment.
+Loading model: runs/detect/kitti_yolo26n_pilot/weights/best.pt
+Preloading 100 images...
+Running 10 warm-up runs...
+Measuring 300 predictions...
+
+Benchmark completed
+Median latency: 17.429 ms
+P95 latency: 23.508 ms
+FPS from median: 57.376
+Result saved to: /Volumes/Minh' s USB/EdgeNAS-Lite/results/benchmarks/campaigns/continuation_measured_v2_20261024/session_03/imgsz_640.json
+/Users/quangminhdo/.matplotlib is not a writable directory
+Matplotlib created a temporary cache directory at /var/folders/nw/yrwk9kt54xj0bw0dhrw8ykmh0000gn/T/matplotlib-ov9eq45_ because there was an issue with the default path (/Users/quangminhdo/.matplotlib); it is highly recommended to set the MPLCONFIGDIR environment variable to a writable directory, in particular to speed up the import of Matplotlib and to better support multiprocessing.
+Matplotlib is building the font cache; this may take a moment.
+Loading model: runs/detect/kitti_yolo26n_pilot/weights/best.pt
+Preloading 100 images...
+Running 10 warm-up runs...
+Measuring 300 predictions...
+
+Benchmark completed
+Median latency: 8.777 ms
+P95 latency: 9.049 ms
+FPS from median: 113.934
+Result saved to: /Volumes/Minh' s USB/EdgeNAS-Lite/results/benchmarks/campaigns/continuation_measured_v2_20261024/session_03/imgsz_416.json
+/Users/quangminhdo/.matplotlib is not a writable directory
+Matplotlib created a temporary cache directory at /var/folders/nw/yrwk9kt54xj0bw0dhrw8ykmh0000gn/T/matplotlib-89zus580 because there was an issue with the default path (/Users/quangminhdo/.matplotlib); it is highly recommended to set the MPLCONFIGDIR environment variable to a writable directory, in particular to speed up the import of Matplotlib and to better support multiprocessing.
+Matplotlib is building the font cache; this may take a moment.
+Loading model: runs/detect/kitti_yolo26n_pilot/weights/best.pt
+Preloading 100 images...
+Running 10 warm-up runs...
+Measuring 300 predictions...
+
+Benchmark completed
+Median latency: 10.614 ms
+P95 latency: 10.903 ms
+FPS from median: 94.22
+Result saved to: /Volumes/Minh' s USB/EdgeNAS-Lite/results/benchmarks/campaigns/continuation_measured_v2_20261024/session_03/imgsz_448.json
+/Users/quangminhdo/.matplotlib is not a writable directory
+Matplotlib created a temporary cache directory at /var/folders/nw/yrwk9kt54xj0bw0dhrw8ykmh0000gn/T/matplotlib-bkvzuilw because there was an issue with the default path (/Users/quangminhdo/.matplotlib); it is highly recommended to set the MPLCONFIGDIR environment variable to a writable directory, in particular to speed up the import of Matplotlib and to better support multiprocessing.
+Matplotlib is building the font cache; this may take a moment.
+Loading model: runs/detect/kitti_yolo26n_pilot/weights/best.pt
+Preloading 100 images...
+Running 10 warm-up runs...
+Measuring 300 predictions...
+
+Benchmark completed
+Median latency: 10.675 ms
+P95 latency: 11.114 ms
+FPS from median: 93.677
+Result saved to: /Volumes/Minh' s USB/EdgeNAS-Lite/results/benchmarks/campaigns/continuation_measured_v2_20261024/session_04/imgsz_448.json
+/Users/quangminhdo/.matplotlib is not a writable directory
+Matplotlib created a temporary cache directory at /var/folders/nw/yrwk9kt54xj0bw0dhrw8ykmh0000gn/T/matplotlib-5melxlis because there was an issue with the default path (/Users/quangminhdo/.matplotlib); it is highly recommended to set the MPLCONFIGDIR environment variable to a writable directory, in particular to speed up the import of Matplotlib and to better support multiprocessing.
+Matplotlib is building the font cache; this may take a moment.
+Loading model: runs/detect/kitti_yolo26n_pilot/weights/best.pt
+Preloading 100 images...
+Running 10 warm-up runs...
+Measuring 300 predictions...
+
+Benchmark completed
+Median latency: 11.362 ms
+P95 latency: 11.661 ms
+FPS from median: 88.013
+Result saved to: /Volumes/Minh' s USB/EdgeNAS-Lite/results/benchmarks/campaigns/continuation_measured_v2_20261024/session_04/imgsz_512.json
+/Users/quangminhdo/.matplotlib is not a writable directory
+Matplotlib created a temporary cache directory at /var/folders/nw/yrwk9kt54xj0bw0dhrw8ykmh0000gn/T/matplotlib-ikl8wsl8 because there was an issue with the default path (/Users/quangminhdo/.matplotlib); it is highly recommended to set the MPLCONFIGDIR environment variable to a writable directory, in particular to speed up the import of Matplotlib and to better support multiprocessing.
+Matplotlib is building the font cache; this may take a moment.
+Loading model: runs/detect/kitti_yolo26n_pilot/weights/best.pt
+Preloading 100 images...
+Running 10 warm-up runs...
+Measuring 300 predictions...
+
+Benchmark completed
+Median latency: 12.265 ms
+P95 latency: 14.933 ms
+FPS from median: 81.529
+Result saved to: /Volumes/Minh' s USB/EdgeNAS-Lite/results/benchmarks/campaigns/continuation_measured_v2_20261024/session_04/imgsz_480.json
+/Users/quangminhdo/.matplotlib is not a writable directory
+Matplotlib created a temporary cache directory at /var/folders/nw/yrwk9kt54xj0bw0dhrw8ykmh0000gn/T/matplotlib-3d_8ln0e because there was an issue with the default path (/Users/quangminhdo/.matplotlib); it is highly recommended to set the MPLCONFIGDIR environment variable to a writable directory, in particular to speed up the import of Matplotlib and to better support multiprocessing.
+Matplotlib is building the font cache; this may take a moment.
+Loading model: runs/detect/kitti_yolo26n_pilot/weights/best.pt
+Preloading 100 images...
+Running 10 warm-up runs...
+Measuring 300 predictions...
+
+Benchmark completed
+Median latency: 8.703 ms
+P95 latency: 9.124 ms
+FPS from median: 114.91
+Result saved to: /Volumes/Minh' s USB/EdgeNAS-Lite/results/benchmarks/campaigns/continuation_measured_v2_20261024/session_04/imgsz_416.json
+/Users/quangminhdo/.matplotlib is not a writable directory
+Matplotlib created a temporary cache directory at /var/folders/nw/yrwk9kt54xj0bw0dhrw8ykmh0000gn/T/matplotlib-pd8daxte because there was an issue with the default path (/Users/quangminhdo/.matplotlib); it is highly recommended to set the MPLCONFIGDIR environment variable to a writable directory, in particular to speed up the import of Matplotlib and to better support multiprocessing.
+Matplotlib is building the font cache; this may take a moment.
+Loading model: runs/detect/kitti_yolo26n_pilot/weights/best.pt
+Preloading 100 images...
+Running 10 warm-up runs...
+Measuring 300 predictions...
+
+Benchmark completed
+Median latency: 13.867 ms
+P95 latency: 14.448 ms
+FPS from median: 72.114
+Result saved to: /Volumes/Minh' s USB/EdgeNAS-Lite/results/benchmarks/campaigns/continuation_measured_v2_20261024/session_04/imgsz_608.json
+/Users/quangminhdo/.matplotlib is not a writable directory
+Matplotlib created a temporary cache directory at /var/folders/nw/yrwk9kt54xj0bw0dhrw8ykmh0000gn/T/matplotlib-nhta9o78 because there was an issue with the default path (/Users/quangminhdo/.matplotlib); it is highly recommended to set the MPLCONFIGDIR environment variable to a writable directory, in particular to speed up the import of Matplotlib and to better support multiprocessing.
+Matplotlib is building the font cache; this may take a moment.
+Loading model: runs/detect/kitti_yolo26n_pilot/weights/best.pt
+Preloading 100 images...
+Running 10 warm-up runs...
+Measuring 300 predictions...
+
+Benchmark completed
+Median latency: 16.889 ms
+P95 latency: 17.355 ms
+FPS from median: 59.208
+Result saved to: /Volumes/Minh' s USB/EdgeNAS-Lite/results/benchmarks/campaigns/continuation_measured_v2_20261024/session_04/imgsz_640.json
+/Users/quangminhdo/.matplotlib is not a writable directory
+Matplotlib created a temporary cache directory at /var/folders/nw/yrwk9kt54xj0bw0dhrw8ykmh0000gn/T/matplotlib-u3rqvkoq because there was an issue with the default path (/Users/quangminhdo/.matplotlib); it is highly recommended to set the MPLCONFIGDIR environment variable to a writable directory, in particular to speed up the import of Matplotlib and to better support multiprocessing.
+Matplotlib is building the font cache; this may take a moment.
+Loading model: runs/detect/kitti_yolo26n_pilot/weights/best.pt
+Preloading 100 images...
+Running 10 warm-up runs...
+Measuring 300 predictions...
+
+Benchmark completed
+Median latency: 13.458 ms
+P95 latency: 13.784 ms
+FPS from median: 74.305
+Result saved to: /Volumes/Minh' s USB/EdgeNAS-Lite/results/benchmarks/campaigns/continuation_measured_v2_20261024/session_04/imgsz_576.json
+/Users/quangminhdo/.matplotlib is not a writable directory
+Matplotlib created a temporary cache directory at /var/folders/nw/yrwk9kt54xj0bw0dhrw8ykmh0000gn/T/matplotlib-fh499kyq because there was an issue with the default path (/Users/quangminhdo/.matplotlib); it is highly recommended to set the MPLCONFIGDIR environment variable to a writable directory, in particular to speed up the import of Matplotlib and to better support multiprocessing.
+Matplotlib is building the font cache; this may take a moment.
+Loading model: runs/detect/kitti_yolo26n_pilot/weights/best.pt
+Preloading 100 images...
+Running 10 warm-up runs...
+Measuring 300 predictions...
+
+Benchmark completed
+Median latency: 8.712 ms
+P95 latency: 8.976 ms
+FPS from median: 114.778
+Result saved to: /Volumes/Minh' s USB/EdgeNAS-Lite/results/benchmarks/campaigns/continuation_measured_v2_20261024/session_05/imgsz_416.json
+/Users/quangminhdo/.matplotlib is not a writable directory
+Matplotlib created a temporary cache directory at /var/folders/nw/yrwk9kt54xj0bw0dhrw8ykmh0000gn/T/matplotlib-g18ur0g3 because there was an issue with the default path (/Users/quangminhdo/.matplotlib); it is highly recommended to set the MPLCONFIGDIR environment variable to a writable directory, in particular to speed up the import of Matplotlib and to better support multiprocessing.
+Matplotlib is building the font cache; this may take a moment.
+Loading model: runs/detect/kitti_yolo26n_pilot/weights/best.pt
+Preloading 100 images...
+Running 10 warm-up runs...
+Measuring 300 predictions...
+
+Benchmark completed
+Median latency: 14.032 ms
+P95 latency: 14.326 ms
+FPS from median: 71.268
+Result saved to: /Volumes/Minh' s USB/EdgeNAS-Lite/results/benchmarks/campaigns/continuation_measured_v2_20261024/session_05/imgsz_608.json
+/Users/quangminhdo/.matplotlib is not a writable directory
+Matplotlib created a temporary cache directory at /var/folders/nw/yrwk9kt54xj0bw0dhrw8ykmh0000gn/T/matplotlib-8ok0hzkg because there was an issue with the default path (/Users/quangminhdo/.matplotlib); it is highly recommended to set the MPLCONFIGDIR environment variable to a writable directory, in particular to speed up the import of Matplotlib and to better support multiprocessing.
+Matplotlib is building the font cache; this may take a moment.
+Loading model: runs/detect/kitti_yolo26n_pilot/weights/best.pt
+Preloading 100 images...
+Running 10 warm-up runs...
+Measuring 300 predictions...
+
+Benchmark completed
+Median latency: 16.817 ms
+P95 latency: 17.729 ms
+FPS from median: 59.464
+Result saved to: /Volumes/Minh' s USB/EdgeNAS-Lite/results/benchmarks/campaigns/continuation_measured_v2_20261024/session_05/imgsz_640.json
+/Users/quangminhdo/.matplotlib is not a writable directory
+Matplotlib created a temporary cache directory at /var/folders/nw/yrwk9kt54xj0bw0dhrw8ykmh0000gn/T/matplotlib-y6uxfeu3 because there was an issue with the default path (/Users/quangminhdo/.matplotlib); it is highly recommended to set the MPLCONFIGDIR environment variable to a writable directory, in particular to speed up the import of Matplotlib and to better support multiprocessing.
+Matplotlib is building the font cache; this may take a moment.
+Loading model: runs/detect/kitti_yolo26n_pilot/weights/best.pt
+Preloading 100 images...
+Running 10 warm-up runs...
+Measuring 300 predictions...
+
+Benchmark completed
+Median latency: 11.093 ms
+P95 latency: 11.433 ms
+FPS from median: 90.147
+Result saved to: /Volumes/Minh' s USB/EdgeNAS-Lite/results/benchmarks/campaigns/continuation_measured_v2_20261024/session_05/imgsz_480.json
+/Users/quangminhdo/.matplotlib is not a writable directory
+Matplotlib created a temporary cache directory at /var/folders/nw/yrwk9kt54xj0bw0dhrw8ykmh0000gn/T/matplotlib-pq9yixqm because there was an issue with the default path (/Users/quangminhdo/.matplotlib); it is highly recommended to set the MPLCONFIGDIR environment variable to a writable directory, in particular to speed up the import of Matplotlib and to better support multiprocessing.
+Matplotlib is building the font cache; this may take a moment.
+Loading model: runs/detect/kitti_yolo26n_pilot/weights/best.pt
+Preloading 100 images...
+Running 10 warm-up runs...
+Measuring 300 predictions...
+
+Benchmark completed
+Median latency: 10.579 ms
+P95 latency: 10.898 ms
+FPS from median: 94.531
+Result saved to: /Volumes/Minh' s USB/EdgeNAS-Lite/results/benchmarks/campaigns/continuation_measured_v2_20261024/session_05/imgsz_448.json
+/Users/quangminhdo/.matplotlib is not a writable directory
+Matplotlib created a temporary cache directory at /var/folders/nw/yrwk9kt54xj0bw0dhrw8ykmh0000gn/T/matplotlib-b15cn9je because there was an issue with the default path (/Users/quangminhdo/.matplotlib); it is highly recommended to set the MPLCONFIGDIR environment variable to a writable directory, in particular to speed up the import of Matplotlib and to better support multiprocessing.
+Matplotlib is building the font cache; this may take a moment.
+Loading model: runs/detect/kitti_yolo26n_pilot/weights/best.pt
+Preloading 100 images...
+Running 10 warm-up runs...
+Measuring 300 predictions...
+
+Benchmark completed
+Median latency: 12.432 ms
+P95 latency: 12.935 ms
+FPS from median: 80.438
+Result saved to: /Volumes/Minh' s USB/EdgeNAS-Lite/results/benchmarks/campaigns/continuation_measured_v2_20261024/session_05/imgsz_512.json
+/Users/quangminhdo/.matplotlib is not a writable directory
+Matplotlib created a temporary cache directory at /var/folders/nw/yrwk9kt54xj0bw0dhrw8ykmh0000gn/T/matplotlib-a72h4_ak because there was an issue with the default path (/Users/quangminhdo/.matplotlib); it is highly recommended to set the MPLCONFIGDIR environment variable to a writable directory, in particular to speed up the import of Matplotlib and to better support multiprocessing.
+Matplotlib is building the font cache; this may take a moment.
+Loading model: runs/detect/kitti_yolo26n_pilot/weights/best.pt
+Preloading 100 images...
+Running 10 warm-up runs...
+Measuring 300 predictions...
+
+Benchmark completed
+Median latency: 13.518 ms
+P95 latency: 14.058 ms
+FPS from median: 73.973
+Result saved to: /Volumes/Minh' s USB/EdgeNAS-Lite/results/benchmarks/campaigns/continuation_measured_v2_20261024/session_05/imgsz_576.json
+Campaign status: completed
+Campaign report: /Volumes/Minh' s USB/EdgeNAS-Lite/results/benchmarks/campaigns/continuation_measured_v2_20261024/campaign.json

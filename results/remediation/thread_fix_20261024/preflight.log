@@ -1,0 +1,74 @@
+{
+  "campaign_id": "threads1_fixed_20261024",
+  "status": "planned",
+  "resolution_count": 7,
+  "session_count": 5,
+  "sampled_images": 100,
+  "checkpoint_sha256": "301f3942e2171b57b077e55002f10946753fa829fbe348d3c61657858dfff749",
+  "dataset_manifest_sha256": "7c7fda805edd1544268fd14bec60f613ef253197bcc52a171940f0926f1a1d44",
+  "schedule": [
+    {
+      "session": 1,
+      "resolution_order": [
+        416,
+        608,
+        480,
+        576,
+        448,
+        640,
+        512
+      ]
+    },
+    {
+      "session": 2,
+      "resolution_order": [
+        480,
+        640,
+        576,
+        512,
+        608,
+        448,
+        416
+      ]
+    },
+    {
+      "session": 3,
+      "resolution_order": [
+        512,
+        608,
+        480,
+        576,
+        640,
+        416,
+        448
+      ]
+    },
+    {
+      "session": 4,
+      "resolution_order": [
+        448,
+        512,
+        480,
+        416,
+        608,
+        640,
+        576
+      ]
+    },
+    {
+      "session": 5,
+      "resolution_order": [
+        416,
+        608,
+        640,
+        480,
+        448,
+        512,
+        576
+      ]
+    }
+  ],
+  "output_dir": "/Volumes/Minh' s USB/EdgeNAS-Lite/results/benchmarks/campaigns/threads1_fixed_20261024",
+  "code_dirty": true
+}
+PREFLIGHT ONLY: no files written and no measurements run.

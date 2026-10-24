@@ -20,6 +20,7 @@ from src.constraint_checker.checker import (
     load_candidate,
     save_evaluation,
 )
+from src.proposal.compatibility import check_candidate_compatibility
 from src.requirement_parser.parser import (
     RequirementValidationError,
     load_requirement,
@@ -194,6 +195,7 @@ def run_search(
     dry_run: bool = False,
     overwrite_candidates: bool = False,
     output_file: Optional[Union[str, Path]] = None,
+    expected_hardware_id: Optional[str] = None,
 ) -> Dict[str, Any]:
     requirement_path = Path(requirement_file)
     search_space_path = Path(search_space_file)
@@ -232,7 +234,11 @@ def run_search(
             "candidate_plan": candidate_plan,
         }
 
+    if expected_hardware_id is None:
+        raise SearchControllerError("Target hardware identity is required; supply --hardware-id.")
+
     evaluations = []
+    validated_records = []
     evaluation_files = []
 
     for plan_item in candidate_plan:
@@ -249,6 +255,7 @@ def run_search(
                 candidate_id,
                 False,
                 action == "regenerate",
+                hardware_id=expected_hardware_id,
             )
 
         if not record_path.exists():
@@ -264,6 +271,18 @@ def run_search(
             search_space,
         )
 
+        compatibility = check_candidate_compatibility(
+            candidate_record, expected_hardware_id=expected_hardware_id,
+        )
+        if compatibility["status"] != "compatible":
+            raise SearchControllerError(
+                f"Candidate '{candidate_id}' failed pilot compatibility: {compatibility}"
+            )
+        validated_records.append(candidate_record)
+
+    # Validate the entire reuse set before writing any evaluation or selection.
+    for candidate_record in validated_records:
+        candidate_id = candidate_record["candidate_id"]
         evaluation = evaluate_candidate(
             requirement,
             candidate_record,
@@ -356,6 +375,7 @@ def main() -> None:
         "--output",
         help="Optional path for the search-run JSON manifest.",
     )
+    argument_parser.add_argument("--hardware-id", help="Required target identity for non-dry runs.")
     arguments = argument_parser.parse_args()
 
     try:
@@ -365,6 +385,7 @@ def main() -> None:
             dry_run=arguments.dry_run,
             overwrite_candidates=arguments.overwrite_candidates,
             output_file=arguments.output,
+            expected_hardware_id=arguments.hardware_id,
         )
     except (
         CandidateRunnerError,

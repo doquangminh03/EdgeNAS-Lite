@@ -1,0 +1,28 @@
+schema_version: '1.0'
+benchmark_id: threads1_fixed_20261024_s4_imgsz480
+candidate_id: yolo26n_kitti_pilot_imgsz480_cpu
+model:
+  checkpoint: runs/detect/kitti_yolo26n_pilot/weights/best.pt
+dataset:
+  name: KITTI
+  split: val
+  images_dir: datasets/kitti/images/val
+selection:
+  sample_size: 100
+  seed: 42
+protocol:
+  device: cpu
+  image_size: 480
+  batch_size: 1
+  warmup_runs: 10
+  repetitions_per_image: 3
+  confidence_threshold: 0.25
+  iou_threshold: 0.7
+  max_detections: 300
+  timing_scope: preprocess_inference_postprocess
+  disk_io_included: false
+  cpu_threads: 1
+output:
+  result_file: /Volumes/Minh' s USB/EdgeNAS-Lite/results/benchmarks/campaigns/threads1_fixed_20261024/session_04/imgsz_480.json
+campaign_id: threads1_fixed_20261024
+session_id: 4

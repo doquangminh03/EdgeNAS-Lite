@@ -1,0 +1,2269 @@
+{
+  "hardware_id": "continuation_mac_cpu_20261024",
+  "schema_version": "1.0",
+  "benchmark_id": "threads1_fixed_20261024_s1_imgsz480",
+  "candidate_id": "yolo26n_kitti_pilot_imgsz480_cpu",
+  "protocol_status": "standardized",
+  "created_at_utc": "2026-10-24T14:51:51.975194+00:00",
+  "model": {
+    "checkpoint": "runs/detect/kitti_yolo26n_pilot/weights/best.pt"
+  },
+  "dataset": {
+    "name": "KITTI",
+    "split": "val",
+    "images_dir": "datasets/kitti/images/val",
+    "available_images": 1496,
+    "selected_images": 100,
+    "selection_seed": 42
+  },
+  "protocol": {
+    "version": "cpu_threads_v2",
+    "backend_setup_predictions": 1,
+    "requested_cpu_threads": 1,
+    "thread_check_scope": "warmup_and_each_timed_prediction_boundaries_outside_timer",
+    "device": "cpu",
+    "image_size": 480,
+    "batch_size": 1,
+    "warmup_runs": 10,
+    "repetitions_per_image": 3,
+    "confidence_threshold": 0.25,
+    "iou_threshold": 0.7,
+    "max_detections": 300,
+    "timing_scope": "preprocess_inference_postprocess",
+    "disk_io_included": false,
+    "raw_samples_saved": true
+  },
+  "environment": {
+    "system": "macOS-26.6.2-arm64-arm-64bit",
+    "architecture": "arm64",
+    "python_version": "3.9.6",
+    "torch_version": "2.8.0",
+    "ultralytics_version": "8.4.123",
+    "numpy_version": "2.0.2",
+    "torch_num_threads": 1,
+    "requested_cpu_threads": 1,
+    "thread_observations": {
+      "after_backend_setup": 7,
+      "before_warmup": 1,
+      "after_warmup": 1,
+      "before_timing": 1,
+      "after_timing": 1
+    },
+    "campaign_id": "threads1_fixed_20261024",
+    "session_id": 1
+  },
+  "summary": {
+    "sample_count": 300,
+    "average_latency_ms": 13.095,
+    "median_latency_ms": 12.986,
+    "p95_latency_ms": 13.224,
+    "standard_deviation_ms": 1.445,
+    "min_latency_ms": 12.709,
+    "max_latency_ms": 37.951,
+    "fps_from_median": 77.006
+  },
+  "selected_image_files": [
+    "000102.png",
+    "000259.png",
+    "000268.png",
+    "000293.png",
+    "000310.png",
+    "000432.png",
+    "000455.png",
+    "000570.png",
+    "000721.png",
+    "000733.png",
+    "000843.png",
+    "000847.png",
+    "000918.png",
+    "000975.png",
+    "000995.png",
+    "001046.png",
+    "001084.png",
+    "001115.png",
+    "001213.png",
+    "001357.png",
+    "001524.png",
+    "001672.png",
+    "001734.png",
+    "001751.png",
+    "001753.png",
+    "001832.png",
+    "002015.png",
+    "002102.png",
+    "002192.png",
+    "002251.png",
+    "002262.png",
+    "002267.png",
+    "002285.png",
+    "002334.png",
+    "002363.png",
+    "002423.png",
+    "002453.png",
+    "002561.png",
+    "002720.png",
+    "002736.png",
+    "002777.png",
+    "002812.png",
+    "002845.png",
+    "002955.png",
+    "003004.png",
+    "003266.png",
+    "003345.png",
+    "003482.png",
+    "003507.png",
+    "003554.png",
+    "003641.png",
+    "003696.png",
+    "003728.png",
+    "003748.png",
+    "003781.png",
+    "003916.png",
+    "003928.png",
+    "003935.png",
+    "004187.png",
+    "004359.png",
+    "004382.png",
+    "004383.png",
+    "004599.png",
+    "004660.png",
+    "004730.png",
+    "004760.png",
+    "005157.png",
+    "005412.png",
+    "005429.png",
+    "005526.png",
+    "005576.png",
+    "005655.png",
+    "005694.png",
+    "005847.png",
+    "005964.png",
+    "005972.png",
+    "006087.png",
+    "006108.png",
+    "006161.png",
+    "006252.png",
+    "006347.png",
+    "006430.png",
+    "006432.png",
+    "006468.png",
+    "006475.png",
+    "006554.png",
+    "006564.png",
+    "006696.png",
+    "006777.png",
+    "006828.png",
+    "006923.png",
+    "006948.png",
+    "006980.png",
+    "007092.png",
+    "007120.png",
+    "007124.png",
+    "007158.png",
+    "007302.png",
+    "007445.png",
+    "007449.png"
+  ],
+  "raw_samples": [
+    {
+      "repetition": 1,
+      "image": "002845.png",
+      "latency_ms": 13.086,
+      "torch_num_threads_before": 1,
+      "torch_num_threads_after": 1
+    },
+    {
+      "repetition": 1,
+      "image": "002812.png",
+      "latency_ms": 13.027,
+      "torch_num_threads_before": 1,
+      "torch_num_threads_after": 1
+    },
+    {
+      "repetition": 1,
+      "image": "006948.png",
+      "latency_ms": 13.104,
+      "torch_num_threads_before": 1,
+      "torch_num_threads_after": 1
+    },
+    {
+      "repetition": 1,
+      "image": "000733.png",
+      "latency_ms": 13.0,
+      "torch_num_threads_before": 1,
+      "torch_num_threads_after": 1
+    },
+    {
+      "repetition": 1,
+      "image": "004760.png",
+      "latency_ms": 13.077,
+      "torch_num_threads_before": 1,
+      "torch_num_threads_after": 1
+    },
+    {
+      "repetition": 1,
+      "image": "003641.png",
+      "latency_ms": 13.328,
+      "torch_num_threads_before": 1,
+      "torch_num_threads_after": 1
+    },
+    {
+      "repetition": 1,
+      "image": "000259.png",
+      "latency_ms": 13.04,
+      "torch_num_threads_before": 1,
+      "torch_num_threads_after": 1
+    },
+    {
+      "repetition": 1,
+      "image": "005576.png",
+      "latency_ms": 12.963,
+      "torch_num_threads_before": 1,
+      "torch_num_threads_after": 1
+    },
+    {
+      "repetition": 1,
+      "image": "001046.png",
+      "latency_ms": 13.066,
+      "torch_num_threads_before": 1,
+      "torch_num_threads_after": 1
+    },
+    {
+      "repetition": 1,
+      "image": "006161.png",
+      "latency_ms": 13.557,
+      "torch_num_threads_before": 1,
+      "torch_num_threads_after": 1
+    },
+    {
+      "repetition": 1,
+      "image": "005847.png",
+      "latency_ms": 13.833,
+      "torch_num_threads_before": 1,
+      "torch_num_threads_after": 1
+    },
+    {
+      "repetition": 1,
+      "image": "000843.png",
+      "latency_ms": 13.265,
+      "torch_num_threads_before": 1,
+      "torch_num_threads_after": 1
+    },
+    {
+      "repetition": 1,
+      "image": "003916.png",
+      "latency_ms": 13.039,
+      "torch_num_threads_before": 1,
+      "torch_num_threads_after": 1
+    },
+    {
+      "repetition": 1,
+      "image": "003928.png",
+      "latency_ms": 13.354,
+      "torch_num_threads_before": 1,
+      "torch_num_threads_after": 1
+    },
+    {
+      "repetition": 1,
+      "image": "005694.png",
+      "latency_ms": 13.107,
+      "torch_num_threads_before": 1,
+      "torch_num_threads_after": 1
+    },
+    {
+      "repetition": 1,
+      "image": "003266.png",
+      "latency_ms": 12.986,
+      "torch_num_threads_before": 1,
+      "torch_num_threads_after": 1
+    },
+    {
+      "repetition": 1,
+      "image": "003507.png",
+      "latency_ms": 13.121,
+      "torch_num_threads_before": 1,
+      "torch_num_threads_after": 1
+    },
+    {
+      "repetition": 1,
+      "image": "006980.png",
+      "latency_ms": 13.113,
+      "torch_num_threads_before": 1,
+      "torch_num_threads_after": 1
+    },
+    {
+      "repetition": 1,
+      "image": "006087.png",
+      "latency_ms": 13.16,
+      "torch_num_threads_before": 1,
+      "torch_num_threads_after": 1
+    },
+    {
+      "repetition": 1,
+      "image": "002561.png",
+      "latency_ms": 12.996,
+      "torch_num_threads_before": 1,
+      "torch_num_threads_after": 1
+    },
+    {
+      "repetition": 1,
+      "image": "002262.png",
+      "latency_ms": 13.002,
+      "torch_num_threads_before": 1,
+      "torch_num_threads_after": 1
+    },
+    {
+      "repetition": 1,
+      "image": "001672.png",
+      "latency_ms": 12.983,
+      "torch_num_threads_before": 1,
+      "torch_num_threads_after": 1
+    },
+    {
+      "repetition": 1,
+      "image": "002285.png",
+      "latency_ms": 13.031,
+      "torch_num_threads_before": 1,
+      "torch_num_threads_after": 1
+    },
+    {
+      "repetition": 1,
+      "image": "007158.png",
+      "latency_ms": 13.073,
+      "torch_num_threads_before": 1,
+      "torch_num_threads_after": 1
+    },
+    {
+      "repetition": 1,
+      "image": "006347.png",
+      "latency_ms": 13.068,
+      "torch_num_threads_before": 1,
+      "torch_num_threads_after": 1
+    },
+    {
+      "repetition": 1,
+      "image": "003554.png",
+      "latency_ms": 13.115,
+      "torch_num_threads_before": 1,
+      "torch_num_threads_after": 1
+    },
+    {
+      "repetition": 1,
+      "image": "006468.png",
+      "latency_ms": 13.103,
+      "torch_num_threads_before": 1,
+      "torch_num_threads_after": 1
+    },
+    {
+      "repetition": 1,
+      "image": "002015.png",
+      "latency_ms": 13.019,
+      "torch_num_threads_before": 1,
+      "torch_num_threads_after": 1
+    },
+    {
+      "repetition": 1,
+      "image": "006696.png",
+      "latency_ms": 12.839,
+      "torch_num_threads_before": 1,
+      "torch_num_threads_after": 1
+    },
+    {
+      "repetition": 1,
+      "image": "002334.png",
+      "latency_ms": 13.075,
+      "torch_num_threads_before": 1,
+      "torch_num_threads_after": 1
+    },
+    {
+      "repetition": 1,
+      "image": "000721.png",
+      "latency_ms": 12.952,
+      "torch_num_threads_before": 1,
+      "torch_num_threads_after": 1
+    },
+    {
+      "repetition": 1,
+      "image": "003482.png",
+      "latency_ms": 13.233,
+      "torch_num_threads_before": 1,
+      "torch_num_threads_after": 1
+    },
+    {
+      "repetition": 1,
+      "image": "004359.png",
+      "latency_ms": 13.153,
+      "torch_num_threads_before": 1,
+      "torch_num_threads_after": 1
+    },
+    {
+      "repetition": 1,
+      "image": "004660.png",
+      "latency_ms": 13.072,
+      "torch_num_threads_before": 1,
+      "torch_num_threads_after": 1
+    },
+    {
+      "repetition": 1,
+      "image": "005964.png",
+      "latency_ms": 13.123,
+      "torch_num_threads_before": 1,
+      "torch_num_threads_after": 1
+    },
+    {
+      "repetition": 1,
+      "image": "003004.png",
+      "latency_ms": 13.089,
+      "torch_num_threads_before": 1,
+      "torch_num_threads_after": 1
+    },
+    {
+      "repetition": 1,
+      "image": "007445.png",
+      "latency_ms": 13.132,
+      "torch_num_threads_before": 1,
+      "torch_num_threads_after": 1
+    },
+    {
+      "repetition": 1,
+      "image": "003728.png",
+      "latency_ms": 13.091,
+      "torch_num_threads_before": 1,
+      "torch_num_threads_after": 1
+    },
+    {
+      "repetition": 1,
+      "image": "006554.png",
+      "latency_ms": 13.044,
+      "torch_num_threads_before": 1,
+      "torch_num_threads_after": 1
+    },
+    {
+      "repetition": 1,
+      "image": "000918.png",
+      "latency_ms": 12.948,
+      "torch_num_threads_before": 1,
+      "torch_num_threads_after": 1
+    },
+    {
+      "repetition": 1,
+      "image": "002453.png",
+      "latency_ms": 12.921,
+      "torch_num_threads_before": 1,
+      "torch_num_threads_after": 1
+    },
+    {
+      "repetition": 1,
+      "image": "001751.png",
+      "latency_ms": 13.211,
+      "torch_num_threads_before": 1,
+      "torch_num_threads_after": 1
+    },
+    {
+      "repetition": 1,
+      "image": "002736.png",
+      "latency_ms": 13.096,
+      "torch_num_threads_before": 1,
+      "torch_num_threads_after": 1
+    },
+    {
+      "repetition": 1,
+      "image": "002777.png",
+      "latency_ms": 13.221,
+      "torch_num_threads_before": 1,
+      "torch_num_threads_after": 1
+    },
+    {
+      "repetition": 1,
+      "image": "001213.png",
+      "latency_ms": 13.173,
+      "torch_num_threads_before": 1,
+      "torch_num_threads_after": 1
+    },
+    {
+      "repetition": 1,
+      "image": "005157.png",
+      "latency_ms": 13.059,
+      "torch_num_threads_before": 1,
+      "torch_num_threads_after": 1
+    },
+    {
+      "repetition": 1,
+      "image": "004383.png",
+      "latency_ms": 13.163,
+      "torch_num_threads_before": 1,
+      "torch_num_threads_after": 1
+    },
+    {
+      "repetition": 1,
+      "image": "004382.png",
+      "latency_ms": 13.137,
+      "torch_num_threads_before": 1,
+      "torch_num_threads_after": 1
+    },
+    {
+      "repetition": 1,
+      "image": "000570.png",
+      "latency_ms": 13.054,
+      "torch_num_threads_before": 1,
+      "torch_num_threads_after": 1
+    },
+    {
+      "repetition": 1,
+      "image": "002363.png",
+      "latency_ms": 13.078,
+      "torch_num_threads_before": 1,
+      "torch_num_threads_after": 1
+    },
+    {
+      "repetition": 1,
+      "image": "007449.png",
+      "latency_ms": 12.943,
+      "torch_num_threads_before": 1,
+      "torch_num_threads_after": 1
+    },
+    {
+      "repetition": 1,
+      "image": "003345.png",
+      "latency_ms": 13.185,
+      "torch_num_threads_before": 1,
+      "torch_num_threads_after": 1
+    },
+    {
+      "repetition": 1,
+      "image": "000268.png",
+      "latency_ms": 12.963,
+      "torch_num_threads_before": 1,
+      "torch_num_threads_after": 1
+    },
+    {
+      "repetition": 1,
+      "image": "003696.png",
+      "latency_ms": 13.054,
+      "torch_num_threads_before": 1,
+      "torch_num_threads_after": 1
+    },
+    {
+      "repetition": 1,
+      "image": "001084.png",
+      "latency_ms": 12.937,
+      "torch_num_threads_before": 1,
+      "torch_num_threads_after": 1
+    },
+    {
+      "repetition": 1,
+      "image": "002720.png",
+      "latency_ms": 13.26,
+      "torch_num_threads_before": 1,
+      "torch_num_threads_after": 1
+    },
+    {
+      "repetition": 1,
+      "image": "004187.png",
+      "latency_ms": 13.089,
+      "torch_num_threads_before": 1,
+      "torch_num_threads_after": 1
+    },
+    {
+      "repetition": 1,
+      "image": "005429.png",
+      "latency_ms": 13.018,
+      "torch_num_threads_before": 1,
+      "torch_num_threads_after": 1
+    },
+    {
+      "repetition": 1,
+      "image": "001734.png",
+      "latency_ms": 12.841,
+      "torch_num_threads_before": 1,
+      "torch_num_threads_after": 1
+    },
+    {
+      "repetition": 1,
+      "image": "004599.png",
+      "latency_ms": 13.064,
+      "torch_num_threads_before": 1,
+      "torch_num_threads_after": 1
+    },
+    {
+      "repetition": 1,
+      "image": "001753.png",
+      "latency_ms": 12.893,
+      "torch_num_threads_before": 1,
+      "torch_num_threads_after": 1
+    },
+    {
+      "repetition": 1,
+      "image": "000432.png",
+      "latency_ms": 12.98,
+      "torch_num_threads_before": 1,
+      "torch_num_threads_after": 1
+    },
+    {
+      "repetition": 1,
+      "image": "000455.png",
+      "latency_ms": 12.799,
+      "torch_num_threads_before": 1,
+      "torch_num_threads_after": 1
+    },
+    {
+      "repetition": 1,
+      "image": "005412.png",
+      "latency_ms": 12.857,
+      "torch_num_threads_before": 1,
+      "torch_num_threads_after": 1
+    },
+    {
+      "repetition": 1,
+      "image": "006432.png",
+      "latency_ms": 13.013,
+      "torch_num_threads_before": 1,
+      "torch_num_threads_after": 1
+    },
+    {
+      "repetition": 1,
+      "image": "001357.png",
+      "latency_ms": 12.774,
+      "torch_num_threads_before": 1,
+      "torch_num_threads_after": 1
+    },
+    {
+      "repetition": 1,
+      "image": "006252.png",
+      "latency_ms": 12.876,
+      "torch_num_threads_before": 1,
+      "torch_num_threads_after": 1
+    },
+    {
+      "repetition": 1,
+      "image": "002955.png",
+      "latency_ms": 13.159,
+      "torch_num_threads_before": 1,
+      "torch_num_threads_after": 1
+    },
+    {
+      "repetition": 1,
+      "image": "006923.png",
+      "latency_ms": 13.005,
+      "torch_num_threads_before": 1,
+      "torch_num_threads_after": 1
+    },
+    {
+      "repetition": 1,
+      "image": "001524.png",
+      "latency_ms": 13.059,
+      "torch_num_threads_before": 1,
+      "torch_num_threads_after": 1
+    },
+    {
+      "repetition": 1,
+      "image": "000102.png",
+      "latency_ms": 12.905,
+      "torch_num_threads_before": 1,
+      "torch_num_threads_after": 1
+    },
+    {
+      "repetition": 1,
+      "image": "007124.png",
+      "latency_ms": 13.09,
+      "torch_num_threads_before": 1,
+      "torch_num_threads_after": 1
+    },
+    {
+      "repetition": 1,
+      "image": "003935.png",
+      "latency_ms": 13.136,
+      "torch_num_threads_before": 1,
+      "torch_num_threads_after": 1
+    },
+    {
+      "repetition": 1,
+      "image": "007092.png",
+      "latency_ms": 12.918,
+      "torch_num_threads_before": 1,
+      "torch_num_threads_after": 1
+    },
+    {
+      "repetition": 1,
+      "image": "003748.png",
+      "latency_ms": 13.091,
+      "torch_num_threads_before": 1,
+      "torch_num_threads_after": 1
+    },
+    {
+      "repetition": 1,
+      "image": "006828.png",
+      "latency_ms": 12.924,
+      "torch_num_threads_before": 1,
+      "torch_num_threads_after": 1
+    },
+    {
+      "repetition": 1,
+      "image": "001832.png",
+      "latency_ms": 12.972,
+      "torch_num_threads_before": 1,
+      "torch_num_threads_after": 1
+    },
+    {
+      "repetition": 1,
+      "image": "005655.png",
+      "latency_ms": 12.977,
+      "torch_num_threads_before": 1,
+      "torch_num_threads_after": 1
+    },
+    {
+      "repetition": 1,
+      "image": "006475.png",
+      "latency_ms": 13.053,
+      "torch_num_threads_before": 1,
+      "torch_num_threads_after": 1
+    },
+    {
+      "repetition": 1,
+      "image": "006108.png",
+      "latency_ms": 13.077,
+      "torch_num_threads_before": 1,
+      "torch_num_threads_after": 1
+    },
+    {
+      "repetition": 1,
+      "image": "004730.png",
+      "latency_ms": 13.034,
+      "torch_num_threads_before": 1,
+      "torch_num_threads_after": 1
+    },
+    {
+      "repetition": 1,
+      "image": "002251.png",
+      "latency_ms": 13.027,
+      "torch_num_threads_before": 1,
+      "torch_num_threads_after": 1
+    },
+    {
+      "repetition": 1,
+      "image": "002102.png",
+      "latency_ms": 13.331,
+      "torch_num_threads_before": 1,
+      "torch_num_threads_after": 1
+    },
+    {
+      "repetition": 1,
+      "image": "006777.png",
+      "latency_ms": 12.952,
+      "torch_num_threads_before": 1,
+      "torch_num_threads_after": 1
+    },
+    {
+      "repetition": 1,
+      "image": "007302.png",
+      "latency_ms": 13.129,
+      "torch_num_threads_before": 1,
+      "torch_num_threads_after": 1
+    },
+    {
+      "repetition": 1,
+      "image": "000310.png",
+      "latency_ms": 12.963,
+      "torch_num_threads_before": 1,
+      "torch_num_threads_after": 1
+    },
+    {
+      "repetition": 1,
+      "image": "003781.png",
+      "latency_ms": 13.096,
+      "torch_num_threads_before": 1,
+      "torch_num_threads_after": 1
+    },
+    {
+      "repetition": 1,
+      "image": "005972.png",
+      "latency_ms": 13.449,
+      "torch_num_threads_before": 1,
+      "torch_num_threads_after": 1
+    },
+    {
+      "repetition": 1,
+      "image": "000847.png",
+      "latency_ms": 13.01,
+      "torch_num_threads_before": 1,
+      "torch_num_threads_after": 1
+    },
+    {
+      "repetition": 1,
+      "image": "005526.png",
+      "latency_ms": 12.968,
+      "torch_num_threads_before": 1,
+      "torch_num_threads_after": 1
+    },
+    {
+      "repetition": 1,
+      "image": "006564.png",
+      "latency_ms": 12.906,
+      "torch_num_threads_before": 1,
+      "torch_num_threads_after": 1
+    },
+    {
+      "repetition": 1,
+      "image": "000975.png",
+      "latency_ms": 12.98,
+      "torch_num_threads_before": 1,
+      "torch_num_threads_after": 1
+    },
+    {
+      "repetition": 1,
+      "image": "001115.png",
+      "latency_ms": 13.052,
+      "torch_num_threads_before": 1,
+      "torch_num_threads_after": 1
+    },
+    {
+      "repetition": 1,
+      "image": "002192.png",
+      "latency_ms": 13.095,
+      "torch_num_threads_before": 1,
+      "torch_num_threads_after": 1
+    },
+    {
+      "repetition": 1,
+      "image": "002267.png",
+      "latency_ms": 13.13,
+      "torch_num_threads_before": 1,
+      "torch_num_threads_after": 1
+    },
+    {
+      "repetition": 1,
+      "image": "002423.png",
+      "latency_ms": 12.989,
+      "torch_num_threads_before": 1,
+      "torch_num_threads_after": 1
+    },
+    {
+      "repetition": 1,
+      "image": "007120.png",
+      "latency_ms": 12.85,
+      "torch_num_threads_before": 1,
+      "torch_num_threads_after": 1
+    },
+    {
+      "repetition": 1,
+      "image": "000293.png",
+      "latency_ms": 12.918,
+      "torch_num_threads_before": 1,
+      "torch_num_threads_after": 1
+    },
+    {
+      "repetition": 1,
+      "image": "000995.png",
+      "latency_ms": 12.943,
+      "torch_num_threads_before": 1,
+      "torch_num_threads_after": 1
+    },
+    {
+      "repetition": 1,
+      "image": "006430.png",
+      "latency_ms": 13.2,
+      "torch_num_threads_before": 1,
+      "torch_num_threads_after": 1
+    },
+    {
+      "repetition": 2,
+      "image": "002423.png",
+      "latency_ms": 12.979,
+      "torch_num_threads_before": 1,
+      "torch_num_threads_after": 1
+    },
+    {
+      "repetition": 2,
+      "image": "005412.png",
+      "latency_ms": 13.062,
+      "torch_num_threads_before": 1,
+      "torch_num_threads_after": 1
+    },
+    {
+      "repetition": 2,
+      "image": "002262.png",
+      "latency_ms": 13.042,
+      "torch_num_threads_before": 1,
+      "torch_num_threads_after": 1
+    },
+    {
+      "repetition": 2,
+      "image": "002285.png",
+      "latency_ms": 13.055,
+      "torch_num_threads_before": 1,
+      "torch_num_threads_after": 1
+    },
+    {
+      "repetition": 2,
+      "image": "000102.png",
+      "latency_ms": 12.973,
+      "torch_num_threads_before": 1,
+      "torch_num_threads_after": 1
+    },
+    {
+      "repetition": 2,
+      "image": "000995.png",
+      "latency_ms": 12.985,
+      "torch_num_threads_before": 1,
+      "torch_num_threads_after": 1
+    },
+    {
+      "repetition": 2,
+      "image": "003696.png",
+      "latency_ms": 12.86,
+      "torch_num_threads_before": 1,
+      "torch_num_threads_after": 1
+    },
+    {
+      "repetition": 2,
+      "image": "005655.png",
+      "latency_ms": 12.929,
+      "torch_num_threads_before": 1,
+      "torch_num_threads_after": 1
+    },
+    {
+      "repetition": 2,
+      "image": "004599.png",
+      "latency_ms": 12.953,
+      "torch_num_threads_before": 1,
+      "torch_num_threads_after": 1
+    },
+    {
+      "repetition": 2,
+      "image": "006696.png",
+      "latency_ms": 12.709,
+      "torch_num_threads_before": 1,
+      "torch_num_threads_after": 1
+    },
+    {
+      "repetition": 2,
+      "image": "001832.png",
+      "latency_ms": 13.224,
+      "torch_num_threads_before": 1,
+      "torch_num_threads_after": 1
+    },
+    {
+      "repetition": 2,
+      "image": "002777.png",
+      "latency_ms": 12.87,
+      "torch_num_threads_before": 1,
+      "torch_num_threads_after": 1
+    },
+    {
+      "repetition": 2,
+      "image": "002015.png",
+      "latency_ms": 12.847,
+      "torch_num_threads_before": 1,
+      "torch_num_threads_after": 1
+    },
+    {
+      "repetition": 2,
+      "image": "002845.png",
+      "latency_ms": 12.965,
+      "torch_num_threads_before": 1,
+      "torch_num_threads_after": 1
+    },
+    {
+      "repetition": 2,
+      "image": "006980.png",
+      "latency_ms": 12.79,
+      "torch_num_threads_before": 1,
+      "torch_num_threads_after": 1
+    },
+    {
+      "repetition": 2,
+      "image": "000259.png",
+      "latency_ms": 12.912,
+      "torch_num_threads_before": 1,
+      "torch_num_threads_after": 1
+    },
+    {
+      "repetition": 2,
+      "image": "005972.png",
+      "latency_ms": 12.959,
+      "torch_num_threads_before": 1,
+      "torch_num_threads_after": 1
+    },
+    {
+      "repetition": 2,
+      "image": "002102.png",
+      "latency_ms": 12.999,
+      "torch_num_threads_before": 1,
+      "torch_num_threads_after": 1
+    },
+    {
+      "repetition": 2,
+      "image": "005964.png",
+      "latency_ms": 12.943,
+      "torch_num_threads_before": 1,
+      "torch_num_threads_after": 1
+    },
+    {
+      "repetition": 2,
+      "image": "000733.png",
+      "latency_ms": 12.921,
+      "torch_num_threads_before": 1,
+      "torch_num_threads_after": 1
+    },
+    {
+      "repetition": 2,
+      "image": "002267.png",
+      "latency_ms": 13.101,
+      "torch_num_threads_before": 1,
+      "torch_num_threads_after": 1
+    },
+    {
+      "repetition": 2,
+      "image": "003728.png",
+      "latency_ms": 12.919,
+      "torch_num_threads_before": 1,
+      "torch_num_threads_after": 1
+    },
+    {
+      "repetition": 2,
+      "image": "006564.png",
+      "latency_ms": 13.108,
+      "torch_num_threads_before": 1,
+      "torch_num_threads_after": 1
+    },
+    {
+      "repetition": 2,
+      "image": "005694.png",
+      "latency_ms": 12.984,
+      "torch_num_threads_before": 1,
+      "torch_num_threads_after": 1
+    },
+    {
+      "repetition": 2,
+      "image": "002720.png",
+      "latency_ms": 13.016,
+      "torch_num_threads_before": 1,
+      "torch_num_threads_after": 1
+    },
+    {
+      "repetition": 2,
+      "image": "006432.png",
+      "latency_ms": 13.028,
+      "torch_num_threads_before": 1,
+      "torch_num_threads_after": 1
+    },
+    {
+      "repetition": 2,
+      "image": "005429.png",
+      "latency_ms": 13.084,
+      "torch_num_threads_before": 1,
+      "torch_num_threads_after": 1
+    },
+    {
+      "repetition": 2,
+      "image": "003935.png",
+      "latency_ms": 12.813,
+      "torch_num_threads_before": 1,
+      "torch_num_threads_after": 1
+    },
+    {
+      "repetition": 2,
+      "image": "005526.png",
+      "latency_ms": 13.076,
+      "torch_num_threads_before": 1,
+      "torch_num_threads_after": 1
+    },
+    {
+      "repetition": 2,
+      "image": "006430.png",
+      "latency_ms": 12.949,
+      "torch_num_threads_before": 1,
+      "torch_num_threads_after": 1
+    },
+    {
+      "repetition": 2,
+      "image": "007445.png",
+      "latency_ms": 13.317,
+      "torch_num_threads_before": 1,
+      "torch_num_threads_after": 1
+    },
+    {
+      "repetition": 2,
+      "image": "003004.png",
+      "latency_ms": 14.205,
+      "torch_num_threads_before": 1,
+      "torch_num_threads_after": 1
+    },
+    {
+      "repetition": 2,
+      "image": "006347.png",
+      "latency_ms": 13.09,
+      "torch_num_threads_before": 1,
+      "torch_num_threads_after": 1
+    },
+    {
+      "repetition": 2,
+      "image": "000432.png",
+      "latency_ms": 13.173,
+      "torch_num_threads_before": 1,
+      "torch_num_threads_after": 1
+    },
+    {
+      "repetition": 2,
+      "image": "000721.png",
+      "latency_ms": 12.991,
+      "torch_num_threads_before": 1,
+      "torch_num_threads_after": 1
+    },
+    {
+      "repetition": 2,
+      "image": "003781.png",
+      "latency_ms": 12.904,
+      "torch_num_threads_before": 1,
+      "torch_num_threads_after": 1
+    },
+    {
+      "repetition": 2,
+      "image": "002192.png",
+      "latency_ms": 12.996,
+      "torch_num_threads_before": 1,
+      "torch_num_threads_after": 1
+    },
+    {
+      "repetition": 2,
+      "image": "006161.png",
+      "latency_ms": 12.853,
+      "torch_num_threads_before": 1,
+      "torch_num_threads_after": 1
+    },
+    {
+      "repetition": 2,
+      "image": "003266.png",
+      "latency_ms": 12.924,
+      "torch_num_threads_before": 1,
+      "torch_num_threads_after": 1
+    },
+    {
+      "repetition": 2,
+      "image": "001672.png",
+      "latency_ms": 13.199,
+      "torch_num_threads_before": 1,
+      "torch_num_threads_after": 1
+    },
+    {
+      "repetition": 2,
+      "image": "002251.png",
+      "latency_ms": 12.974,
+      "torch_num_threads_before": 1,
+      "torch_num_threads_after": 1
+    },
+    {
+      "repetition": 2,
+      "image": "005157.png",
+      "latency_ms": 12.907,
+      "torch_num_threads_before": 1,
+      "torch_num_threads_after": 1
+    },
+    {
+      "repetition": 2,
+      "image": "006468.png",
+      "latency_ms": 12.871,
+      "torch_num_threads_before": 1,
+      "torch_num_threads_after": 1
+    },
+    {
+      "repetition": 2,
+      "image": "003928.png",
+      "latency_ms": 12.849,
+      "torch_num_threads_before": 1,
+      "torch_num_threads_after": 1
+    },
+    {
+      "repetition": 2,
+      "image": "002955.png",
+      "latency_ms": 12.89,
+      "torch_num_threads_before": 1,
+      "torch_num_threads_after": 1
+    },
+    {
+      "repetition": 2,
+      "image": "003345.png",
+      "latency_ms": 12.934,
+      "torch_num_threads_before": 1,
+      "torch_num_threads_after": 1
+    },
+    {
+      "repetition": 2,
+      "image": "002812.png",
+      "latency_ms": 12.88,
+      "torch_num_threads_before": 1,
+      "torch_num_threads_after": 1
+    },
+    {
+      "repetition": 2,
+      "image": "007124.png",
+      "latency_ms": 12.959,
+      "torch_num_threads_before": 1,
+      "torch_num_threads_after": 1
+    },
+    {
+      "repetition": 2,
+      "image": "000455.png",
+      "latency_ms": 12.921,
+      "torch_num_threads_before": 1,
+      "torch_num_threads_after": 1
+    },
+    {
+      "repetition": 2,
+      "image": "002736.png",
+      "latency_ms": 12.876,
+      "torch_num_threads_before": 1,
+      "torch_num_threads_after": 1
+    },
+    {
+      "repetition": 2,
+      "image": "002334.png",
+      "latency_ms": 12.823,
+      "torch_num_threads_before": 1,
+      "torch_num_threads_after": 1
+    },
+    {
+      "repetition": 2,
+      "image": "004383.png",
+      "latency_ms": 13.0,
+      "torch_num_threads_before": 1,
+      "torch_num_threads_after": 1
+    },
+    {
+      "repetition": 2,
+      "image": "001115.png",
+      "latency_ms": 12.863,
+      "torch_num_threads_before": 1,
+      "torch_num_threads_after": 1
+    },
+    {
+      "repetition": 2,
+      "image": "007158.png",
+      "latency_ms": 12.917,
+      "torch_num_threads_before": 1,
+      "torch_num_threads_after": 1
+    },
+    {
+      "repetition": 2,
+      "image": "000843.png",
+      "latency_ms": 13.106,
+      "torch_num_threads_before": 1,
+      "torch_num_threads_after": 1
+    },
+    {
+      "repetition": 2,
+      "image": "003748.png",
+      "latency_ms": 12.903,
+      "torch_num_threads_before": 1,
+      "torch_num_threads_after": 1
+    },
+    {
+      "repetition": 2,
+      "image": "006923.png",
+      "latency_ms": 12.948,
+      "torch_num_threads_before": 1,
+      "torch_num_threads_after": 1
+    },
+    {
+      "repetition": 2,
+      "image": "000847.png",
+      "latency_ms": 12.881,
+      "torch_num_threads_before": 1,
+      "torch_num_threads_after": 1
+    },
+    {
+      "repetition": 2,
+      "image": "004382.png",
+      "latency_ms": 13.003,
+      "torch_num_threads_before": 1,
+      "torch_num_threads_after": 1
+    },
+    {
+      "repetition": 2,
+      "image": "002561.png",
+      "latency_ms": 13.039,
+      "torch_num_threads_before": 1,
+      "torch_num_threads_after": 1
+    },
+    {
+      "repetition": 2,
+      "image": "000293.png",
+      "latency_ms": 13.092,
+      "torch_num_threads_before": 1,
+      "torch_num_threads_after": 1
+    },
+    {
+      "repetition": 2,
+      "image": "007449.png",
+      "latency_ms": 12.949,
+      "torch_num_threads_before": 1,
+      "torch_num_threads_after": 1
+    },
+    {
+      "repetition": 2,
+      "image": "001753.png",
+      "latency_ms": 12.953,
+      "torch_num_threads_before": 1,
+      "torch_num_threads_after": 1
+    },
+    {
+      "repetition": 2,
+      "image": "001751.png",
+      "latency_ms": 13.244,
+      "torch_num_threads_before": 1,
+      "torch_num_threads_after": 1
+    },
+    {
+      "repetition": 2,
+      "image": "002363.png",
+      "latency_ms": 13.072,
+      "torch_num_threads_before": 1,
+      "torch_num_threads_after": 1
+    },
+    {
+      "repetition": 2,
+      "image": "004730.png",
+      "latency_ms": 12.991,
+      "torch_num_threads_before": 1,
+      "torch_num_threads_after": 1
+    },
+    {
+      "repetition": 2,
+      "image": "003554.png",
+      "latency_ms": 12.969,
+      "torch_num_threads_before": 1,
+      "torch_num_threads_after": 1
+    },
+    {
+      "repetition": 2,
+      "image": "001084.png",
+      "latency_ms": 12.969,
+      "torch_num_threads_before": 1,
+      "torch_num_threads_after": 1
+    },
+    {
+      "repetition": 2,
+      "image": "006777.png",
+      "latency_ms": 12.979,
+      "torch_num_threads_before": 1,
+      "torch_num_threads_after": 1
+    },
+    {
+      "repetition": 2,
+      "image": "007092.png",
+      "latency_ms": 13.006,
+      "torch_num_threads_before": 1,
+      "torch_num_threads_after": 1
+    },
+    {
+      "repetition": 2,
+      "image": "001524.png",
+      "latency_ms": 13.005,
+      "torch_num_threads_before": 1,
+      "torch_num_threads_after": 1
+    },
+    {
+      "repetition": 2,
+      "image": "006948.png",
+      "latency_ms": 12.925,
+      "torch_num_threads_before": 1,
+      "torch_num_threads_after": 1
+    },
+    {
+      "repetition": 2,
+      "image": "001357.png",
+      "latency_ms": 12.974,
+      "torch_num_threads_before": 1,
+      "torch_num_threads_after": 1
+    },
+    {
+      "repetition": 2,
+      "image": "003507.png",
+      "latency_ms": 12.823,
+      "torch_num_threads_before": 1,
+      "torch_num_threads_after": 1
+    },
+    {
+      "repetition": 2,
+      "image": "001046.png",
+      "latency_ms": 13.046,
+      "torch_num_threads_before": 1,
+      "torch_num_threads_after": 1
+    },
+    {
+      "repetition": 2,
+      "image": "000975.png",
+      "latency_ms": 12.933,
+      "torch_num_threads_before": 1,
+      "torch_num_threads_after": 1
+    },
+    {
+      "repetition": 2,
+      "image": "000570.png",
+      "latency_ms": 13.081,
+      "torch_num_threads_before": 1,
+      "torch_num_threads_after": 1
+    },
+    {
+      "repetition": 2,
+      "image": "001734.png",
+      "latency_ms": 13.097,
+      "torch_num_threads_before": 1,
+      "torch_num_threads_after": 1
+    },
+    {
+      "repetition": 2,
+      "image": "003641.png",
+      "latency_ms": 13.024,
+      "torch_num_threads_before": 1,
+      "torch_num_threads_after": 1
+    },
+    {
+      "repetition": 2,
+      "image": "006475.png",
+      "latency_ms": 12.966,
+      "torch_num_threads_before": 1,
+      "torch_num_threads_after": 1
+    },
+    {
+      "repetition": 2,
+      "image": "005576.png",
+      "latency_ms": 12.835,
+      "torch_num_threads_before": 1,
+      "torch_num_threads_after": 1
+    },
+    {
+      "repetition": 2,
+      "image": "006252.png",
+      "latency_ms": 12.877,
+      "torch_num_threads_before": 1,
+      "torch_num_threads_after": 1
+    },
+    {
+      "repetition": 2,
+      "image": "007120.png",
+      "latency_ms": 12.888,
+      "torch_num_threads_before": 1,
+      "torch_num_threads_after": 1
+    },
+    {
+      "repetition": 2,
+      "image": "005847.png",
+      "latency_ms": 12.907,
+      "torch_num_threads_before": 1,
+      "torch_num_threads_after": 1
+    },
+    {
+      "repetition": 2,
+      "image": "003916.png",
+      "latency_ms": 12.961,
+      "torch_num_threads_before": 1,
+      "torch_num_threads_after": 1
+    },
+    {
+      "repetition": 2,
+      "image": "004760.png",
+      "latency_ms": 12.968,
+      "torch_num_threads_before": 1,
+      "torch_num_threads_after": 1
+    },
+    {
+      "repetition": 2,
+      "image": "000268.png",
+      "latency_ms": 13.005,
+      "torch_num_threads_before": 1,
+      "torch_num_threads_after": 1
+    },
+    {
+      "repetition": 2,
+      "image": "006108.png",
+      "latency_ms": 12.997,
+      "torch_num_threads_before": 1,
+      "torch_num_threads_after": 1
+    },
+    {
+      "repetition": 2,
+      "image": "004660.png",
+      "latency_ms": 12.927,
+      "torch_num_threads_before": 1,
+      "torch_num_threads_after": 1
+    },
+    {
+      "repetition": 2,
+      "image": "006087.png",
+      "latency_ms": 12.967,
+      "torch_num_threads_before": 1,
+      "torch_num_threads_after": 1
+    },
+    {
+      "repetition": 2,
+      "image": "004187.png",
+      "latency_ms": 13.009,
+      "torch_num_threads_before": 1,
+      "torch_num_threads_after": 1
+    },
+    {
+      "repetition": 2,
+      "image": "000918.png",
+      "latency_ms": 13.069,
+      "torch_num_threads_before": 1,
+      "torch_num_threads_after": 1
+    },
+    {
+      "repetition": 2,
+      "image": "007302.png",
+      "latency_ms": 12.976,
+      "torch_num_threads_before": 1,
+      "torch_num_threads_after": 1
+    },
+    {
+      "repetition": 2,
+      "image": "006554.png",
+      "latency_ms": 12.963,
+      "torch_num_threads_before": 1,
+      "torch_num_threads_after": 1
+    },
+    {
+      "repetition": 2,
+      "image": "003482.png",
+      "latency_ms": 12.961,
+      "torch_num_threads_before": 1,
+      "torch_num_threads_after": 1
+    },
+    {
+      "repetition": 2,
+      "image": "004359.png",
+      "latency_ms": 13.0,
+      "torch_num_threads_before": 1,
+      "torch_num_threads_after": 1
+    },
+    {
+      "repetition": 2,
+      "image": "001213.png",
+      "latency_ms": 12.891,
+      "torch_num_threads_before": 1,
+      "torch_num_threads_after": 1
+    },
+    {
+      "repetition": 2,
+      "image": "006828.png",
+      "latency_ms": 13.145,
+      "torch_num_threads_before": 1,
+      "torch_num_threads_after": 1
+    },
+    {
+      "repetition": 2,
+      "image": "002453.png",
+      "latency_ms": 12.987,
+      "torch_num_threads_before": 1,
+      "torch_num_threads_after": 1
+    },
+    {
+      "repetition": 2,
+      "image": "000310.png",
+      "latency_ms": 13.029,
+      "torch_num_threads_before": 1,
+      "torch_num_threads_after": 1
+    },
+    {
+      "repetition": 3,
+      "image": "003781.png",
+      "latency_ms": 12.982,
+      "torch_num_threads_before": 1,
+      "torch_num_threads_after": 1
+    },
+    {
+      "repetition": 3,
+      "image": "002267.png",
+      "latency_ms": 13.158,
+      "torch_num_threads_before": 1,
+      "torch_num_threads_after": 1
+    },
+    {
+      "repetition": 3,
+      "image": "006432.png",
+      "latency_ms": 13.065,
+      "torch_num_threads_before": 1,
+      "torch_num_threads_after": 1
+    },
+    {
+      "repetition": 3,
+      "image": "003345.png",
+      "latency_ms": 13.073,
+      "torch_num_threads_before": 1,
+      "torch_num_threads_after": 1
+    },
+    {
+      "repetition": 3,
+      "image": "001832.png",
+      "latency_ms": 13.039,
+      "torch_num_threads_before": 1,
+      "torch_num_threads_after": 1
+    },
+    {
+      "repetition": 3,
+      "image": "004660.png",
+      "latency_ms": 12.968,
+      "torch_num_threads_before": 1,
+      "torch_num_threads_after": 1
+    },
+    {
+      "repetition": 3,
+      "image": "005576.png",
+      "latency_ms": 12.986,
+      "torch_num_threads_before": 1,
+      "torch_num_threads_after": 1
+    },
+    {
+      "repetition": 3,
+      "image": "000843.png",
+      "latency_ms": 12.987,
+      "torch_num_threads_before": 1,
+      "torch_num_threads_after": 1
+    },
+    {
+      "repetition": 3,
+      "image": "002285.png",
+      "latency_ms": 12.924,
+      "torch_num_threads_before": 1,
+      "torch_num_threads_after": 1
+    },
+    {
+      "repetition": 3,
+      "image": "002015.png",
+      "latency_ms": 12.898,
+      "torch_num_threads_before": 1,
+      "torch_num_threads_after": 1
+    },
+    {
+      "repetition": 3,
+      "image": "003748.png",
+      "latency_ms": 13.056,
+      "torch_num_threads_before": 1,
+      "torch_num_threads_after": 1
+    },
+    {
+      "repetition": 3,
+      "image": "007449.png",
+      "latency_ms": 12.85,
+      "torch_num_threads_before": 1,
+      "torch_num_threads_after": 1
+    },
+    {
+      "repetition": 3,
+      "image": "006564.png",
+      "latency_ms": 12.885,
+      "torch_num_threads_before": 1,
+      "torch_num_threads_after": 1
+    },
+    {
+      "repetition": 3,
+      "image": "002423.png",
+      "latency_ms": 12.884,
+      "torch_num_threads_before": 1,
+      "torch_num_threads_after": 1
+    },
+    {
+      "repetition": 3,
+      "image": "002334.png",
+      "latency_ms": 12.81,
+      "torch_num_threads_before": 1,
+      "torch_num_threads_after": 1
+    },
+    {
+      "repetition": 3,
+      "image": "003641.png",
+      "latency_ms": 12.975,
+      "torch_num_threads_before": 1,
+      "torch_num_threads_after": 1
+    },
+    {
+      "repetition": 3,
+      "image": "003928.png",
+      "latency_ms": 12.884,
+      "torch_num_threads_before": 1,
+      "torch_num_threads_after": 1
+    },
+    {
+      "repetition": 3,
+      "image": "004382.png",
+      "latency_ms": 13.02,
+      "torch_num_threads_before": 1,
+      "torch_num_threads_after": 1
+    },
+    {
+      "repetition": 3,
+      "image": "000847.png",
+      "latency_ms": 12.946,
+      "torch_num_threads_before": 1,
+      "torch_num_threads_after": 1
+    },
+    {
+      "repetition": 3,
+      "image": "005847.png",
+      "latency_ms": 12.858,
+      "torch_num_threads_before": 1,
+      "torch_num_threads_after": 1
+    },
+    {
+      "repetition": 3,
+      "image": "002845.png",
+      "latency_ms": 12.915,
+      "torch_num_threads_before": 1,
+      "torch_num_threads_after": 1
+    },
+    {
+      "repetition": 3,
+      "image": "001115.png",
+      "latency_ms": 12.979,
+      "torch_num_threads_before": 1,
+      "torch_num_threads_after": 1
+    },
+    {
+      "repetition": 3,
+      "image": "006696.png",
+      "latency_ms": 12.892,
+      "torch_num_threads_before": 1,
+      "torch_num_threads_after": 1
+    },
+    {
+      "repetition": 3,
+      "image": "001357.png",
+      "latency_ms": 12.943,
+      "torch_num_threads_before": 1,
+      "torch_num_threads_after": 1
+    },
+    {
+      "repetition": 3,
+      "image": "004383.png",
+      "latency_ms": 12.998,
+      "torch_num_threads_before": 1,
+      "torch_num_threads_after": 1
+    },
+    {
+      "repetition": 3,
+      "image": "001213.png",
+      "latency_ms": 12.873,
+      "torch_num_threads_before": 1,
+      "torch_num_threads_after": 1
+    },
+    {
+      "repetition": 3,
+      "image": "007158.png",
+      "latency_ms": 12.894,
+      "torch_num_threads_before": 1,
+      "torch_num_threads_after": 1
+    },
+    {
+      "repetition": 3,
+      "image": "000570.png",
+      "latency_ms": 37.951,
+      "torch_num_threads_before": 1,
+      "torch_num_threads_after": 1
+    },
+    {
+      "repetition": 3,
+      "image": "000102.png",
+      "latency_ms": 13.52,
+      "torch_num_threads_before": 1,
+      "torch_num_threads_after": 1
+    },
+    {
+      "repetition": 3,
+      "image": "000432.png",
+      "latency_ms": 13.016,
+      "torch_num_threads_before": 1,
+      "torch_num_threads_after": 1
+    },
+    {
+      "repetition": 3,
+      "image": "003916.png",
+      "latency_ms": 12.943,
+      "torch_num_threads_before": 1,
+      "torch_num_threads_after": 1
+    },
+    {
+      "repetition": 3,
+      "image": "003004.png",
+      "latency_ms": 12.96,
+      "torch_num_threads_before": 1,
+      "torch_num_threads_after": 1
+    },
+    {
+      "repetition": 3,
+      "image": "004599.png",
+      "latency_ms": 12.974,
+      "torch_num_threads_before": 1,
+      "torch_num_threads_after": 1
+    },
+    {
+      "repetition": 3,
+      "image": "002736.png",
+      "latency_ms": 13.188,
+      "torch_num_threads_before": 1,
+      "torch_num_threads_after": 1
+    },
+    {
+      "repetition": 3,
+      "image": "007445.png",
+      "latency_ms": 13.006,
+      "torch_num_threads_before": 1,
+      "torch_num_threads_after": 1
+    },
+    {
+      "repetition": 3,
+      "image": "005655.png",
+      "latency_ms": 12.962,
+      "torch_num_threads_before": 1,
+      "torch_num_threads_after": 1
+    },
+    {
+      "repetition": 3,
+      "image": "006252.png",
+      "latency_ms": 13.043,
+      "torch_num_threads_before": 1,
+      "torch_num_threads_after": 1
+    },
+    {
+      "repetition": 3,
+      "image": "005412.png",
+      "latency_ms": 12.933,
+      "torch_num_threads_before": 1,
+      "torch_num_threads_after": 1
+    },
+    {
+      "repetition": 3,
+      "image": "004730.png",
+      "latency_ms": 13.148,
+      "torch_num_threads_before": 1,
+      "torch_num_threads_after": 1
+    },
+    {
+      "repetition": 3,
+      "image": "002251.png",
+      "latency_ms": 13.192,
+      "torch_num_threads_before": 1,
+      "torch_num_threads_after": 1
+    },
+    {
+      "repetition": 3,
+      "image": "004187.png",
+      "latency_ms": 12.942,
+      "torch_num_threads_before": 1,
+      "torch_num_threads_after": 1
+    },
+    {
+      "repetition": 3,
+      "image": "001751.png",
+      "latency_ms": 12.904,
+      "torch_num_threads_before": 1,
+      "torch_num_threads_after": 1
+    },
+    {
+      "repetition": 3,
+      "image": "001672.png",
+      "latency_ms": 12.936,
+      "torch_num_threads_before": 1,
+      "torch_num_threads_after": 1
+    },
+    {
+      "repetition": 3,
+      "image": "006108.png",
+      "latency_ms": 12.781,
+      "torch_num_threads_before": 1,
+      "torch_num_threads_after": 1
+    },
+    {
+      "repetition": 3,
+      "image": "006161.png",
+      "latency_ms": 13.044,
+      "torch_num_threads_before": 1,
+      "torch_num_threads_after": 1
+    },
+    {
+      "repetition": 3,
+      "image": "006087.png",
+      "latency_ms": 12.99,
+      "torch_num_threads_before": 1,
+      "torch_num_threads_after": 1
+    },
+    {
+      "repetition": 3,
+      "image": "002102.png",
+      "latency_ms": 12.943,
+      "torch_num_threads_before": 1,
+      "torch_num_threads_after": 1
+    },
+    {
+      "repetition": 3,
+      "image": "006347.png",
+      "latency_ms": 12.944,
+      "torch_num_threads_before": 1,
+      "torch_num_threads_after": 1
+    },
+    {
+      "repetition": 3,
+      "image": "005964.png",
+      "latency_ms": 12.803,
+      "torch_num_threads_before": 1,
+      "torch_num_threads_after": 1
+    },
+    {
+      "repetition": 3,
+      "image": "000268.png",
+      "latency_ms": 12.932,
+      "torch_num_threads_before": 1,
+      "torch_num_threads_after": 1
+    },
+    {
+      "repetition": 3,
+      "image": "006923.png",
+      "latency_ms": 12.933,
+      "torch_num_threads_before": 1,
+      "torch_num_threads_after": 1
+    },
+    {
+      "repetition": 3,
+      "image": "003554.png",
+      "latency_ms": 12.965,
+      "torch_num_threads_before": 1,
+      "torch_num_threads_after": 1
+    },
+    {
+      "repetition": 3,
+      "image": "001046.png",
+      "latency_ms": 12.905,
+      "torch_num_threads_before": 1,
+      "torch_num_threads_after": 1
+    },
+    {
+      "repetition": 3,
+      "image": "003482.png",
+      "latency_ms": 13.164,
+      "torch_num_threads_before": 1,
+      "torch_num_threads_after": 1
+    },
+    {
+      "repetition": 3,
+      "image": "001084.png",
+      "latency_ms": 13.043,
+      "torch_num_threads_before": 1,
+      "torch_num_threads_after": 1
+    },
+    {
+      "repetition": 3,
+      "image": "007302.png",
+      "latency_ms": 13.0,
+      "torch_num_threads_before": 1,
+      "torch_num_threads_after": 1
+    },
+    {
+      "repetition": 3,
+      "image": "003935.png",
+      "latency_ms": 12.894,
+      "torch_num_threads_before": 1,
+      "torch_num_threads_after": 1
+    },
+    {
+      "repetition": 3,
+      "image": "005429.png",
+      "latency_ms": 12.876,
+      "torch_num_threads_before": 1,
+      "torch_num_threads_after": 1
+    },
+    {
+      "repetition": 3,
+      "image": "004359.png",
+      "latency_ms": 12.896,
+      "torch_num_threads_before": 1,
+      "torch_num_threads_after": 1
+    },
+    {
+      "repetition": 3,
+      "image": "002262.png",
+      "latency_ms": 12.872,
+      "torch_num_threads_before": 1,
+      "torch_num_threads_after": 1
+    },
+    {
+      "repetition": 3,
+      "image": "000455.png",
+      "latency_ms": 13.025,
+      "torch_num_threads_before": 1,
+      "torch_num_threads_after": 1
+    },
+    {
+      "repetition": 3,
+      "image": "001753.png",
+      "latency_ms": 12.806,
+      "torch_num_threads_before": 1,
+      "torch_num_threads_after": 1
+    },
+    {
+      "repetition": 3,
+      "image": "007120.png",
+      "latency_ms": 13.073,
+      "torch_num_threads_before": 1,
+      "torch_num_threads_after": 1
+    },
+    {
+      "repetition": 3,
+      "image": "000310.png",
+      "latency_ms": 12.93,
+      "torch_num_threads_before": 1,
+      "torch_num_threads_after": 1
+    },
+    {
+      "repetition": 3,
+      "image": "006948.png",
+      "latency_ms": 12.914,
+      "torch_num_threads_before": 1,
+      "torch_num_threads_after": 1
+    },
+    {
+      "repetition": 3,
+      "image": "000975.png",
+      "latency_ms": 13.023,
+      "torch_num_threads_before": 1,
+      "torch_num_threads_after": 1
+    },
+    {
+      "repetition": 3,
+      "image": "002777.png",
+      "latency_ms": 12.862,
+      "torch_num_threads_before": 1,
+      "torch_num_threads_after": 1
+    },
+    {
+      "repetition": 3,
+      "image": "002363.png",
+      "latency_ms": 13.017,
+      "torch_num_threads_before": 1,
+      "torch_num_threads_after": 1
+    },
+    {
+      "repetition": 3,
+      "image": "006554.png",
+      "latency_ms": 12.932,
+      "torch_num_threads_before": 1,
+      "torch_num_threads_after": 1
+    },
+    {
+      "repetition": 3,
+      "image": "000721.png",
+      "latency_ms": 12.97,
+      "torch_num_threads_before": 1,
+      "torch_num_threads_after": 1
+    },
+    {
+      "repetition": 3,
+      "image": "006468.png",
+      "latency_ms": 12.907,
+      "torch_num_threads_before": 1,
+      "torch_num_threads_after": 1
+    },
+    {
+      "repetition": 3,
+      "image": "006777.png",
+      "latency_ms": 12.966,
+      "torch_num_threads_before": 1,
+      "torch_num_threads_after": 1
+    },
+    {
+      "repetition": 3,
+      "image": "006475.png",
+      "latency_ms": 13.148,
+      "torch_num_threads_before": 1,
+      "torch_num_threads_after": 1
+    },
+    {
+      "repetition": 3,
+      "image": "002453.png",
+      "latency_ms": 13.092,
+      "torch_num_threads_before": 1,
+      "torch_num_threads_after": 1
+    },
+    {
+      "repetition": 3,
+      "image": "002955.png",
+      "latency_ms": 13.054,
+      "torch_num_threads_before": 1,
+      "torch_num_threads_after": 1
+    },
+    {
+      "repetition": 3,
+      "image": "000733.png",
+      "latency_ms": 13.008,
+      "torch_num_threads_before": 1,
+      "torch_num_threads_after": 1
+    },
+    {
+      "repetition": 3,
+      "image": "003266.png",
+      "latency_ms": 13.108,
+      "torch_num_threads_before": 1,
+      "torch_num_threads_after": 1
+    },
+    {
+      "repetition": 3,
+      "image": "002812.png",
+      "latency_ms": 13.054,
+      "torch_num_threads_before": 1,
+      "torch_num_threads_after": 1
+    },
+    {
+      "repetition": 3,
+      "image": "003696.png",
+      "latency_ms": 12.994,
+      "torch_num_threads_before": 1,
+      "torch_num_threads_after": 1
+    },
+    {
+      "repetition": 3,
+      "image": "005972.png",
+      "latency_ms": 12.915,
+      "torch_num_threads_before": 1,
+      "torch_num_threads_after": 1
+    },
+    {
+      "repetition": 3,
+      "image": "007092.png",
+      "latency_ms": 13.045,
+      "torch_num_threads_before": 1,
+      "torch_num_threads_after": 1
+    },
+    {
+      "repetition": 3,
+      "image": "006430.png",
+      "latency_ms": 12.908,
+      "torch_num_threads_before": 1,
+      "torch_num_threads_after": 1
+    },
+    {
+      "repetition": 3,
+      "image": "002720.png",
+      "latency_ms": 12.964,
+      "torch_num_threads_before": 1,
+      "torch_num_threads_after": 1
+    },
+    {
+      "repetition": 3,
+      "image": "004760.png",
+      "latency_ms": 12.954,
+      "torch_num_threads_before": 1,
+      "torch_num_threads_after": 1
+    },
+    {
+      "repetition": 3,
+      "image": "001524.png",
+      "latency_ms": 12.946,
+      "torch_num_threads_before": 1,
+      "torch_num_threads_after": 1
+    },
+    {
+      "repetition": 3,
+      "image": "000918.png",
+      "latency_ms": 13.0,
+      "torch_num_threads_before": 1,
+      "torch_num_threads_after": 1
+    },
+    {
+      "repetition": 3,
+      "image": "000259.png",
+      "latency_ms": 12.954,
+      "torch_num_threads_before": 1,
+      "torch_num_threads_after": 1
+    },
+    {
+      "repetition": 3,
+      "image": "005694.png",
+      "latency_ms": 12.94,
+      "torch_num_threads_before": 1,
+      "torch_num_threads_after": 1
+    },
+    {
+      "repetition": 3,
+      "image": "007124.png",
+      "latency_ms": 12.96,
+      "torch_num_threads_before": 1,
+      "torch_num_threads_after": 1
+    },
+    {
+      "repetition": 3,
+      "image": "006980.png",
+      "latency_ms": 12.844,
+      "torch_num_threads_before": 1,
+      "torch_num_threads_after": 1
+    },
+    {
+      "repetition": 3,
+      "image": "000293.png",
+      "latency_ms": 12.907,
+      "torch_num_threads_before": 1,
+      "torch_num_threads_after": 1
+    },
+    {
+      "repetition": 3,
+      "image": "002561.png",
+      "latency_ms": 13.156,
+      "torch_num_threads_before": 1,
+      "torch_num_threads_after": 1
+    },
+    {
+      "repetition": 3,
+      "image": "002192.png",
+      "latency_ms": 13.766,
+      "torch_num_threads_before": 1,
+      "torch_num_threads_after": 1
+    },
+    {
+      "repetition": 3,
+      "image": "003507.png",
+      "latency_ms": 13.065,
+      "torch_num_threads_before": 1,
+      "torch_num_threads_after": 1
+    },
+    {
+      "repetition": 3,
+      "image": "001734.png",
+      "latency_ms": 12.886,
+      "torch_num_threads_before": 1,
+      "torch_num_threads_after": 1
+    },
+    {
+      "repetition": 3,
+      "image": "000995.png",
+      "latency_ms": 13.087,
+      "torch_num_threads_before": 1,
+      "torch_num_threads_after": 1
+    },
+    {
+      "repetition": 3,
+      "image": "006828.png",
+      "latency_ms": 12.98,
+      "torch_num_threads_before": 1,
+      "torch_num_threads_after": 1
+    },
+    {
+      "repetition": 3,
+      "image": "005526.png",
+      "latency_ms": 12.901,
+      "torch_num_threads_before": 1,
+      "torch_num_threads_after": 1
+    },
+    {
+      "repetition": 3,
+      "image": "005157.png",
+      "latency_ms": 12.895,
+      "torch_num_threads_before": 1,
+      "torch_num_threads_after": 1
+    },
+    {
+      "repetition": 3,
+      "image": "003728.png",
+      "latency_ms": 13.032,
+      "torch_num_threads_before": 1,
+      "torch_num_threads_after": 1
+    }
+  ]
+}

@@ -62,7 +62,8 @@ CANDIDATES = [
 
 
 def candidate_record(candidate_id, image_size, map50_95):
-    return {
+    from src.proposal.compatibility import PILOT_POLICY, EXPECTED_CLASSES
+    record = {
         "schema_version": "1.0",
         "candidate_id": candidate_id,
         "model": {
@@ -81,6 +82,13 @@ def candidate_record(candidate_id, image_size, map50_95):
             "protocol_status": "standardized",
         },
     }
+
+    for path, value in PILOT_POLICY.items():
+        section, field = path.split(".")
+        record[section][field] = value
+    record["accuracy"]["per_class"] = {name: {} for name in EXPECTED_CLASSES}
+    record["benchmark"]["hardware_id"] = "local_mac_cpu_01"
+    return record
 
 
 class TestSearchController(unittest.TestCase):
@@ -174,6 +182,7 @@ class TestSearchController(unittest.TestCase):
                 result = run_search(
                     configs / "request.yaml",
                     search_path,
+                    expected_hardware_id="local_mac_cpu_01",
                     dry_run=True,
                 )
 
@@ -218,6 +227,7 @@ class TestSearchController(unittest.TestCase):
                 result = run_search(
                     configs / "request.yaml",
                     search_path,
+                    expected_hardware_id="local_mac_cpu_01",
                 )
 
             runner.assert_not_called()
@@ -282,6 +292,7 @@ class TestSearchController(unittest.TestCase):
                 result = run_search(
                     configs / "request.yaml",
                     search_path,
+                    expected_hardware_id="local_mac_cpu_01",
                 )
 
             runner.assert_called_once()

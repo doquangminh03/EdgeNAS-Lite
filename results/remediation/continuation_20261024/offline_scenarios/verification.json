@@ -1,0 +1,37 @@
+[
+  {
+    "scenario": "balanced",
+    "exit_code": 0,
+    "selected": "yolo26n_kitti_pilot_imgsz416_cpu",
+    "status": "selected"
+  },
+  {
+    "scenario": "accuracy",
+    "exit_code": 0,
+    "selected": "yolo26n_kitti_pilot_imgsz512_cpu",
+    "status": "selected"
+  },
+  {
+    "scenario": "no_feasible",
+    "exit_code": 1,
+    "selected": null,
+    "status": "no_feasible_candidate"
+  },
+  {
+    "scenario": "hardware_mismatch",
+    "exit_code": 1,
+    "selected": null,
+    "status": "no_compatible_candidates"
+  },
+  {
+    "scenario": "strict_archived",
+    "exit_code": 1,
+    "selected": null,
+    "status": "no_compatible_candidates"
+  },
+  {
+    "scenario": "missing_metadata",
+    "excluded": 7,
+    "entry_point": "evaluate_retrieved_candidates"
+  }
+]

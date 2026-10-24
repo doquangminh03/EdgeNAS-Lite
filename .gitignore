@@ -29,3 +29,5 @@ bus.jpg
 # Dataset and generated runs
 datasets/
 runs/
+# AppleDouble metadata on external volumes
+._*

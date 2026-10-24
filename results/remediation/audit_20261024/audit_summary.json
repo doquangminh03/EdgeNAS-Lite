@@ -1,0 +1,47 @@
+{
+  "head": "d6653dfb6f2b8255149d9cf249d6af221bb57bdf",
+  "test_rerun": {
+    "exit_code": 0,
+    "pass": 229,
+    "fail": 0,
+    "error": 0,
+    "skip": 0
+  },
+  "source_snapshot_before_doc_edits": {
+    "checked": 80,
+    "matched": 80
+  },
+  "after_audit_snapshot_count": 81,
+  "intentional_existing_source_snapshot_differences": [
+    "docs/PORTFOLIO_REMEDIATION_REPORT.md",
+    "docs/REPRODUCIBILITY.md"
+  ],
+  "new_document": "docs/REMEDIATION_AUDIT.md",
+  "application_code_changed_by_audit": false,
+  "historical_tracked_content": {
+    "checked": 127,
+    "changed": 0,
+    "comparison": "HEAD Git blob SHA-1 vs current bytes; ignores mode/stat cache"
+  },
+  "campaign": {
+    "runs": 35,
+    "raw_samples": 10500,
+    "retained_samples": 6300,
+    "numerical_integrity": "PASS",
+    "requested_threads": 1,
+    "raw_recorded_threads": 7,
+    "declared_thread_protocol": "MISMATCH",
+    "remeasured": false
+  },
+  "real_git_packs_verified": 13,
+  "git_access_cause": "explicit session sandbox read-only profile; USB mounted read/write",
+  "git_metadata_deleted_or_permissions_changed": false,
+  "source_snapshot_old_preserved": true,
+  "local_document_links": "PASS",
+  "diff_check_exit": 0,
+  "staged": false,
+  "committed": false,
+  "pushed": false,
+  "merged": false,
+  "paid_api_calls": 0
+}

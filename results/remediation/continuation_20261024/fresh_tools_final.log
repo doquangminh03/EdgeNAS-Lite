@@ -1,0 +1,12 @@
+test_archived_language_responses_still_validate (test_remediation_tools.TestRemediationTools) ... ok
+test_campaign_executes_multiple_resolutions_and_retains_failed_run (test_remediation_tools.TestRemediationTools) ... ok
+test_dataset_overlap_is_rejected (test_remediation_tools.TestRemediationTools) ... ok
+test_file_inputs_reject_nonfinite_values_in_every_constraint (test_remediation_tools.TestRemediationTools) ... ok
+test_language_fields_and_manual_review_are_separate (test_remediation_tools.TestRemediationTools) ... ok
+test_strict_comparison_rejects_changed_environment (test_remediation_tools.TestRemediationTools) ... ok
+test_strict_mode_excludes_archived_records (test_remediation_tools.TestRemediationTools) ... ok
+
+----------------------------------------------------------------------
+Ran 7 tests in 0.131s
+
+OK

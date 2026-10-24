@@ -1,0 +1,25 @@
+{
+  "status": "PASS",
+  "campaign": "results/benchmarks/campaigns/threads1_fixed_20261024/campaign.json",
+  "campaign_sha256": "7a231c8d08df6c683c114128fdde91b004b8bad35bf382795b42ed08b52955e6",
+  "protocol_version": "cpu_campaign_v2",
+  "completed_runs": 35,
+  "raw_samples": 10500,
+  "retained_samples": 6300,
+  "requested_threads": 1,
+  "observed_threads": 1,
+  "all_sample_thread_boundaries_match": true,
+  "after_backend_setup_observations": {
+    "7": 35
+  },
+  "environment_signature_count": 1,
+  "source_hashes_match_campaign_start": true,
+  "prior_evidence_files_unchanged": 143,
+  "tracked_historical_files_unchanged": 127,
+  "limitations": [
+    "Thread counts are checked at prediction boundaries, not continuously.",
+    "No new accuracy validation or index promotion.",
+    "The host was used for documentation while the campaign ran; not a dedicated isolated host.",
+    "Old campaign requested 1 but recorded 7; no automatic cross-protocol performance claim."
+  ]
+}

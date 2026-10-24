@@ -1,0 +1,9 @@
+Request: verify_accuracy
+Hardware: local_mac_cpu_01
+Status: selected
+Retrieved: 7
+Compatible: 7
+Excluded: 0
+Feasible: 1
+Selected: yolo26n_kitti_pilot_imgsz512_cpu
+Saved: /Volumes/Minh' s USB/EdgeNAS-Lite/results/remediation/continuation_20261024/offline_scenarios/accuracy_proposal.json

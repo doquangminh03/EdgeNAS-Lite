@@ -65,6 +65,7 @@ class TestSearchIntegration(unittest.TestCase):
             result = run_search(
                 self.requirement_path,
                 self.search_space_path,
+                expected_hardware_id="local_mac_cpu_01",
             )
 
             runner.assert_not_called()
@@ -143,6 +144,7 @@ class TestSearchIntegration(unittest.TestCase):
             result = run_search(
                 self.requirement_path,
                 self.search_space_path,
+                expected_hardware_id="local_mac_cpu_01",
             )
             runner.assert_not_called()
 
@@ -216,6 +218,7 @@ class TestSearchIntegration(unittest.TestCase):
             result = run_search(
                 requirement_path,
                 self.search_space_path,
+                expected_hardware_id="local_mac_cpu_01",
             )
             runner.assert_not_called()
 
@@ -291,6 +294,41 @@ class TestSearchIntegration(unittest.TestCase):
             manifest["selection_file"],
             result["selection_file"],
         )
+
+    def test_reuse_rejects_wrong_hardware_before_writing_reports(self):
+        from src.search_controller.controller import SearchControllerError
+        with self.assertRaisesRegex(SearchControllerError, "compatibility"):
+            run_search(self.requirement_path, self.search_space_path,
+                       expected_hardware_id="another_cpu")
+        self.assertFalse((self.root / "results" / "selections").exists())
+        self.assertFalse((self.root / "results" / "evaluations").exists())
+
+    def test_reuse_rejects_missing_protocol_metadata(self):
+        from src.search_controller.controller import SearchControllerError
+        path = self.root / "results/candidates/yolo26n_kitti_pilot_imgsz416_cpu.json"
+        record = json.loads(path.read_text())
+        del record["benchmark"]["protocol_version"]
+        path.write_text(json.dumps(record))
+        with self.assertRaisesRegex(SearchControllerError, "compatibility"):
+            run_search(self.requirement_path, self.search_space_path,
+                       expected_hardware_id="local_mac_cpu_01")
+        self.assertFalse((self.root / "results" / "selections").exists())
+
+    def test_reuse_rejects_wrong_split_and_dataset(self):
+        from src.search_controller.controller import SearchControllerError
+        path = self.root / "results/candidates/yolo26n_kitti_pilot_imgsz416_cpu.json"
+        original = json.loads(path.read_text())
+        for section, field, value in (("accuracy", "split", "train"),
+                                       ("accuracy", "dataset", "COCO"),
+                                       ("benchmark", "protocol_version", "other_v1")):
+            record = json.loads(json.dumps(original))
+            record[section][field] = value
+            path.write_text(json.dumps(record))
+            with self.subTest(section=section, field=field):
+                with self.assertRaises(SearchControllerError):
+                    run_search(self.requirement_path, self.search_space_path,
+                               expected_hardware_id="local_mac_cpu_01")
+            self.assertFalse((self.root / "results" / "selections").exists())
 
 if __name__ == "__main__":
     unittest.main()

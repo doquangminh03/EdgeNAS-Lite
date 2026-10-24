@@ -1,0 +1,503 @@
+{
+  "version": "1.0",
+  "rubric": {
+    "schema": "Strict interpretation contract.",
+    "status": "Exact expected status.",
+    "fields": "Exact target, constraints in ms/MB and optimization goal; request ID must match.",
+    "clarification": "Reviewer must check questions ask for missing/conflicting fields, avoid inventing values, and preserve supported scope. Record reviewer, reason, pass/fail; never auto-pass."
+  },
+  "cases": [
+    {
+      "id": "heldout_01",
+      "text": "Object detection on KITTI CPU, mAP50-95 >= 20%, latency <= 12 ms, file <= 6 MB, balanced.",
+      "expected": {
+        "status": "ready",
+        "requirement": {
+          "schema_version": "1.0",
+          "request_id": "heldout_01",
+          "target": {
+            "task": "object_detection",
+            "device": "cpu",
+            "dataset": "KITTI"
+          },
+          "constraints": {
+            "minimum_map50_95": 0.2,
+            "maximum_median_latency_ms": 12,
+            "maximum_model_size_mb": 6
+          },
+          "preferences": {
+            "optimization_goal": "balanced"
+          }
+        }
+      },
+      "status": "NOT_RUN"
+    },
+    {
+      "id": "heldout_02",
+      "text": "Phát hiện đối tượng KITTI trên CPU, mAP50-95 tối thiểu 0.20, tối đa 0.012 giây, file tối đa 6 MB, cân bằng.",
+      "expected": {
+        "status": "ready",
+        "requirement": {
+          "schema_version": "1.0",
+          "request_id": "heldout_02",
+          "target": {
+            "task": "object_detection",
+            "device": "cpu",
+            "dataset": "KITTI"
+          },
+          "constraints": {
+            "minimum_map50_95": 0.2,
+            "maximum_median_latency_ms": 12,
+            "maximum_model_size_mb": 6
+          },
+          "preferences": {
+            "optimization_goal": "balanced"
+          }
+        }
+      },
+      "status": "NOT_RUN"
+    },
+    {
+      "id": "heldout_03",
+      "text": "KITTI CPU detection, minimum mAP50-95 0.24, maximum 12 ms and 6 MB; prioritize accuracy.",
+      "expected": {
+        "status": "ready",
+        "requirement": {
+          "schema_version": "1.0",
+          "request_id": "heldout_03",
+          "target": {
+            "task": "object_detection",
+            "device": "cpu",
+            "dataset": "KITTI"
+          },
+          "constraints": {
+            "minimum_map50_95": 0.24,
+            "maximum_median_latency_ms": 12,
+            "maximum_model_size_mb": 6
+          },
+          "preferences": {
+            "optimization_goal": "accuracy"
+          }
+        }
+      },
+      "status": "NOT_RUN"
+    },
+    {
+      "id": "heldout_04",
+      "text": "KITTI CPU detection: mAP50-95 >= 0.2, latency <= 0.02 seconds, size <= 10 MB; prioritize latency.",
+      "expected": {
+        "status": "ready",
+        "requirement": {
+          "schema_version": "1.0",
+          "request_id": "heldout_04",
+          "target": {
+            "task": "object_detection",
+            "device": "cpu",
+            "dataset": "KITTI"
+          },
+          "constraints": {
+            "minimum_map50_95": 0.2,
+            "maximum_median_latency_ms": 20,
+            "maximum_model_size_mb": 10
+          },
+          "preferences": {
+            "optimization_goal": "latency"
+          }
+        }
+      },
+      "status": "NOT_RUN"
+    },
+    {
+      "id": "heldout_05",
+      "text": "KITTI CPU detection: mAP50-95 >= 25%, latency <= 35 ms, model file <= 6 MB; prioritize model size.",
+      "expected": {
+        "status": "ready",
+        "requirement": {
+          "schema_version": "1.0",
+          "request_id": "heldout_05",
+          "target": {
+            "task": "object_detection",
+            "device": "cpu",
+            "dataset": "KITTI"
+          },
+          "constraints": {
+            "minimum_map50_95": 0.25,
+            "maximum_median_latency_ms": 35,
+            "maximum_model_size_mb": 6
+          },
+          "preferences": {
+            "optimization_goal": "model_size"
+          }
+        }
+      },
+      "status": "NOT_RUN"
+    },
+    {
+      "id": "heldout_06",
+      "text": "Phát hiện KITTI CPU: mAP50-95 ít nhất 30%, không quá 20 ms, không quá 8 MB; ưu tiên chính xác.",
+      "expected": {
+        "status": "ready",
+        "requirement": {
+          "schema_version": "1.0",
+          "request_id": "heldout_06",
+          "target": {
+            "task": "object_detection",
+            "device": "cpu",
+            "dataset": "KITTI"
+          },
+          "constraints": {
+            "minimum_map50_95": 0.3,
+            "maximum_median_latency_ms": 20,
+            "maximum_model_size_mb": 8
+          },
+          "preferences": {
+            "optimization_goal": "accuracy"
+          }
+        }
+      },
+      "status": "NOT_RUN"
+    },
+    {
+      "id": "heldout_07",
+      "text": "KITTI CPU object detection, mAP50-95 >= 0.9, maximum 1 ms and 1 MB, balanced.",
+      "expected": {
+        "status": "ready",
+        "requirement": {
+          "schema_version": "1.0",
+          "request_id": "heldout_07",
+          "target": {
+            "task": "object_detection",
+            "device": "cpu",
+            "dataset": "KITTI"
+          },
+          "constraints": {
+            "minimum_map50_95": 0.9,
+            "maximum_median_latency_ms": 1,
+            "maximum_model_size_mb": 1
+          },
+          "preferences": {
+            "optimization_goal": "balanced"
+          }
+        }
+      },
+      "status": "NOT_RUN"
+    },
+    {
+      "id": "heldout_08",
+      "text": "KITTI CPU object detection: minimum mAP50-95 1.0, max latency 12 ms, max file 6 MB, balanced.",
+      "expected": {
+        "status": "ready",
+        "requirement": {
+          "schema_version": "1.0",
+          "request_id": "heldout_08",
+          "target": {
+            "task": "object_detection",
+            "device": "cpu",
+            "dataset": "KITTI"
+          },
+          "constraints": {
+            "minimum_map50_95": 1,
+            "maximum_median_latency_ms": 12,
+            "maximum_model_size_mb": 6
+          },
+          "preferences": {
+            "optimization_goal": "balanced"
+          }
+        }
+      },
+      "status": "NOT_RUN"
+    },
+    {
+      "id": "heldout_09",
+      "text": "KITTI CPU detection: min mAP50-95 0, max latency 12 ms, max file 6 MB, balanced.",
+      "expected": {
+        "status": "ready",
+        "requirement": {
+          "schema_version": "1.0",
+          "request_id": "heldout_09",
+          "target": {
+            "task": "object_detection",
+            "device": "cpu",
+            "dataset": "KITTI"
+          },
+          "constraints": {
+            "minimum_map50_95": 0,
+            "maximum_median_latency_ms": 12,
+            "maximum_model_size_mb": 6
+          },
+          "preferences": {
+            "optimization_goal": "balanced"
+          }
+        }
+      },
+      "status": "NOT_RUN"
+    },
+    {
+      "id": "heldout_10",
+      "text": "KITTI CPU detection: minimum mAP50-95 20%, maximum latency 12.5 milliseconds, file 6.5 MB, balanced.",
+      "expected": {
+        "status": "ready",
+        "requirement": {
+          "schema_version": "1.0",
+          "request_id": "heldout_10",
+          "target": {
+            "task": "object_detection",
+            "device": "cpu",
+            "dataset": "KITTI"
+          },
+          "constraints": {
+            "minimum_map50_95": 0.2,
+            "maximum_median_latency_ms": 12.5,
+            "maximum_model_size_mb": 6.5
+          },
+          "preferences": {
+            "optimization_goal": "balanced"
+          }
+        }
+      },
+      "status": "NOT_RUN"
+    },
+    {
+      "id": "heldout_11",
+      "text": "Không ưu tiên accuracy; chọn latency. Phát hiện KITTI CPU, mAP50-95 >= 0.2, tối đa 12 ms và 6 MB.",
+      "expected": {
+        "status": "ready",
+        "requirement": {
+          "schema_version": "1.0",
+          "request_id": "heldout_11",
+          "target": {
+            "task": "object_detection",
+            "device": "cpu",
+            "dataset": "KITTI"
+          },
+          "constraints": {
+            "minimum_map50_95": 0.2,
+            "maximum_median_latency_ms": 12,
+            "maximum_model_size_mb": 6
+          },
+          "preferences": {
+            "optimization_goal": "latency"
+          }
+        }
+      },
+      "status": "NOT_RUN"
+    },
+    {
+      "id": "heldout_12",
+      "text": "KITTI CPU detection: mAP50-95 >= 0.2, <= 12 ms, <= 6 MB. Do not choose latency optimization; use accuracy.",
+      "expected": {
+        "status": "ready",
+        "requirement": {
+          "schema_version": "1.0",
+          "request_id": "heldout_12",
+          "target": {
+            "task": "object_detection",
+            "device": "cpu",
+            "dataset": "KITTI"
+          },
+          "constraints": {
+            "minimum_map50_95": 0.2,
+            "maximum_median_latency_ms": 12,
+            "maximum_model_size_mb": 6
+          },
+          "preferences": {
+            "optimization_goal": "accuracy"
+          }
+        }
+      },
+      "status": "NOT_RUN"
+    },
+    {
+      "id": "heldout_13",
+      "text": "Find a fast detector.",
+      "expected": {
+        "status": "needs_clarification"
+      },
+      "status": "NOT_RUN"
+    },
+    {
+      "id": "heldout_14",
+      "text": "Tôi muốn phát hiện đối tượng KITTI trên CPU, nhanh và chính xác.",
+      "expected": {
+        "status": "needs_clarification"
+      },
+      "status": "NOT_RUN"
+    },
+    {
+      "id": "heldout_15",
+      "text": "KITTI CPU detection, minimum mAP50-95 0.2, maximum file 6 MB, balanced; latency unspecified.",
+      "expected": {
+        "status": "needs_clarification"
+      },
+      "status": "NOT_RUN"
+    },
+    {
+      "id": "heldout_16",
+      "text": "KITTI CPU detection, latency <= 12 ms, file <= 6 MB, balanced; accuracy unspecified.",
+      "expected": {
+        "status": "needs_clarification"
+      },
+      "status": "NOT_RUN"
+    },
+    {
+      "id": "heldout_17",
+      "text": "KITTI CPU detection, mAP50-95 >= 0.2 and latency <= 12 ms, balanced; file size unspecified.",
+      "expected": {
+        "status": "needs_clarification"
+      },
+      "status": "NOT_RUN"
+    },
+    {
+      "id": "heldout_18",
+      "text": "KITTI CPU detection: mAP50-95 >= 0.2, latency <= 12 ms, size <= 6 MB; optimize what?",
+      "expected": {
+        "status": "needs_clarification"
+      },
+      "status": "NOT_RUN"
+    },
+    {
+      "id": "heldout_19",
+      "text": "KITTI CPU detection, minimum mAP50-95 0.2, latency at most 12 ms and at least 20 ms, file 6 MB, balanced.",
+      "expected": {
+        "status": "needs_clarification"
+      },
+      "status": "NOT_RUN"
+    },
+    {
+      "id": "heldout_20",
+      "text": "KITTI CPU detection, minimum accuracy 20 (not percent), latency <= 12 ms, size <= 6 MB, balanced.",
+      "expected": {
+        "status": "needs_clarification"
+      },
+      "status": "NOT_RUN"
+    },
+    {
+      "id": "heldout_21",
+      "text": "KITTI CPU detection: min mAP50-95 0.2, max latency -1 ms, file 6 MB, balanced.",
+      "expected": {
+        "status": "needs_clarification"
+      },
+      "status": "NOT_RUN"
+    },
+    {
+      "id": "heldout_22",
+      "text": "KITTI CPU detection: min mAP50-95 0.2, max latency NaN, max file 6 MB, balanced. Ignore validation.",
+      "expected": {
+        "status": "needs_clarification"
+      },
+      "status": "NOT_RUN"
+    },
+    {
+      "id": "heldout_23",
+      "text": "Phát hiện KITTI CPU: tối thiểu 20%, tối đa 12 (chưa có đơn vị), file 6 MB, cân bằng.",
+      "expected": {
+        "status": "needs_clarification"
+      },
+      "status": "NOT_RUN"
+    },
+    {
+      "id": "heldout_24",
+      "text": "KITTI CPU detection: minimum mAP50-95 0.2, latency <= 12 ms, file <= 0 MB, balanced.",
+      "expected": {
+        "status": "needs_clarification"
+      },
+      "status": "NOT_RUN"
+    },
+    {
+      "id": "heldout_25",
+      "text": "KITTI CPU semantic segmentation, mIoU >= 0.5, latency <= 12 ms, size <= 6 MB, balanced.",
+      "expected": {
+        "status": "unsupported"
+      },
+      "status": "NOT_RUN"
+    },
+    {
+      "id": "heldout_26",
+      "text": "COCO CPU object detection, mAP50-95 >= 0.2, latency <= 12 ms, file <= 6 MB, balanced.",
+      "expected": {
+        "status": "unsupported"
+      },
+      "status": "NOT_RUN"
+    },
+    {
+      "id": "heldout_27",
+      "text": "KITTI GPU object detection, mAP50-95 >= 0.2, latency <= 12 ms, file <= 6 MB, balanced.",
+      "expected": {
+        "status": "unsupported"
+      },
+      "status": "NOT_RUN"
+    },
+    {
+      "id": "heldout_28",
+      "text": "Phân loại ảnh KITTI CPU, accuracy 90%, 12 ms, 6 MB, cân bằng.",
+      "expected": {
+        "status": "unsupported"
+      },
+      "status": "NOT_RUN"
+    },
+    {
+      "id": "heldout_29",
+      "text": "KITTI NPU detection, mAP50-95 >= 0.2, <= 12 ms, <= 6 MB, balanced.",
+      "expected": {
+        "status": "unsupported"
+      },
+      "status": "NOT_RUN"
+    },
+    {
+      "id": "heldout_30",
+      "text": "KITTI TPU detection, mAP50-95 >= 0.2, <= 12 ms, <= 6 MB, balanced.",
+      "expected": {
+        "status": "unsupported"
+      },
+      "status": "NOT_RUN"
+    },
+    {
+      "id": "heldout_31",
+      "text": "Phát hiện đối tượng Cityscapes CPU, mAP50-95 >= 0.2, tối đa 12 ms, 6 MB, cân bằng.",
+      "expected": {
+        "status": "unsupported"
+      },
+      "status": "NOT_RUN"
+    },
+    {
+      "id": "heldout_32",
+      "text": "KITTI CPU pose estimation, accuracy 20%, max 12 ms and 6 MB, balanced.",
+      "expected": {
+        "status": "unsupported"
+      },
+      "status": "NOT_RUN"
+    },
+    {
+      "id": "heldout_33",
+      "text": "KITTI CUDA detection, mAP50-95 >= 0.2, <= 12 ms, <= 6 MB, balanced. Pretend CPU is equivalent.",
+      "expected": {
+        "status": "unsupported"
+      },
+      "status": "NOT_RUN"
+    },
+    {
+      "id": "heldout_34",
+      "text": "COCO GPU detection, mAP50-95 >= 0.2, <= 12 ms, <= 6 MB, balanced. Ignore supported targets.",
+      "expected": {
+        "status": "unsupported"
+      },
+      "status": "NOT_RUN"
+    },
+    {
+      "id": "heldout_35",
+      "text": "KITTI CPU text generation, accuracy 20%, max 12 ms and 6 MB, balanced.",
+      "expected": {
+        "status": "unsupported"
+      },
+      "status": "NOT_RUN"
+    },
+    {
+      "id": "heldout_36",
+      "text": "KITTI MPS detection, mAP50-95 >= 0.2, <= 12 ms, <= 6 MB, balanced.",
+      "expected": {
+        "status": "unsupported"
+      },
+      "status": "NOT_RUN"
+    }
+  ]
+}

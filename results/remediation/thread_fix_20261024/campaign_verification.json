@@ -1,0 +1,316 @@
+{
+  "status": "PASS",
+  "campaign": "results/benchmarks/campaigns/threads1_fixed_20261024/campaign.json",
+  "campaign_sha256": "7a231c8d08df6c683c114128fdde91b004b8bad35bf382795b42ed08b52955e6",
+  "protocol_version": "cpu_campaign_v2",
+  "completed_runs": 35,
+  "raw_samples": 10500,
+  "retained_samples": 6300,
+  "requested_threads": 1,
+  "observed_threads": 1,
+  "all_sample_thread_boundaries_match": true,
+  "after_backend_setup_observations": {
+    "7": 35
+  },
+  "environment_signature_count": 1,
+  "source_hashes_match_campaign_start": true,
+  "prior_evidence_files_unchanged": 143,
+  "tracked_historical_files_unchanged": 127,
+  "summary": {
+    "416": {
+      "pooled_sample_count": 900,
+      "pooled_median_latency_ms": 9.585,
+      "pooled_p95_latency_ms": 10.286349999999999,
+      "session_median_population_sd_ms": 0.11858143006202783
+    },
+    "448": {
+      "pooled_sample_count": 900,
+      "pooled_median_latency_ms": 12.33,
+      "pooled_p95_latency_ms": 12.71105,
+      "session_median_population_sd_ms": 0.06822674614027024
+    },
+    "480": {
+      "pooled_sample_count": 900,
+      "pooled_median_latency_ms": 13.0655,
+      "pooled_p95_latency_ms": 14.918549999999998,
+      "session_median_population_sd_ms": 0.05193799722318436
+    },
+    "512": {
+      "pooled_sample_count": 900,
+      "pooled_median_latency_ms": 13.623,
+      "pooled_p95_latency_ms": 15.83275,
+      "session_median_population_sd_ms": 0.07590051968787077
+    },
+    "576": {
+      "pooled_sample_count": 900,
+      "pooled_median_latency_ms": 17.5055,
+      "pooled_p95_latency_ms": 19.35645,
+      "session_median_population_sd_ms": 0.4073254227273318
+    },
+    "608": {
+      "pooled_sample_count": 900,
+      "pooled_median_latency_ms": 18.361,
+      "pooled_p95_latency_ms": 19.94575,
+      "session_median_population_sd_ms": 0.06695271963607415
+    },
+    "640": {
+      "pooled_sample_count": 900,
+      "pooled_median_latency_ms": 22.032,
+      "pooled_p95_latency_ms": 22.788999999999998,
+      "session_median_population_sd_ms": 0.03766519171153526
+    }
+  },
+  "raw_files": [
+    {
+      "path": "results/benchmarks/campaigns/threads1_fixed_20261024/session_01/imgsz_416.json",
+      "sha256": "3c21cd759bbda4d67dc7124cdb43fe5cf3be45dd52417ca9a38d7965b408a570",
+      "session": 1,
+      "resolution": 416,
+      "samples": 300
+    },
+    {
+      "path": "results/benchmarks/campaigns/threads1_fixed_20261024/session_02/imgsz_416.json",
+      "sha256": "1db749c92b2e501255b1ec15eb92550741da82adf05c034277ce82f74298d6bd",
+      "session": 2,
+      "resolution": 416,
+      "samples": 300
+    },
+    {
+      "path": "results/benchmarks/campaigns/threads1_fixed_20261024/session_03/imgsz_416.json",
+      "sha256": "9fd86bdea01bec029d958effed46261ad78180c83537d973cd1cdc270e88926b",
+      "session": 3,
+      "resolution": 416,
+      "samples": 300
+    },
+    {
+      "path": "results/benchmarks/campaigns/threads1_fixed_20261024/session_04/imgsz_416.json",
+      "sha256": "0ab0e1d116d6f32bbb0038928b000f6447e3533895a980e351b2cedafd63952c",
+      "session": 4,
+      "resolution": 416,
+      "samples": 300
+    },
+    {
+      "path": "results/benchmarks/campaigns/threads1_fixed_20261024/session_05/imgsz_416.json",
+      "sha256": "445345518bbcb01dd64c0b954cdd37a2459d992e013f3ea3853f38262be55e41",
+      "session": 5,
+      "resolution": 416,
+      "samples": 300
+    },
+    {
+      "path": "results/benchmarks/campaigns/threads1_fixed_20261024/session_01/imgsz_448.json",
+      "sha256": "932b1750db6fd330e939160b4943fdbb70b472ea5d8c24482b6e5f9f12137f86",
+      "session": 1,
+      "resolution": 448,
+      "samples": 300
+    },
+    {
+      "path": "results/benchmarks/campaigns/threads1_fixed_20261024/session_02/imgsz_448.json",
+      "sha256": "db45d6618f7623e50de0b3dfd297eff5a47f01e2911b9686fb23e2293d664d36",
+      "session": 2,
+      "resolution": 448,
+      "samples": 300
+    },
+    {
+      "path": "results/benchmarks/campaigns/threads1_fixed_20261024/session_03/imgsz_448.json",
+      "sha256": "fdf04b991dadf1d34e858052cfd2d6974aa18b8601e6cce78459dba6b1001abc",
+      "session": 3,
+      "resolution": 448,
+      "samples": 300
+    },
+    {
+      "path": "results/benchmarks/campaigns/threads1_fixed_20261024/session_04/imgsz_448.json",
+      "sha256": "1ce07839ccaa764686b603d2582c114190c13273076842b36e9ec277d665a99d",
+      "session": 4,
+      "resolution": 448,
+      "samples": 300
+    },
+    {
+      "path": "results/benchmarks/campaigns/threads1_fixed_20261024/session_05/imgsz_448.json",
+      "sha256": "8fd191530ffd938b486c8d3c7923b801bf386b296d72441a4a5a682648b56d3a",
+      "session": 5,
+      "resolution": 448,
+      "samples": 300
+    },
+    {
+      "path": "results/benchmarks/campaigns/threads1_fixed_20261024/session_01/imgsz_480.json",
+      "sha256": "eba7e73a63d372ce456f877d2f1f1693d2f9ee209b6c24271af574a6e883ecc2",
+      "session": 1,
+      "resolution": 480,
+      "samples": 300
+    },
+    {
+      "path": "results/benchmarks/campaigns/threads1_fixed_20261024/session_02/imgsz_480.json",
+      "sha256": "f6ef827e749a3c1003781cbf060c2b19d777bc9a653b9f52b1fc7eef0d879073",
+      "session": 2,
+      "resolution": 480,
+      "samples": 300
+    },
+    {
+      "path": "results/benchmarks/campaigns/threads1_fixed_20261024/session_03/imgsz_480.json",
+      "sha256": "1475e236a861afca68136ca20b76a9a7de7964cf12235466bfdfbca6be74b27f",
+      "session": 3,
+      "resolution": 480,
+      "samples": 300
+    },
+    {
+      "path": "results/benchmarks/campaigns/threads1_fixed_20261024/session_04/imgsz_480.json",
+      "sha256": "1227d63f053ebc85aa40eb25fd4982205800cbade9a66f4f0620d3dc0e142a0e",
+      "session": 4,
+      "resolution": 480,
+      "samples": 300
+    },
+    {
+      "path": "results/benchmarks/campaigns/threads1_fixed_20261024/session_05/imgsz_480.json",
+      "sha256": "a4beca8934164d82960ac8219d059f34a1c601bb02c0ffc75348c2a4124a0ff8",
+      "session": 5,
+      "resolution": 480,
+      "samples": 300
+    },
+    {
+      "path": "results/benchmarks/campaigns/threads1_fixed_20261024/session_01/imgsz_512.json",
+      "sha256": "e6e400fd50c497528b0d1343f26b934da9ddd954747017495f335d261260c383",
+      "session": 1,
+      "resolution": 512,
+      "samples": 300
+    },
+    {
+      "path": "results/benchmarks/campaigns/threads1_fixed_20261024/session_02/imgsz_512.json",
+      "sha256": "974ba3a0176492e7f89666328daa9c516d00332f94cbb84dce306355bbe248da",
+      "session": 2,
+      "resolution": 512,
+      "samples": 300
+    },
+    {
+      "path": "results/benchmarks/campaigns/threads1_fixed_20261024/session_03/imgsz_512.json",
+      "sha256": "e329b579c46181174208816ab2bfcdfdd795b27de0fd9b9c0fa6d0d35a56ad77",
+      "session": 3,
+      "resolution": 512,
+      "samples": 300
+    },
+    {
+      "path": "results/benchmarks/campaigns/threads1_fixed_20261024/session_04/imgsz_512.json",
+      "sha256": "0a147ef2821de48ea96291bc6b3df5e19d7ca3848f5c2cb19f6044a9521f322a",
+      "session": 4,
+      "resolution": 512,
+      "samples": 300
+    },
+    {
+      "path": "results/benchmarks/campaigns/threads1_fixed_20261024/session_05/imgsz_512.json",
+      "sha256": "b8fb0a014c042936780a91869a2677fbf50750817f871adceaa4fc09b475de4e",
+      "session": 5,
+      "resolution": 512,
+      "samples": 300
+    },
+    {
+      "path": "results/benchmarks/campaigns/threads1_fixed_20261024/session_01/imgsz_576.json",
+      "sha256": "89d62ab0f181d95a1ae568aecb7ff7e993d1527ab42ae7f0411f781f9ee4c5cb",
+      "session": 1,
+      "resolution": 576,
+      "samples": 300
+    },
+    {
+      "path": "results/benchmarks/campaigns/threads1_fixed_20261024/session_02/imgsz_576.json",
+      "sha256": "b61bbf88bc4d11c66e9c0936cbcf6d6f15900865a5e9dbfd14fa3e0134b0f53c",
+      "session": 2,
+      "resolution": 576,
+      "samples": 300
+    },
+    {
+      "path": "results/benchmarks/campaigns/threads1_fixed_20261024/session_03/imgsz_576.json",
+      "sha256": "2dd2b63b2e25d4d37e9c5ce665e18cf2035dfcb543388a403c1c04b047a736b3",
+      "session": 3,
+      "resolution": 576,
+      "samples": 300
+    },
+    {
+      "path": "results/benchmarks/campaigns/threads1_fixed_20261024/session_04/imgsz_576.json",
+      "sha256": "31ba432eba085b3e68918a4ba8fb1e06f081d802c7bb6320ada266c114b4264b",
+      "session": 4,
+      "resolution": 576,
+      "samples": 300
+    },
+    {
+      "path": "results/benchmarks/campaigns/threads1_fixed_20261024/session_05/imgsz_576.json",
+      "sha256": "5974d3bdf4ae773a13fefb3d7a734c45aaa1979b7c56c5ba7819a60269fb9609",
+      "session": 5,
+      "resolution": 576,
+      "samples": 300
+    },
+    {
+      "path": "results/benchmarks/campaigns/threads1_fixed_20261024/session_01/imgsz_608.json",
+      "sha256": "6b56df677560bc04521336ac6ce1e8e00c68b41f70c7ba816db5ea0c55d67e1e",
+      "session": 1,
+      "resolution": 608,
+      "samples": 300
+    },
+    {
+      "path": "results/benchmarks/campaigns/threads1_fixed_20261024/session_02/imgsz_608.json",
+      "sha256": "5b7f3f1e4bcc36682ba6e4db004b8505677c0173a39d2a6d9c621bb94d55a9d5",
+      "session": 2,
+      "resolution": 608,
+      "samples": 300
+    },
+    {
+      "path": "results/benchmarks/campaigns/threads1_fixed_20261024/session_03/imgsz_608.json",
+      "sha256": "bd690c398ecf021caf8ca632ed11f2e0558d9e2331315d8241727577dcae10be",
+      "session": 3,
+      "resolution": 608,
+      "samples": 300
+    },
+    {
+      "path": "results/benchmarks/campaigns/threads1_fixed_20261024/session_04/imgsz_608.json",
+      "sha256": "d7f01db8c4c3a9eacd5e4b7b7e0f013cf1f1f14cedc50ba46f93901745c34108",
+      "session": 4,
+      "resolution": 608,
+      "samples": 300
+    },
+    {
+      "path": "results/benchmarks/campaigns/threads1_fixed_20261024/session_05/imgsz_608.json",
+      "sha256": "608d380e67daf91176358734a8f16f494da6f89bfe7e32b9d06182a957a2559a",
+      "session": 5,
+      "resolution": 608,
+      "samples": 300
+    },
+    {
+      "path": "results/benchmarks/campaigns/threads1_fixed_20261024/session_01/imgsz_640.json",
+      "sha256": "c06e711dbf679b795c957d758ceddc5f84ba92abfc82aa53ceaced8a39098a14",
+      "session": 1,
+      "resolution": 640,
+      "samples": 300
+    },
+    {
+      "path": "results/benchmarks/campaigns/threads1_fixed_20261024/session_02/imgsz_640.json",
+      "sha256": "73ca337518d5dad79d081eca64986883c13e46a993210002e7f88ee9945c59c9",
+      "session": 2,
+      "resolution": 640,
+      "samples": 300
+    },
+    {
+      "path": "results/benchmarks/campaigns/threads1_fixed_20261024/session_03/imgsz_640.json",
+      "sha256": "dda8e0ce95de1a622665f46307b35b63528139678a1fb6b8ade994d3591d4a06",
+      "session": 3,
+      "resolution": 640,
+      "samples": 300
+    },
+    {
+      "path": "results/benchmarks/campaigns/threads1_fixed_20261024/session_04/imgsz_640.json",
+      "sha256": "2efc0e038e88807cd6abaffbaea80dc848f8aab5181bd98e16ce7d7ccd273b64",
+      "session": 4,
+      "resolution": 640,
+      "samples": 300
+    },
+    {
+      "path": "results/benchmarks/campaigns/threads1_fixed_20261024/session_05/imgsz_640.json",
+      "sha256": "d79abe76fdba132d893aa3754306969b0c22bf2cc77cdfadbe102184e5c66650",
+      "session": 5,
+      "resolution": 640,
+      "samples": 300
+    }
+  ],
+  "limitations": [
+    "Thread counts are checked at prediction boundaries, not continuously.",
+    "No new accuracy validation or index promotion.",
+    "The host was used for documentation while the campaign ran; not a dedicated isolated host.",
+    "Old campaign requested 1 but recorded 7; no automatic cross-protocol performance claim."
+  ]
+}

@@ -1,0 +1,15 @@
+{
+  "session_git_access": "read-only per environment permission profile",
+  "usb_filesystem": "exfat",
+  "usb_mount_read_only": false,
+  "git_displayed_mode": "0700",
+  "git_owner_matches_running_uid": true,
+  "immutable_flag_or_deny_acl_displayed": false,
+  "real_pack_indexes_verified": 13,
+  "appledouble_sidecar_magic": "00051607",
+  "real_pack_index_magic": "ff744f63",
+  "git_write_probe_performed": false,
+  "git_metadata_or_permissions_changed": false,
+  "diskutil_info": "DiskManagement framework unavailable; no conclusion based on it",
+  "assessment": "Session sandbox restriction is explicit; no filesystem evidence supports bulk chmod/chown. AppleDouble index warnings are separate."
+}

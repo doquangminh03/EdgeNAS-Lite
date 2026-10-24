@@ -1,0 +1,379 @@
+{
+  "campaign_sha256": "14ee834212af747141afbaafaf9aa8c71a70cc89e318e005776bfa2b807046b9",
+  "campaign_hash_matches_previous_verification": true,
+  "completed_runs": 35,
+  "raw_samples": 10500,
+  "retained_samples": 6300,
+  "unique_images": 100,
+  "current_checkpoint_hash_matches": true,
+  "all_current_image_hashes_match": true,
+  "environment_signature_count": 1,
+  "requested_cpu_threads": 1,
+  "observed_torch_num_threads": {
+    "7": 35
+  },
+  "numerical_integrity": "PASS",
+  "declared_thread_protocol": "MISMATCH",
+  "thread_recording_scope": "environment measured when building result, not per sample",
+  "summary": {
+    "416": {
+      "pooled_sample_count": 900,
+      "pooled_median_latency_ms": 8.7275,
+      "pooled_p95_latency_ms": 9.0181,
+      "session_median_population_sd_ms": 0.032967997950874725
+    },
+    "448": {
+      "pooled_sample_count": 900,
+      "pooled_median_latency_ms": 10.62,
+      "pooled_p95_latency_ms": 10.979249999999999,
+      "session_median_population_sd_ms": 0.039668067202165994
+    },
+    "480": {
+      "pooled_sample_count": 900,
+      "pooled_median_latency_ms": 11.3255,
+      "pooled_p95_latency_ms": 14.369449999999999,
+      "session_median_population_sd_ms": 0.5148024432299791
+    },
+    "512": {
+      "pooled_sample_count": 900,
+      "pooled_median_latency_ms": 11.483,
+      "pooled_p95_latency_ms": 12.70805,
+      "session_median_population_sd_ms": 0.4995266648427181
+    },
+    "576": {
+      "pooled_sample_count": 900,
+      "pooled_median_latency_ms": 13.575,
+      "pooled_p95_latency_ms": 15.62415,
+      "session_median_population_sd_ms": 0.6886863501543274
+    },
+    "608": {
+      "pooled_sample_count": 900,
+      "pooled_median_latency_ms": 13.9785,
+      "pooled_p95_latency_ms": 14.447099999999999,
+      "session_median_population_sd_ms": 0.07874148983999567
+    },
+    "640": {
+      "pooled_sample_count": 900,
+      "pooled_median_latency_ms": 16.951,
+      "pooled_p95_latency_ms": 19.5728,
+      "session_median_population_sd_ms": 0.2731153602417844
+    }
+  },
+  "raw_files": [
+    {
+      "path": "results/benchmarks/campaigns/continuation_measured_v2_20261024/session_01/imgsz_416.json",
+      "sha256": "e2b89e6adbf8c86448dfa95b5dff75b685b8384ee55b9c645a5b07c0fad230e5",
+      "session": 1,
+      "resolution": 416,
+      "samples": 300,
+      "median_ms": 8.711,
+      "p95_ms": 8.973
+    },
+    {
+      "path": "results/benchmarks/campaigns/continuation_measured_v2_20261024/session_02/imgsz_416.json",
+      "sha256": "aab8c244bb42575b3bab56074bb0c0b3ab52f0ce57e60e276be0a8113b73b338",
+      "session": 2,
+      "resolution": 416,
+      "samples": 300,
+      "median_ms": 8.748,
+      "p95_ms": 9.154
+    },
+    {
+      "path": "results/benchmarks/campaigns/continuation_measured_v2_20261024/session_03/imgsz_416.json",
+      "sha256": "aef95b02a1f4c9ec6c37f44002b258ab780e5eb18534f21ec9491c3d447ecc67",
+      "session": 3,
+      "resolution": 416,
+      "samples": 300,
+      "median_ms": 8.777,
+      "p95_ms": 9.049
+    },
+    {
+      "path": "results/benchmarks/campaigns/continuation_measured_v2_20261024/session_04/imgsz_416.json",
+      "sha256": "c791801dfe76249dc823910e5e3878920ccbb9df5e258b90ea2bbfc7488c5d3b",
+      "session": 4,
+      "resolution": 416,
+      "samples": 300,
+      "median_ms": 8.703,
+      "p95_ms": 9.124
+    },
+    {
+      "path": "results/benchmarks/campaigns/continuation_measured_v2_20261024/session_05/imgsz_416.json",
+      "sha256": "f3bec9ed260f8520a731eb88081eba7793ccfd9ac9b15fed232e2a86a8f20cc1",
+      "session": 5,
+      "resolution": 416,
+      "samples": 300,
+      "median_ms": 8.712,
+      "p95_ms": 8.976
+    },
+    {
+      "path": "results/benchmarks/campaigns/continuation_measured_v2_20261024/session_01/imgsz_448.json",
+      "sha256": "967218d51d74b683053544bb6b14b398aca2d914bcc98e37fc0e56f766b0abf3",
+      "session": 1,
+      "resolution": 448,
+      "samples": 300,
+      "median_ms": 11.725,
+      "p95_ms": 12.184
+    },
+    {
+      "path": "results/benchmarks/campaigns/continuation_measured_v2_20261024/session_02/imgsz_448.json",
+      "sha256": "8e8370e13ab7da413c18bf207cb65f8fc54c6f3b25312ea4c4e25c4f9091b5b2",
+      "session": 2,
+      "resolution": 448,
+      "samples": 300,
+      "median_ms": 10.614,
+      "p95_ms": 10.967
+    },
+    {
+      "path": "results/benchmarks/campaigns/continuation_measured_v2_20261024/session_03/imgsz_448.json",
+      "sha256": "c316f31f34158fb576f3f1784bb3ac9f0fc59bdac2c98eaaec1110742ac0fb1a",
+      "session": 3,
+      "resolution": 448,
+      "samples": 300,
+      "median_ms": 10.614,
+      "p95_ms": 10.903
+    },
+    {
+      "path": "results/benchmarks/campaigns/continuation_measured_v2_20261024/session_04/imgsz_448.json",
+      "sha256": "b84087baf8ef687b523b8311fca8a249c1e7ea889e9a27c103fe4257ba03381b",
+      "session": 4,
+      "resolution": 448,
+      "samples": 300,
+      "median_ms": 10.675,
+      "p95_ms": 11.114
+    },
+    {
+      "path": "results/benchmarks/campaigns/continuation_measured_v2_20261024/session_05/imgsz_448.json",
+      "sha256": "35c6cd4b34cd4d88b30ebc0e55e113b441bb6ea9741a58f306cffd5b56a52c81",
+      "session": 5,
+      "resolution": 448,
+      "samples": 300,
+      "median_ms": 10.579,
+      "p95_ms": 10.898
+    },
+    {
+      "path": "results/benchmarks/campaigns/continuation_measured_v2_20261024/session_01/imgsz_480.json",
+      "sha256": "a100b4938c28669012971b1233568a9f133071054ef39cad2118c2282fe7e8be",
+      "session": 1,
+      "resolution": 480,
+      "samples": 300,
+      "median_ms": 11.069,
+      "p95_ms": 11.377
+    },
+    {
+      "path": "results/benchmarks/campaigns/continuation_measured_v2_20261024/session_02/imgsz_480.json",
+      "sha256": "8fb9c5a64888b27a3fb231cb40e20ff53c7bd31270b9aa47866e15e1b9f46485",
+      "session": 2,
+      "resolution": 480,
+      "samples": 300,
+      "median_ms": 11.216,
+      "p95_ms": 12.017
+    },
+    {
+      "path": "results/benchmarks/campaigns/continuation_measured_v2_20261024/session_03/imgsz_480.json",
+      "sha256": "7a2e2f9ab1a46f8d6ae575e415975a347c54844d11008e7ad6ff729b6d03214c",
+      "session": 3,
+      "resolution": 480,
+      "samples": 300,
+      "median_ms": 11.276,
+      "p95_ms": 13.453
+    },
+    {
+      "path": "results/benchmarks/campaigns/continuation_measured_v2_20261024/session_04/imgsz_480.json",
+      "sha256": "cb671637f6968941f0eacdf96c4abc7ec3516864de3c39a3aafe7ce32ea523dd",
+      "session": 4,
+      "resolution": 480,
+      "samples": 300,
+      "median_ms": 12.265,
+      "p95_ms": 14.933
+    },
+    {
+      "path": "results/benchmarks/campaigns/continuation_measured_v2_20261024/session_05/imgsz_480.json",
+      "sha256": "073812cae26c080d70f1584aff1b4b3988ab07227ac70a2c0ee5c7fea97a73ee",
+      "session": 5,
+      "resolution": 480,
+      "samples": 300,
+      "median_ms": 11.093,
+      "p95_ms": 11.433
+    },
+    {
+      "path": "results/benchmarks/campaigns/continuation_measured_v2_20261024/session_01/imgsz_512.json",
+      "sha256": "a10eaccea16cc8af24f3cc83da2b209d60f08f244b0df794dd402e5cc3bbb555",
+      "session": 1,
+      "resolution": 512,
+      "samples": 300,
+      "median_ms": 11.397,
+      "p95_ms": 12.031
+    },
+    {
+      "path": "results/benchmarks/campaigns/continuation_measured_v2_20261024/session_02/imgsz_512.json",
+      "sha256": "762c1c2e2f5e77aa7f5a5605fec21be6714bf10c22751f0951190420622b5891",
+      "session": 2,
+      "resolution": 512,
+      "samples": 300,
+      "median_ms": 11.372,
+      "p95_ms": 11.925
+    },
+    {
+      "path": "results/benchmarks/campaigns/continuation_measured_v2_20261024/session_03/imgsz_512.json",
+      "sha256": "7336b4d21341f452ab9f782c1a2dfef89d5fbabfed4f59ac3d1001d2d342ee1f",
+      "session": 3,
+      "resolution": 512,
+      "samples": 300,
+      "median_ms": 11.383,
+      "p95_ms": 11.836
+    },
+    {
+      "path": "results/benchmarks/campaigns/continuation_measured_v2_20261024/session_04/imgsz_512.json",
+      "sha256": "23919ea6cde19035c472c469be41c33a83ff28958259f6813e5d2125a2009349",
+      "session": 4,
+      "resolution": 512,
+      "samples": 300,
+      "median_ms": 11.362,
+      "p95_ms": 11.661
+    },
+    {
+      "path": "results/benchmarks/campaigns/continuation_measured_v2_20261024/session_05/imgsz_512.json",
+      "sha256": "95850950ea5860e57052198854c14e3c6191d290928065f944aa7bc28dc9e1f0",
+      "session": 5,
+      "resolution": 512,
+      "samples": 300,
+      "median_ms": 12.432,
+      "p95_ms": 12.935
+    },
+    {
+      "path": "results/benchmarks/campaigns/continuation_measured_v2_20261024/session_01/imgsz_576.json",
+      "sha256": "23303b84662ece3ec9374570acaf8f44abc6f47cb20c1b5be207f069cf397a4e",
+      "session": 1,
+      "resolution": 576,
+      "samples": 300,
+      "median_ms": 13.471,
+      "p95_ms": 13.83
+    },
+    {
+      "path": "results/benchmarks/campaigns/continuation_measured_v2_20261024/session_02/imgsz_576.json",
+      "sha256": "89095e3ec5ef38f5505353ec4965915a50bb2b659ecca23669c5f36dda403a5b",
+      "session": 2,
+      "resolution": 576,
+      "samples": 300,
+      "median_ms": 13.538,
+      "p95_ms": 14.133
+    },
+    {
+      "path": "results/benchmarks/campaigns/continuation_measured_v2_20261024/session_03/imgsz_576.json",
+      "sha256": "be86b842bf39f7ca306514974906714a2f085915fdaa5f716d338eebe031d257",
+      "session": 3,
+      "resolution": 576,
+      "samples": 300,
+      "median_ms": 14.948,
+      "p95_ms": 16.748
+    },
+    {
+      "path": "results/benchmarks/campaigns/continuation_measured_v2_20261024/session_04/imgsz_576.json",
+      "sha256": "f470e045d64ed48d0eb797922e3c91c0f6f12a843bf49cdb860f3c8058cb2b0c",
+      "session": 4,
+      "resolution": 576,
+      "samples": 300,
+      "median_ms": 13.458,
+      "p95_ms": 13.784
+    },
+    {
+      "path": "results/benchmarks/campaigns/continuation_measured_v2_20261024/session_05/imgsz_576.json",
+      "sha256": "c3d41202e4f58f3af71414feaba785b6b7f4de125691fbfcc1e628761c2a74db",
+      "session": 5,
+      "resolution": 576,
+      "samples": 300,
+      "median_ms": 13.518,
+      "p95_ms": 14.058
+    },
+    {
+      "path": "results/benchmarks/campaigns/continuation_measured_v2_20261024/session_01/imgsz_608.json",
+      "sha256": "7c6575948d0c97048ac53920bf5f2ba31f992a60cb1068bea662921b2ac7531b",
+      "session": 1,
+      "resolution": 608,
+      "samples": 300,
+      "median_ms": 13.952,
+      "p95_ms": 14.337
+    },
+    {
+      "path": "results/benchmarks/campaigns/continuation_measured_v2_20261024/session_02/imgsz_608.json",
+      "sha256": "10d7bbabfdff7a5b19d47e2f83478d0b2a3bbf0edce65b7823b920803b5aa041",
+      "session": 2,
+      "resolution": 608,
+      "samples": 300,
+      "median_ms": 14.046,
+      "p95_ms": 14.52
+    },
+    {
+      "path": "results/benchmarks/campaigns/continuation_measured_v2_20261024/session_03/imgsz_608.json",
+      "sha256": "b4640e0d21576a57e929e90bb2f68a0f785c372c72b68e210b63786e7edcaead",
+      "session": 3,
+      "resolution": 608,
+      "samples": 300,
+      "median_ms": 14.036,
+      "p95_ms": 14.482
+    },
+    {
+      "path": "results/benchmarks/campaigns/continuation_measured_v2_20261024/session_04/imgsz_608.json",
+      "sha256": "5c915394147b438085d794d9979a331f580fec6d1177d506826e30e2e46d8e3a",
+      "session": 4,
+      "resolution": 608,
+      "samples": 300,
+      "median_ms": 13.867,
+      "p95_ms": 14.448
+    },
+    {
+      "path": "results/benchmarks/campaigns/continuation_measured_v2_20261024/session_05/imgsz_608.json",
+      "sha256": "4dc7f3e12169cf4821e084d85aa45bc422515a3c8eef540995789fc1617f5ed5",
+      "session": 5,
+      "resolution": 608,
+      "samples": 300,
+      "median_ms": 14.032,
+      "p95_ms": 14.326
+    },
+    {
+      "path": "results/benchmarks/campaigns/continuation_measured_v2_20261024/session_01/imgsz_640.json",
+      "sha256": "d4be4f6bd20593d7539cd89a5330de506a736f6f4f62c094cac278f6bb81fb9c",
+      "session": 1,
+      "resolution": 640,
+      "samples": 300,
+      "median_ms": 18.582,
+      "p95_ms": 21.153
+    },
+    {
+      "path": "results/benchmarks/campaigns/continuation_measured_v2_20261024/session_02/imgsz_640.json",
+      "sha256": "af7c7abfc28f832616f26edad468869fcc1ef230daf21ca8efceb5c88a65a231",
+      "session": 2,
+      "resolution": 640,
+      "samples": 300,
+      "median_ms": 17.046,
+      "p95_ms": 17.964
+    },
+    {
+      "path": "results/benchmarks/campaigns/continuation_measured_v2_20261024/session_03/imgsz_640.json",
+      "sha256": "713cc21a7f64cd2c78b7aae8b919bd8dfad530c157ce88868219ec9688bfa50a",
+      "session": 3,
+      "resolution": 640,
+      "samples": 300,
+      "median_ms": 17.429,
+      "p95_ms": 23.508
+    },
+    {
+      "path": "results/benchmarks/campaigns/continuation_measured_v2_20261024/session_04/imgsz_640.json",
+      "sha256": "6f168cf8f0fce58fe149c5f259be0f9af259fb8283ae7d804e4c542038874fda",
+      "session": 4,
+      "resolution": 640,
+      "samples": 300,
+      "median_ms": 16.889,
+      "p95_ms": 17.355
+    },
+    {
+      "path": "results/benchmarks/campaigns/continuation_measured_v2_20261024/session_05/imgsz_640.json",
+      "sha256": "450a35d531a6b59ca284912574e790651bda8374e7c0382a30c3e03f88bca17d",
+      "session": 5,
+      "resolution": 640,
+      "samples": 300,
+      "median_ms": 16.817,
+      "p95_ms": 17.729
+    }
+  ]
+}

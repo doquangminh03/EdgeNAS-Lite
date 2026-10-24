@@ -1,0 +1,1117 @@
+{
+  "policy": "Final review proposal only; preserve original excluded owner files and all earlier evidence. Do not stage automatically.",
+  "include": [
+    {
+      "path": ".github/workflows/tests.yml",
+      "category": "implementation_or_documentation"
+    },
+    {
+      "path": ".gitignore",
+      "category": "implementation_or_documentation"
+    },
+    {
+      "path": "EdgeNAS-Lite_Progress_Roadmap.md",
+      "category": "implementation_or_documentation"
+    },
+    {
+      "path": "README.md",
+      "category": "implementation_or_documentation"
+    },
+    {
+      "path": "SETUP_AND_USAGE.md",
+      "category": "implementation_or_documentation"
+    },
+    {
+      "path": "configs/evaluation/language_heldout_v1.json",
+      "category": "implementation_or_documentation"
+    },
+    {
+      "path": "docs/FINAL_COMMIT_REVIEW.md",
+      "category": "final_commit_preparation"
+    },
+    {
+      "path": "docs/LICENSE_STATUS.md",
+      "category": "implementation_or_documentation"
+    },
+    {
+      "path": "docs/PORTFOLIO_REMEDIATION_REPORT.md",
+      "category": "implementation_or_documentation"
+    },
+    {
+      "path": "docs/REMEDIATION_AUDIT.md",
+      "category": "implementation_or_documentation"
+    },
+    {
+      "path": "docs/REPRODUCIBILITY.md",
+      "category": "implementation_or_documentation"
+    },
+    {
+      "path": "docs/THREAD_CONTROL_FIX.md",
+      "category": "thread_control_documentation"
+    },
+    {
+      "path": "requirements-demo.txt",
+      "category": "implementation_or_documentation"
+    },
+    {
+      "path": "results/benchmarks/campaigns/continuation_measured_20261024/campaign.json",
+      "category": "campaign_evidence_KEEP_thread_mismatch_annotation"
+    },
+    {
+      "path": "results/benchmarks/campaigns/continuation_measured_20261024/image_manifest.json",
+      "category": "campaign_evidence_KEEP_thread_mismatch_annotation"
+    },
+    {
+      "path": "results/benchmarks/campaigns/continuation_measured_20261024/session_01/benchmark_imgsz_416.yaml",
+      "category": "campaign_evidence_KEEP_thread_mismatch_annotation"
+    },
+    {
+      "path": "results/benchmarks/campaigns/continuation_measured_v2_20261024/campaign.json",
+      "category": "campaign_evidence_KEEP_thread_mismatch_annotation"
+    },
+    {
+      "path": "results/benchmarks/campaigns/continuation_measured_v2_20261024/image_manifest.json",
+      "category": "campaign_evidence_KEEP_thread_mismatch_annotation"
+    },
+    {
+      "path": "results/benchmarks/campaigns/continuation_measured_v2_20261024/session_01/benchmark_imgsz_416.yaml",
+      "category": "campaign_evidence_KEEP_thread_mismatch_annotation"
+    },
+    {
+      "path": "results/benchmarks/campaigns/continuation_measured_v2_20261024/session_01/benchmark_imgsz_448.yaml",
+      "category": "campaign_evidence_KEEP_thread_mismatch_annotation"
+    },
+    {
+      "path": "results/benchmarks/campaigns/continuation_measured_v2_20261024/session_01/benchmark_imgsz_480.yaml",
+      "category": "campaign_evidence_KEEP_thread_mismatch_annotation"
+    },
+    {
+      "path": "results/benchmarks/campaigns/continuation_measured_v2_20261024/session_01/benchmark_imgsz_512.yaml",
+      "category": "campaign_evidence_KEEP_thread_mismatch_annotation"
+    },
+    {
+      "path": "results/benchmarks/campaigns/continuation_measured_v2_20261024/session_01/benchmark_imgsz_576.yaml",
+      "category": "campaign_evidence_KEEP_thread_mismatch_annotation"
+    },
+    {
+      "path": "results/benchmarks/campaigns/continuation_measured_v2_20261024/session_01/benchmark_imgsz_608.yaml",
+      "category": "campaign_evidence_KEEP_thread_mismatch_annotation"
+    },
+    {
+      "path": "results/benchmarks/campaigns/continuation_measured_v2_20261024/session_01/benchmark_imgsz_640.yaml",
+      "category": "campaign_evidence_KEEP_thread_mismatch_annotation"
+    },
+    {
+      "path": "results/benchmarks/campaigns/continuation_measured_v2_20261024/session_01/imgsz_416.json",
+      "category": "campaign_evidence_KEEP_thread_mismatch_annotation"
+    },
+    {
+      "path": "results/benchmarks/campaigns/continuation_measured_v2_20261024/session_01/imgsz_448.json",
+      "category": "campaign_evidence_KEEP_thread_mismatch_annotation"
+    },
+    {
+      "path": "results/benchmarks/campaigns/continuation_measured_v2_20261024/session_01/imgsz_480.json",
+      "category": "campaign_evidence_KEEP_thread_mismatch_annotation"
+    },
+    {
+      "path": "results/benchmarks/campaigns/continuation_measured_v2_20261024/session_01/imgsz_512.json",
+      "category": "campaign_evidence_KEEP_thread_mismatch_annotation"
+    },
+    {
+      "path": "results/benchmarks/campaigns/continuation_measured_v2_20261024/session_01/imgsz_576.json",
+      "category": "campaign_evidence_KEEP_thread_mismatch_annotation"
+    },
+    {
+      "path": "results/benchmarks/campaigns/continuation_measured_v2_20261024/session_01/imgsz_608.json",
+      "category": "campaign_evidence_KEEP_thread_mismatch_annotation"
+    },
+    {
+      "path": "results/benchmarks/campaigns/continuation_measured_v2_20261024/session_01/imgsz_640.json",
+      "category": "campaign_evidence_KEEP_thread_mismatch_annotation"
+    },
+    {
+      "path": "results/benchmarks/campaigns/continuation_measured_v2_20261024/session_02/benchmark_imgsz_416.yaml",
+      "category": "campaign_evidence_KEEP_thread_mismatch_annotation"
+    },
+    {
+      "path": "results/benchmarks/campaigns/continuation_measured_v2_20261024/session_02/benchmark_imgsz_448.yaml",
+      "category": "campaign_evidence_KEEP_thread_mismatch_annotation"
+    },
+    {
+      "path": "results/benchmarks/campaigns/continuation_measured_v2_20261024/session_02/benchmark_imgsz_480.yaml",
+      "category": "campaign_evidence_KEEP_thread_mismatch_annotation"
+    },
+    {
+      "path": "results/benchmarks/campaigns/continuation_measured_v2_20261024/session_02/benchmark_imgsz_512.yaml",
+      "category": "campaign_evidence_KEEP_thread_mismatch_annotation"
+    },
+    {
+      "path": "results/benchmarks/campaigns/continuation_measured_v2_20261024/session_02/benchmark_imgsz_576.yaml",
+      "category": "campaign_evidence_KEEP_thread_mismatch_annotation"
+    },
+    {
+      "path": "results/benchmarks/campaigns/continuation_measured_v2_20261024/session_02/benchmark_imgsz_608.yaml",
+      "category": "campaign_evidence_KEEP_thread_mismatch_annotation"
+    },
+    {
+      "path": "results/benchmarks/campaigns/continuation_measured_v2_20261024/session_02/benchmark_imgsz_640.yaml",
+      "category": "campaign_evidence_KEEP_thread_mismatch_annotation"
+    },
+    {
+      "path": "results/benchmarks/campaigns/continuation_measured_v2_20261024/session_02/imgsz_416.json",
+      "category": "campaign_evidence_KEEP_thread_mismatch_annotation"
+    },
+    {
+      "path": "results/benchmarks/campaigns/continuation_measured_v2_20261024/session_02/imgsz_448.json",
+      "category": "campaign_evidence_KEEP_thread_mismatch_annotation"
+    },
+    {
+      "path": "results/benchmarks/campaigns/continuation_measured_v2_20261024/session_02/imgsz_480.json",
+      "category": "campaign_evidence_KEEP_thread_mismatch_annotation"
+    },
+    {
+      "path": "results/benchmarks/campaigns/continuation_measured_v2_20261024/session_02/imgsz_512.json",
+      "category": "campaign_evidence_KEEP_thread_mismatch_annotation"
+    },
+    {
+      "path": "results/benchmarks/campaigns/continuation_measured_v2_20261024/session_02/imgsz_576.json",
+      "category": "campaign_evidence_KEEP_thread_mismatch_annotation"
+    },
+    {
+      "path": "results/benchmarks/campaigns/continuation_measured_v2_20261024/session_02/imgsz_608.json",
+      "category": "campaign_evidence_KEEP_thread_mismatch_annotation"
+    },
+    {
+      "path": "results/benchmarks/campaigns/continuation_measured_v2_20261024/session_02/imgsz_640.json",
+      "category": "campaign_evidence_KEEP_thread_mismatch_annotation"
+    },
+    {
+      "path": "results/benchmarks/campaigns/continuation_measured_v2_20261024/session_03/benchmark_imgsz_416.yaml",
+      "category": "campaign_evidence_KEEP_thread_mismatch_annotation"
+    },
+    {
+      "path": "results/benchmarks/campaigns/continuation_measured_v2_20261024/session_03/benchmark_imgsz_448.yaml",
+      "category": "campaign_evidence_KEEP_thread_mismatch_annotation"
+    },
+    {
+      "path": "results/benchmarks/campaigns/continuation_measured_v2_20261024/session_03/benchmark_imgsz_480.yaml",
+      "category": "campaign_evidence_KEEP_thread_mismatch_annotation"
+    },
+    {
+      "path": "results/benchmarks/campaigns/continuation_measured_v2_20261024/session_03/benchmark_imgsz_512.yaml",
+      "category": "campaign_evidence_KEEP_thread_mismatch_annotation"
+    },
+    {
+      "path": "results/benchmarks/campaigns/continuation_measured_v2_20261024/session_03/benchmark_imgsz_576.yaml",
+      "category": "campaign_evidence_KEEP_thread_mismatch_annotation"
+    },
+    {
+      "path": "results/benchmarks/campaigns/continuation_measured_v2_20261024/session_03/benchmark_imgsz_608.yaml",
+      "category": "campaign_evidence_KEEP_thread_mismatch_annotation"
+    },
+    {
+      "path": "results/benchmarks/campaigns/continuation_measured_v2_20261024/session_03/benchmark_imgsz_640.yaml",
+      "category": "campaign_evidence_KEEP_thread_mismatch_annotation"
+    },
+    {
+      "path": "results/benchmarks/campaigns/continuation_measured_v2_20261024/session_03/imgsz_416.json",
+      "category": "campaign_evidence_KEEP_thread_mismatch_annotation"
+    },
+    {
+      "path": "results/benchmarks/campaigns/continuation_measured_v2_20261024/session_03/imgsz_448.json",
+      "category": "campaign_evidence_KEEP_thread_mismatch_annotation"
+    },
+    {
+      "path": "results/benchmarks/campaigns/continuation_measured_v2_20261024/session_03/imgsz_480.json",
+      "category": "campaign_evidence_KEEP_thread_mismatch_annotation"
+    },
+    {
+      "path": "results/benchmarks/campaigns/continuation_measured_v2_20261024/session_03/imgsz_512.json",
+      "category": "campaign_evidence_KEEP_thread_mismatch_annotation"
+    },
+    {
+      "path": "results/benchmarks/campaigns/continuation_measured_v2_20261024/session_03/imgsz_576.json",
+      "category": "campaign_evidence_KEEP_thread_mismatch_annotation"
+    },
+    {
+      "path": "results/benchmarks/campaigns/continuation_measured_v2_20261024/session_03/imgsz_608.json",
+      "category": "campaign_evidence_KEEP_thread_mismatch_annotation"
+    },
+    {
+      "path": "results/benchmarks/campaigns/continuation_measured_v2_20261024/session_03/imgsz_640.json",
+      "category": "campaign_evidence_KEEP_thread_mismatch_annotation"
+    },
+    {
+      "path": "results/benchmarks/campaigns/continuation_measured_v2_20261024/session_04/benchmark_imgsz_416.yaml",
+      "category": "campaign_evidence_KEEP_thread_mismatch_annotation"
+    },
+    {
+      "path": "results/benchmarks/campaigns/continuation_measured_v2_20261024/session_04/benchmark_imgsz_448.yaml",
+      "category": "campaign_evidence_KEEP_thread_mismatch_annotation"
+    },
+    {
+      "path": "results/benchmarks/campaigns/continuation_measured_v2_20261024/session_04/benchmark_imgsz_480.yaml",
+      "category": "campaign_evidence_KEEP_thread_mismatch_annotation"
+    },
+    {
+      "path": "results/benchmarks/campaigns/continuation_measured_v2_20261024/session_04/benchmark_imgsz_512.yaml",
+      "category": "campaign_evidence_KEEP_thread_mismatch_annotation"
+    },
+    {
+      "path": "results/benchmarks/campaigns/continuation_measured_v2_20261024/session_04/benchmark_imgsz_576.yaml",
+      "category": "campaign_evidence_KEEP_thread_mismatch_annotation"
+    },
+    {
+      "path": "results/benchmarks/campaigns/continuation_measured_v2_20261024/session_04/benchmark_imgsz_608.yaml",
+      "category": "campaign_evidence_KEEP_thread_mismatch_annotation"
+    },
+    {
+      "path": "results/benchmarks/campaigns/continuation_measured_v2_20261024/session_04/benchmark_imgsz_640.yaml",
+      "category": "campaign_evidence_KEEP_thread_mismatch_annotation"
+    },
+    {
+      "path": "results/benchmarks/campaigns/continuation_measured_v2_20261024/session_04/imgsz_416.json",
+      "category": "campaign_evidence_KEEP_thread_mismatch_annotation"
+    },
+    {
+      "path": "results/benchmarks/campaigns/continuation_measured_v2_20261024/session_04/imgsz_448.json",
+      "category": "campaign_evidence_KEEP_thread_mismatch_annotation"
+    },
+    {
+      "path": "results/benchmarks/campaigns/continuation_measured_v2_20261024/session_04/imgsz_480.json",
+      "category": "campaign_evidence_KEEP_thread_mismatch_annotation"
+    },
+    {
+      "path": "results/benchmarks/campaigns/continuation_measured_v2_20261024/session_04/imgsz_512.json",
+      "category": "campaign_evidence_KEEP_thread_mismatch_annotation"
+    },
+    {
+      "path": "results/benchmarks/campaigns/continuation_measured_v2_20261024/session_04/imgsz_576.json",
+      "category": "campaign_evidence_KEEP_thread_mismatch_annotation"
+    },
+    {
+      "path": "results/benchmarks/campaigns/continuation_measured_v2_20261024/session_04/imgsz_608.json",
+      "category": "campaign_evidence_KEEP_thread_mismatch_annotation"
+    },
+    {
+      "path": "results/benchmarks/campaigns/continuation_measured_v2_20261024/session_04/imgsz_640.json",
+      "category": "campaign_evidence_KEEP_thread_mismatch_annotation"
+    },
+    {
+      "path": "results/benchmarks/campaigns/continuation_measured_v2_20261024/session_05/benchmark_imgsz_416.yaml",
+      "category": "campaign_evidence_KEEP_thread_mismatch_annotation"
+    },
+    {
+      "path": "results/benchmarks/campaigns/continuation_measured_v2_20261024/session_05/benchmark_imgsz_448.yaml",
+      "category": "campaign_evidence_KEEP_thread_mismatch_annotation"
+    },
+    {
+      "path": "results/benchmarks/campaigns/continuation_measured_v2_20261024/session_05/benchmark_imgsz_480.yaml",
+      "category": "campaign_evidence_KEEP_thread_mismatch_annotation"
+    },
+    {
+      "path": "results/benchmarks/campaigns/continuation_measured_v2_20261024/session_05/benchmark_imgsz_512.yaml",
+      "category": "campaign_evidence_KEEP_thread_mismatch_annotation"
+    },
+    {
+      "path": "results/benchmarks/campaigns/continuation_measured_v2_20261024/session_05/benchmark_imgsz_576.yaml",
+      "category": "campaign_evidence_KEEP_thread_mismatch_annotation"
+    },
+    {
+      "path": "results/benchmarks/campaigns/continuation_measured_v2_20261024/session_05/benchmark_imgsz_608.yaml",
+      "category": "campaign_evidence_KEEP_thread_mismatch_annotation"
+    },
+    {
+      "path": "results/benchmarks/campaigns/continuation_measured_v2_20261024/session_05/benchmark_imgsz_640.yaml",
+      "category": "campaign_evidence_KEEP_thread_mismatch_annotation"
+    },
+    {
+      "path": "results/benchmarks/campaigns/continuation_measured_v2_20261024/session_05/imgsz_416.json",
+      "category": "campaign_evidence_KEEP_thread_mismatch_annotation"
+    },
+    {
+      "path": "results/benchmarks/campaigns/continuation_measured_v2_20261024/session_05/imgsz_448.json",
+      "category": "campaign_evidence_KEEP_thread_mismatch_annotation"
+    },
+    {
+      "path": "results/benchmarks/campaigns/continuation_measured_v2_20261024/session_05/imgsz_480.json",
+      "category": "campaign_evidence_KEEP_thread_mismatch_annotation"
+    },
+    {
+      "path": "results/benchmarks/campaigns/continuation_measured_v2_20261024/session_05/imgsz_512.json",
+      "category": "campaign_evidence_KEEP_thread_mismatch_annotation"
+    },
+    {
+      "path": "results/benchmarks/campaigns/continuation_measured_v2_20261024/session_05/imgsz_576.json",
+      "category": "campaign_evidence_KEEP_thread_mismatch_annotation"
+    },
+    {
+      "path": "results/benchmarks/campaigns/continuation_measured_v2_20261024/session_05/imgsz_608.json",
+      "category": "campaign_evidence_KEEP_thread_mismatch_annotation"
+    },
+    {
+      "path": "results/benchmarks/campaigns/continuation_measured_v2_20261024/session_05/imgsz_640.json",
+      "category": "campaign_evidence_KEEP_thread_mismatch_annotation"
+    },
+    {
+      "path": "results/benchmarks/campaigns/threads1_fixed_20261024/campaign.json",
+      "category": "verified_1_thread_campaign_v2"
+    },
+    {
+      "path": "results/benchmarks/campaigns/threads1_fixed_20261024/image_manifest.json",
+      "category": "verified_1_thread_campaign_v2"
+    },
+    {
+      "path": "results/benchmarks/campaigns/threads1_fixed_20261024/session_01/benchmark_imgsz_416.yaml",
+      "category": "verified_1_thread_campaign_v2"
+    },
+    {
+      "path": "results/benchmarks/campaigns/threads1_fixed_20261024/session_01/benchmark_imgsz_448.yaml",
+      "category": "verified_1_thread_campaign_v2"
+    },
+    {
+      "path": "results/benchmarks/campaigns/threads1_fixed_20261024/session_01/benchmark_imgsz_480.yaml",
+      "category": "verified_1_thread_campaign_v2"
+    },
+    {
+      "path": "results/benchmarks/campaigns/threads1_fixed_20261024/session_01/benchmark_imgsz_512.yaml",
+      "category": "verified_1_thread_campaign_v2"
+    },
+    {
+      "path": "results/benchmarks/campaigns/threads1_fixed_20261024/session_01/benchmark_imgsz_576.yaml",
+      "category": "verified_1_thread_campaign_v2"
+    },
+    {
+      "path": "results/benchmarks/campaigns/threads1_fixed_20261024/session_01/benchmark_imgsz_608.yaml",
+      "category": "verified_1_thread_campaign_v2"
+    },
+    {
+      "path": "results/benchmarks/campaigns/threads1_fixed_20261024/session_01/benchmark_imgsz_640.yaml",
+      "category": "verified_1_thread_campaign_v2"
+    },
+    {
+      "path": "results/benchmarks/campaigns/threads1_fixed_20261024/session_01/imgsz_416.json",
+      "category": "verified_1_thread_campaign_v2"
+    },
+    {
+      "path": "results/benchmarks/campaigns/threads1_fixed_20261024/session_01/imgsz_448.json",
+      "category": "verified_1_thread_campaign_v2"
+    },
+    {
+      "path": "results/benchmarks/campaigns/threads1_fixed_20261024/session_01/imgsz_480.json",
+      "category": "verified_1_thread_campaign_v2"
+    },
+    {
+      "path": "results/benchmarks/campaigns/threads1_fixed_20261024/session_01/imgsz_512.json",
+      "category": "verified_1_thread_campaign_v2"
+    },
+    {
+      "path": "results/benchmarks/campaigns/threads1_fixed_20261024/session_01/imgsz_576.json",
+      "category": "verified_1_thread_campaign_v2"
+    },
+    {
+      "path": "results/benchmarks/campaigns/threads1_fixed_20261024/session_01/imgsz_608.json",
+      "category": "verified_1_thread_campaign_v2"
+    },
+    {
+      "path": "results/benchmarks/campaigns/threads1_fixed_20261024/session_01/imgsz_640.json",
+      "category": "verified_1_thread_campaign_v2"
+    },
+    {
+      "path": "results/benchmarks/campaigns/threads1_fixed_20261024/session_02/benchmark_imgsz_416.yaml",
+      "category": "verified_1_thread_campaign_v2"
+    },
+    {
+      "path": "results/benchmarks/campaigns/threads1_fixed_20261024/session_02/benchmark_imgsz_448.yaml",
+      "category": "verified_1_thread_campaign_v2"
+    },
+    {
+      "path": "results/benchmarks/campaigns/threads1_fixed_20261024/session_02/benchmark_imgsz_480.yaml",
+      "category": "verified_1_thread_campaign_v2"
+    },
+    {
+      "path": "results/benchmarks/campaigns/threads1_fixed_20261024/session_02/benchmark_imgsz_512.yaml",
+      "category": "verified_1_thread_campaign_v2"
+    },
+    {
+      "path": "results/benchmarks/campaigns/threads1_fixed_20261024/session_02/benchmark_imgsz_576.yaml",
+      "category": "verified_1_thread_campaign_v2"
+    },
+    {
+      "path": "results/benchmarks/campaigns/threads1_fixed_20261024/session_02/benchmark_imgsz_608.yaml",
+      "category": "verified_1_thread_campaign_v2"
+    },
+    {
+      "path": "results/benchmarks/campaigns/threads1_fixed_20261024/session_02/benchmark_imgsz_640.yaml",
+      "category": "verified_1_thread_campaign_v2"
+    },
+    {
+      "path": "results/benchmarks/campaigns/threads1_fixed_20261024/session_02/imgsz_416.json",
+      "category": "verified_1_thread_campaign_v2"
+    },
+    {
+      "path": "results/benchmarks/campaigns/threads1_fixed_20261024/session_02/imgsz_448.json",
+      "category": "verified_1_thread_campaign_v2"
+    },
+    {
+      "path": "results/benchmarks/campaigns/threads1_fixed_20261024/session_02/imgsz_480.json",
+      "category": "verified_1_thread_campaign_v2"
+    },
+    {
+      "path": "results/benchmarks/campaigns/threads1_fixed_20261024/session_02/imgsz_512.json",
+      "category": "verified_1_thread_campaign_v2"
+    },
+    {
+      "path": "results/benchmarks/campaigns/threads1_fixed_20261024/session_02/imgsz_576.json",
+      "category": "verified_1_thread_campaign_v2"
+    },
+    {
+      "path": "results/benchmarks/campaigns/threads1_fixed_20261024/session_02/imgsz_608.json",
+      "category": "verified_1_thread_campaign_v2"
+    },
+    {
+      "path": "results/benchmarks/campaigns/threads1_fixed_20261024/session_02/imgsz_640.json",
+      "category": "verified_1_thread_campaign_v2"
+    },
+    {
+      "path": "results/benchmarks/campaigns/threads1_fixed_20261024/session_03/benchmark_imgsz_416.yaml",
+      "category": "verified_1_thread_campaign_v2"
+    },
+    {
+      "path": "results/benchmarks/campaigns/threads1_fixed_20261024/session_03/benchmark_imgsz_448.yaml",
+      "category": "verified_1_thread_campaign_v2"
+    },
+    {
+      "path": "results/benchmarks/campaigns/threads1_fixed_20261024/session_03/benchmark_imgsz_480.yaml",
+      "category": "verified_1_thread_campaign_v2"
+    },
+    {
+      "path": "results/benchmarks/campaigns/threads1_fixed_20261024/session_03/benchmark_imgsz_512.yaml",
+      "category": "verified_1_thread_campaign_v2"
+    },
+    {
+      "path": "results/benchmarks/campaigns/threads1_fixed_20261024/session_03/benchmark_imgsz_576.yaml",
+      "category": "verified_1_thread_campaign_v2"
+    },
+    {
+      "path": "results/benchmarks/campaigns/threads1_fixed_20261024/session_03/benchmark_imgsz_608.yaml",
+      "category": "verified_1_thread_campaign_v2"
+    },
+    {
+      "path": "results/benchmarks/campaigns/threads1_fixed_20261024/session_03/benchmark_imgsz_640.yaml",
+      "category": "verified_1_thread_campaign_v2"
+    },
+    {
+      "path": "results/benchmarks/campaigns/threads1_fixed_20261024/session_03/imgsz_416.json",
+      "category": "verified_1_thread_campaign_v2"
+    },
+    {
+      "path": "results/benchmarks/campaigns/threads1_fixed_20261024/session_03/imgsz_448.json",
+      "category": "verified_1_thread_campaign_v2"
+    },
+    {
+      "path": "results/benchmarks/campaigns/threads1_fixed_20261024/session_03/imgsz_480.json",
+      "category": "verified_1_thread_campaign_v2"
+    },
+    {
+      "path": "results/benchmarks/campaigns/threads1_fixed_20261024/session_03/imgsz_512.json",
+      "category": "verified_1_thread_campaign_v2"
+    },
+    {
+      "path": "results/benchmarks/campaigns/threads1_fixed_20261024/session_03/imgsz_576.json",
+      "category": "verified_1_thread_campaign_v2"
+    },
+    {
+      "path": "results/benchmarks/campaigns/threads1_fixed_20261024/session_03/imgsz_608.json",
+      "category": "verified_1_thread_campaign_v2"
+    },
+    {
+      "path": "results/benchmarks/campaigns/threads1_fixed_20261024/session_03/imgsz_640.json",
+      "category": "verified_1_thread_campaign_v2"
+    },
+    {
+      "path": "results/benchmarks/campaigns/threads1_fixed_20261024/session_04/benchmark_imgsz_416.yaml",
+      "category": "verified_1_thread_campaign_v2"
+    },
+    {
+      "path": "results/benchmarks/campaigns/threads1_fixed_20261024/session_04/benchmark_imgsz_448.yaml",
+      "category": "verified_1_thread_campaign_v2"
+    },
+    {
+      "path": "results/benchmarks/campaigns/threads1_fixed_20261024/session_04/benchmark_imgsz_480.yaml",
+      "category": "verified_1_thread_campaign_v2"
+    },
+    {
+      "path": "results/benchmarks/campaigns/threads1_fixed_20261024/session_04/benchmark_imgsz_512.yaml",
+      "category": "verified_1_thread_campaign_v2"
+    },
+    {
+      "path": "results/benchmarks/campaigns/threads1_fixed_20261024/session_04/benchmark_imgsz_576.yaml",
+      "category": "verified_1_thread_campaign_v2"
+    },
+    {
+      "path": "results/benchmarks/campaigns/threads1_fixed_20261024/session_04/benchmark_imgsz_608.yaml",
+      "category": "verified_1_thread_campaign_v2"
+    },
+    {
+      "path": "results/benchmarks/campaigns/threads1_fixed_20261024/session_04/benchmark_imgsz_640.yaml",
+      "category": "verified_1_thread_campaign_v2"
+    },
+    {
+      "path": "results/benchmarks/campaigns/threads1_fixed_20261024/session_04/imgsz_416.json",
+      "category": "verified_1_thread_campaign_v2"
+    },
+    {
+      "path": "results/benchmarks/campaigns/threads1_fixed_20261024/session_04/imgsz_448.json",
+      "category": "verified_1_thread_campaign_v2"
+    },
+    {
+      "path": "results/benchmarks/campaigns/threads1_fixed_20261024/session_04/imgsz_480.json",
+      "category": "verified_1_thread_campaign_v2"
+    },
+    {
+      "path": "results/benchmarks/campaigns/threads1_fixed_20261024/session_04/imgsz_512.json",
+      "category": "verified_1_thread_campaign_v2"
+    },
+    {
+      "path": "results/benchmarks/campaigns/threads1_fixed_20261024/session_04/imgsz_576.json",
+      "category": "verified_1_thread_campaign_v2"
+    },
+    {
+      "path": "results/benchmarks/campaigns/threads1_fixed_20261024/session_04/imgsz_608.json",
+      "category": "verified_1_thread_campaign_v2"
+    },
+    {
+      "path": "results/benchmarks/campaigns/threads1_fixed_20261024/session_04/imgsz_640.json",
+      "category": "verified_1_thread_campaign_v2"
+    },
+    {
+      "path": "results/benchmarks/campaigns/threads1_fixed_20261024/session_05/benchmark_imgsz_416.yaml",
+      "category": "verified_1_thread_campaign_v2"
+    },
+    {
+      "path": "results/benchmarks/campaigns/threads1_fixed_20261024/session_05/benchmark_imgsz_448.yaml",
+      "category": "verified_1_thread_campaign_v2"
+    },
+    {
+      "path": "results/benchmarks/campaigns/threads1_fixed_20261024/session_05/benchmark_imgsz_480.yaml",
+      "category": "verified_1_thread_campaign_v2"
+    },
+    {
+      "path": "results/benchmarks/campaigns/threads1_fixed_20261024/session_05/benchmark_imgsz_512.yaml",
+      "category": "verified_1_thread_campaign_v2"
+    },
+    {
+      "path": "results/benchmarks/campaigns/threads1_fixed_20261024/session_05/benchmark_imgsz_576.yaml",
+      "category": "verified_1_thread_campaign_v2"
+    },
+    {
+      "path": "results/benchmarks/campaigns/threads1_fixed_20261024/session_05/benchmark_imgsz_608.yaml",
+      "category": "verified_1_thread_campaign_v2"
+    },
+    {
+      "path": "results/benchmarks/campaigns/threads1_fixed_20261024/session_05/benchmark_imgsz_640.yaml",
+      "category": "verified_1_thread_campaign_v2"
+    },
+    {
+      "path": "results/benchmarks/campaigns/threads1_fixed_20261024/session_05/imgsz_416.json",
+      "category": "verified_1_thread_campaign_v2"
+    },
+    {
+      "path": "results/benchmarks/campaigns/threads1_fixed_20261024/session_05/imgsz_448.json",
+      "category": "verified_1_thread_campaign_v2"
+    },
+    {
+      "path": "results/benchmarks/campaigns/threads1_fixed_20261024/session_05/imgsz_480.json",
+      "category": "verified_1_thread_campaign_v2"
+    },
+    {
+      "path": "results/benchmarks/campaigns/threads1_fixed_20261024/session_05/imgsz_512.json",
+      "category": "verified_1_thread_campaign_v2"
+    },
+    {
+      "path": "results/benchmarks/campaigns/threads1_fixed_20261024/session_05/imgsz_576.json",
+      "category": "verified_1_thread_campaign_v2"
+    },
+    {
+      "path": "results/benchmarks/campaigns/threads1_fixed_20261024/session_05/imgsz_608.json",
+      "category": "verified_1_thread_campaign_v2"
+    },
+    {
+      "path": "results/benchmarks/campaigns/threads1_fixed_20261024/session_05/imgsz_640.json",
+      "category": "verified_1_thread_campaign_v2"
+    },
+    {
+      "path": "results/remediation/audit_20261024/audit_evidence.py",
+      "category": "audit_evidence"
+    },
+    {
+      "path": "results/remediation/audit_20261024/audit_summary.json",
+      "category": "audit_evidence"
+    },
+    {
+      "path": "results/remediation/audit_20261024/campaign_raw_audit.json",
+      "category": "audit_evidence"
+    },
+    {
+      "path": "results/remediation/audit_20261024/commit_candidates.json",
+      "category": "audit_evidence"
+    },
+    {
+      "path": "results/remediation/audit_20261024/commit_exclude.txt",
+      "category": "audit_evidence"
+    },
+    {
+      "path": "results/remediation/audit_20261024/commit_include.txt",
+      "category": "audit_evidence"
+    },
+    {
+      "path": "results/remediation/audit_20261024/git_access_assessment.json",
+      "category": "audit_evidence"
+    },
+    {
+      "path": "results/remediation/audit_20261024/git_pack_verification.json",
+      "category": "audit_evidence"
+    },
+    {
+      "path": "results/remediation/audit_20261024/original_source_snapshot_check.json",
+      "category": "audit_evidence"
+    },
+    {
+      "path": "results/remediation/audit_20261024/source_sha256_after_audit.json",
+      "category": "audit_evidence"
+    },
+    {
+      "path": "results/remediation/audit_20261024/tests_rerun.log",
+      "category": "audit_evidence"
+    },
+    {
+      "path": "results/remediation/audit_20261024/thread_reset_reproduction.json",
+      "category": "audit_evidence"
+    },
+    {
+      "path": "results/remediation/audit_20261024/tracked_content_vs_HEAD.json",
+      "category": "audit_evidence"
+    },
+    {
+      "path": "results/remediation/continuation_20261024/campaign_execution.log",
+      "category": "selected_remediation_evidence"
+    },
+    {
+      "path": "results/remediation/continuation_20261024/campaign_execution_v2.log",
+      "category": "selected_remediation_evidence"
+    },
+    {
+      "path": "results/remediation/continuation_20261024/campaign_execution_v2_retry.log",
+      "category": "selected_remediation_evidence"
+    },
+    {
+      "path": "results/remediation/continuation_20261024/campaign_preflight_verified.log",
+      "category": "selected_remediation_evidence"
+    },
+    {
+      "path": "results/remediation/continuation_20261024/campaign_verification.json",
+      "category": "selected_remediation_evidence"
+    },
+    {
+      "path": "results/remediation/continuation_20261024/clarification_agent_review.json",
+      "category": "selected_remediation_evidence"
+    },
+    {
+      "path": "results/remediation/continuation_20261024/dataset_manifest.json",
+      "category": "selected_remediation_evidence"
+    },
+    {
+      "path": "results/remediation/continuation_20261024/environment.json",
+      "category": "selected_remediation_evidence"
+    },
+    {
+      "path": "results/remediation/continuation_20261024/environment_repair.json",
+      "category": "selected_remediation_evidence"
+    },
+    {
+      "path": "results/remediation/continuation_20261024/final_review.json",
+      "category": "selected_remediation_evidence"
+    },
+    {
+      "path": "results/remediation/continuation_20261024/final_source_sha256.json",
+      "category": "selected_remediation_evidence"
+    },
+    {
+      "path": "results/remediation/continuation_20261024/fresh_campaign_tests.log",
+      "category": "selected_remediation_evidence"
+    },
+    {
+      "path": "results/remediation/continuation_20261024/fresh_demo_packages.txt",
+      "category": "selected_remediation_evidence"
+    },
+    {
+      "path": "results/remediation/continuation_20261024/fresh_demo_selection.json",
+      "category": "selected_remediation_evidence"
+    },
+    {
+      "path": "results/remediation/continuation_20261024/fresh_demo_tests.log",
+      "category": "selected_remediation_evidence"
+    },
+    {
+      "path": "results/remediation/continuation_20261024/fresh_demo_transcript.log",
+      "category": "selected_remediation_evidence"
+    },
+    {
+      "path": "results/remediation/continuation_20261024/fresh_tools_final.log",
+      "category": "selected_remediation_evidence"
+    },
+    {
+      "path": "results/remediation/continuation_20261024/language_eval.json",
+      "category": "selected_remediation_evidence"
+    },
+    {
+      "path": "results/remediation/continuation_20261024/offline_scenarios/accuracy.log",
+      "category": "offline_demo_evidence"
+    },
+    {
+      "path": "results/remediation/continuation_20261024/offline_scenarios/accuracy_proposal.json",
+      "category": "offline_demo_evidence"
+    },
+    {
+      "path": "results/remediation/continuation_20261024/offline_scenarios/accuracy_request.json",
+      "category": "offline_demo_evidence"
+    },
+    {
+      "path": "results/remediation/continuation_20261024/offline_scenarios/balanced.log",
+      "category": "offline_demo_evidence"
+    },
+    {
+      "path": "results/remediation/continuation_20261024/offline_scenarios/balanced_proposal.json",
+      "category": "offline_demo_evidence"
+    },
+    {
+      "path": "results/remediation/continuation_20261024/offline_scenarios/balanced_request.json",
+      "category": "offline_demo_evidence"
+    },
+    {
+      "path": "results/remediation/continuation_20261024/offline_scenarios/hardware_mismatch.log",
+      "category": "offline_demo_evidence"
+    },
+    {
+      "path": "results/remediation/continuation_20261024/offline_scenarios/hardware_mismatch_proposal.json",
+      "category": "offline_demo_evidence"
+    },
+    {
+      "path": "results/remediation/continuation_20261024/offline_scenarios/hardware_mismatch_request.json",
+      "category": "offline_demo_evidence"
+    },
+    {
+      "path": "results/remediation/continuation_20261024/offline_scenarios/no_feasible.log",
+      "category": "offline_demo_evidence"
+    },
+    {
+      "path": "results/remediation/continuation_20261024/offline_scenarios/no_feasible_proposal.json",
+      "category": "offline_demo_evidence"
+    },
+    {
+      "path": "results/remediation/continuation_20261024/offline_scenarios/no_feasible_request.json",
+      "category": "offline_demo_evidence"
+    },
+    {
+      "path": "results/remediation/continuation_20261024/offline_scenarios/strict_archived.log",
+      "category": "offline_demo_evidence"
+    },
+    {
+      "path": "results/remediation/continuation_20261024/offline_scenarios/strict_archived_proposal.json",
+      "category": "offline_demo_evidence"
+    },
+    {
+      "path": "results/remediation/continuation_20261024/offline_scenarios/strict_archived_request.json",
+      "category": "offline_demo_evidence"
+    },
+    {
+      "path": "results/remediation/continuation_20261024/offline_scenarios/verification.json",
+      "category": "offline_demo_evidence"
+    },
+    {
+      "path": "results/remediation/continuation_20261024/pip_check.log",
+      "category": "selected_remediation_evidence"
+    },
+    {
+      "path": "results/remediation/continuation_20261024/sensitivity_replay_v2.json",
+      "category": "selected_remediation_evidence"
+    },
+    {
+      "path": "results/remediation/continuation_20261024/tests_environment_fixed.log",
+      "category": "selected_remediation_evidence"
+    },
+    {
+      "path": "results/remediation/continuation_20261024/tests_final_verified.log",
+      "category": "selected_remediation_evidence"
+    },
+    {
+      "path": "results/remediation/final_review_20261024/commit-message.txt",
+      "category": "final_commit_preparation"
+    },
+    {
+      "path": "results/remediation/final_review_20261024/commit_candidates.json",
+      "category": "final_commit_preparation"
+    },
+    {
+      "path": "results/remediation/final_review_20261024/commit_exclude.txt",
+      "category": "final_commit_preparation"
+    },
+    {
+      "path": "results/remediation/final_review_20261024/commit_include.txt",
+      "category": "final_commit_preparation"
+    },
+    {
+      "path": "results/remediation/final_review_20261024/review.json",
+      "category": "final_commit_preparation"
+    },
+    {
+      "path": "results/remediation/final_review_20261024/source_sha256.json",
+      "category": "final_commit_preparation"
+    },
+    {
+      "path": "results/remediation/thread_fix_20261024/build_commit_proposal.py",
+      "category": "thread_fix_evidence"
+    },
+    {
+      "path": "results/remediation/thread_fix_20261024/campaign_execution.log",
+      "category": "thread_fix_evidence"
+    },
+    {
+      "path": "results/remediation/thread_fix_20261024/campaign_verification.json",
+      "category": "thread_fix_evidence"
+    },
+    {
+      "path": "results/remediation/thread_fix_20261024/commit_candidates.json",
+      "category": "thread_fix_evidence"
+    },
+    {
+      "path": "results/remediation/thread_fix_20261024/commit_exclude.txt",
+      "category": "thread_fix_evidence"
+    },
+    {
+      "path": "results/remediation/thread_fix_20261024/commit_include.txt",
+      "category": "thread_fix_evidence"
+    },
+    {
+      "path": "results/remediation/thread_fix_20261024/final_review.json",
+      "category": "thread_fix_evidence"
+    },
+    {
+      "path": "results/remediation/thread_fix_20261024/integration.log",
+      "category": "thread_fix_evidence"
+    },
+    {
+      "path": "results/remediation/thread_fix_20261024/integration.yaml",
+      "category": "thread_fix_evidence"
+    },
+    {
+      "path": "results/remediation/thread_fix_20261024/integration_result.json",
+      "category": "thread_fix_evidence"
+    },
+    {
+      "path": "results/remediation/thread_fix_20261024/integration_verification.json",
+      "category": "thread_fix_evidence"
+    },
+    {
+      "path": "results/remediation/thread_fix_20261024/preflight.log",
+      "category": "thread_fix_evidence"
+    },
+    {
+      "path": "results/remediation/thread_fix_20261024/prior_evidence_sha256.json",
+      "category": "thread_fix_evidence"
+    },
+    {
+      "path": "results/remediation/thread_fix_20261024/source_sha256.json",
+      "category": "thread_fix_evidence"
+    },
+    {
+      "path": "results/remediation/thread_fix_20261024/tests_verified.log",
+      "category": "thread_fix_evidence"
+    },
+    {
+      "path": "results/remediation/thread_fix_20261024/verification.log",
+      "category": "thread_fix_evidence"
+    },
+    {
+      "path": "results/remediation/thread_fix_20261024/verify_campaign.py",
+      "category": "thread_fix_evidence"
+    },
+    {
+      "path": "scripts/analyze_selection.py",
+      "category": "implementation_or_documentation"
+    },
+    {
+      "path": "scripts/benchmark_campaign.py",
+      "category": "implementation_or_documentation"
+    },
+    {
+      "path": "scripts/dataset_manifest.py",
+      "category": "implementation_or_documentation"
+    },
+    {
+      "path": "scripts/evaluate_language.py",
+      "category": "implementation_or_documentation"
+    },
+    {
+      "path": "scripts/verify_offline_demo.py",
+      "category": "implementation_or_documentation"
+    },
+    {
+      "path": "src/benchmarking/cpu_benchmark.py",
+      "category": "implementation_or_documentation"
+    },
+    {
+      "path": "src/proposal/cli.py",
+      "category": "implementation_or_documentation"
+    },
+    {
+      "path": "src/proposal/compatibility.py",
+      "category": "implementation_or_documentation"
+    },
+    {
+      "path": "src/proposal/rule_based.py",
+      "category": "implementation_or_documentation"
+    },
+    {
+      "path": "src/requirement_parser/parser.py",
+      "category": "implementation_or_documentation"
+    },
+    {
+      "path": "src/search_controller/controller.py",
+      "category": "implementation_or_documentation"
+    },
+    {
+      "path": "tests/test_benchmark_campaign.py",
+      "category": "implementation_or_documentation"
+    },
+    {
+      "path": "tests/test_cpu_benchmark.py",
+      "category": "thread_control_regression"
+    },
+    {
+      "path": "tests/test_remediation_tools.py",
+      "category": "implementation_or_documentation"
+    },
+    {
+      "path": "tests/test_requirement_parser.py",
+      "category": "implementation_or_documentation"
+    },
+    {
+      "path": "tests/test_search_controller.py",
+      "category": "implementation_or_documentation"
+    },
+    {
+      "path": "tests/test_search_integration.py",
+      "category": "implementation_or_documentation"
+    }
+  ],
+  "exclude": [
+    {
+      "path": "EdgeNAS_Lite_Codex_Remediation.md",
+      "reason": "preexisting_untracked_owner_file_review_separately"
+    },
+    {
+      "path": "metadata_inspection.json",
+      "reason": "preexisting_untracked_owner_file_review_separately"
+    },
+    {
+      "path": "results/candidates/yolo26n_kitti_pilot_imgsz448_cpu.json.before_hardware_id.bak",
+      "reason": "preexisting_untracked_owner_file_review_separately"
+    },
+    {
+      "path": "results/llm_batches/workflow_english_demo_002.json",
+      "reason": "preexisting_untracked_owner_file_review_separately"
+    },
+    {
+      "path": "results/proposals/remediation_baseline_20261024T132107Z.json",
+      "reason": "preexisting_untracked_owner_file_review_separately"
+    },
+    {
+      "path": "results/remediation/audit_20261024/git_filesystem_diagnostics.txt",
+      "reason": "local_full_mount_and_user_diagnostics_use_sanitized_assessment_in_commit"
+    },
+    {
+      "path": "results/remediation/continuation_20261024/campaign_preflight.log",
+      "reason": "intermediate_or_duplicate_log_not_needed_for_selected_evidence"
+    },
+    {
+      "path": "results/remediation/continuation_20261024/dataset_manifest.log",
+      "reason": "intermediate_or_duplicate_log_not_needed_for_selected_evidence"
+    },
+    {
+      "path": "results/remediation/continuation_20261024/demo_install.log",
+      "reason": "intermediate_or_duplicate_log_not_needed_for_selected_evidence"
+    },
+    {
+      "path": "results/remediation/continuation_20261024/fresh_tools_tests.log",
+      "reason": "intermediate_or_duplicate_log_not_needed_for_selected_evidence"
+    },
+    {
+      "path": "results/remediation/continuation_20261024/offline_scenarios.log",
+      "reason": "intermediate_or_duplicate_log_not_needed_for_selected_evidence"
+    },
+    {
+      "path": "results/remediation/continuation_20261024/sensitivity_replay.json",
+      "reason": "intermediate_or_duplicate_log_not_needed_for_selected_evidence"
+    },
+    {
+      "path": "results/remediation/continuation_20261024/tests_after_compatibility.log",
+      "reason": "intermediate_or_duplicate_log_not_needed_for_selected_evidence"
+    },
+    {
+      "path": "results/remediation/continuation_20261024/tests_baseline.log",
+      "reason": "intermediate_or_duplicate_log_not_needed_for_selected_evidence"
+    },
+    {
+      "path": "results/remediation/continuation_20261024/tests_current.log",
+      "reason": "intermediate_or_duplicate_log_not_needed_for_selected_evidence"
+    },
+    {
+      "path": "results/remediation/continuation_20261024/tests_extended.log",
+      "reason": "intermediate_or_duplicate_log_not_needed_for_selected_evidence"
+    },
+    {
+      "path": "results/remediation/continuation_20261024/tests_extended_fixed.log",
+      "reason": "intermediate_or_duplicate_log_not_needed_for_selected_evidence"
+    },
+    {
+      "path": "results/remediation/continuation_20261024/tests_final.log",
+      "reason": "intermediate_or_duplicate_log_not_needed_for_selected_evidence"
+    },
+    {
+      "path": "results/remediation/continuation_20261024/tests_final_v2.log",
+      "reason": "intermediate_or_duplicate_log_not_needed_for_selected_evidence"
+    },
+    {
+      "path": "results/remediation/continuation_20261024/tests_initial.log",
+      "reason": "intermediate_or_duplicate_log_not_needed_for_selected_evidence"
+    },
+    {
+      "path": "results/remediation/continuation_20261024/tests_release_review.log",
+      "reason": "intermediate_or_duplicate_log_not_needed_for_selected_evidence"
+    },
+    {
+      "path": "results/remediation/continuation_20261024/tests_repaired_env.log",
+      "reason": "intermediate_or_duplicate_log_not_needed_for_selected_evidence"
+    },
+    {
+      "path": "results/remediation/thread_fix_20261024/tests.log",
+      "reason": "intermediate_fixture_failure_log_keep_locally"
+    }
+  ],
+  "always_exclude_patterns": [
+    ".git/**",
+    "._*",
+    "**/._*",
+    ".DS_Store",
+    "**/.DS_Store",
+    ".venv/**",
+    "**/__pycache__/**",
+    ".env",
+    "datasets/**",
+    "runs/**",
+    "*.pt",
+    "*.onnx"
+  ]
+}

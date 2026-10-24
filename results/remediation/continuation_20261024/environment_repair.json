@@ -1,0 +1,122 @@
+[
+  {
+    "from": ".venv/lib/python3.9/site-packages/._distutils-precedence.pth",
+    "to": ".venv/lib/python3.9/site-packages/._distutils-precedence.pth.appledouble-disabled"
+  },
+  {
+    "from": ".venv/lib/python3.9/site-packages/._coloredlogs.pth",
+    "to": ".venv/lib/python3.9/site-packages/._coloredlogs.pth.appledouble-disabled"
+  },
+  {
+    "from": ".venv/lib/python3.9/site-packages/matplotlib/mpl-data/stylelib/.__classic_test_patch.mplstyle",
+    "to": ".venv/lib/python3.9/site-packages/matplotlib/mpl-data/stylelib/.__classic_test_patch.mplstyle.appledouble-disabled"
+  },
+  {
+    "from": ".venv/lib/python3.9/site-packages/matplotlib/mpl-data/stylelib/._seaborn-v0_8-notebook.mplstyle",
+    "to": ".venv/lib/python3.9/site-packages/matplotlib/mpl-data/stylelib/._seaborn-v0_8-notebook.mplstyle.appledouble-disabled"
+  },
+  {
+    "from": ".venv/lib/python3.9/site-packages/matplotlib/mpl-data/stylelib/._seaborn-v0_8-pastel.mplstyle",
+    "to": ".venv/lib/python3.9/site-packages/matplotlib/mpl-data/stylelib/._seaborn-v0_8-pastel.mplstyle.appledouble-disabled"
+  },
+  {
+    "from": ".venv/lib/python3.9/site-packages/matplotlib/mpl-data/stylelib/._seaborn-v0_8-bright.mplstyle",
+    "to": ".venv/lib/python3.9/site-packages/matplotlib/mpl-data/stylelib/._seaborn-v0_8-bright.mplstyle.appledouble-disabled"
+  },
+  {
+    "from": ".venv/lib/python3.9/site-packages/matplotlib/mpl-data/stylelib/._seaborn-v0_8-paper.mplstyle",
+    "to": ".venv/lib/python3.9/site-packages/matplotlib/mpl-data/stylelib/._seaborn-v0_8-paper.mplstyle.appledouble-disabled"
+  },
+  {
+    "from": ".venv/lib/python3.9/site-packages/matplotlib/mpl-data/stylelib/._fivethirtyeight.mplstyle",
+    "to": ".venv/lib/python3.9/site-packages/matplotlib/mpl-data/stylelib/._fivethirtyeight.mplstyle.appledouble-disabled"
+  },
+  {
+    "from": ".venv/lib/python3.9/site-packages/matplotlib/mpl-data/stylelib/.__mpl-gallery-nogrid.mplstyle",
+    "to": ".venv/lib/python3.9/site-packages/matplotlib/mpl-data/stylelib/.__mpl-gallery-nogrid.mplstyle.appledouble-disabled"
+  },
+  {
+    "from": ".venv/lib/python3.9/site-packages/matplotlib/mpl-data/stylelib/._seaborn-v0_8-muted.mplstyle",
+    "to": ".venv/lib/python3.9/site-packages/matplotlib/mpl-data/stylelib/._seaborn-v0_8-muted.mplstyle.appledouble-disabled"
+  },
+  {
+    "from": ".venv/lib/python3.9/site-packages/matplotlib/mpl-data/stylelib/._seaborn-v0_8-dark-palette.mplstyle",
+    "to": ".venv/lib/python3.9/site-packages/matplotlib/mpl-data/stylelib/._seaborn-v0_8-dark-palette.mplstyle.appledouble-disabled"
+  },
+  {
+    "from": ".venv/lib/python3.9/site-packages/matplotlib/mpl-data/stylelib/._classic.mplstyle",
+    "to": ".venv/lib/python3.9/site-packages/matplotlib/mpl-data/stylelib/._classic.mplstyle.appledouble-disabled"
+  },
+  {
+    "from": ".venv/lib/python3.9/site-packages/matplotlib/mpl-data/stylelib/._seaborn-v0_8-white.mplstyle",
+    "to": ".venv/lib/python3.9/site-packages/matplotlib/mpl-data/stylelib/._seaborn-v0_8-white.mplstyle.appledouble-disabled"
+  },
+  {
+    "from": ".venv/lib/python3.9/site-packages/matplotlib/mpl-data/stylelib/._seaborn-v0_8-colorblind.mplstyle",
+    "to": ".venv/lib/python3.9/site-packages/matplotlib/mpl-data/stylelib/._seaborn-v0_8-colorblind.mplstyle.appledouble-disabled"
+  },
+  {
+    "from": ".venv/lib/python3.9/site-packages/matplotlib/mpl-data/stylelib/._fast.mplstyle",
+    "to": ".venv/lib/python3.9/site-packages/matplotlib/mpl-data/stylelib/._fast.mplstyle.appledouble-disabled"
+  },
+  {
+    "from": ".venv/lib/python3.9/site-packages/matplotlib/mpl-data/stylelib/._seaborn-v0_8-deep.mplstyle",
+    "to": ".venv/lib/python3.9/site-packages/matplotlib/mpl-data/stylelib/._seaborn-v0_8-deep.mplstyle.appledouble-disabled"
+  },
+  {
+    "from": ".venv/lib/python3.9/site-packages/matplotlib/mpl-data/stylelib/.__mpl-gallery.mplstyle",
+    "to": ".venv/lib/python3.9/site-packages/matplotlib/mpl-data/stylelib/.__mpl-gallery.mplstyle.appledouble-disabled"
+  },
+  {
+    "from": ".venv/lib/python3.9/site-packages/matplotlib/mpl-data/stylelib/._seaborn-v0_8.mplstyle",
+    "to": ".venv/lib/python3.9/site-packages/matplotlib/mpl-data/stylelib/._seaborn-v0_8.mplstyle.appledouble-disabled"
+  },
+  {
+    "from": ".venv/lib/python3.9/site-packages/matplotlib/mpl-data/stylelib/._grayscale.mplstyle",
+    "to": ".venv/lib/python3.9/site-packages/matplotlib/mpl-data/stylelib/._grayscale.mplstyle.appledouble-disabled"
+  },
+  {
+    "from": ".venv/lib/python3.9/site-packages/matplotlib/mpl-data/stylelib/._ggplot.mplstyle",
+    "to": ".venv/lib/python3.9/site-packages/matplotlib/mpl-data/stylelib/._ggplot.mplstyle.appledouble-disabled"
+  },
+  {
+    "from": ".venv/lib/python3.9/site-packages/matplotlib/mpl-data/stylelib/._seaborn-v0_8-darkgrid.mplstyle",
+    "to": ".venv/lib/python3.9/site-packages/matplotlib/mpl-data/stylelib/._seaborn-v0_8-darkgrid.mplstyle.appledouble-disabled"
+  },
+  {
+    "from": ".venv/lib/python3.9/site-packages/matplotlib/mpl-data/stylelib/._seaborn-v0_8-poster.mplstyle",
+    "to": ".venv/lib/python3.9/site-packages/matplotlib/mpl-data/stylelib/._seaborn-v0_8-poster.mplstyle.appledouble-disabled"
+  },
+  {
+    "from": ".venv/lib/python3.9/site-packages/matplotlib/mpl-data/stylelib/._seaborn-v0_8-dark.mplstyle",
+    "to": ".venv/lib/python3.9/site-packages/matplotlib/mpl-data/stylelib/._seaborn-v0_8-dark.mplstyle.appledouble-disabled"
+  },
+  {
+    "from": ".venv/lib/python3.9/site-packages/matplotlib/mpl-data/stylelib/._Solarize_Light2.mplstyle",
+    "to": ".venv/lib/python3.9/site-packages/matplotlib/mpl-data/stylelib/._Solarize_Light2.mplstyle.appledouble-disabled"
+  },
+  {
+    "from": ".venv/lib/python3.9/site-packages/matplotlib/mpl-data/stylelib/._bmh.mplstyle",
+    "to": ".venv/lib/python3.9/site-packages/matplotlib/mpl-data/stylelib/._bmh.mplstyle.appledouble-disabled"
+  },
+  {
+    "from": ".venv/lib/python3.9/site-packages/matplotlib/mpl-data/stylelib/._seaborn-v0_8-ticks.mplstyle",
+    "to": ".venv/lib/python3.9/site-packages/matplotlib/mpl-data/stylelib/._seaborn-v0_8-ticks.mplstyle.appledouble-disabled"
+  },
+  {
+    "from": ".venv/lib/python3.9/site-packages/matplotlib/mpl-data/stylelib/._seaborn-v0_8-talk.mplstyle",
+    "to": ".venv/lib/python3.9/site-packages/matplotlib/mpl-data/stylelib/._seaborn-v0_8-talk.mplstyle.appledouble-disabled"
+  },
+  {
+    "from": ".venv/lib/python3.9/site-packages/matplotlib/mpl-data/stylelib/._tableau-colorblind10.mplstyle",
+    "to": ".venv/lib/python3.9/site-packages/matplotlib/mpl-data/stylelib/._tableau-colorblind10.mplstyle.appledouble-disabled"
+  },
+  {
+    "from": ".venv/lib/python3.9/site-packages/matplotlib/mpl-data/stylelib/._seaborn-v0_8-whitegrid.mplstyle",
+    "to": ".venv/lib/python3.9/site-packages/matplotlib/mpl-data/stylelib/._seaborn-v0_8-whitegrid.mplstyle.appledouble-disabled"
+  },
+  {
+    "from": ".venv/lib/python3.9/site-packages/matplotlib/mpl-data/stylelib/._dark_background.mplstyle",
+    "to": ".venv/lib/python3.9/site-packages/matplotlib/mpl-data/stylelib/._dark_background.mplstyle.appledouble-disabled"
+  }
+]

@@ -1,0 +1,17 @@
+{
+  "status": "PASS",
+  "checkpoint": "runs/detect/kitti_yolo26n_pilot/weights/best.pt",
+  "setup_predictions": 1,
+  "warmup_predictions": 2,
+  "timed_predictions": 6,
+  "requested_threads": 1,
+  "observed_threads": 1,
+  "observations": {
+    "after_backend_setup": 7,
+    "before_warmup": 1,
+    "after_warmup": 1,
+    "before_timing": 1,
+    "after_timing": 1
+  },
+  "per_sample_before_after_all_equal_one": true
+}

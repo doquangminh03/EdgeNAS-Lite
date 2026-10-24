@@ -1,0 +1,106 @@
+[
+  {
+    "path": ".git/objects/pack/pack-06fce56b75d3b6959102c8e01d7bd05b01157136.idx",
+    "magic_hex": "ff744f6300000002",
+    "verify_pack_exit": 0,
+    "stderr": "error: non-monotonic index .git/objects/pack/._pack-fb037be44806fe14ec635fa3e6975784ff5f03e6.idx\nerror: non-monotonic index .git/objects/pack/._pack-ad87492ea44e5369748facadf5e69c3f4bce1d35.idx\nerror: non-monotonic index .git/objects/pack/._pack-3fc50dd2032027b711063d92afdbffcc2f8528e1.idx\nerror: non-monotonic index .git/objects/pack/._pack-89a82c58b2bd845bcae0a7e9c6f28665b8d0339a.idx\nerror: non-monotonic index .git/objects/pack/._pack-60d70f4dd7d1972c364adde1b6ace6c99717d7be.idx\nerror: non-monotonic index .git/objects/pack/._pack-8a936626f82a2574536787de4e347744e9cb7124.idx\nerror: non-monotonic index .git/objects/pack/._pack-20b40e84d535b668be6a3f866e9e4ee4e7d32b46.idx\nerror: non-monotonic index .git/objects/pack/._pack-ef64bbed6fa9006166c9e91c43c47a560920c364.idx\nerror: non-monotonic index .git/objects/pack/._pack-ce504bcf14df9c881e2ec8518beb2017994d24d3.idx\nerror: non-monotonic index .git/objects/pack/._pack-da7b1e9af72e048878567fc8a80a075a97465679.idx\nerror: non-monotonic index .git/objects/pack/._pack-bd3ec8037080e33498d4c58f4f1cc2d74039e83d.idx\nerror: non-monotonic index .git/objects/pack/._pack-06fce56b75d3b6959102c8e01d7bd05b01157136.idx\nerror: non-monotonic index .git/objects/pack/._pack-febf775639ec270f1d2ea54e3f3d1d484c5ce63b.idx\n",
+    "appledouble_sidecar_present": true,
+    "sidecar_magic_hex": "00051607"
+  },
+  {
+    "path": ".git/objects/pack/pack-20b40e84d535b668be6a3f866e9e4ee4e7d32b46.idx",
+    "magic_hex": "ff744f6300000002",
+    "verify_pack_exit": 0,
+    "stderr": "",
+    "appledouble_sidecar_present": true,
+    "sidecar_magic_hex": "00051607"
+  },
+  {
+    "path": ".git/objects/pack/pack-3fc50dd2032027b711063d92afdbffcc2f8528e1.idx",
+    "magic_hex": "ff744f6300000002",
+    "verify_pack_exit": 0,
+    "stderr": "",
+    "appledouble_sidecar_present": true,
+    "sidecar_magic_hex": "00051607"
+  },
+  {
+    "path": ".git/objects/pack/pack-60d70f4dd7d1972c364adde1b6ace6c99717d7be.idx",
+    "magic_hex": "ff744f6300000002",
+    "verify_pack_exit": 0,
+    "stderr": "",
+    "appledouble_sidecar_present": true,
+    "sidecar_magic_hex": "00051607"
+  },
+  {
+    "path": ".git/objects/pack/pack-89a82c58b2bd845bcae0a7e9c6f28665b8d0339a.idx",
+    "magic_hex": "ff744f6300000002",
+    "verify_pack_exit": 0,
+    "stderr": "",
+    "appledouble_sidecar_present": true,
+    "sidecar_magic_hex": "00051607"
+  },
+  {
+    "path": ".git/objects/pack/pack-8a936626f82a2574536787de4e347744e9cb7124.idx",
+    "magic_hex": "ff744f6300000002",
+    "verify_pack_exit": 0,
+    "stderr": "error: non-monotonic index .git/objects/pack/._pack-fb037be44806fe14ec635fa3e6975784ff5f03e6.idx\nerror: non-monotonic index .git/objects/pack/._pack-ad87492ea44e5369748facadf5e69c3f4bce1d35.idx\nerror: non-monotonic index .git/objects/pack/._pack-3fc50dd2032027b711063d92afdbffcc2f8528e1.idx\nerror: non-monotonic index .git/objects/pack/._pack-89a82c58b2bd845bcae0a7e9c6f28665b8d0339a.idx\nerror: non-monotonic index .git/objects/pack/._pack-60d70f4dd7d1972c364adde1b6ace6c99717d7be.idx\nerror: non-monotonic index .git/objects/pack/._pack-8a936626f82a2574536787de4e347744e9cb7124.idx\nerror: non-monotonic index .git/objects/pack/._pack-20b40e84d535b668be6a3f866e9e4ee4e7d32b46.idx\nerror: non-monotonic index .git/objects/pack/._pack-ef64bbed6fa9006166c9e91c43c47a560920c364.idx\nerror: non-monotonic index .git/objects/pack/._pack-ce504bcf14df9c881e2ec8518beb2017994d24d3.idx\nerror: non-monotonic index .git/objects/pack/._pack-da7b1e9af72e048878567fc8a80a075a97465679.idx\nerror: non-monotonic index .git/objects/pack/._pack-bd3ec8037080e33498d4c58f4f1cc2d74039e83d.idx\nerror: non-monotonic index .git/objects/pack/._pack-06fce56b75d3b6959102c8e01d7bd05b01157136.idx\nerror: non-monotonic index .git/objects/pack/._pack-febf775639ec270f1d2ea54e3f3d1d484c5ce63b.idx\n",
+    "appledouble_sidecar_present": true,
+    "sidecar_magic_hex": "00051607"
+  },
+  {
+    "path": ".git/objects/pack/pack-ad87492ea44e5369748facadf5e69c3f4bce1d35.idx",
+    "magic_hex": "ff744f6300000002",
+    "verify_pack_exit": 0,
+    "stderr": "error: non-monotonic index .git/objects/pack/._pack-fb037be44806fe14ec635fa3e6975784ff5f03e6.idx\nerror: non-monotonic index .git/objects/pack/._pack-ad87492ea44e5369748facadf5e69c3f4bce1d35.idx\nerror: non-monotonic index .git/objects/pack/._pack-3fc50dd2032027b711063d92afdbffcc2f8528e1.idx\nerror: non-monotonic index .git/objects/pack/._pack-89a82c58b2bd845bcae0a7e9c6f28665b8d0339a.idx\nerror: non-monotonic index .git/objects/pack/._pack-60d70f4dd7d1972c364adde1b6ace6c99717d7be.idx\nerror: non-monotonic index .git/objects/pack/._pack-8a936626f82a2574536787de4e347744e9cb7124.idx\nerror: non-monotonic index .git/objects/pack/._pack-20b40e84d535b668be6a3f866e9e4ee4e7d32b46.idx\nerror: non-monotonic index .git/objects/pack/._pack-ef64bbed6fa9006166c9e91c43c47a560920c364.idx\nerror: non-monotonic index .git/objects/pack/._pack-ce504bcf14df9c881e2ec8518beb2017994d24d3.idx\nerror: non-monotonic index .git/objects/pack/._pack-da7b1e9af72e048878567fc8a80a075a97465679.idx\nerror: non-monotonic index .git/objects/pack/._pack-bd3ec8037080e33498d4c58f4f1cc2d74039e83d.idx\nerror: non-monotonic index .git/objects/pack/._pack-06fce56b75d3b6959102c8e01d7bd05b01157136.idx\nerror: non-monotonic index .git/objects/pack/._pack-febf775639ec270f1d2ea54e3f3d1d484c5ce63b.idx\n",
+    "appledouble_sidecar_present": true,
+    "sidecar_magic_hex": "00051607"
+  },
+  {
+    "path": ".git/objects/pack/pack-bd3ec8037080e33498d4c58f4f1cc2d74039e83d.idx",
+    "magic_hex": "ff744f6300000002",
+    "verify_pack_exit": 0,
+    "stderr": "",
+    "appledouble_sidecar_present": true,
+    "sidecar_magic_hex": "00051607"
+  },
+  {
+    "path": ".git/objects/pack/pack-ce504bcf14df9c881e2ec8518beb2017994d24d3.idx",
+    "magic_hex": "ff744f6300000002",
+    "verify_pack_exit": 0,
+    "stderr": "",
+    "appledouble_sidecar_present": true,
+    "sidecar_magic_hex": "00051607"
+  },
+  {
+    "path": ".git/objects/pack/pack-da7b1e9af72e048878567fc8a80a075a97465679.idx",
+    "magic_hex": "ff744f6300000002",
+    "verify_pack_exit": 0,
+    "stderr": "",
+    "appledouble_sidecar_present": true,
+    "sidecar_magic_hex": "00051607"
+  },
+  {
+    "path": ".git/objects/pack/pack-ef64bbed6fa9006166c9e91c43c47a560920c364.idx",
+    "magic_hex": "ff744f6300000002",
+    "verify_pack_exit": 0,
+    "stderr": "error: non-monotonic index .git/objects/pack/._pack-fb037be44806fe14ec635fa3e6975784ff5f03e6.idx\nerror: non-monotonic index .git/objects/pack/._pack-ad87492ea44e5369748facadf5e69c3f4bce1d35.idx\nerror: non-monotonic index .git/objects/pack/._pack-3fc50dd2032027b711063d92afdbffcc2f8528e1.idx\nerror: non-monotonic index .git/objects/pack/._pack-89a82c58b2bd845bcae0a7e9c6f28665b8d0339a.idx\nerror: non-monotonic index .git/objects/pack/._pack-60d70f4dd7d1972c364adde1b6ace6c99717d7be.idx\nerror: non-monotonic index .git/objects/pack/._pack-8a936626f82a2574536787de4e347744e9cb7124.idx\nerror: non-monotonic index .git/objects/pack/._pack-20b40e84d535b668be6a3f866e9e4ee4e7d32b46.idx\nerror: non-monotonic index .git/objects/pack/._pack-ef64bbed6fa9006166c9e91c43c47a560920c364.idx\nerror: non-monotonic index .git/objects/pack/._pack-ce504bcf14df9c881e2ec8518beb2017994d24d3.idx\nerror: non-monotonic index .git/objects/pack/._pack-da7b1e9af72e048878567fc8a80a075a97465679.idx\nerror: non-monotonic index .git/objects/pack/._pack-bd3ec8037080e33498d4c58f4f1cc2d74039e83d.idx\nerror: non-monotonic index .git/objects/pack/._pack-06fce56b75d3b6959102c8e01d7bd05b01157136.idx\nerror: non-monotonic index .git/objects/pack/._pack-febf775639ec270f1d2ea54e3f3d1d484c5ce63b.idx\n",
+    "appledouble_sidecar_present": true,
+    "sidecar_magic_hex": "00051607"
+  },
+  {
+    "path": ".git/objects/pack/pack-fb037be44806fe14ec635fa3e6975784ff5f03e6.idx",
+    "magic_hex": "ff744f6300000002",
+    "verify_pack_exit": 0,
+    "stderr": "error: non-monotonic index .git/objects/pack/._pack-fb037be44806fe14ec635fa3e6975784ff5f03e6.idx\nerror: non-monotonic index .git/objects/pack/._pack-ad87492ea44e5369748facadf5e69c3f4bce1d35.idx\nerror: non-monotonic index .git/objects/pack/._pack-3fc50dd2032027b711063d92afdbffcc2f8528e1.idx\nerror: non-monotonic index .git/objects/pack/._pack-89a82c58b2bd845bcae0a7e9c6f28665b8d0339a.idx\nerror: non-monotonic index .git/objects/pack/._pack-60d70f4dd7d1972c364adde1b6ace6c99717d7be.idx\nerror: non-monotonic index .git/objects/pack/._pack-8a936626f82a2574536787de4e347744e9cb7124.idx\nerror: non-monotonic index .git/objects/pack/._pack-20b40e84d535b668be6a3f866e9e4ee4e7d32b46.idx\nerror: non-monotonic index .git/objects/pack/._pack-ef64bbed6fa9006166c9e91c43c47a560920c364.idx\nerror: non-monotonic index .git/objects/pack/._pack-ce504bcf14df9c881e2ec8518beb2017994d24d3.idx\nerror: non-monotonic index .git/objects/pack/._pack-da7b1e9af72e048878567fc8a80a075a97465679.idx\nerror: non-monotonic index .git/objects/pack/._pack-bd3ec8037080e33498d4c58f4f1cc2d74039e83d.idx\nerror: non-monotonic index .git/objects/pack/._pack-06fce56b75d3b6959102c8e01d7bd05b01157136.idx\nerror: non-monotonic index .git/objects/pack/._pack-febf775639ec270f1d2ea54e3f3d1d484c5ce63b.idx\n",
+    "appledouble_sidecar_present": true,
+    "sidecar_magic_hex": "00051607"
+  },
+  {
+    "path": ".git/objects/pack/pack-febf775639ec270f1d2ea54e3f3d1d484c5ce63b.idx",
+    "magic_hex": "ff744f6300000002",
+    "verify_pack_exit": 0,
+    "stderr": "error: non-monotonic index .git/objects/pack/._pack-fb037be44806fe14ec635fa3e6975784ff5f03e6.idx\nerror: non-monotonic index .git/objects/pack/._pack-ad87492ea44e5369748facadf5e69c3f4bce1d35.idx\nerror: non-monotonic index .git/objects/pack/._pack-3fc50dd2032027b711063d92afdbffcc2f8528e1.idx\nerror: non-monotonic index .git/objects/pack/._pack-89a82c58b2bd845bcae0a7e9c6f28665b8d0339a.idx\nerror: non-monotonic index .git/objects/pack/._pack-60d70f4dd7d1972c364adde1b6ace6c99717d7be.idx\nerror: non-monotonic index .git/objects/pack/._pack-8a936626f82a2574536787de4e347744e9cb7124.idx\nerror: non-monotonic index .git/objects/pack/._pack-20b40e84d535b668be6a3f866e9e4ee4e7d32b46.idx\nerror: non-monotonic index .git/objects/pack/._pack-ef64bbed6fa9006166c9e91c43c47a560920c364.idx\nerror: non-monotonic index .git/objects/pack/._pack-ce504bcf14df9c881e2ec8518beb2017994d24d3.idx\nerror: non-monotonic index .git/objects/pack/._pack-da7b1e9af72e048878567fc8a80a075a97465679.idx\nerror: non-monotonic index .git/objects/pack/._pack-bd3ec8037080e33498d4c58f4f1cc2d74039e83d.idx\nerror: non-monotonic index .git/objects/pack/._pack-06fce56b75d3b6959102c8e01d7bd05b01157136.idx\nerror: non-monotonic index .git/objects/pack/._pack-febf775639ec270f1d2ea54e3f3d1d484c5ce63b.idx\n",
+    "appledouble_sidecar_present": true,
+    "sidecar_magic_hex": "00051607"
+  }
+]

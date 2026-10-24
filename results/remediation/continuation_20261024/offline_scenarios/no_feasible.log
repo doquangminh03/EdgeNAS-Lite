@@ -1,0 +1,9 @@
+Request: verify_no_feasible
+Hardware: local_mac_cpu_01
+Status: no_feasible_candidate
+Retrieved: 7
+Compatible: 7
+Excluded: 0
+Feasible: 0
+Selected: None
+Saved: /Volumes/Minh' s USB/EdgeNAS-Lite/results/remediation/continuation_20261024/offline_scenarios/no_feasible_proposal.json

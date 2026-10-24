@@ -1,0 +1,10 @@
+Loading model: runs/detect/kitti_yolo26n_pilot/weights/best.pt
+Preloading 3 images...
+Running 2 warm-up runs...
+Measuring 6 predictions...
+
+Benchmark completed
+Median latency: 9.39 ms
+P95 latency: 9.479 ms
+FPS from median: 106.491
+Result saved to: results/remediation/thread_fix_20261024/integration_result.json

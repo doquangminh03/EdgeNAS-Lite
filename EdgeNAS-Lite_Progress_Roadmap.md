@@ -131,3 +131,39 @@ These are extensions, not prerequisites for documenting the current configuratio
 - Commit/push status must be verified from Git output, not inferred from local execution.
 
 See [README](README.md) for commands, artifact paths, metric definitions, and the current workflow.
+
+
+## Portfolio remediation continuation — 2026-10-24
+
+The earlier milestones above describe historical evidence. The current
+[handoff report](docs/PORTFOLIO_REMEDIATION_REPORT.md) records preservation of
+prior workspace changes, current tests, fresh lightweight replay verification,
+non-finite input regressions, shared Search Controller compatibility checks,
+strict comparison mode, benchmark campaign tooling, dataset manifests, expanded
+language labels/evaluator, search replay, sensitivity/Pareto analysis, and CI.
+New campaign evidence remains separate from the archived seven-candidate index.
+Live expanded LLM evaluation, independent human clarification review, exact
+historical data conversion/split reproduction, GitHub CI execution and repository
+license choice are not completed claims. No push or merge is authorized.
+
+Continuation verification: 229 software tests passed; 23 core tests passed in a
+fresh lightweight environment. A 35-run campaign completed and all 10,500 raw
+samples were checked; current local manifest has 5,985 train and 1,496 validation
+images with no image-ID/hash overlap. These observations do not establish the
+historical split procedure or a new accuracy measurement.
+
+
+## CPU thread-control follow-up — 2026-10-24
+
+- Fixed lazy Ultralytics backend setup resetting requested torch threads.
+- Added setup-before-enforcement, warmup/timing boundary checks and raw evidence.
+- Software suite: 235 passing tests; real local checkpoint integration retains
+  requested/observed 1 after backend setup records 7.
+- Campaign wrapper v2 validates thread evidence independently and checks source
+  hashes before each run. New run `threads1_fixed_20261024` completed all 35 runs,
+  10,500 raw samples; all timed prediction boundaries record 1 thread.
+- Old campaign remains unchanged and invalid as 1-thread protocol evidence.
+- No index promotion, accuracy replacement, paid API calls or Git publishing.
+
+See [thread-control follow-up](docs/THREAD_CONTROL_FIX.md) for final campaign
+status, raw verification and the updated proposed commit file list.

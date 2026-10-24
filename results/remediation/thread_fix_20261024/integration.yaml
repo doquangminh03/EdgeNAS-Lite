@@ -1,0 +1,26 @@
+schema_version: '1.0'
+benchmark_id: thread_fix_local_integration_20261024
+candidate_id: yolo26n_kitti_pilot
+model:
+  checkpoint: runs/detect/kitti_yolo26n_pilot/weights/best.pt
+dataset:
+  name: KITTI
+  split: val
+  images_dir: datasets/kitti/images/val
+selection:
+  sample_size: 3
+  seed: 42
+protocol:
+  device: cpu
+  image_size: 416
+  batch_size: 1
+  warmup_runs: 2
+  repetitions_per_image: 2
+  confidence_threshold: 0.25
+  iou_threshold: 0.7
+  max_detections: 300
+  timing_scope: preprocess_inference_postprocess
+  disk_io_included: false
+  cpu_threads: 1
+output:
+  result_file: results/remediation/thread_fix_20261024/integration_result.json

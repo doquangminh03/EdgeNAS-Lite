@@ -1,8 +1,27 @@
 # EdgeNAS-Lite
 
-**LLM-guided, hardware-aware YOLO deployment-configuration search.**
+**LLM-assisted, hardware-aware YOLO deployment-configuration selection.**
 
 [System design](#system-design) · [Results](#final-pilot-result) · [Evidence](#validation-and-evidence) · [Setup and usage](SETUP_AND_USAGE.md)
+
+## Quickstart: archived evidence, no API
+
+Using a Python 3.9 interpreter (tested on macOS ARM64):
+
+```bash
+python3 -m venv /tmp/edgenas-demo
+source /tmp/edgenas-demo/bin/activate
+python -m pip install -r requirements-demo.txt
+python -m src.proposal.cli configs/requests/low_latency_balanced_demo.yaml --hardware-id local_mac_cpu_01 --model-family YOLO26 --output /tmp/edgenas-selection.json
+```
+
+Expected archived result: 7 evaluated, 4 feasible, resolution 416 selected.
+Use a new output filename on each run. This replays original target evidence;
+it does not benchmark the computer running the command.
+
+[Remediation handoff](docs/PORTFOLIO_REMEDIATION_REPORT.md) ·
+[Replay, remeasure and retrain](docs/REPRODUCIBILITY.md) ·
+[License decision pending](docs/LICENSE_STATUS.md)
 
 ## What is EdgeNAS-Lite?
 
@@ -107,6 +126,12 @@ The output is a selection report containing the candidate ID, measured metrics, 
 
 ## Final pilot result
 
+**Archived demo (`cpu_v1`)**: this table and the 7-candidate / 4-feasible / 416
+selection use the unchanged archived index. They do not use the new verified
+1-thread campaign. Its latency-only results and provenance are documented in
+[THREAD_CONTROL_FIX.md](docs/THREAD_CONTROL_FIX.md); no new accuracy/latency
+selection or index promotion has been performed.
+
 For **mAP50–95 ≥ 0.20**, **median CPU latency ≤ 12 ms**, and **model size ≤ 6 MB**, with the `balanced` goal, the system evaluated **7 candidates**, found **4 feasible**, and selected **416**.
 
 | Input resolution | mAP50–95 | Median CPU latency (ms) | Outcome |
@@ -121,7 +146,7 @@ For **mAP50–95 ≥ 0.20**, **median CPU latency ≤ 12 ms**, and **model size 
 
 All candidates use the same **5.102 MB** checkpoint, trained for 10 epochs on 25% of KITTI training data. Accuracy was evaluated on 1,496 validation images for car, pedestrian, and cyclist. CPU timing includes preprocessing, inference, and postprocessing, excluding disk I/O.
 
-The selected candidate is `yolo26n_kitti_pilot_imgsz416_cpu`, with a balanced score of **0.143132**. Feasible candidates receive the mean of three normalized headroom components: accuracy above its minimum, latency below its maximum, and model size below its maximum. Under this policy, 416 has the highest score; 512 has the highest accuracy among the feasible candidates. Model size is constant throughout this pool.
+The selected candidate is `yolo26n_kitti_pilot_imgsz416_cpu`, with a balanced score of **0.143132**. Feasible candidates receive the mean of three normalized headroom components: accuracy above its minimum, latency below its maximum, and model size below its maximum. Under this policy, 416 has the highest score; 512 has the highest accuracy among the feasible candidates. Model size is constant throughout this pool. Equal weights do not equalize practical influence: accuracy is normalized by the distance from the minimum to 1, whereas latency is normalized by its limit. File size is not runtime RAM or peak activation memory. The legacy policy and deterministic tie-break (score, accuracy, latency, size, candidate ID) are preserved. New sensitivity/Pareto results are in the remediation report and do not alter this default.
 
 CPU benchmarking uses 100 validation images, batch size 1, and five sessions. The first two sessions are excluded for stabilization; the final three contribute 900 pooled latency samples. The demo constraint uses median latency, while P95 is retained in the records.
 
@@ -132,7 +157,7 @@ CPU benchmarking uses 100 validation images, batch size 1, and five sessions. Th
 ## Validation and evidence
 
 - Automated experiments and budgeted batches produced measured candidate records; the natural-language workflow also demonstrated selection and pool-exhaustion handling.
-- **211 software tests passed** in a clean environment on the original machine.
+- Historical evidence records **211 software tests passed** in a clean environment. The initial 2026-10-24 continuation ran **229 tests, all passing**, in the existing repaired Python 3.9.6 environment, plus 23 core tests in a fresh PyYAML-only environment. Exact scope is in the [remediation report](docs/PORTFOLIO_REMEDIATION_REPORT.md).
 - Fresh-clone verification passed at commit `b6adb98`, using the previously verified environment, and reproduced the seven-candidate selection.
 - Exploratory search comparisons **did not establish an LLM advantage** over simple baselines.
 
@@ -147,3 +172,32 @@ Results cover one checkpoint, one dataset, and one target machine. Historical be
 See [SETUP_AND_USAGE.md](SETUP_AND_USAGE.md) for installation, API-free selection, natural-language requests, optional experiments, and report locations.
 
 Built with Ultralytics YOLO, KITTI, and Google Gemini. Their software, data, weights, and services remain subject to their respective licenses and terms.
+
+## Continuation tooling
+
+- `python scripts/benchmark_campaign.py --help`: preflight or execute a seeded, five-session campaign, with checkpoint/image hashes and raw timing evidence. Completed campaigns are separate from archived indexed candidates.
+- `python -m scripts.analyze_selection --output NEW.json`: predefined weight sensitivity, Pareto frontier and equal-budget archived search replay across four requirements and five random seeds. LLM trials remain NOT_RUN unless separately executed; `--live --model MODEL --max-calls 60` enables the same reveal protocol only after API budget authorization.
+- `python -m scripts.evaluate_language --output NEW.json`: 36 pre-labelled held-out cases, with absent responses marked NOT_RUN. Mock tests do not measure live interpretation quality.
+- `python -m scripts.verify_offline_demo --output-dir NEW_DIRECTORY`: balanced, accuracy, no-feasible, hardware mismatch, strict archived rejection and missing metadata checks.
+- Proposal `--strict-comparison` rejects records missing complete, equal comparison provenance. The default preserves the historical demo policy. Search Controller execution now requires `--hardware-id` and shares that pilot compatibility gate.
+
+GitHub Actions is configured for offline core and full tests on macOS/Python 3.9.
+No GitHub run has been performed for these unpushed changes. No license has been
+selected for repository-owned code.
+
+A separate continuation campaign completed 35 CPU benchmark runs with 10,500 raw
+samples. Its [raw verification](results/remediation/continuation_20261024/campaign_verification.json)
+is separate from the archived accuracy/latency table above. No replacement
+accuracy measurement or index promotion has been performed.
+
+The CPU thread-control follow-up passes **235 tests** and a real local-checkpoint
+integration. New `cpu_campaign_v2` runs enforce requested torch threads after
+backend setup and reject missing/mismatched per-sample thread evidence. The old
+continuation campaign recorded 7 threads despite requesting 1 and remains
+invalid as 1-thread evidence. See [thread-control follow-up](docs/THREAD_CONTROL_FIX.md)
+for the new campaign, raw verification and current commit proposal. The archived
+selection index is unchanged pending adequate accuracy/provenance.
+
+Final review, proposed branch and commit message:
+[FINAL_COMMIT_REVIEW.md](docs/FINAL_COMMIT_REVIEW.md). No commit, push or merge
+has been performed by this preparation.

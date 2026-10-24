@@ -1,8 +1,17 @@
 import copy
+import json
+import math
+import tempfile
 import unittest
+from contextlib import redirect_stderr, redirect_stdout
+from io import StringIO
+from pathlib import Path
+from unittest.mock import patch
 
 from src.requirement_parser.parser import (
     RequirementValidationError,
+    load_requirement,
+    main,
     parse_requirement_data,
 )
 
@@ -76,6 +85,94 @@ class TestRequirementParser(unittest.TestCase):
             "must be greater than 0",
         ):
             parse_requirement_data(data)
+
+    def test_rejects_non_finite_numbers_for_all_constraints(self) -> None:
+        fields = (
+            "minimum_map50_95",
+            "maximum_median_latency_ms",
+            "maximum_model_size_mb",
+        )
+        for field in fields:
+            for value in (math.nan, math.inf, -math.inf):
+                with self.subTest(field=field, value=value):
+                    data = copy.deepcopy(VALID_REQUEST)
+                    data["constraints"][field] = value
+                    with self.assertRaisesRegex(
+                        RequirementValidationError,
+                        "must be a finite number",
+                    ):
+                        parse_requirement_data(data)
+
+    def test_rejects_boolean_and_overflowing_constraint_numbers(self) -> None:
+        for field in (
+            "minimum_map50_95",
+            "maximum_median_latency_ms",
+            "maximum_model_size_mb",
+        ):
+            for value in (True, 10**10000):
+                with self.subTest(field=field, value=type(value).__name__):
+                    data = copy.deepcopy(VALID_REQUEST)
+                    data["constraints"][field] = value
+                    with self.assertRaisesRegex(
+                        RequirementValidationError,
+                        "must be a finite number",
+                    ):
+                        parse_requirement_data(data)
+
+    def test_loads_yaml_and_json_but_rejects_non_finite_numbers(self) -> None:
+        with tempfile.TemporaryDirectory() as temporary_directory:
+            path = Path(temporary_directory) / "request.yaml"
+            for value in (".nan", ".inf", "-.inf"):
+                with self.subTest(format="yaml", value=value):
+                    path.write_text(
+                        "schema_version: '1.0'\n"
+                        "request_id: edge_cpu_demo\n"
+                        "target: {task: object_detection, device: cpu, dataset: KITTI}\n"
+                        "constraints: {minimum_map50_95: 0.25, maximum_median_latency_ms: "
+                        f"{value}, maximum_model_size_mb: 6.0}}\n"
+                        "preferences: {optimization_goal: balanced}\n",
+                        encoding="utf-8",
+                    )
+                    with self.assertRaisesRegex(
+                        RequirementValidationError,
+                        "maximum_median_latency_ms.*finite",
+                    ):
+                        load_requirement(path)
+
+            path = Path(temporary_directory) / "request.json"
+            json_text = json.dumps(VALID_REQUEST).replace(
+                '"maximum_median_latency_ms": 35.0',
+                '"maximum_median_latency_ms": 1e309',
+            )
+            path.write_text(json_text, encoding="utf-8")
+            with self.assertRaisesRegex(
+                RequirementValidationError,
+                "maximum_median_latency_ms.*finite",
+            ):
+                load_requirement(path)
+
+    def test_cli_rejects_non_finite_input_without_success_output(self) -> None:
+        with tempfile.TemporaryDirectory() as temporary_directory:
+            path = Path(temporary_directory) / "request.yaml"
+            path.write_text(
+                "schema_version: '1.0'\n"
+                "request_id: edge_cpu_demo\n"
+                "target: {task: object_detection, device: cpu, dataset: KITTI}\n"
+                "constraints: {minimum_map50_95: 0.25, maximum_median_latency_ms: 35.0, "
+                "maximum_model_size_mb: .inf}\n"
+                "preferences: {optimization_goal: balanced}\n",
+                encoding="utf-8",
+            )
+            stdout = StringIO()
+            stderr = StringIO()
+            with patch("sys.argv", ["requirement-parser", str(path)]):
+                with redirect_stdout(stdout), redirect_stderr(stderr):
+                    with self.assertRaises(SystemExit) as error:
+                        main()
+
+            self.assertEqual(error.exception.code, 2)
+            self.assertEqual(stdout.getvalue(), "")
+            self.assertIn("maximum_model_size_mb", stderr.getvalue())
 
     def test_rejects_missing_request_id(self) -> None:
         data = copy.deepcopy(VALID_REQUEST)
