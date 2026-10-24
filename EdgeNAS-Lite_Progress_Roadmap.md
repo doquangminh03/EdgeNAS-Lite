@@ -1,71 +1,110 @@
 # EdgeNAS-Lite — Progress and Roadmap
 
-> Updated 18 September 2026 from supplied reports and terminal output. Completion refers to the current prototype scope. This update does not run tests or establish commit/push status.
+Updated **25 October 2026** (Asia/Taipei). This roadmap summarizes verified
+repository and workflow state after portfolio remediation; implementation,
+archived evidence, new measurements and unexecuted evaluations are distinct.
 
-## Current milestone
+## Current release state
 
-The core LLM-guided deployment-configuration pipeline is implemented and has live experiment evidence. Gemini interprets requirements and proposes bounded resolutions; deterministic code performs validation, measurement, compatibility checks, indexing, and selection.
+- [x] [PR #1](https://github.com/doquangminh03/EdgeNAS-Lite/pull/1) merged into
+  `main`: `8fe37931bd5194e499af371d07f88aee5ddfeab1`.
+- [x] Local `main` fast-forwarded to that merge while preserving all 30
+  pre-existing untracked files; `fix/portfolio-readiness` retained locally and
+  on GitHub. The subsequent balanced replay wrote a new local output.
+- [x] [GitHub Actions core and full](https://github.com/doquangminh03/EdgeNAS-Lite/actions/runs/40107248046)
+  passed on PR head `00923dedf47c6deb36c9c585e31b5eb091d41a6e`.
+- [x] Latest implementation validation: **235 local software tests passed**,
+  real local-checkpoint integration passed, new 1-thread campaign independently
+  verified. Historical counts 193/211/219/229 are earlier milestones.
+- [x] Local USB Git maintenance: 13 AppleDouble `.idx` sidecars were backed up,
+  checksum-verified and quarantined outside `objects/pack`; 13 real pack/index
+  pairs passed verification and all 39 real `.pack/.idx/.rev` files were
+  unchanged. Local `git status` no longer reports the non-monotonic-index error.
+  This is local maintenance, not an application feature or repository artifact.
 
-The seven-resolution pool is fully measured. Four candidates satisfy the low-latency demo, and 416 remains selected with balanced score 0.143132. Further experiments in this exhausted pool are not needed merely to demonstrate that the loop works.
+## Supported workflow
 
-## Completed work
+1. **Offline replay:** structured requirement → compatible archived records →
+   hard-constraint evaluation → deterministic selection → a new output file.
+   Use `requirements-demo.txt`; no dataset, weights or Gemini key are required.
+2. **Controlled remeasurement:** full dependencies + matching local checkpoint
+   and dataset → campaign preflight → new versioned campaign/run ID → saved
+   raw samples, hashes and requested/observed thread evidence.
+3. **Evidence promotion:** obtain corresponding accuracy and complete enough
+   checkpoint/dataset/environment provenance before registering replacements
+   or changing the selection index. This step is **not completed**.
+4. **Optional live interpretation/search evaluation:** obtain an explicit API
+   spending budget, run the prepared evaluator and retain responses, versions
+   and costs when actually available. This step is **NOT_RUN** for the expanded
+   evaluation; no paid API work is implied by available credentials.
 
-### Foundation and measurement
+For commands, see [README](README.md), [setup](SETUP_AND_USAGE.md) and
+[reproduction levels](docs/REPRODUCIBILITY.md). Use unique outputs, keep local
+owner files separate from reviewed artifacts, and preserve historical records.
 
-- [x] Project environment, YOLO26 smoke inference, and KITTI setup.
-- [x] One-epoch smoke training and ten-epoch pilot training on 25% of training data.
-- [x] Full validation on 1,496 images and 6,989 selected-class instances.
-- [x] Standardized CPU measurement with saved raw samples.
-- [x] Five sessions per new candidate, pooling sessions 3–5 into 900 samples.
-- [x] Measured resolutions 416, 448, 480, 512, 576, 608, and 640.
-- [x] Explicit hardware-ID propagation through Runner and benchmark.
-- [x] Template-candidate validation for single-candidate plans.
+## Completed engineering
 
-### Deterministic modules
+### Deterministic selection and evidence handling
 
-- [x] Structured Requirement Parser and Search Space Parser.
-- [x] Candidate Runner, Constraint Checker, and Candidate Selector.
-- [x] Deterministic ranking and tie-breaking for supported optimization goals.
-- [x] Search Controller with two historical reuse-based demo runs.
-- [x] File-based Knowledge DB with index validation and query filters.
-- [x] Compatibility-gated rule-based proposal and CLI.
-- [x] Separate reusable measurements and requirement-specific reports.
+- [x] Requirement/search-space parsers, Candidate Runner, Constraint Checker,
+  Candidate Selector and file-based Knowledge DB.
+- [x] Finite-value validation at the input boundary, including YAML/JSON NaN,
+  infinity, bool and numeric-overflow regressions.
+- [x] Shared pilot compatibility gate for Search Controller reuse and proposal
+  paths; explicit hardware identity for structured execution, in addition to
+  checkpoint/resolution checks against the search space.
+- [x] Deterministic ranking/tie-breaks and legacy balanced policy preserved.
+  Scoring assumptions, fixed-weight sensitivity and Pareto analysis documented.
+- [x] Optional strict comparison mode rejects incomplete or mismatched supplied
+  provenance; archived demo policy remains available with its stated limits.
+- [x] Separate reusable measurements, requirement-specific reports and archived
+  selection outputs; invalid/no-feasible/hardware-mismatch cases covered.
 
-### LLM and orchestration
+### LLM orchestration
 
-- [x] Real Gemini provider and validated natural-language interpretation.
-- [x] `ready`, `needs_clarification`, and `unsupported` outcomes.
-- [x] Natural-language selection CLI with persisted interpretation/proposal.
-- [x] Bounded Candidate Proposer and manual live 448 cycle.
-- [x] Experiment Controller: propose, execute, validate, register, and rerank.
-- [x] Live automated 480 experiment: `low_latency_cycle_001`.
-- [x] Sequential budget controller with saved slots and limited resume.
-- [x] Live two-slot batch for 576 and 608: `low_latency_batch_001`.
-- [x] Natural-language workflow connecting interpretation and optional experiments.
-- [x] English budget-zero demo selecting 416: `english_demo_001`.
-- [x] English budget-one demo stopping at pool exhaustion: `english_demo_002`.
+- [x] Gemini interpretation/provider and bounded candidate proposal integrated
+  with Python-side validation, execution, registration and reranking.
+- [x] `ready`, `needs_clarification` and `unsupported` interpretation outcomes.
+- [x] Workflow, Experiment Controller and sequential experiment-slot budget,
+  including pool exhaustion and limited resume behavior.
+- [x] Historical live 448/480/576/608 experiments and English workflow examples
+  retained as evidence, not repeated during remediation.
 
-Limited resume preserves completed work and may continue unstarted slots. Failed or ambiguous attempts require review; automatic retry and full crash recovery are not complete. The positive-budget English demo confirms exhaustion handling, not a newly executed candidate through that wrapper.
+Limited resume preserves completed work and may continue unstarted slots.
+Failed/ambiguous attempts, complete crash recovery and an interactive
+clarification continuation are not fully solved.
 
-### Evaluation and setup checks
+### Reproducibility, benchmark and evaluation tooling
 
-- [x] Six live semantic cases passed.
-- [x] Three clarification cases passed automatic checks.
-- [x] Replay comparison with ascending order and six permutations.
-- [x] Three live hidden-evidence trials, budget three per trial.
-- [x] Local prerequisite checker for pinned versions, candidate references, checkpoint existence, and KITTI configuration discovery.
-- [x] Local evaluate-mode check: zero failed checks.
-- [x] `pip check`: no broken requirements found.
-- [ ] Complete manual review of all clarification questions.
-- [ ] Confirm the full-suite count after all later modules were added.
+- [x] Fresh local lightweight replay environment and automated offline scenario
+  checks. CI core verified the archived demo from a checkout without ML assets.
+- [x] Full CI dependency installation, `pip check` and software suite passed.
+  This does not establish cross-platform measurement reproducibility.
+- [x] Local dataset manifest: 5,985 train / 1,496 validation images, labels checked,
+  no overlap by image ID/hash. Exact historical split generation is not recovered.
+- [x] Checkpoint/image manifests, software versions, execution-source hashes,
+  raw sessions and independent statistics verification for the new campaign.
+- [x] Ultralytics thread reset fixed: one untimed backend setup prediction,
+  enforce requested threads, verify configured warmup and each timed prediction
+  boundary, fail on missing/mismatched observations.
+- [x] `cpu_campaign_v2` / `cpu_threads_v2` campaign completed with all 35 runs
+  and 10,500 raw samples; requested/observed = 1 at the recorded timing boundaries.
+- [x] 36 additional pre-labelled language cases with offline/live evaluator,
+  schema/status/field checks and clarification rubric. Mocked regression is
+  separate from live model-quality evidence.
+- [x] Predefined equal-budget archived search replay for four requirements and
+  five random seeds, plus optional live reveal tooling and scoring sensitivity.
+- [x] Three archived clarification responses reviewed by the coding agent with
+  rubric/reasons; independent human review remains pending.
 
-The last explicitly counted full-suite result was 193 tests OK after hardware-metadata changes. The earlier 178-test milestone is historical. Local prerequisite checks do not prove fresh-install reproducibility or dataset integrity.
+## Evidence sets and measured outcomes
 
-## Measured outcome
+### Archived selection demo — index unchanged
 
-Requirement: mAP50–95 >= 0.20, median CPU latency <= 12 ms, model <= 6 MB, balanced ranking.
+For mAP50–95 >= 0.20, median latency <= 12 ms, model file <= 6 MB and balanced
+ranking: **7 evaluated, 4 feasible, 416 selected**, balanced score 0.143132.
 
-| Resolution | mAP50–95 | Median latency (ms) | Result |
+| Resolution | Archived mAP50–95 | Archived median ms | Archived result |
 |---:|---:|---:|---|
 | 416 | 0.207384 | 8.754 | Selected |
 | 448 | 0.221918 | 10.628 | Feasible, rank 2 |
@@ -75,95 +114,70 @@ Requirement: mAP50–95 >= 0.20, median CPU latency <= 12 ms, model <= 6 MB, bal
 | 608 | 0.272838 | 13.616 | Rejected: latency |
 | 640 | 0.273000 | 16.429 | Rejected: latency |
 
-All use the same 5.102 MB checkpoint. Hardware identity is operator-supplied. Historical and later records span different macOS versions; matched-environment measurements are needed before attributing latency differences solely to input size.
+These records describe one 5.102 MB checkpoint, not seven trained models.
+Historical benchmark software environments differ. The balanced demo was
+successfully replayed on merged `main`; it still uses these archived metrics.
+[Archived portfolio report](results/portfolio/demo_v1/REPORT.md).
 
-Replay gain was zero because the initial evidence already contained the eventual best candidate. Hidden-search orders were `[480, 416, 448]`, `[416, 448, 480]`, and `[512, 480, 576]`; two of three trials found 416 within budget. Ascending order finds it first in this pool. These exploratory results do not establish an LLM search advantage.
+### Verified 1-thread campaign — latency only
 
-## Next: finish reproducibility and release evidence
+`threads1_fixed_20261024` uses 100 hashed images, batch 1, five sessions, one
+untimed setup prediction before 10 configured warmups, and three repetitions.
+Sessions 1–2 are excluded by the declared stabilization rule; sessions 3–5
+provide 900 retained samples per resolution (6,300 total).
 
-1. **Clean environment:** install the pinned dependencies in a separate environment, leaving the working environment intact. Run dependency checks and the software suite; record Python/platform/package versions and failures.
-2. **Fresh checkout:** verify the committed code, configs, and indexed records suffice for the recorded-evidence demo. Keep this distinct from new measurement, which requires KITTI and checkpoint assets.
-3. **Live demo:** configure a private Gemini API key and use an unused run ID. Check the saved structured requirement and selected metrics. A recorded-evidence demo on another machine still refers to the original benchmark target.
-4. **Release review:** record the latest test total, review staged artifacts, update setup instructions, and verify commit/push completion.
+| Resolution | New pooled median ms | New pooled P95 ms |
+|---:|---:|---:|
+| 416 | 9.5850 | 10.2863 |
+| 448 | 12.3300 | 12.7111 |
+| 480 | 13.0655 | 14.9185 |
+| 512 | 13.6230 | 15.8328 |
+| 576 | 17.5055 | 19.3564 |
+| 608 | 18.3610 | 19.9458 |
+| 640 | 22.0320 | 22.7890 |
 
-Completion criteria: a clean checkout and documented environment can run tests and the English recorded-evidence workflow; required assets and hardware provenance are explicit. These criteria have not yet been confirmed.
+[Raw verification](results/remediation/thread_fix_20261024/campaign_verification.json)
+and [thread-control report](docs/THREAD_CONTROL_FIX.md) record sample identities,
+thread boundaries, hashes and limitations. This is not a new accuracy/latency
+selection result. No new accuracy validation or index promotion has occurred.
+Repeated timings are not independent samples and the host was also used for
+documentation. Thread observations are at prediction boundaries, not continuous
+OS-thread monitoring.
 
-## Follow-up engineering
+The older `continuation_measured_v2_20261024` requested 1 thread but recorded 7;
+it is preserved and **does not satisfy the 1-thread protocol**. Do not combine
+its results, or the new campaign's latency, with archived accuracy to imply a
+new validated deployment choice.
 
-- [ ] Check dataset image/label availability rather than only YAML existence.
-- [ ] Record checkpoint hashes, dataset/image identities, software versions, and CPU thread settings.
-- [ ] Preserve hardware/template provenance consistently for older and new records.
-- [ ] Align reuse checks across the deterministic and LLM workflows.
-- [ ] Define invalidation/remeasurement rules and collect matched-environment benchmarks.
-- [ ] Add focused regression coverage for workflow failure, clarification, exhaustion, and successful new execution as needed.
-- [ ] Improve recovery from partial writes, interrupted experiments, and stale locks.
-- [ ] Separate experiment-slot budgets from API/token/cost limits.
-- [ ] Add interactive clarification continuation if needed.
+## Remaining work, in order
 
-## Follow-up evaluation
+1. **Accuracy and provenance:** collect matching full-validation accuracy,
+   checkpoint/data identities and comparable metadata before promoting the new
+   campaign. Do not assume 416 or four feasible candidates remain the outcome
+   under replacement measurements.
+2. **Historical data/training lineage:** recover the conversion/split/subset
+   procedure or define a new versioned process. Document retrain commands and
+   manifests without claiming bit-for-bit reproduction of the pilot.
+3. **Live language evaluation:** obtain budget approval and run the 36 prepared
+   cases; preserve model/prompt IDs, responses and manual-review decisions.
+   Keep current live status NOT_RUN until actually executed.
+4. **Search evaluation:** run the prepared LLM/ascending/random comparison under
+   the same initial evidence and budget, keeping hidden measurements out of the
+   prompt. Archived reveal is not online experiment runtime; token/cost fields
+   remain unknown unless measured. No LLM superiority has been demonstrated.
+5. **Independent human review and licensing:** review the archived clarification
+   questions and choose a repository-owned-code license. Third-party software,
+   datasets and weights retain their own terms; owner review is still needed.
+6. **Operational hardening, when needed:** improve interrupted-run recovery,
+   retries/locks and API monetary-budget controls; add interactive clarification
+   continuation only if required. These are unfinished extensions, not current
+   guarantees.
 
-- [ ] Expand unit, ambiguity, conflict, and boundary-value semantic cases.
-- [ ] Record prompt/model versions and retain expected interpretation outputs.
-- [ ] Predefine search tasks and initial evidence before comparing strategies.
-- [ ] Compare LLM, ascending/grid, and random approaches under equal budgets over more trials.
-- [ ] Report feasibility discovery, best score, regret, calls, and runtime/cost where available.
-- [ ] Evaluate alternative objective weights or Pareto selection separately from the current fixed policy.
+An archived replay and core/full CI are now verified. A new accuracy/provenance
+release, expanded live model evaluation, exact retraining reproduction and
+additional physical targets are not completed claims. Historical handoff/audit
+files record their state at creation; this roadmap is the current summary.
 
-Do not retroactively change historical proposals or benchmark records to improve results. Keep new evaluations as separate artifacts.
-
-## Optional expansion after the reproducible prototype
-
-- [ ] Dashboard for requirements, experiment status, evidence, and rankings.
-- [ ] Model-scale, export-format, or quantization search with new measurements.
-- [ ] Additional physical hardware and dataset-specific compatibility policies.
-- [ ] Controlled depth/width/block search for architecture-level NAS.
-
-These are extensions, not prerequisites for documenting the current configuration-search prototype accurately.
-
-## Reporting boundaries
-
-- Implemented orchestration does not imply fully autonomous research or general fault recovery.
-- Seven resolutions represent one trained checkpoint, not seven independently trained models.
-- A valid schema does not guarantee correct interpretation of every natural-language request.
-- Local environment checks do not establish cross-platform installation or validate dataset contents.
-- Best under the fixed balanced policy does not mean globally optimal or highest accuracy.
-- No confirmed evidence currently supports LLM superiority over the evaluated baselines.
-- Commit/push status must be verified from Git output, not inferred from local execution.
-
-See [README](README.md) for commands, artifact paths, metric definitions, and the current workflow.
-
-
-## Portfolio remediation continuation — 2026-10-24
-
-The earlier milestones above describe historical evidence. The current
-[handoff report](docs/PORTFOLIO_REMEDIATION_REPORT.md) records preservation of
-prior workspace changes, current tests, fresh lightweight replay verification,
-non-finite input regressions, shared Search Controller compatibility checks,
-strict comparison mode, benchmark campaign tooling, dataset manifests, expanded
-language labels/evaluator, search replay, sensitivity/Pareto analysis, and CI.
-New campaign evidence remains separate from the archived seven-candidate index.
-Live expanded LLM evaluation, independent human clarification review, exact
-historical data conversion/split reproduction, GitHub CI execution and repository
-license choice are not completed claims. No push or merge is authorized.
-
-Continuation verification: 229 software tests passed; 23 core tests passed in a
-fresh lightweight environment. A 35-run campaign completed and all 10,500 raw
-samples were checked; current local manifest has 5,985 train and 1,496 validation
-images with no image-ID/hash overlap. These observations do not establish the
-historical split procedure or a new accuracy measurement.
-
-
-## CPU thread-control follow-up — 2026-10-24
-
-- Fixed lazy Ultralytics backend setup resetting requested torch threads.
-- Added setup-before-enforcement, warmup/timing boundary checks and raw evidence.
-- Software suite: 235 passing tests; real local checkpoint integration retains
-  requested/observed 1 after backend setup records 7.
-- Campaign wrapper v2 validates thread evidence independently and checks source
-  hashes before each run. New run `threads1_fixed_20261024` completed all 35 runs,
-  10,500 raw samples; all timed prediction boundaries record 1 thread.
-- Old campaign remains unchanged and invalid as 1-thread protocol evidence.
-- No index promotion, accuracy replacement, paid API calls or Git publishing.
-
-See [thread-control follow-up](docs/THREAD_CONTROL_FIX.md) for final campaign
-status, raw verification and the updated proposed commit file list.
+Optional later scope remains a dashboard, additional model/export/quantization
+configurations, more hardware and architecture-level NAS. The implemented
+project remains deployment-configuration selection, not architecture search.

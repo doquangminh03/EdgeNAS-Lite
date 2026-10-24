@@ -4,6 +4,21 @@
 
 [System design](#system-design) · [Results](#final-pilot-result) · [Evidence](#validation-and-evidence) · [Setup and usage](SETUP_AND_USAGE.md)
 
+## Current status — 25 October 2026
+
+[PR #1](https://github.com/doquangminh03/EdgeNAS-Lite/pull/1) is merged into
+`main` at `8fe37931bd5194e499af371d07f88aee5ddfeab1`. The implementation branch
+`fix/portfolio-readiness` is retained. [GitHub Actions core and full](https://github.com/doquangminh03/EdgeNAS-Lite/actions/runs/40107248046)
+both passed for PR head `00923dedf47c6deb36c9c585e31b5eb091d41a6e`.
+The local full suite passed **235 tests**; real checkpoint integration and a new
+35-run CPU campaign verified the requested 1-thread setting.
+
+The default demo still replays the **archived seven-candidate index** and selects
+416 from four feasible candidates. The new campaign is separate latency-only
+evidence; it has not replaced archived accuracy or been promoted into the index.
+Expanded live LLM evaluation, historical training/data lineage and repository
+license selection remain open. See the [current roadmap](EdgeNAS-Lite_Progress_Roadmap.md).
+
 ## Quickstart: archived evidence, no API
 
 Using a Python 3.9 interpreter (tested on macOS ARM64):
@@ -156,12 +171,32 @@ CPU benchmarking uses 100 validation images, batch size 1, and five sessions. Th
 
 ## Validation and evidence
 
-- Automated experiments and budgeted batches produced measured candidate records; the natural-language workflow also demonstrated selection and pool-exhaustion handling.
-- Historical evidence records **211 software tests passed** in a clean environment. The initial 2026-10-24 continuation ran **229 tests, all passing**, in the existing repaired Python 3.9.6 environment, plus 23 core tests in a fresh PyYAML-only environment. Exact scope is in the [remediation report](docs/PORTFOLIO_REMEDIATION_REPORT.md).
-- Fresh-clone verification passed at commit `b6adb98`, using the previously verified environment, and reproduced the seven-candidate selection.
-- Exploratory search comparisons **did not establish an LLM advantage** over simple baselines.
+- **235 software tests passed locally**, including finite-value validation,
+  orchestration compatibility, CPU backend-reset regressions and campaign
+  thread-evidence rejection. These tests do not measure live LLM quality.
+- **GitHub Actions core and full passed** for the merged PR head `00923ded…`.
+  The core job exercised lightweight dependencies, core regressions and the
+  archived 7/4/416 demo. The full job installed the pinned ML dependencies,
+  passed `pip check` and ran the full test suite. [CI run](https://github.com/doquangminh03/EdgeNAS-Lite/actions/runs/40107248046).
+- A fresh local PyYAML-only environment ran the archived demo and core checks.
+  The earlier **211-test clean-environment** and fresh-clone verification at
+  `b6adb98` remain historical evidence, separate from the 235-test follow-up.
+- Real checkpoint integration verified backend setup **7 threads → enforce 1**,
+  then warmup and all six timed prediction boundaries remained at 1.
+- Campaign `threads1_fixed_20261024` completed **35 runs / 10,500 raw samples**;
+  all timed sample boundaries recorded requested/observed = 1. Sessions 3–5
+  retained 6,300 samples total, 900 per resolution. Source, asset and raw-sample
+  verification is [recorded here](results/remediation/thread_fix_20261024/campaign_verification.json).
+- The earlier `continuation_measured_v2_20261024` campaign requested 1 thread
+  but recorded 7. It is preserved and explicitly **not valid as 1-thread evidence**.
+- The **36 newly labelled language cases remain NOT_RUN live**. Search replay
+  and exploratory historical trials have **not established an LLM advantage**
+  over simple baselines. No new paid API evaluation was performed.
 
-[Full results and selection evidence](results/portfolio/demo_v1/REPORT.md) · [Clean-environment report](results/reproducibility/clean_env_001/report.json) · [Fresh-clone report](results/reproducibility/fresh_clone_002/report.json)
+[Archived portfolio evidence](results/portfolio/demo_v1/REPORT.md) ·
+[Thread fix and new campaign](docs/THREAD_CONTROL_FIX.md) ·
+[Remediation audit](docs/REMEDIATION_AUDIT.md) ·
+[Historical clean-environment report](results/reproducibility/clean_env_001/report.json)
 
 ## Scope and limitations
 
@@ -181,23 +216,32 @@ Built with Ultralytics YOLO, KITTI, and Google Gemini. Their software, data, wei
 - `python -m scripts.verify_offline_demo --output-dir NEW_DIRECTORY`: balanced, accuracy, no-feasible, hardware mismatch, strict archived rejection and missing metadata checks.
 - Proposal `--strict-comparison` rejects records missing complete, equal comparison provenance. The default preserves the historical demo policy. Search Controller execution now requires `--hardware-id` and shares that pilot compatibility gate.
 
-GitHub Actions is configured for offline core and full tests on macOS/Python 3.9.
-No GitHub run has been performed for these unpushed changes. No license has been
-selected for repository-owned code.
+## Current workflow and next steps
 
-A separate continuation campaign completed 35 CPU benchmark runs with 10,500 raw
-samples. Its [raw verification](results/remediation/continuation_20261024/campaign_verification.json)
-is separate from the archived accuracy/latency table above. No replacement
-accuracy measurement or index promotion has been performed.
+1. **Replay:** install `requirements-demo.txt`, submit a structured YAML/JSON
+   request and select from archived records. No Gemini key, dataset or weights
+   are needed. Use a unique output filename; generated demo outputs stay local
+   unless deliberately reviewed for inclusion.
+2. **Remeasure:** install the full dependencies, supply matching local assets,
+   run campaign preflight and execute with a new run ID. `cpu_campaign_v2` /
+   `cpu_threads_v2` initialize the backend before enforcing threads and reject
+   missing or mismatched thread observations. Preserve raw results and hashes.
+3. **Validate before promotion:** collect corresponding accuracy evidence and
+   adequate checkpoint/dataset/environment provenance before creating replacement
+   candidates or updating `knowledge/index.yaml`. Campaign completion alone does
+   not authorize combining new latency with archived accuracy.
+4. **Optional live LLM work:** authorize a separate API spending budget before
+   running the prepared evaluators. Experiment-slot limits are not monetary
+   limits. Keep unexecuted cases marked NOT_RUN and human clarification review
+   distinct from the existing agent review.
 
-The CPU thread-control follow-up passes **235 tests** and a real local-checkpoint
-integration. New `cpu_campaign_v2` runs enforce requested torch threads after
-backend setup and reject missing/mismatched per-sample thread evidence. The old
-continuation campaign recorded 7 threads despite requesting 1 and remains
-invalid as 1-thread evidence. See [thread-control follow-up](docs/THREAD_CONTROL_FIX.md)
-for the new campaign, raw verification and current commit proposal. The archived
-selection index is unchanged pending adequate accuracy/provenance.
+No repository license has been selected. Follow
+[LICENSE_STATUS.md](docs/LICENSE_STATUS.md) before making redistribution claims.
+Exact historical conversion/split/subset recovery, retraining reproducibility
+and evidence for LLM search superiority remain unfinished research work.
 
-Final review, proposed branch and commit message:
-[FINAL_COMMIT_REVIEW.md](docs/FINAL_COMMIT_REVIEW.md). No commit, push or merge
-has been performed by this preparation.
+The [final commit review](docs/FINAL_COMMIT_REVIEW.md) records the preparation
+before PR #1 was committed, pushed and merged; its “not yet committed” statements
+are historical snapshots. Current release state is summarized above. Full
+commands and reproduction levels are in [SETUP_AND_USAGE.md](SETUP_AND_USAGE.md)
+and [REPRODUCIBILITY.md](docs/REPRODUCIBILITY.md).
